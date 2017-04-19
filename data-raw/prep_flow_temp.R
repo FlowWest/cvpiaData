@@ -23,12 +23,30 @@ flow <- readxl::read_excel('data-raw/DSM_mapped.xlsx', sheet = 'Flow Q0')
 flow$`DSM date` <- as.Date(flow$`DSM date`, origin = '1899-12-30')
 flow$`CL date` <- as.Date(flow$`CL date`, origin = '1899-12-30')
 
+flows <- flow %>%
+  dplyr::rename(date = `DSM date`) %>%
+  dplyr::select(-`CL date`, -SC.Delta, -N.Delta) %>%
+  tidyr::gather(watershed, flow, -date)
 
 diversion <- readxl::read_excel('data-raw/DSM_mapped.xlsx', sheet = 'Diversions Q0')
 diversion$`DSM date` <- as.Date(diversion$`DSM date`, origin = '1899-12-30')
 diversion$`CL date` <- as.Date(diversion$`CL date`, origin = '1899-12-30')
 
-# baseline temperature data, calculate monthly mean by watershed in Celsius
+total_diversion <- diversion %>%
+  dplyr::select(-N.Delta, -SC.Delta, -`CL date`) %>%
+  dplyr::rename(date = `DSM date`)
+
+prop_diversion <- total_diversion %>%
+  tidyr::gather(watershed, diversion, -date) %>%
+  dplyr::left_join(flows) %>%
+  dplyr::mutate(prop_diver = diversion/flow) %>%
+  dplyr::select(date, watershed, prop_diver) %>%
+  dplyr::filter(!is.na(date)) %>%
+  tidyr::spread(watershed, prop_diver) %>%
+  dplyr::select(date, sort + 1)
+
+
+# baseline temperature data, calculate monthly mean by watershed in Celsius----
 temperature <- readr::read_csv('data-raw/tempQ0.csv')
 temperature$`DSM date` <- lubridate::mdy_hm(temperature$`DSM date`)
 temperature$`5Q date` <- lubridate::mdy_hm(temperature$`5Q date`)
@@ -42,10 +60,17 @@ temp <- temperature %>%
   dplyr::summarise(avg_temp = mean(temperature)) %>%
   dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32))
 
-# spread data to conform to DSM model input
+# spread data to conform to DSM array input format
 temp_spread <- temp %>%
   filter(!(watershed %in% c('SC.Delta', 'N.Delta'))) %>%
   spread(watershed, avg_temp) %>%
   select(date, sort + 1)
 
 readr::write_rds(temp_spread, 'data/temperature.rds')
+
+delta_temp <- temp %>%
+  dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta')) %>%
+  tidyr::spread(watershed, avg_temp) %>%
+  dplyr::select(date, SC.Delta,  N.Delta)
+
+readr::write_rds(delta_temp, 'data/delta_temperature.rds')
