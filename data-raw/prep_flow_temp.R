@@ -7,15 +7,15 @@ library(magrittr)
 
 
 watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
-  dplyr::select(order = Order, watershed = Watershed)
-
-# create column sorting vector
-sort <- watershed_ordering %>%
+  dplyr::select(order = Order, watershed = Watershed) %>%
   arrange(watershed) %>%
   dplyr::mutate(sort = 1:31) %>%
-  dplyr::arrange(order) %>%
-  magrittr::extract2(3)
+  dplyr::arrange(order)
 
+devtools::use_data(watershed_ordering, internal = TRUE, overwrite = TRUE)
+
+# create column sorting vector
+sort <- watershed_ordering$sort
 
 readxl::excel_sheets('data-raw/DSM_mapped.xlsx')
 
@@ -29,10 +29,14 @@ flows <- flow %>%
   dplyr::select(-`CL date`, -SC.Delta, -N.Delta) %>%
   tidyr::gather(watershed, flow, -date)
 
+devtools::use_data(flows)
+
 #delta inflow
 delta_flows <- flow %>%
   dplyr::select(date = `DSM date`, SC.Delta, N.Delta) %>%
   tidyr::gather(watershed, flow, -date)
+
+devtools::use_data(delta_flows)
 
 # diversions-----------------------
 diversion <- readxl::read_excel('data-raw/DSM_mapped.xlsx', sheet = 'Diversions Q0')
@@ -43,6 +47,8 @@ total_diversion <- diversion %>%
   dplyr::select(-N.Delta, -SC.Delta, -`CL date`) %>%
   dplyr::rename(date = `DSM date`)
 
+devtools::use_data(total_diversion)
+
 prop_diversion <- total_diversion %>%
   tidyr::gather(watershed, diversion, -date) %>%
   dplyr::left_join(flows) %>%
@@ -52,10 +58,13 @@ prop_diversion <- total_diversion %>%
   tidyr::spread(watershed, prop_diver) %>%
   dplyr::select(date, sort + 1)
 
-#delta diversion prop and total
+devtools::use_data(prop_diversion)
 
+#delta diversion prop and total
 delta_diversions <- diversion %>%
   dplyr::select(date = `DSM date`, N.Delta, SC.Delta)
+
+devtools::use_data(delta_diversions)
 
 delta_prop_diversions <- delta_diversions %>%
   tidyr::gather(watershed, diversion, -date) %>%
@@ -65,42 +74,26 @@ delta_prop_diversions <- delta_diversions %>%
   dplyr::filter(!is.na(date)) %>%
   tidyr::spread(watershed, prop_diver)
 
-# baseline temperature data, calculate monthly mean by watershed in Celsius----
-temperature <- readr::read_csv('data-raw/tempQ0.csv')
-temperature$`DSM date` <- lubridate::mdy_hm(temperature$`DSM date`)
-temperature$`5Q date` <- lubridate::mdy_hm(temperature$`5Q date`)
+devtools::use_data(delta_prop_diversions)
 
-temp <- temperature %>%
-  dplyr::mutate(date = lubridate::floor_date(`DSM date`, unit = 'day')) %>%
-  dplyr::select(-`DSM date`, -`5Q date`) %>%
-  tidyr::gather(watershed, temperature, - date) %>%
-  dplyr::mutate(date = lubridate::floor_date(date, unit = 'month')) %>%
-  dplyr::group_by(watershed, date) %>%
-  dplyr::summarise(avg_temp = mean(temperature)) %>%
-  dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32))
+# prop flow bypass----------------------------------
+#prop yolo
+#yolo bypass flow/ lower sac flow
+prop_Q_yolo <- flow %>%
+  dplyr::select(date = `DSM date`, `Yolo Bypass`, `Lower Sacramento River`) %>%
+  dplyr::mutate(prop_Q = `Yolo Bypass` / `Lower Sacramento River`) %>%
+  dplyr::select(date, prop_Q)
 
-# spread data to conform to DSM array input format
-test <- temp %>%
-  dplyr::ungroup() %>%
-  dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')),
-                year(date) >= '1970' & year(date) <= '1989') %>%
-  tidyr::spread(date, avg_temp) %>%
-  dplyr::left_join(watershed_ordering) %>%
-  dplyr::arrange(order) %>%
-  dplyr::select(-watershed, -order)
+devtools::use_data(prop_Q_yolo)
 
+# sutter bypass not in model, use prop sutter mike urkov's spreadsheet
+prop_Q_sutter <- readr::read_csv('data-raw/bypass_flows.csv') %>%
+  select(date, prop_Q = `Sutter Bypass as a percent of Sacramento`) %>%
+  mutate(date = lubridate::mdy(date))
 
-t1 <- create_DSM_array(test)
+devtools::use_data(prop_Q_sutter)
 
-readr::write_rds(temp_spread, 'data/temperature.rds')
-
-delta_temp <- temp %>%
-  dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta')) %>%
-  tidyr::spread(watershed, avg_temp) %>%
-  dplyr::select(date, SC.Delta,  N.Delta)
-
-readr::write_rds(delta_temp, 'data/delta_temperature.rds')
-
+# other flows------------------------------
 #retQ
 #october&november average flow
 #?
@@ -110,6 +103,29 @@ readr::write_rds(delta_temp, 'data/delta_temperature.rds')
 #?
 flows %>%
   dplyr::filter(watershed == 'Upper Sacramento River') %>% View()
+
+# baseline temperature data, calculate monthly mean by watershed in Celsius----
+temperature <- readr::read_csv('data-raw/tempQ0.csv')
+temperature$`DSM date` <- lubridate::mdy_hm(temperature$`DSM date`)
+temperature$`5Q date` <- lubridate::mdy_hm(temperature$`5Q date`)
+
+temp <- temperature %>%
+  dplyr::mutate(month = lubridate::month(`DSM date`), year = lubridate::year(`DSM date`)) %>%
+  dplyr::select(-`5Q date`, -`DSM date`) %>%
+  tidyr::gather(watershed, temp, -year, -month) %>%
+  dplyr::group_by(watershed, year, month) %>%
+  dplyr::summarise(avg_temp = mean(temp)) %>%
+  dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32))
+
+temperatures <- temp %>%
+  dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')))
+
+devtools::use_data(temperatures)
+
+delta_temperatures <- temp %>%
+  dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta'))
+
+devtools::use_data(delta_temperatures)
 
 #degday
 #sum daily mean tmep over oct and nov
@@ -130,15 +146,4 @@ temperature %>%
   dplyr::arrange(year, order) %>% View()
 #zeros 16,17, 21, 22, 24, 31
 
-#prop yolo
-#yolo bypass flow/ lower sac flow
-prop_yolo <- flow %>%
-  dplyr::select(date = `DSM date`, `Yolo Bypass`, `Lower Sacramento River`) %>%
-  dplyr::mutate(prop_Q = `Yolo Bypass` / `Lower Sacramento River`) %>%
-  dplyr::select(date, prop_Q)
-
-# sutter bypass not in model, use prop sutter mike urkov's spreadsheet
-prop_sutter <- readr::read_csv('data-raw/bypass_flows.csv') %>%
-  select(date, prop_Q = `Sutter Bypass as a percent of Sacramento`) %>%
-  mutate(date = lubridate::mdy(date))
 
