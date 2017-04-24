@@ -1,9 +1,9 @@
-library(readxl)
-library(readr)
-library(lubridate)
-library(tidyr)
-library(dplyr)
-library(magrittr)
+# library(readxl)
+# library(readr)
+# library(lubridate)
+# library(tidyr)
+# library(dplyr)
+# library(magrittr)
 
 
 watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
@@ -12,7 +12,7 @@ watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
   dplyr::mutate(sort = 1:31) %>%
   dplyr::arrange(order)
 
-devtools::use_data(watershed_ordering, internal = TRUE, overwrite = TRUE)
+devtools::use_data(watershed_ordering)
 
 # create column sorting vector
 sort <- watershed_ordering$sort
@@ -29,7 +29,7 @@ flows <- flow %>%
   dplyr::select(-`CL date`, -SC.Delta, -N.Delta) %>%
   tidyr::gather(watershed, flow, -date)
 
-devtools::use_data(flows)
+devtools::use_data(flows, overwrite = TRUE)
 
 #delta inflow
 delta_flows <- flow %>%
@@ -115,17 +115,18 @@ temp <- temperature %>%
   tidyr::gather(watershed, temp, -year, -month) %>%
   dplyr::group_by(watershed, year, month) %>%
   dplyr::summarise(avg_temp = mean(temp)) %>%
-  dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32))
+  dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32)) %>%
+  dplyr::ungroup()
 
 temperatures <- temp %>%
   dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')))
 
-devtools::use_data(temperatures)
+devtools::use_data(temperatures, overwrite = TRUE)
 
 delta_temperatures <- temp %>%
   dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta'))
 
-devtools::use_data(delta_temperatures)
+devtools::use_data(delta_temperatures, overwrite = TRUE)
 
 #degday
 #sum daily mean tmep over oct and nov
@@ -143,7 +144,7 @@ temperature %>%
   dplyr::summarise(sum = sum(avg_temp)) %>%
   dplyr::mutate(degday = ifelse(watershed == 'Upper Sacramento River', sum * 14/60, sum * 7/60)) %>%
   dplyr::left_join(watershed_ordering) %>%
-  dplyr::arrange(year, order) %>% View()
+  dplyr::arrange(year, order) %>%   dplyr::ungroup() %>% View()
 #zeros 16,17, 21, 22, 24, 31
 
 
