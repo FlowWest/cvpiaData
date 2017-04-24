@@ -26,55 +26,29 @@ flow$`CL date` <- as.Date(flow$`CL date`, origin = '1899-12-30')
 
 flows <- flow %>%
   dplyr::rename(date = `DSM date`) %>%
-  dplyr::select(-`CL date`, -SC.Delta, -N.Delta) %>%
-  tidyr::gather(watershed, flow, -date)
+  dplyr::select(-`CL date`) %>%
+  tidyr::gather(watershed, flow, -date) %>%
+  dplyr::mutate(year = lubridate::year(date), month = lubridate::month(date)) %>%
+  dplyr::select(watershed, year, month, flow)
 
 devtools::use_data(flows, overwrite = TRUE)
-
-#delta inflow
-delta_flows <- flow %>%
-  dplyr::select(date = `DSM date`, SC.Delta, N.Delta) %>%
-  tidyr::gather(watershed, flow, -date)
-
-devtools::use_data(delta_flows)
 
 # diversions-----------------------
 diversion <- readxl::read_excel('data-raw/DSM_mapped.xlsx', sheet = 'Diversions Q0')
 diversion$`DSM date` <- as.Date(diversion$`DSM date`, origin = '1899-12-30')
 diversion$`CL date` <- as.Date(diversion$`CL date`, origin = '1899-12-30')
 
-total_diversion <- diversion %>%
-  dplyr::select(-N.Delta, -SC.Delta, -`CL date`) %>%
-  dplyr::rename(date = `DSM date`)
-
-devtools::use_data(total_diversion)
-
-prop_diversion <- total_diversion %>%
+diversions <- diversion %>%
+  dplyr::select(-`CL date`) %>%
+  dplyr::rename(date = `DSM date`) %>%
   tidyr::gather(watershed, diversion, -date) %>%
+  dplyr::mutate(year = lubridate::year(date), month = lubridate::month(date)) %>%
   dplyr::left_join(flows) %>%
-  dplyr::mutate(prop_diver = diversion/flow) %>%
-  dplyr::select(date, watershed, prop_diver) %>%
+  dplyr::mutate(prop_diversion = diversion / flow) %>%
   dplyr::filter(!is.na(date)) %>%
-  tidyr::spread(watershed, prop_diver) %>%
-  dplyr::select(date, sort + 1)
+  dplyr::select(watershed, year, month, diversion, prop_diversion)
 
-devtools::use_data(prop_diversion)
-
-#delta diversion prop and total
-delta_diversions <- diversion %>%
-  dplyr::select(date = `DSM date`, N.Delta, SC.Delta)
-
-devtools::use_data(delta_diversions)
-
-delta_prop_diversions <- delta_diversions %>%
-  tidyr::gather(watershed, diversion, -date) %>%
-  dplyr::left_join(delta_flows) %>%
-  dplyr::mutate(prop_diver = diversion/flow) %>%
-  dplyr::select(date, watershed, prop_diver) %>%
-  dplyr::filter(!is.na(date)) %>%
-  tidyr::spread(watershed, prop_diver)
-
-devtools::use_data(delta_prop_diversions)
+devtools::use_data(diversions)
 
 # prop flow bypass----------------------------------
 #prop yolo
@@ -109,7 +83,7 @@ temperature <- readr::read_csv('data-raw/tempQ0.csv')
 temperature$`DSM date` <- lubridate::mdy_hm(temperature$`DSM date`)
 temperature$`5Q date` <- lubridate::mdy_hm(temperature$`5Q date`)
 
-temp <- temperature %>%
+temperatures <- temperature %>%
   dplyr::mutate(month = lubridate::month(`DSM date`), year = lubridate::year(`DSM date`)) %>%
   dplyr::select(-`5Q date`, -`DSM date`) %>%
   tidyr::gather(watershed, temp, -year, -month) %>%
@@ -118,15 +92,7 @@ temp <- temperature %>%
   dplyr::mutate(avg_temp = (5/9) * (avg_temp - 32)) %>%
   dplyr::ungroup()
 
-temperatures <- temp %>%
-  dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')))
-
 devtools::use_data(temperatures, overwrite = TRUE)
-
-delta_temperatures <- temp %>%
-  dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta'))
-
-devtools::use_data(delta_temperatures, overwrite = TRUE)
 
 #degday
 #sum daily mean tmep over oct and nov
