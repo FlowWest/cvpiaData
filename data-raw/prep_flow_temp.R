@@ -1,10 +1,3 @@
-# library(readxl)
-# library(readr)
-# library(lubridate)
-# library(tidyr)
-# library(dplyr)
-# library(magrittr)
-
 
 watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
   dplyr::select(order = Order, watershed = Watershed) %>%
@@ -38,7 +31,7 @@ diversion <- readxl::read_excel('data-raw/DSM_mapped.xlsx', sheet = 'Diversions 
 diversion$`DSM date` <- as.Date(diversion$`DSM date`, origin = '1899-12-30')
 diversion$`CL date` <- as.Date(diversion$`CL date`, origin = '1899-12-30')
 
-diversions <- diversion %>%
+flows <- diversion %>%
   dplyr::select(-`CL date`) %>%
   dplyr::rename(date = `DSM date`) %>%
   tidyr::gather(watershed, diversion, -date) %>%
@@ -46,7 +39,7 @@ diversions <- diversion %>%
   dplyr::left_join(flows) %>%
   dplyr::mutate(prop_diversion = diversion / flow) %>%
   dplyr::filter(!is.na(date)) %>%
-  dplyr::select(watershed, year, month, diversion, prop_diversion)
+  dplyr::select(watershed, year, month, flow, diversion, prop_diversion)
 
 devtools::use_data(diversions)
 
@@ -55,17 +48,23 @@ devtools::use_data(diversions)
 #yolo bypass flow/ lower sac flow
 prop_Q_yolo <- flow %>%
   dplyr::select(date = `DSM date`, `Yolo Bypass`, `Lower Sacramento River`) %>%
-  dplyr::mutate(prop_Q = `Yolo Bypass` / `Lower Sacramento River`) %>%
-  dplyr::select(date, prop_Q)
+  dplyr::mutate(year = lubridate::year(date), month = lubridate::month(date),
+                prop_Q_yolo = `Yolo Bypass` / `Lower Sacramento River`) %>%
+  dplyr::select(date, prop_Q_yolo) %>%
+  dplyr::select(-date)
 
 devtools::use_data(prop_Q_yolo)
 
 # sutter bypass not in model, use prop sutter mike urkov's spreadsheet
 prop_Q_sutter <- readr::read_csv('data-raw/bypass_flows.csv') %>%
-  select(date, prop_Q = `Sutter Bypass as a percent of Sacramento`) %>%
-  mutate(date = lubridate::mdy(date))
+  select(date, prop_Q_sutter = `Sutter Bypass as a percent of Sacramento`) %>%
+  mutate(date = lubridate::mdy(date), year = lubridate::year(date), month = lubridate::month(date)) %>%
+  dplyr::select(-date)
 
 devtools::use_data(prop_Q_sutter)
+
+dplyr::left_join(prop_Q_yolo, prop_Q_sutter) %>% View()
+
 
 # other flows------------------------------
 #retQ
@@ -93,6 +92,11 @@ temperatures <- temperature %>%
   dplyr::ungroup()
 
 devtools::use_data(temperatures, overwrite = TRUE)
+
+monthly_reach_data <- flows %>%
+  dplyr::left_join(temperatures)
+
+devtools::use_data(monthly_reach_data)
 
 #degday
 #sum daily mean tmep over oct and nov
