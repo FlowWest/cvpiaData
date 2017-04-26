@@ -3,7 +3,6 @@
 #' @name create_Sit_array
 #' @param input a vector of data, length = 252 for 12 months and 20 years of data
 #' @return 3 dimension array [location, month, year]
-#' @export
 
 create_SIT_array <- function(input) {
 
@@ -26,7 +25,6 @@ create_SIT_array <- function(input) {
 #' @param end_year int number between 1922 and 2003
 #' @param deltas bol TRUE if retrieving data for deltas, FALSE for all other reaches
 #' @return dataframe with dim(number of reaches, 240)
-#' @export
 
 spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE) {
   if (deltas) {
@@ -38,7 +36,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
       tidyr::spread_('date', variable) %>%
       dplyr::left_join(CVPIAdata::watershed_ordering) %>%
       dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order, -sort)
+      dplyr::select(-watershed, -order)
   } else {
     df %>%
       dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')),
@@ -48,46 +46,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
       tidyr::spread_('date', variable) %>%
       dplyr::left_join(CVPIAdata::watershed_ordering) %>%
       dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order, -sort)
+      dplyr::select(-watershed, -order)
   }
 
 }
-
-#' Generate SIT Model Inputs for Given 20 Year Period
-#' @description returns SIT array of temperature data for given year period
-#' @name set_SIT_data
-#' @param start_year int number between 1922 and 2003
-#' @param end_year int number between 1922 and 2003
-#' @return list of model inputs
-#' @export
-
-set_SIT_data <- function(start_year, end_year) {
-
-  df <- CVPIAdata::monthly_reach_data
-
-  prop_diversion <- create_SIT_array(spread_for_array(df, 'prop_diversion', start_year, end_year))
-  total_diversion <- create_SIT_array(spread_for_array(df, 'diversion', start_year, end_year))
-  prop_diversion_delta <- create_SIT_array(spread_for_array(df, 'prop_diversion', start_year, end_year, TRUE))
-  total_diversion_delta <- create_SIT_array(spread_for_array(df, 'diversion', start_year, end_year, TRUE))
-
-  temperature <- create_SIT_array(spread_for_array(df, 'avg_temp', start_year, end_year))
-  temperature_delta <- create_SIT_array(spread_for_array(df, 'avg_temp', start_year, end_year, TRUE))
-
-  # two deltas?
-  delta_inflow <- df %>%
-    dplyr::filter(watershed == 'N.Delta',
-                  year >= start_year & year <= end_year) %>%
-    dplyr::select(year, month, flow) %>%
-    tidyr::spread(year, flow) %>%
-    dplyr::select(-month)
-
-
-
-  return(list(p.diver = prop_diversion, t.diver = total_diversion,
-              dlt.divers = prop_diversion_delta, dlt.divers.tot = total_diversion_delta,
-              juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow))
-}
-
-
-
-

@@ -2,7 +2,7 @@
 watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
   dplyr::select(order = Order, watershed = Watershed)
 
-devtools::use_data(watershed_ordering, overwrite = TRUE)
+devtools::use_data(watershed_ordering)
 
 readxl::excel_sheets('data-raw/DSM_mapped.xlsx')
 
@@ -57,7 +57,7 @@ monthly_reach_data <- diversions %>%
   dplyr::left_join(temperatures) %>%
   dplyr::mutate(flow = replace(flow, watershed == 'Sutter Bypass', sutter_flow))
 
-devtools::use_data(monthly_reach_data, overwrite = TRUE)
+devtools::use_data(monthly_reach_data)
 
 # prop flow bypass----------------------------------
 #prop yolo
@@ -89,7 +89,6 @@ devtools::use_data(prop_Q_bypass)
 #?
 flows %>%
   dplyr::filter(watershed == 'Upper Sacramento River') %>% View()
-
 
 
 #degday
