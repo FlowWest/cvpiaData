@@ -38,7 +38,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
       tidyr::spread_('date', variable) %>%
       dplyr::left_join(CVPIAdata::watershed_ordering) %>%
       dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order, -sort)
+      dplyr::select(-watershed, -order)
   } else {
     df %>%
       dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')),
@@ -48,7 +48,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
       tidyr::spread_('date', variable) %>%
       dplyr::left_join(CVPIAdata::watershed_ordering) %>%
       dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order, -sort)
+      dplyr::select(-watershed, -order)
   }
 
 }
@@ -62,6 +62,11 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
 #' @export
 
 set_SIT_data <- function(start_year, end_year) {
+
+  if (end_year - start_year != 19) stop('years given are not a 20 year range')
+  if (end_year < start_year) stop('second year given must be after first')
+  if (end_year > 2002 | end_year < 1922) stop('last year is out of data range')
+  if (start_year < 1922 | start_year > 2002) stop('first year is out of data range')
 
   df <- CVPIAdata::monthly_reach_data
 
@@ -81,11 +86,39 @@ set_SIT_data <- function(start_year, end_year) {
     tidyr::spread(year, flow) %>%
     dplyr::select(-month)
 
+  prop_Q_sutter <- CVPIAdata::prop_Q_bypass %>%
+    dplyr::filter(year >= start_year & year <= end_year) %>%
+    dplyr::select(year, month, prop_Q_sutter) %>%
+    tidyr::spread(year, prop_Q_sutter) %>%
+    dplyr::select(-month)
+
+  prop_Q_yolo <- CVPIAdata::prop_Q_bypass %>%
+    dplyr::filter(year >= start_year & year <= end_year) %>%
+    dplyr::select(year, month, prop_Q_yolo) %>%
+    tidyr::spread(year, prop_Q_yolo) %>%
+    dplyr::select(-month)
+
+  #in-channel habitat -flow, three values per watershed (spawning, fry, parr)
+
+  #floodplain habitat -flow, 3d array [watershed, month, year]
+
+  #delta habitat -flow, one value per delta
+
+  #gate.top -flow
+
+  #DegDay -temperature, yearly value per watershed
+
+  #retQ -flow,  yearly value per watershed
+
+  #upSacQ -flow, month value per year
+
+  #egg.tmp.eff -temperature?, one value per watershed
 
 
   return(list(p.diver = prop_diversion, t.diver = total_diversion,
               dlt.divers = prop_diversion_delta, dlt.divers.tot = total_diversion_delta,
-              juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow))
+              juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow,
+              prop.Q.yolo = prop_Q_yolo, prop.Q.sutter = prop_Q_sutter))
 }
 
 
