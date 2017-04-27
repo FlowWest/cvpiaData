@@ -13,15 +13,16 @@ set_SIT_data <- function(start_year, end_year) {
   if (end_year > 2002 | end_year < 1922) stop('last year is out of data range')
   if (start_year < 1922 | start_year > 2002) stop('first year is out of data range')
 
-  df <- CVPIAdata::monthly_reach_data
+  df <- CVPIAdata::monthly_reach_data %>%
+    dplyr::filter(year >= start_year & year <= end_year)
 
-  prop_diversion <- create_SIT_array(spread_for_array(df, 'prop_diversion', start_year, end_year))
-  total_diversion <- create_SIT_array(spread_for_array(df, 'diversion', start_year, end_year))
-  prop_diversion_delta <- create_SIT_array(spread_for_array(df, 'prop_diversion', start_year, end_year, TRUE))
-  total_diversion_delta <- create_SIT_array(spread_for_array(df, 'diversion', start_year, end_year, TRUE))
+  prop_diversion <- create_SIT_array(spread_for_array(df, 'prop_diversion'))
+  total_diversion <- create_SIT_array(spread_for_array(df, 'diversion'))
+  prop_diversion_delta <- create_SIT_array(spread_for_array(df, 'prop_diversion', TRUE))
+  total_diversion_delta <- create_SIT_array(spread_for_array(df, 'diversion', TRUE))
 
-  temperature <- create_SIT_array(spread_for_array(df, 'avg_temp', start_year, end_year))
-  temperature_delta <- create_SIT_array(spread_for_array(df, 'avg_temp', start_year, end_year, TRUE))
+  temperature <- create_SIT_array(spread_for_array(df, 'avg_temp'))
+  temperature_delta <- create_SIT_array(spread_for_array(df, 'avg_temp', TRUE))
 
   # two deltas?
   delta_inflow <- df %>%

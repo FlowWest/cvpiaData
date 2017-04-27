@@ -15,7 +15,8 @@
 #'   \item{avg_temp}{Monthly average temperature in degrees celcius}
 #'   }
 #'
-#'   @source Mike Wright
+#' @source Mike Wright
+#'
 "monthly_reach_data"
 
 #' Ordering of Watersheds
