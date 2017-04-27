@@ -13,9 +13,10 @@
   \item{diversion}{Monthly average diversion in cfs}
   \item{prop_diversion}{Monthly average proportion diverted in cfs}
   \item{avg_temp}{Monthly average temperature in degrees celcius}
-  }
-
-  @source Mike Wright}
+  }}
+\source{
+Mike Wright
+}
 \usage{
 monthly_reach_data
 }
