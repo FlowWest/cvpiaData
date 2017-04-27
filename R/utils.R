@@ -29,8 +29,7 @@ create_SIT_array <- function(input) {
 spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE) {
   if (deltas) {
     df %>%
-      dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta'),
-                    year >= start_year & year <= end_year) %>%
+      dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta')) %>%
       tidyr::unite(date, year, month) %>%
       dplyr::select_('watershed', 'date', variable) %>%
       tidyr::spread_('date', variable) %>%
@@ -39,8 +38,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
       dplyr::select(-watershed, -order)
   } else {
     df %>%
-      dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta')),
-                    year >= start_year & year <= end_year) %>%
+      dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta'))) %>%
       tidyr::unite(date, year, month) %>%
       dplyr::select_('watershed', 'date', variable) %>%
       tidyr::spread_('date', variable) %>%
