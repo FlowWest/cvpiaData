@@ -51,14 +51,16 @@ set_SIT_data <- function(start_year, end_year) {
   #delta habitat -flow, one value per delta
 
   #gate.top -flow
+  #yolo and tisdale overtoped
+  #gates closed held constant at 31 in updated SIT model
 
   #DegDay -temperature, yearly value per watershed
 
-  #retQ -flow,  yearly value per watershed
+  #retQ -flow,  yearly value per watershed prop from above
 
   #upSacQ -flow, month value per year
 
-  #egg.tmp.eff -temperature?, one value per watershed
+  #egg.tmp.eff -temperature?, one value per watershed Chris hammersmark
 
   #inps?
   # init.adult
@@ -66,11 +68,11 @@ set_SIT_data <- function(start_year, end_year) {
   # hatch.alloc
   # TISD
   # YOLO
-  # p.tempMC2025
-  # A.HARV
-  # P.scour.nst
-  # P.strand.early
-  # P.strand.late
+  # p.tempMC2025 - with degday script
+  # A.HARV - 3 reports summarized for the whole years available period, Dan Kratvile :)
+  # P.scour.nst - expert opinion, could improve with flow + sheer
+  # P.strand.early - need function
+  # P.strand.late - need function
   # High.pred
   # contact
   # prop.nat

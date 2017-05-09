@@ -1,0 +1,34 @@
+Fld.shed.nam,Order,Srt,Watershed.full,Div.shed.nam,Feeds,Feed name
+Sacramento.River..Upper.,1,0,Upper Sacramento River,Sacramento.River.Upper,1,Upper-mid Sacramento River
+Antelope.Creek,2,2,Antelope Creek,Antelope.Creek,1,Upper-mid Sacramento River
+Battle.Creek,3,3,Battle Creek,Battle.Creek,1,Upper-mid Sacramento River
+Bear.Creek,4,4,Bear Creek,Bear.Creek,1,Upper-mid Sacramento River
+Big.Chico.Creek,5,6,Big Chico Creek,Big.Chico.Creek,1,Upper-mid Sacramento River
+Butte.Creek,6,7,Butte Creek,Butte.Creek,1,Upper-mid Sacramento River
+Clear.Creek,7,9,Clear Creek,Clear.Creek,1,Upper-mid Sacramento River
+Cottonwood.Creek,8,11,Cottonwood Creek,Cottonwood.Creek,1,Upper-mid Sacramento River
+Cow.Creek,9,12,Cow Creek,Cow.Creek,1,Upper-mid Sacramento River
+Deer.Creek,10,13,Deer Creek,Deer.Creek,1,Upper-mid Sacramento River
+Elder.Creek,11,14,Elder Creek,Elder.Crek,1,Upper-mid Sacramento River
+Mill.Creek,12,17,Mill Creek,Mill.Creek,1,Upper-mid Sacramento River
+Paynes.Creek,13,19,Paynes Creek,Paynes.Creek,1,Upper-mid Sacramento River
+Stony.Creek,14,22,Stony Creek,Stony.Creek,1,Upper-mid Sacramento River
+Thomes.Creek,15,23,Thomes Creek,Thomes.Creek,1,Upper-mid Sacramento River
+Sacramento.River..Upper.Mid.,16,25,Upper-mid Sacramento River,Upper.Sac.River.at.Bend,2,Sutter Bypass/Lower-mid Sacramento
+Sutter.Bypass,17,99,Sutter Bypass,Sutter.Bypass,3,Lower-mid Sacremento
+Bear.River,18,5,Bear River,Bear.River,3,Lower-mid Sacremento
+Feather.River,19,15,Feather River,Feather.River,3,Lower-mid Sacremento
+Yuba.River,20,27,Yuba River,Yuba.River,3,Lower-mid Sacremento
+Sacramento.River.MidL,21,26,Lower-mid Sacramento River,Middle.Sac.River.at.Verona,4,Yolo Bypass/Lower Sacremento
+Yolo.Bypass,22,99,Yolo Bypass,Yolo.Bypass,6,North delta
+American.River,23,1,American River,American.River,5,Lower Sacremento
+Sacramento.River..Lower.,24,99,Lower Sacramento River,Lower.Sac.River.below.American.River,6,North delta
+Calaveras.River,25,8,Calaveras River,Calaveras.River,7,Mid-south delta
+Cosumnes.River,26,10,Cosumnes River,Cosumnes.River,7,Mid-south delta
+Mokelumne.River,27,18,Mokelumne River,Mokelumne.River,7,Mid-south delta
+Merced.River,28,16,Merced River,Merced.River,8,Jan Joaquin
+Stanislaus.River,29,21,Stanislaus River,Stanislaus.River,8,Jan Joaquin
+Tuolumne.River,30,24,Tuolumne River,Tuolumne.River,8,Jan Joaquin
+San.Joaquin.River,31,20,San Joaquin River,San.Joaquin.River,9,Mid-south delta
+NDelta,32,999,North Delta,,10,Bay
+SDelta,33,999,S. Central Delta,,10,Bay
