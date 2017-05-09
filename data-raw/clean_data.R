@@ -70,8 +70,8 @@ prop_Q_yolo <- flow %>%
 
 # sutter bypass not in model, use prop sutter mike urkov's spreadsheet
 prop_Q_sutter <- readr::read_csv('data-raw/bypass_flows.csv') %>%
-  select(date, prop_Q_sutter = `Sutter Bypass as a percent of Sacramento`) %>%
-  mutate(date = lubridate::mdy(date), year = lubridate::year(date), month = lubridate::month(date)) %>%
+  dplyr::select(date, prop_Q_sutter = `Sutter Bypass as a percent of Sacramento`) %>%
+  dplyr::mutate(date = lubridate::mdy(date), year = lubridate::year(date), month = lubridate::month(date)) %>%
   dplyr::select(year, month, prop_Q_sutter)
 
 prop_Q_bypass <- dplyr::left_join(prop_Q_yolo, prop_Q_sutter)
@@ -80,9 +80,24 @@ devtools::use_data(prop_Q_bypass)
 
 
 # other flows------------------------------
-#retQ
-#october&november average flow
-#?
+#retQ - proportion flows at tributary junction coming from natal watershed
+#october average flow
+
+#create lookup vector for retQ denominators
+denominators <- c(rep(sheds[16], 16), NA, sheds[19], sheds[21], sheds[19],
+                  sheds[21], NA, rep(sheds[24],2), sheds[25:27], rep(sheds[31],4))
+
+names(denominators) <- sheds
+
+dens <- flows %>%
+  dplyr::filter(month == 10, watershed %in% unique(denominators)) %>%
+  dplyr::rename(denominator = watershed, den_flow = flow)
+
+flows %>%
+  dplyr::filter(month == 10) %>%
+  dplyr::mutate(denominator = denominators[watershed]) %>%
+  dplyr::left_join(dens) %>%
+  dplyr::mutate(retQ = ifelse(flow / den_flow > 1, 1, flow / den_flow)) %>% View()
 
 #upsacQ
 #montly average flow at upper sacramento
@@ -109,5 +124,21 @@ temperature %>%
   dplyr::left_join(watershed_ordering) %>%
   dplyr::arrange(year, order) %>%   dplyr::ungroup() %>% View()
 #zeros 16,17, 21, 22, 24, 31
+
+# yolo and sutter(includes tisdale) overtopping
+over <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv',
+                 col_types = cols(
+                   col_character(),
+                   col_double(),
+                   col_double()
+                 ) )
+# flow in bypass oct-nov for adults is 1
+#issue with bypass coalescing inappropriate
+over %>%
+  tidyr::separate(month_year, c('month', 'year'), sep = ' ') %>%
+  filter(month %in% c('October', 'November')) %>%
+  mutate(bypass_top = ifelse(coalesce(yolo, sutter) > 0, 1, 0)) %>% View()
+  group_by(year) %>%
+  summarise(bypass_top = max(bypass_top)) %>% View()
 
 
