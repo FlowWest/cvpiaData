@@ -106,9 +106,6 @@ devtools::use_data(return_flow, overwrite = TRUE)
 
 #upsacQ
 #montly average flow at upper sacramento
-#?
-flows %>%
-  dplyr::filter(watershed == 'Upper Sacramento River') %>% View()
 
 
 #degday
