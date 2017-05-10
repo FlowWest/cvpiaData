@@ -45,3 +45,33 @@
 #'
 #' @source Mike Urkov, Mike Wright
 "prop_Q_bypass"
+
+#' Sutter and Yolo Bypass Over Topped
+#' @description  Binary record of the bypasses over topped in October or November based on CALSIMS flows
+#' data comes from Mike Urkov
+#'
+#' @format A data frame with 82 rows and 3 variables:
+#' \describe{
+#'    \item{year}{Year 1921-2002}
+#'    \item{sutter}{1 = bypass over topped in October or November}
+#'    \item{yolo}{1 = bypass over topped in October or November}
+#' }
+#'
+#' @source Mike Urkov
+"bypass_over_top"
+
+#' Return Flow
+#' @description The proportion flows at tributary junction coming from natal
+#'   watershed.
+#'
+#' @format A data frame with 2542 rows and 4 variables: \describe{
+#'   \item{watershed}{The name of the stream reach}
+#'   \item{year}{Year 1921-2002}
+#'   \item{retQ}{The proportion flows at tributary
+#'   junction coming from natal watershed calculated from the average monthly
+#'   flow in October}
+#'   }
+#'
+#'@source James T. Peterson, Mike Urkov
+'return_flow'
+

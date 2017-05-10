@@ -50,15 +50,32 @@ set_SIT_data <- function(start_year, end_year) {
 
   #delta habitat -flow, one value per delta
 
-  #gate.top -flow
+  #gate.top
   #yolo and tisdale overtoped
   #gates closed held constant at 31 in updated SIT model
+  gate <- CVPIAdata::bypass_over_top %>%
+    dplyr::filter(year >= start_year & year <= end_year)
 
   #DegDay -temperature, yearly value per watershed
 
-  #retQ -flow,  yearly value per watershed prop from above
+  #retQ
+  returnQ <- CVPIAdata::return_flow %>%
+    dplyr::filter(year >= start_year & year <= end_year) %>%
+    tidyr::spread(year, retQ) %>%
+    dplyr::left_join(CVPIAdata::watershed_ordering) %>%
+    dplyr::arrange(order) %>%
+    dplyr::select(-order)
 
   #upSacQ -flow, month value per year
+  #upsacQ
+  #montly average flow at upper sacramento
+  #?
+  upsac_flow <- flows %>%
+    dplyr::filter(year >= start_year & year <= end_year,
+                  watershed == 'Upper Sacramento River') %>%
+    dplyr::mutate(cms = flow * 0.028316847) %>%
+    dplyr::select(year, month, cms) %>%
+    tidyr::spread(year, cms)
 
   #egg.tmp.eff -temperature?, one value per watershed Chris hammersmark
 
@@ -83,6 +100,6 @@ set_SIT_data <- function(start_year, end_year) {
               dlt.divers = prop_diversion_delta, dlt.divers.tot = total_diversion_delta,
               juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow,
               prop.Q.yolo = prop_Q_yolo, prop.Q.sutter = prop_Q_sutter,
-              IChab = NULL, DLThab = NULL, floodP = NULL, gate.top = NULL, DegDay = NULL,
-              retQ = NULL, upSacQ = NULL, egg.tmp.eff = NULL))
+              IChab = NULL, DLThab = NULL, floodP = NULL, gate.top = gate, DegDay = NULL,
+              retQ = returnQ, upSacQ = upsac_flow, egg.tmp.eff = NULL))
 }

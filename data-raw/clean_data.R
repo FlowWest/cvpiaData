@@ -82,8 +82,9 @@ devtools::use_data(prop_Q_bypass)
 # other flows------------------------------
 #retQ - proportion flows at tributary junction coming from natal watershed
 #october average flow
+sheds <- watershed_ordering[[2]]
 
-#create lookup vector for retQ denominators
+#create lookup vector for retQ denominators based on Jim's previous input
 denominators <- c(rep(sheds[16], 16), NA, sheds[19], sheds[21], sheds[19],
                   sheds[21], NA, rep(sheds[24],2), sheds[25:27], rep(sheds[31],4))
 
@@ -93,17 +94,18 @@ dens <- flows %>%
   dplyr::filter(month == 10, watershed %in% unique(denominators)) %>%
   dplyr::rename(denominator = watershed, den_flow = flow)
 
-flows %>%
-  dplyr::filter(month == 10) %>%
+return_flow <- flows %>%
+  dplyr::filter(month == 10, watershed != 'N.Delta', watershed != 'SC.Delta') %>%
   dplyr::mutate(denominator = denominators[watershed]) %>%
   dplyr::left_join(dens) %>%
-  dplyr::mutate(retQ = ifelse(flow / den_flow > 1, 1, flow / den_flow)) %>% View()
+  dplyr::mutate(retQ = ifelse(flow / den_flow > 1, 1, flow / den_flow),
+                retQ = replace(retQ, is.na(retQ), 0)) %>%
+  dplyr::select(watershed, year, retQ)
+
+devtools::use_data(return_flow, overwrite = TRUE)
 
 #upsacQ
 #montly average flow at upper sacramento
-#?
-flows %>%
-  dplyr::filter(watershed == 'Upper Sacramento River') %>% View()
 
 
 #degday
@@ -134,11 +136,13 @@ over <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv',
                  ) )
 # flow in bypass oct-nov for adults is 1
 #issue with bypass coalescing inappropriate
-over %>%
+bypass_over_top <- over %>%
   tidyr::separate(month_year, c('month', 'year'), sep = ' ') %>%
-  filter(month %in% c('October', 'November')) %>%
-  mutate(bypass_top = ifelse(coalesce(yolo, sutter) > 0, 1, 0)) %>% View()
-  group_by(year) %>%
-  summarise(bypass_top = max(bypass_top)) %>% View()
+  dplyr::filter(month %in% c('October', 'November')) %>%
+  dplyr::mutate(sutter = ifelse(sutter > 0, 1, 0),
+                yolo = ifelse(yolo > 0, 1, 0)) %>%
+  dplyr::group_by(year) %>%
+  dplyr::summarise(sutter = max(sutter), yolo = max(yolo))
 
+devtools::use_data(bypass_over_top)
 
