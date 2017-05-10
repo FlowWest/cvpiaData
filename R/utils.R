@@ -48,3 +48,4 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
   }
 
 }
+

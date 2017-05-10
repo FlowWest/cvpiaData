@@ -53,6 +53,8 @@ set_SIT_data <- function(start_year, end_year) {
   #gate.top -flow
   #yolo and tisdale overtoped
   #gates closed held constant at 31 in updated SIT model
+  gate <- CVPIAdata::bypass_over_top %>%
+    dplyr::filter(year >= start_year & year <= end_year)
 
   #DegDay -temperature, yearly value per watershed
 
@@ -83,6 +85,6 @@ set_SIT_data <- function(start_year, end_year) {
               dlt.divers = prop_diversion_delta, dlt.divers.tot = total_diversion_delta,
               juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow,
               prop.Q.yolo = prop_Q_yolo, prop.Q.sutter = prop_Q_sutter,
-              IChab = NULL, DLThab = NULL, floodP = NULL, gate.top = NULL, DegDay = NULL,
+              IChab = NULL, DLThab = NULL, floodP = NULL, gate.top = gate, DegDay = NULL,
               retQ = NULL, upSacQ = NULL, egg.tmp.eff = NULL))
 }
