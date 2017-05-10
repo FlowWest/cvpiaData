@@ -100,9 +100,9 @@ return_flow <- flows %>%
   dplyr::left_join(dens) %>%
   dplyr::mutate(retQ = ifelse(flow / den_flow > 1, 1, flow / den_flow),
                 retQ = replace(retQ, is.na(retQ), 0)) %>%
-  dplyr::select(watershed, year, month, retQ)
+  dplyr::select(watershed, year, retQ)
 
-devtools::use_data(return_flow)
+devtools::use_data(return_flow, overwrite = TRUE)
 
 #upsacQ
 #montly average flow at upper sacramento

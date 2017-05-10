@@ -65,12 +65,13 @@
 #'   watershed.
 #'
 #' @format A data frame with 2542 rows and 4 variables: \describe{
-#'   \item{watershed}{The name of the stream reach} \item{year}{Year 1921-2002}
-#'   \item{month}{October} \item{retQ}{The proportion flows at tributary
+#'   \item{watershed}{The name of the stream reach}
+#'   \item{year}{Year 1921-2002}
+#'   \item{retQ}{The proportion flows at tributary
 #'   junction coming from natal watershed calculated from the average monthly
 #'   flow in October}
 #'   }
 #'
-#'   @source James T. Peterson, Mike Urkov
+#'@source James T. Peterson, Mike Urkov
 'return_flow'
 

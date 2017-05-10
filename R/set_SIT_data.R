@@ -50,7 +50,7 @@ set_SIT_data <- function(start_year, end_year) {
 
   #delta habitat -flow, one value per delta
 
-  #gate.top -flow
+  #gate.top
   #yolo and tisdale overtoped
   #gates closed held constant at 31 in updated SIT model
   gate <- CVPIAdata::bypass_over_top %>%
@@ -58,7 +58,13 @@ set_SIT_data <- function(start_year, end_year) {
 
   #DegDay -temperature, yearly value per watershed
 
-  #retQ -flow,  yearly value per watershed prop from above
+  #retQ
+  returnQ <- CVPIAdata::return_flow %>%
+    dplyr::filter(year >= start_year & year <= end_year) %>%
+    tidyr::spread(year, retQ) %>%
+    dplyr::left_join(CVPIAdata::watershed_ordering) %>%
+    dplyr::arrange(order) %>%
+    dplyr::select(-order)
 
   #upSacQ -flow, month value per year
 
@@ -86,5 +92,5 @@ set_SIT_data <- function(start_year, end_year) {
               juv.tmp = temperature, juv.tmp.dlt = temperature_delta, Dlt.inf = delta_inflow,
               prop.Q.yolo = prop_Q_yolo, prop.Q.sutter = prop_Q_sutter,
               IChab = NULL, DLThab = NULL, floodP = NULL, gate.top = gate, DegDay = NULL,
-              retQ = NULL, upSacQ = NULL, egg.tmp.eff = NULL))
+              retQ = returnQ, upSacQ = NULL, egg.tmp.eff = NULL))
 }
