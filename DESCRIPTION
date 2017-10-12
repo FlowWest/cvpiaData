@@ -13,4 +13,5 @@ Imports: dplyr,
     magrittr,
     lubridate,
     readr,
-    readxl
+    readxl,
+    cvpiaHabitat
