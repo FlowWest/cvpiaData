@@ -18,7 +18,8 @@ species_not_found_error <- function(species, w)
   stop(paste0("species: '",species,"' not found for floodplain habitat in this watershed"),
        call. = FALSE)
 
-# Note - this look redundant, but its works... eventually as the package matures
+
+# Note - this looks redundant, but it works... eventually as the package matures
 #        we can consider refactoring a lot of the repetitive code below
 american_river_floodplain_approx <- function(species, method = "interpolate") {
   d <- cvpiaHabitat::american_river_floodplain
