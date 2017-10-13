@@ -11,7 +11,7 @@ set_instream_area(watershed, species, life_stage, flow)
 
 \item{species}{one of 'fr', 'sr', or 'st'}
 
-\item{life_stage}{life stage of fish, one of 'juv' or 'fry'}
+\item{life_stage}{life stage of fish, one of 'juv', 'adult' or 'fry'}
 
 \item{flow}{value used to determine habitat area}
 }

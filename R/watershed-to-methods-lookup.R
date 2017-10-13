@@ -36,5 +36,12 @@ watershed_to_instream_methods <- list(
   "Clear Creek" = clear_creek_instream_approx,
   "Cottonwood Creek" = cottonwood_creek_instream_approx,
   "Cow Creek" = cow_creek_instream_approx,
-  "Lower Sacramento River" = lower_sacramento_instream_approx
+  "Lower Sacramento River" = lower_sacramento_instream_approx,
+  "Feather River" = feather_river_instream_approx,
+  "Merced River" = merced_river_instream_approx,
+  "Mokelumne River" = mokelumne_river_instream_approx,
+  "North Delta" = north_delta_instream_approx,
+  "Stanislaus River" = stanislaus_river_instream_approx,
+  "Upper-mid Sacramento River" = upper_mid_sacramento_instream_approx,
+  "Yuba River" = yuba_river_instream_approx
 )
