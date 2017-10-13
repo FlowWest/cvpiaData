@@ -4,7 +4,7 @@ list_floodplains <- function() {
 
 
 # map the watershed to correct method
-watershed_to_method <- list(
+watershed_to_floodplain_methods <- list(
   "american_river" = american_river_floodplain_approx,
   "bear_river" = bear_river_floodplain_approx,
   "big_chico_creek" = big_chico_creek_floodplain_approx,

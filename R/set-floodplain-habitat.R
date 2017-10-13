@@ -7,7 +7,7 @@
 #' @param ... further arguments to be passed into an \code{\link[stats]{approxfun}}
 #' @export
 set_floodplain_area <- function(watershed, species, flow, ...) {
-  f <- watershed_to_method[watershed][[1]](species, ...) # <- TODO set rule=2 here
+  f <- watershed_to_floodplain_methods[watershed][[1]](species, ...) # <- TODO set rule=2 here
 
   f(flow)
 }
