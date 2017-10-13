@@ -14,7 +14,7 @@ set_instream_area <- function(watershed, species, life_stage, flow) {
 # INTERNALS
 
 instream_species_not_found_error <- function(species, ...)
-  stop(paste0("species: '",species,"' not found for instream habitat in this watershed", ...),
+  stop(paste0("species '",species,"' not found for instream habitat in this watershed", ...),
        call. = FALSE)
 
 battle_creek_instream_approx <- function(species, life_stage) {
@@ -47,6 +47,7 @@ butte_creek_instream_approx <- function(species, life_stage) {
          "fr" = {
            if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule =2)
            else if (life_stage == "fry") approxfun(d$flow_cfs, d$fry_WUA, rule = 2)
+           else instream_species_not_found_error(species, " with specified life stage")
          },
          instream_species_not_found_error(species))
 }
@@ -77,7 +78,7 @@ clear_creek_instream_approx <- function(species, life_stage) {
          },
          "st" = {
            if (life_stage == "juv") approxfun(d$flow_cfs, d$ST_juvenile, rule = 2)
-           else if (life_stage == "fry") approxfun(d$flow_cfs, d$ST_fry)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$ST_fry, rule = 2)
          },
          instream_species_not_found_error(species))
 }
