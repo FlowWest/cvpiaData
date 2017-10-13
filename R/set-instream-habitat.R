@@ -27,19 +27,20 @@ battle_creek_instream_approx <- function(species, life_stage) {
          instream_species_not_found_error(species))
 }
 
-bear_river_instream_approx <- function(species) {
+bear_river_instream_approx <- function(species, life_stage) {
   d <- cvpiaHabitat::bear_river_instream
 
   # ok this is gonna look ugly
   switch(species,
          "fr" = {
            if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule = 2)
-           else instream_species_not_found_error(species)},
+           else instream_species_not_found_error(species)
+           },
          instream_species_not_found_error(species))
 
 }
 
-butte_creek_instream_approx <- function(species) {
+butte_creek_instream_approx <- function(species, life_stage) {
   d <- cvpiaHabitat::butte_creek_instream
 
   switch(species,
@@ -50,41 +51,80 @@ butte_creek_instream_approx <- function(species) {
          instream_species_not_found_error(species))
 }
 
-# calaveras_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
-#
-# clear_creek_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
-#
-# cottonwood_creek_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
-#
-# cow_creek_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
-#
-# feather_river_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
-#
-# lower_sacramento_instream_approx <- function(species) {
-#   d <- cvpiaHabitat::_
-#
-#   switch(species, {})
-# }
+calaveras_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::calaveras_river_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$fry_WUA, rule = 2)
+           else instream_species_not_found_error(species, "with supplied life stage")
+         },
+         instream_species_not_found_error(species))
+}
+
+clear_creek_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::clear_creek_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$FR_juv, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$FR_fry, rule = 2)
+         },
+         "sr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$SR_juvenile, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$SR_fry)
+         },
+         "st" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$ST_juvenile, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$ST_fry)
+         },
+         instream_species_not_found_error(species))
+}
+
+cottonwood_creek_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::cottonwood_creek_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$fry_WUA)
+         },
+         instream_species_not_found_error(species))
+}
+
+cow_creek_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::cow_creek_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$fry_WUA, rule = 2)
+         },
+         instream_species_not_found_error(species))
+}
+
+feather_river_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::feather_river_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule = 2)
+           else if (life_stage == "fry") approxfun(d$flow_cfs, d$fry_WUA, rule =2)
+         },
+         instream_species_not_found_error(species))
+}
+
+lower_sacramento_instream_approx <- function(species, life_stage) {
+  d <- cvpiaHabitat::lower_sacramento_instream
+
+  switch(species,
+         "fr" = {
+           if (life_stage == "juv") approxfun(d$flow_cfs, d$juv_WUA, rule = 2)
+           else instream_species_not_found_error(species, " with supplied life stage")
+         },
+         instream_species_not_found_error(species))
+}
 #
 # merced_river_instream_approx <- function(species) {
 #   d <- cvpiaHabitat::_

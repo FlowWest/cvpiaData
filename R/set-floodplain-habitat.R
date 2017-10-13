@@ -8,14 +8,14 @@
 set_floodplain_habitat <- function(watershed, species, flow) {
   f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
-  f(flow)
+  f(flow) %>% wua_to_area(watershed)
 }
 
 # INTERNALS
 
 # x is the wua
 # l in the length of watershed
-wua_to_area <- function(watershed, wua, life_stage) {
+wua_to_area <- function(wua, watershed, life_stage) {
   # implement this to converty the wua into an area
 }
 

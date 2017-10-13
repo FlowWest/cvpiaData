@@ -31,5 +31,10 @@ watershed_to_floodplain_methods <- list(
 
 watershed_to_instream_methods <- list(
   "Battle Creek" = battle_creek_instream_approx,
-  "Butte Creek" = butte_creek_instream_approx
+  "Butte Creek" = butte_creek_instream_approx,
+  "Calaveras River" = calaveras_instream_approx,
+  "Clear Creek" = clear_creek_instream_approx,
+  "Cottonwood Creek" = cottonwood_creek_instream_approx,
+  "Cow Creek" = cow_creek_instream_approx,
+  "Lower Sacramento River" = lower_sacramento_instream_approx
 )
