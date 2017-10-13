@@ -4,10 +4,9 @@
 #' @param watershed a watershed defined for the SIT model
 #' @param species one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead)
 #' @param flow value of flow to return WUA for
-#' @param ... further arguments to be passed into an \code{\link[stats]{approxfun}}
 #' @export
-set_floodplain_habitat <- function(watershed, species, flow, ...) {
-  f <- watershed_to_floodplain_methods[watershed][[1]](species, ...) # <- TODO set rule=2 here
+set_floodplain_habitat <- function(watershed, species, flow) {
+  f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
   f(flow)
 }
@@ -21,7 +20,8 @@ species_not_found_error <- function(species, w)
 
 # Note - this looks redundant, but it works... eventually as the package matures
 #        we can consider refactoring a lot of the repetitive code below
-# Note - this
+# Note - rule = 2 in approxfun calls below make such that out of range values are assigned
+#        to either the min/max(flow_cfs) depending on the side they are on
 american_river_floodplain_approx <- function(species) {
   d <- cvpiaHabitat::american_river_floodplain
 
@@ -93,7 +93,7 @@ cottonwood_creek_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
@@ -103,7 +103,7 @@ deer_creek_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
@@ -113,7 +113,7 @@ elder_creek_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
@@ -123,9 +123,9 @@ feather_river_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
-         "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
-         "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+         "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+         "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
@@ -135,7 +135,7 @@ lower_mid_sacramento_river_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
@@ -145,7 +145,7 @@ lower_sacramento_river_floodplain_approx <- function(species) {
 
 
   switch(species,
-         "fr" = approxfun(d$flow_cfs, d$floodplain_acres),
+         "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
 
 }
