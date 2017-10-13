@@ -2,4 +2,4 @@
 
 export(list_floodplains)
 export(set_SIT_data)
-export(set_floodplain_area)
+export(set_floodplain_habitat)
