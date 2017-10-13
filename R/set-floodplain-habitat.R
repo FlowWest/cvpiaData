@@ -14,12 +14,12 @@ set_floodplain_area <- function(watershed, species, flow, ...) {
 
 # INTERNALS
 
-species_not_found_error <- function(species)
-  stop(paste0("species: '",species,"' not found"))
+species_not_found_error <- function(species, w)
+  stop(paste0("species: '",species,"' not found for floodplain habitat in this watershed"),
+       call. = FALSE)
 
-# set up approx functions for all floodplains
-# note most of these use same data for both FR, SR and ST,
-# and so a switch statement may appear a bit redundant
+# Note - this look redundant, but its works... eventually as the package matures
+#        we can consider refactoring a lot of the repetitive code below
 american_river_floodplain_approx <- function(species, method = "interpolate") {
   d <- cvpiaHabitat::american_river_floodplain
 
@@ -205,17 +205,83 @@ san_joaquin_river_floodplain_approx <- function(species, method = "interpolate")
   }
 }
 
-stanislaus_river_floodplain_approx <- function(species, method = "interpolate") {}
+stanislaus_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::stanislaus_river_floodplain
 
-tuolumne_river_floodplain_approx <- function(species, method = "interpolate") {}
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
+  } else if (method == "suitability") {
 
-upper_mid_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {}
+  }
+}
 
-upper_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {}
+tuolumne_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::tuolumne_river_floodplain
 
-yolo_bypass_floodplain_approx <- function(species, method = "interpolate") {}
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
+  } else if (method == "suitability") {
 
-yuba_river_floodplain_approx <- function(species, method = "interpolate") {}
+  }
+}
+
+upper_mid_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::upper_mid_sacramento_river_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
+           species_not_found_error(species))
+  } else if (method == "suitability") {
+    # do stuff
+  }
+}
+
+upper_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::upper_sacramento_river_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
+           species_not_found_error(species))
+  } else if (method == "suitability") {
+    # do stuff
+  }
+}
+
+yolo_bypass_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::yolo_bypass_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           species_not_found_error(species))
+  } else if (method == "suitability") {
+    # do stuff
+  }
+}
+
+yuba_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::yuba_river_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           species_not_found_error(species))
+  } else if (method == "suitability") {
+
+  }
+}
 
 # # map the watershed to correct method
 # watershed_to_method <- list(
