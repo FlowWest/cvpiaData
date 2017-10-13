@@ -6,17 +6,26 @@
 #' @param flow value of flow to return WUA for
 #' @export
 set_floodplain_habitat <- function(watershed, species, flow) {
+  if (is.null(watershed_to_floodplain_methods[watershed][[1]]))
+    stop(paste0("no function associated with watershed '", watershed, "' was found"))
+
   f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
-  f(flow) %>% wua_to_area(watershed)
+  f(flow)
 }
 
 # INTERNALS
 
 # x is the wua
 # l in the length of watershed
-wua_to_area <- function(wua, watershed, life_stage) {
-  # implement this to converty the wua into an area
+wua_to_area <- function(wua, watershed, species, life_stage) {
+  watershed_length_row <- dplyr::filter(cvpiaHabitat::watershed_lengths,
+                                        watershed == watershed,
+                                        species == species,
+                                        lifestage == life_stage)
+
+  watershed_length <- watershed_length_row$feet
+  watershed_length
 }
 
 species_not_found_error <- function(species, w)
