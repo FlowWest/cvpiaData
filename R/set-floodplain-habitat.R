@@ -161,13 +161,49 @@ lower_mid_sacramento_river_floodplain_approx <- function(species, method = "inte
   }
 }
 
-lower_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {}
+lower_sacramento_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::lower_sacramento_river_floodplain
 
-mokelumne_river_floodplain_approx <- function(species, method = "interpolate") {}
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$floodplain_acres),
+           species_not_found_error(species))
+  } else if (method == "suitability") {
+    # todo
+  }
+}
 
-north_delta_floodplain_approx <- function(species, method = "interpolate") {}
+mokelumne_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::mokelumne_river_floodplain
 
-san_joaquin_river_floodplain_approx <- function(species, method = "interpolate") {}
+  # TODO
+}
+
+north_delta_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::north_delta_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
+  } else if (method == "suitability") {
+    # TODO
+  }
+}
+
+san_joaquin_river_floodplain_approx <- function(species, method = "interpolate") {
+  d <- cvpiaHabitat::san_joaquin_river_floodplain
+
+  if (method == "interpolate") {
+    switch(species,
+           "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+           "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
+  } else if (method == "suitability") {
+
+  }
+}
 
 stanislaus_river_floodplain_approx <- function(species, method = "interpolate") {}
 
