@@ -4,7 +4,7 @@
 \alias{set_floodplain_habitat}
 \title{set floodplain area based on a watershed, species and a flow}
 \usage{
-set_floodplain_habitat(watershed, species, flow, ...)
+set_floodplain_habitat(watershed, species, flow)
 }
 \arguments{
 \item{watershed}{a watershed defined for the SIT model}
@@ -12,8 +12,6 @@ set_floodplain_habitat(watershed, species, flow, ...)
 \item{species}{one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead)}
 
 \item{flow}{value of flow to return WUA for}
-
-\item{...}{further arguments to be passed into an \code{\link[stats]{approxfun}}}
 }
 \description{
 based on watershed, species and flow return a WUA

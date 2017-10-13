@@ -13,6 +13,12 @@ set_floodplain_habitat <- function(watershed, species, flow) {
 
 # INTERNALS
 
+# x is the wua
+# l in the length of watershed
+wua_to_area <- function(watershed, wua, life_stage) {
+  # implement this to converty the wua into an area
+}
+
 species_not_found_error <- function(species, w)
   stop(paste0("species: '",species,"' not found for floodplain habitat in this watershed"),
        call. = FALSE)
@@ -61,8 +67,6 @@ butte_creek_floodplain_approx <- function(species) {
          "sr" = approxfun(d$flow_cfs, d$SR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$ST_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
-
 }
 
 calaveras_river_floodplain_approx <- function() {
@@ -73,7 +77,6 @@ calaveras_river_floodplain_approx <- function() {
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$ST_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 cosumnes_river_floodplain_approx <- function(species) {
@@ -84,8 +87,6 @@ cosumnes_river_floodplain_approx <- function(species) {
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$ST_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
-
 }
 
 cottonwood_creek_floodplain_approx <- function(species) {
@@ -95,7 +96,6 @@ cottonwood_creek_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 deer_creek_floodplain_approx <- function(species) {
@@ -105,7 +105,6 @@ deer_creek_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 elder_creek_floodplain_approx <- function(species) {
@@ -115,7 +114,6 @@ elder_creek_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 feather_river_floodplain_approx <- function(species) {
@@ -127,7 +125,6 @@ feather_river_floodplain_approx <- function(species) {
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 lower_mid_sacramento_river_floodplain_approx <- function(species) {
@@ -137,7 +134,6 @@ lower_mid_sacramento_river_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 lower_sacramento_river_floodplain_approx <- function(species) {
@@ -147,7 +143,6 @@ lower_sacramento_river_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 mokelumne_river_floodplain_approx <- function(species) {
@@ -163,7 +158,6 @@ north_delta_floodplain_approx <- function(species) {
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
-
 }
 
 san_joaquin_river_floodplain_approx <- function(species) {
@@ -175,7 +169,6 @@ san_joaquin_river_floodplain_approx <- function(species) {
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
 
-
 }
 
 stanislaus_river_floodplain_approx <- function(species) {
@@ -186,8 +179,6 @@ stanislaus_river_floodplain_approx <- function(species) {
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
-
-
 }
 
 tuolumne_river_floodplain_approx <- function(species) {
@@ -198,7 +189,6 @@ tuolumne_river_floodplain_approx <- function(species) {
          "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
-
 }
 
 upper_mid_sacramento_river_floodplain_approx <- function(species) {
@@ -208,7 +198,6 @@ upper_mid_sacramento_river_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 upper_sacramento_river_floodplain_approx <- function(species) {
@@ -218,7 +207,6 @@ upper_sacramento_river_floodplain_approx <- function(species) {
   switch(species,
          "fr" = approxfun(d$flow_cfs, d$floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 yolo_bypass_floodplain_approx <- function(species) {
@@ -230,7 +218,6 @@ yolo_bypass_floodplain_approx <- function(species) {
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
 }
 
 yuba_river_floodplain_approx <- function(species) {
@@ -242,8 +229,6 @@ yuba_river_floodplain_approx <- function(species) {
          "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
          species_not_found_error(species))
-
-
 }
 
 # # map the watershed to correct method

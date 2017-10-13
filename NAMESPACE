@@ -3,3 +3,4 @@
 export(list_floodplains)
 export(set_SIT_data)
 export(set_floodplain_habitat)
+export(set_instream_area)

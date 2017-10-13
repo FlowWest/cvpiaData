@@ -28,3 +28,8 @@ watershed_to_floodplain_methods <- list(
   "Yolo Bypass" = yolo_bypass_floodplain_approx,
   "Yuba River" = yuba_river_floodplain_approx
 )
+
+watershed_to_instream_methods <- list(
+  "Battle Creek" = battle_creek_instream_approx,
+  "Butte Creek" = butte_creek_instream_approx
+)
