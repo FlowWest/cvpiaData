@@ -13,7 +13,8 @@ set_spawning_area <- function(watershed, species, flow) {
 # INTERNALS
 
 spawning_species_error <- function(species) {
-  stop(paste0("'", "' was not found for spawning habitat in this watershed"))
+  stop(paste0("species '", species,  "' was not found for spawning habitat in this watershed"),
+       call. = FALSE)
 }
 
 american_river_spawning_approx <- function(species) {
@@ -69,41 +70,67 @@ clear_creek_spawning_approx <- function(species) {
 }
 
 cottonwood_creek_spawning_approx <- function(species) {
+  d <- cvpiaHabitat::cottonwood_creek_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$spawn_WUA, rule = 2),
+         spawning_species_error(species))
 }
 
 cow_creek_spawning_approx <- function(species) {
-
+  function(x) print("no spawning defined in this watershed")
 }
 
 feather_river_spawning_approx <- function(species) {
+  d <- cvpiaHabitat::feather_river_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$spawn_WUA, rule = 2),
+         spawning_species_error(species))
 }
 
 lower_sacramneto_spawning_approx <- function(species) {
-
+ # no spawning
 }
 
 merced_river_spawning_approx <- function(species) {
+  d <- cvpiaHabitat::merced_river_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$spawn_WUA, rule = 2),
+         spawning_species_error(species))
 }
 
 mokelumne_river_spawning_approx <- function(speices) {
+  d <- cvpiaHabitat::mokelumne_river_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$spawn_WUA, rule = 2),
+         spawning_species_error(species))
 }
 
 north_delta_spawning_approx <- function(species) {
-
+  # no spawning
 }
 
 stanislaus_river_spawning_approx <- function(species) {
+  d <- cvpiaHabitat::stanislaus_river_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$spawn_WUA, rule =2),
+         spawning_species_error(species))
 }
 
 upper_mid_sacramento_spawning_approx <- function(species) {
-
+  # no spawning
 }
 
 yuba_river_spawning_approx <- function(species) {
+  d <- cvpiaHabitat::yuba_river_instream
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$FR_spawning, rule = 2),
+         "sr" = approxfun(d$flow_cfs, d$SR_spawning, rule = 2),
+         "st" = approxfun(d$flow_cfs, d$ST_spawning, rule = 2),
+         spawning_species_error(species))
 }
