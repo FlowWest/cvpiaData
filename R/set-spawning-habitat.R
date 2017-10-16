@@ -1,4 +1,10 @@
-#' Set spawning habitat area based on watershed, species, life stage and flow
+make_spawning_area <- function(flows) {
+
+}
+
+
+#' Set spawning habitat area based on watershed, species, life stage and flow, this
+#' is a helper function.
 #'
 #' @param watershed one of the watersheds defined for the SIT model
 #' @param species one of 'fr', 'sr', or 'st'
@@ -7,7 +13,13 @@
 set_spawning_area <- function(watershed, species, flow) {
   f <- watershed_to_spawning_methods[watershed][[1]](species)
 
-  f(flow)
+  wua_value <- f(flow)
+  area_value <- wua_to_area(wua = wua_value,
+                            ws = watershed,
+                            sp = "Fall Run Chinook", # this does not change right now
+                            ls = "spawning")
+
+  return(area_value)
 }
 
 # INTERNALS
@@ -90,7 +102,7 @@ feather_river_spawning_approx <- function(species) {
 }
 
 lower_sacramneto_spawning_approx <- function(species) {
- # no spawning
+  # no spawning
 }
 
 merced_river_spawning_approx <- function(species) {

@@ -1,3 +1,7 @@
+make_floodplain_input <- function() {
+
+}
+
 #' set floodplain area based on a watershed, species and a flow
 #' @description based on watershed, species and flow return a WUA
 #'
@@ -11,11 +15,7 @@ set_floodplain_habitat <- function(watershed, species, flow) {
 
   f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
-  wua_value <- f(flow)
-  area_value <- wua_to_area(wua = wua_value,
-                            ws = watershed,
-                            sp = "Fall Run Chinook",
-                            ls = "rearing" )
+  area_value <- f(flow)
 
   return(area_value)
 }
@@ -73,7 +73,7 @@ butte_creek_floodplain_approx <- function(species) {
          species_not_found_error(species))
 }
 
-calaveras_river_floodplain_approx <- function() {
+calaveras_river_floodplain_approx <- function(species) {
   d <- cvpiaHabitat::calaveras_river_floodplain
 
 

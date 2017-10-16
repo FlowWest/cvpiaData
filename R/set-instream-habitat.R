@@ -8,7 +8,11 @@
 set_instream_area <- function(watershed, species, life_stage, flow) {
   f <- watershed_to_instream_methods[watershed][[1]](species, life_stage)
 
-  f(flow)
+  wua_value <- f(flow)
+  area_value <- wua_to_area(wua = wua_value,
+                            ws = watershed,
+                            sp = "Fall Run Chinook",
+                            ls = "rearing") # ask sadie if rearing is ok here
 }
 
 # INTERNALS

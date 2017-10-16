@@ -2,7 +2,8 @@
 % Please edit documentation in R/set-spawning-habitat.R
 \name{set_spawning_area}
 \alias{set_spawning_area}
-\title{Set spawning habitat area based on watershed, species, life stage and flow}
+\title{Set spawning habitat area based on watershed, species, life stage and flow, this
+is a helper function.}
 \usage{
 set_spawning_area(watershed, species, flow)
 }
@@ -14,5 +15,6 @@ set_spawning_area(watershed, species, flow)
 \item{flow}{value used to determine habitat area}
 }
 \description{
-Set spawning habitat area based on watershed, species, life stage and flow
+Set spawning habitat area based on watershed, species, life stage and flow, this
+is a helper function.
 }
