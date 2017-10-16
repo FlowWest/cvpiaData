@@ -47,5 +47,18 @@ watershed_to_instream_methods <- list(
 )
 
 watershed_to_spawning_methods <- list(
-  "American River" = american_river_spawning_approx
+  "American River" = american_river_spawning_approx,
+  "Battle Creek" = battle_creek_spawning_approx,
+  "Bear River" = bear_river_spawning_approx,
+  "Butte Creek" = butte_creek_spawning_approx,
+  "Calaveras River" = calaveras_river_spawning_approx,
+  "Clear Creek" = clear_creek_spawning_approx,
+  "Cottonwood Creek" = cottonwood_creek_spawning_approx,
+  "Cow Creek" = cow_creek_spawning_approx,
+  "Feather River" = feather_river_spawning_approx,
+  "Merced River" = merced_river_spawning_approx,
+  "Mokleumne River" = mokelumne_river_spawning_approx,
+  "Stanislaus River" = stanislaus_river_spawning_approx,
+  "Upper-mid Sacramento River" = upper_mid_sacramento_spawning_approx,
+  "Yuba River" = yuba_river_spawning_approx
 )

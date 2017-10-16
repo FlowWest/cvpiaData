@@ -51,7 +51,7 @@ butte_creek_spawning_approx <- function(species) {
          spawning_species_error(species))
 }
 
-calaveras_spawning_approx <- function(species) {
+calaveras_river_spawning_approx <- function(species) {
   d <- cvpiaHabitat::calaveras_river_instream
 
   switch(species,
