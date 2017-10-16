@@ -13,6 +13,8 @@ set_instream_area <- function(watershed, species, life_stage, flow) {
                             ws = watershed,
                             sp = "Fall Run Chinook",
                             ls = "rearing") # ask sadie if rearing is ok here
+
+  return(area_value)
 }
 
 # INTERNALS
