@@ -43,11 +43,12 @@ for (i in seq_along(d)){
 t <- bind_rows(test_out)
 
 
+# INCOMPLETE: need to implement remaining methods, and remove watersheds, output SIT model array
 make_floodplain_input <- function(flows_df, sp, period = "wet") {
   if (period == "wet") {
     period <- 1970:1989
   } else {
-    period <-  1970:1989
+    period <-  1950:1969
   }
 
   d <- CVPIAdata::watershed_ordering %>%
@@ -73,13 +74,9 @@ make_floodplain_input <- function(flows_df, sp, period = "wet") {
 
     x <- filter(flows_df, lubridate::year(date) %in% period, watershed == i)
     temp_out <- set_floodplain_habitat(i, species = sp, flow = x$flow) # one vector for all flows
-    #temp_tibble <- tibble::as_tibble(matrix(temp_out, ncol = 20, byrow = TRUE))
-    #colnames(temp_tibble) <- month.abb
-    #temp_tibble$year <- as.character(period)
     temp_tibble <- data.frame(matrix(temp_out, ncol = 240))
     temp_tibble$watershed <- i
 
-    # temp_tibble <- tibble::tibble(watershed = i, temp_out)
     floodplains <- rbind(floodplains, temp_tibble)
   }
 
