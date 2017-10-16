@@ -19,6 +19,7 @@ set_instream_area <- function(watershed, species, life_stage, flow) {
 
 # INTERNALS
 
+# a little error helper function
 instream_species_not_found_error <- function(species, ...)
   stop(paste0("species '",species,"' not found for instream habitat in this watershed", ...),
        call. = FALSE)

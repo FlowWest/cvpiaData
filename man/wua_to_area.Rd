@@ -7,6 +7,8 @@
 wua_to_area(wua, ws, sp, ls)
 }
 \arguments{
+\item{wua}{weighted usable area}
+
 \item{ws}{watershed}
 
 \item{sp}{species}

@@ -50,7 +50,7 @@ spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE)
 }
 
 #' Function converts a weighted usable area (WUA) to area in square meters
-#' @param wua
+#' @param wua weighted usable area
 #' @param ws watershed
 #' @param sp species
 #' @param ls life stage
