@@ -1,14 +1,9 @@
-make_spawning_area <- function(flows) {
-
-}
-
-
-#' Set spawning habitat area based on watershed, species, life stage and flow, this
-#' is a helper function.
+#' Set spawning habitat area based on watershed, species, life stage and flow.
 #'
 #' @param watershed one of the watersheds defined for the SIT model
-#' @param species one of 'fr', 'sr', or 'st'
-#' @param flow value used to determine habitat area
+#' @param species one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead)
+#' @param flow a flow value in cubic feet per second used to determine habitat area
+#' @return habitat area in square meters
 #' @export
 set_spawning_area <- function(watershed, species, flow) {
   f <- watershed_to_spawning_methods[watershed][[1]](species)

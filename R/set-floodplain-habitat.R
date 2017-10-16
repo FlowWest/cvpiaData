@@ -6,8 +6,9 @@ make_floodplain_input <- function() {
 #' @description based on watershed, species and flow return a WUA
 #'
 #' @param watershed a watershed defined for the SIT model
-#' @param species one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead)
-#' @param flow value of flow to return WUA for
+#' @param species one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead).
+#' @param flow a flow value in cubic feet per second.
+#' @return habitat area in square meters
 #' @export
 set_floodplain_habitat <- function(watershed, species, flow) {
   if (is.null(watershed_to_floodplain_methods[watershed][[1]]))
@@ -15,18 +16,19 @@ set_floodplain_habitat <- function(watershed, species, flow) {
 
   f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
-  area_value <- f(flow)
+  # floodplain is in acres, returned value needs to be in square meters
+  f(flow)/0.00024711
 
-  return(area_value)
 }
 
 # INTERNALS
 
-
+# a helper error stop function
 species_not_found_error <- function(species, w)
   stop(paste0("species: '",species,"' not found for floodplain habitat in this watershed"),
        call. = FALSE)
 
+# Below are all the approxfunc definitions for watersheds with a floodplain habitat
 
 # Note - this looks redundant, but it works... eventually as the package matures
 #        we can consider refactoring a lot of the repetitive code below
@@ -152,6 +154,10 @@ lower_sacramento_river_floodplain_approx <- function(species) {
 mokelumne_river_floodplain_approx <- function(species) {
   d <- cvpiaHabitat::mokelumne_river_floodplain
 
+  switch(species,
+         "fr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+         "sr" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2),
+         "st" = approxfun(d$flow_cfs, d$FR_floodplain_acres, rule = 2))
 }
 
 north_delta_floodplain_approx <- function(species) {

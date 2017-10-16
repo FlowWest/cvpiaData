@@ -9,9 +9,12 @@ set_floodplain_habitat(watershed, species, flow)
 \arguments{
 \item{watershed}{a watershed defined for the SIT model}
 
-\item{species}{one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead)}
+\item{species}{one of 'fr' (Fall Run), 'sr' (Spring Run), or 'st' (Steelhead).}
 
-\item{flow}{value of flow to return WUA for}
+\item{flow}{a flow value in cubic feet per second.}
+}
+\value{
+habitat area in square meters
 }
 \description{
 based on watershed, species and flow return a WUA

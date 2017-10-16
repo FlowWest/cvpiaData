@@ -1,4 +1,4 @@
-Package: CVPIAdata
+Package: cvpiaData
 Title: CVPIA DSM Inputs
 Version: 0.0.0.9000
 Authors@R: person("Sadie", "Gill", email = "sgill@flowwest.com", role = "cre")
