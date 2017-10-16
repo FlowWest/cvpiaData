@@ -1,6 +1,6 @@
-# CVPIAdata : A package for generating inputs to the SIT model
+# cvpiaData : A package for generating inputs to the SIT model
 
-The CVPIAdata package enables users to generate the inputs for the SIT model given a begin and end year
+The cvpiaData package enables users to generate the inputs for the SIT model given a begin and end year
   
   
 
