@@ -22,10 +22,10 @@ wua_to_area <- function(wua, watershed, species, life_stage) {
   watershed_length_row <- dplyr::filter(cvpiaHabitat::watershed_lengths,
                                         watershed == watershed,
                                         species == species,
-                                        lifestage == life_stage)
+                                        lifestage == life_stage) %>%
+    pull(feet)
 
-  watershed_length <- watershed_length_row$feet
-  watershed_length
+  watershed_length_row
 }
 
 species_not_found_error <- function(species, w)

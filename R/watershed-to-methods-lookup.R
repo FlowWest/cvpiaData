@@ -45,3 +45,7 @@ watershed_to_instream_methods <- list(
   "Upper-mid Sacramento River" = upper_mid_sacramento_instream_approx,
   "Yuba River" = yuba_river_instream_approx
 )
+
+watershed_to_spawning_methods <- list(
+  "American River" = american_river_spawning_approx
+)
