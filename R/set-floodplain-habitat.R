@@ -11,22 +11,17 @@ set_floodplain_habitat <- function(watershed, species, flow) {
 
   f <- watershed_to_floodplain_methods[watershed][[1]](species)
 
-  f(flow)
+  wua_value <- f(flow)
+  area_value <- wua_to_area(wua = wua_value,
+                            ws = watershed,
+                            sp = "Fall Run Chinook",
+                            ls = "rearing" )
+
+  return(area_value)
 }
 
 # INTERNALS
 
-# x is the wua
-# l in the length of watershed
-wua_to_area <- function(wua, watershed, species, life_stage) {
-  watershed_length_row <- dplyr::filter(cvpiaHabitat::watershed_lengths,
-                                        watershed == watershed,
-                                        species == species,
-                                        lifestage == life_stage) %>%
-    pull(feet)
-
-  watershed_length_row
-}
 
 species_not_found_error <- function(species, w)
   stop(paste0("species: '",species,"' not found for floodplain habitat in this watershed"),
