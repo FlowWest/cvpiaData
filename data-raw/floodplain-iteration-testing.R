@@ -10,6 +10,8 @@ d <- CVPIAdata::watershed_ordering %>% dplyr::pull(watershed)
 test_out <- list()
 
 # this iteration makes it such that columns are months (Oct-Sep) rows are years 1921-2003
+# each of the watersheds are within an element of the resulting list, calling bind_rows
+# will collapse them down to a single dataframe
 for (i in seq_along(d)){
   # so yeah all these tribs dont have a flow to area relationship
   if (d[i] == "Antelope Creek") next
