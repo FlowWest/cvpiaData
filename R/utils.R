@@ -15,37 +15,3 @@ create_SIT_array <- function(input) {
   return(output)
 
 }
-
-#' Prepare data for use with create_SIT_array
-#' @description takes tidy data and transforms to dataframe ready to be placed in data structure for model input
-#' @name spread_for_array
-#' @param df a dataframe from CVPIAdata package
-#' @param variable variable of interest from df ('flow', 'diversion', 'prop_diversion', 'avg_tmp')
-#' @param start_year int number between 1922 and 2003
-#' @param end_year int number between 1922 and 2003
-#' @param deltas bol TRUE if retrieving data for deltas, FALSE for all other reaches
-#' @return dataframe with dim(number of reaches, 240)
-
-spread_for_array <- function(df, variable, start_year, end_year, deltas = FALSE) {
-  if (deltas) {
-    df %>%
-      dplyr::filter(watershed %in% c('SC.Delta', 'N.Delta')) %>%
-      tidyr::unite(date, year, month) %>%
-      dplyr::select_('watershed', 'date', variable) %>%
-      tidyr::spread_('date', variable) %>%
-      dplyr::left_join(CVPIAdata::watershed_ordering) %>%
-      dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order)
-  } else {
-    df %>%
-      dplyr::filter(!(watershed %in% c('SC.Delta', 'N.Delta'))) %>%
-      tidyr::unite(date, year, month) %>%
-      dplyr::select_('watershed', 'date', variable) %>%
-      tidyr::spread_('date', variable) %>%
-      dplyr::left_join(CVPIAdata::watershed_ordering) %>%
-      dplyr::arrange(order) %>%
-      dplyr::select(-watershed, -order)
-  }
-
-}
-
