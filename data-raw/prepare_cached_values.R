@@ -54,8 +54,14 @@ prop_Q_dcc <- cvpiaFlow::propQdcc %>%
 
 use_data(prop_Q_dcc)
 
-returnQ <- cvpiaFlow::return_flow %>% 
-  select(watershed, starts_with('198'), starts_with('199'))
+returnQ <- cvpiaFlow::return_flow %>%
+  mutate(year = year(date)) %>% 
+  filter(year >= 1980, year <= 1999) %>% 
+  select(watershed, year, retQ) %>% 
+  spread(year, retQ) %>% 
+  left_join(cvpiaData::watershed_ordering) %>%
+  arrange(order) %>% 
+  select(-order)
 
 use_data(returnQ, overwrite = TRUE)
 
@@ -64,7 +70,7 @@ upsac_flow <- cvpiaFlow::upsacQ %>%
   filter(year >= 1980, year < 2000) %>% 
   select(-date, -upsacQcfs) %>% 
   spread(year, upsacQcms) %>% 
-  select(-month)
+  select(-month) 
 
 use_data(upsac_flow)
 
