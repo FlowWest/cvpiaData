@@ -87,3 +87,44 @@ bypass_over_top <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv') %>%
   filter(year >= 1980 & year <= 1989)
 
 use_data(bypass_over_top, overwrite = TRUE)
+
+# delta-----------
+dl_prop_div <- cvpiaFlow::delta_flows %>% 
+  filter(year(date) >= 1980, year(date) <= 1999) %>% 
+  select(date, n_dlt_prop_div, s_dlt_prop_div) %>% 
+  gather(delta, prop_div, -date) %>% 
+  spread(date, prop_div)
+
+dlt_divers <- array(NA, dim = c(12, 20, 2))
+dlt_divers[ , , 1] <- as.matrix(dl_prop_div[1, -1])
+dlt_divers[ , , 2] <- as.matrix(dl_prop_div[2, -1])
+
+devtools::use_data(dlt_divers)
+
+dl_tot_div <- cvpiaFlow::delta_flows %>% 
+  filter(year(date) >= 1980, year(date) <= 1999) %>% 
+  select(date, n_dlt_div_cms, s_dlt_div_cms) %>% 
+  gather(delta, tot_div, -date) %>% 
+  spread(date, tot_div)
+
+dlt_divers_tot <- array(NA, dim = c(12, 20, 2))
+dlt_divers_tot[ , , 1] <- as.matrix(dl_tot_div[1, -1])
+dlt_divers_tot[ , , 2] <- as.matrix(dl_tot_div[2, -1])
+
+devtools::use_data(dlt_divers_tot)
+
+cvpiaFlow::delta_flows %>% 
+  filter(year(date) >= 1980, year(date) <= 1999) %>% glimpse()
+
+# flow at freeport
+freeportQcms <- cvpiaFlow::freeportQ %>% 
+  mutate(year = year(date), month = month(date)) %>% 
+  filter(year >= 1980, year <= 1999) %>% 
+  select(-date, -freeportQcfs) %>%
+  spread(year, freeportQcms) %>% 
+  select(-month) 
+
+devtools::use_data(freeportQcms)
+
+cross_channel_gates <- cvpiaFlow::delta_cross_channel_closed
+use_data(cross_channel_gates)  

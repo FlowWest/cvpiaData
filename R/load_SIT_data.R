@@ -12,21 +12,22 @@ load_SIT_data <- function(scenario = 'baseline') {
     inputs <- list(inps = cvpiaData::misc_data,
          p.diver = cvpiaData::prop_diversion, 
          t.diver = cvpiaData::total_diversion,
-         dlt.divers = NULL, 
-         dlt.divers.tot = NULL,
+         dlt.divers = cvpiaData::dlt_divers, 
+         dlt.divers.tot = cvpiaData::dlt_divers_tot,
          juv.tmp = NULL, 
          juv.tmp.dlt = NULL, 
          Dlt.inf = NULL,
          prop.Q.yolo = cvpiaData::prop_Q_yolo, 
          prop.Q.sutter = cvpiaData::prop_Q_sutter,
-         prop.Q.dcc = cvpiaData::prop_Q_dcc, #prop sac flow at georgiana slough and delta cross channel
          IChab = NULL, 
          DLThab = NULL, 
          floodP = NULL, 
-         gate.top = cvpiaData::bypass_over_top, 
+         gate.top = cvpiaData::bypass_over_top, # replaced gate.top
          DegDay = NULL,
          retQ = cvpiaData::returnQ, 
          upSacQ = cvpiaData::upsac_flow,
+         freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
+         dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
          egg.tmp.eff = NULL)
   }
   return(inputs)
