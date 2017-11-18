@@ -66,20 +66,110 @@
 "cross_channel_gates"
 
 #' Delta Proportion Diverted
-#' @description The proportion of delta inflow diverted
+#' @description The proportion of delta inflow diverted from 1980-1999.
 #' 
 #' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
 #' 
-#' @details 
 #' [ , , 1] North Delta
 #' 
 #' [ , , 2] South Delta
 #' 
+#' @details 
 #' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
 #'
 #' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
 #' below Vernalis.
 #' 
-#' @source metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the cvpiaFlow package
 #' 
 "dlt_divers"
+
+#' Delta Total Diverted
+#' @description The total diverted of delta inflow in cubic meters per second from 1980-1999.
+#' 
+#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' 
+#' [ , , 1] North Delta
+#' 
+#' [ , , 2] South Delta
+#' 
+#' @details 
+#' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
+#'
+#' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
+#' below Vernalis.
+#' 
+#' @source Additional metadata contained in the cvpiaFlow package
+#' 
+"dlt_divers_tot"
+
+#' Delta Inflow
+#' @description The delta inflow in cubic meters per second from 1980-1999.
+#' 
+#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' 
+#' [ , , 1] North Delta
+#' 
+#' [ , , 2] South Delta
+#' 
+#' @details 
+#' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
+#'
+#' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
+#' below Vernalis.
+#' 
+#' @source Additional metadata contained in the cvpiaFlow package
+#' 
+"dlt_inflow"
+
+#' Flow at Freeport
+#' @description The inflow at Freeport in cubic meters per second from 1980-1999.
+#' 
+#' @format A dataframe with 12 rows and 20 variables
+#' 
+#' @details 
+#' Each row represents a month, each column a year from 1980-1999. 
+#' This data is used to route fish into the delta.
+#' 
+#' @source Additional metadata contained in the cvpiaFlow package
+#' 
+"freeportQcms"
+
+#' Upper Sacramento Flows
+#' @description Flows at bend bridge in cubic meters per second from 1980-1999.
+#' 
+#' @format A dataframe with 12 rows and 20 variables
+#' 
+#' @details 
+#' Each row represents a month, each column a year from 1980-1999. 
+#' This data is used to route fish into the delta.
+#' 
+#' @source Additional metadata contained in the cvpiaFlow package
+#' 
+"upsac_flow"
+
+#' Miscellaneous Model Inputs
+#' @description Data used within the salmon population model that have a single value per watershed.
+#' 
+#' @format a dataframe with 31 rows and 15 variables
+#' \describe{
+#' \item{order}{Model consistent ordering of watersheds}
+#' \item{watershed}{Name of watershed within CVPIA}
+#' \item{init.adult}{Intial adult escapement used for the simulation}
+#' \item{SCDELT}{Boolean value: 1 if the watershed feeds into the South Delta}
+#' \item{hatch.alloc}{The proportion of hatchery fish spawning}
+#' \item{TISD}{Boolean value: 1 if the watershed can enter Sutter Bypass}
+#' \item{YOLO}{Boolean value: 1 if the watershed can enter Yolo Bypass}
+#' \item{p.tempMC2025}{Proportion of time from October to November in which the temperature is between 20°C and 25°C}
+#' \item{A.HARV}{Proportion of adults harvested from golden gate until they reach their natal shed}
+#' \item{P.scour.nst}{Estimated Probability of nests scoured}
+#' \item{P.strand.early}{Estimated Probability of stranding early}
+#' \item{P.strand.late}{Estimated Probability of stranding late}
+#' \item{High.pred}{Estimated Probability of high predation during rearing}
+#' \item{contact}{Number of contact points, estimated using PAD}
+#' \item{prop.nat}{Proportion natural spawners}
+#' }
+#' 
+#' @source ?
+#' 
+"misc_data"

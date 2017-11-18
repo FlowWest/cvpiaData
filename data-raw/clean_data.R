@@ -8,7 +8,7 @@ misc_data <- read_csv('data-raw/All inputs.csv') %>%
          TISD, YOLO, p.tempMC2025, A.HARV, P.scour.nst, P.strand.early, P.strand.late, 
          High.pred, contact, prop.nat)
 
-use_data(misc_data, misc_data)
+use_data(misc_data, overwrite = TRUE)
 
 # init.adult update for new date range TODO
 # SCDELT
