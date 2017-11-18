@@ -89,6 +89,7 @@ bypass_over_top <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv') %>%
 use_data(bypass_over_top, overwrite = TRUE)
 
 # delta-----------
+# delta prop diverted
 dl_prop_div <- cvpiaFlow::delta_flows %>% 
   filter(year(date) >= 1980, year(date) <= 1999) %>% 
   select(date, n_dlt_prop_div, s_dlt_prop_div) %>% 
@@ -101,6 +102,7 @@ dlt_divers[ , , 2] <- as.matrix(dl_prop_div[2, -1])
 
 devtools::use_data(dlt_divers)
 
+# delta total diversions
 dl_tot_div <- cvpiaFlow::delta_flows %>% 
   filter(year(date) >= 1980, year(date) <= 1999) %>% 
   select(date, n_dlt_div_cms, s_dlt_div_cms) %>% 
@@ -113,10 +115,20 @@ dlt_divers_tot[ , , 2] <- as.matrix(dl_tot_div[2, -1])
 
 devtools::use_data(dlt_divers_tot)
 
-cvpiaFlow::delta_flows %>% 
-  filter(year(date) >= 1980, year(date) <= 1999) %>% glimpse()
+# delta inflows
+dl_inflow <- cvpiaFlow::delta_flows %>% 
+  filter(year(date) >= 1980, year(date) <= 1999) %>% 
+  select(date, n_dlt_inflow_cms, s_dlt_inflow_cms) %>% 
+  gather(delta, inflow, -date) %>% 
+  spread(date, inflow)
 
-# flow at freeport
+dlt_inflow <- array(NA, dim = c(12, 20, 2))
+dlt_inflow[ , , 1] <- as.matrix(dl_inflow[1, -1])
+dlt_inflow[ , , 2] <- as.matrix(dl_inflow[2, -1])
+  
+devtools::use_data(dlt_inflow)
+
+# flow at freeport 
 freeportQcms <- cvpiaFlow::freeportQ %>% 
   mutate(year = year(date), month = month(date)) %>% 
   filter(year >= 1980, year <= 1999) %>% 
