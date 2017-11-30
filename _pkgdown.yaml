@@ -11,6 +11,26 @@ home:
   - text: Bureau of Reclamation's CVPIA website
     href: https://www.usbr.gov/mp/cvpia/
 
+reference:
+- title: Functions
+  desc: Functions that prepare and data for use with the model.
+  contents:
+  - load_SIT_data
+  - create_SIT_array
+- title: Model Formated Inputs
+  desc: Datasets filtered and formated to run SIT scenario
+  contents:
+  - bypass_over_top
+  - cross_channel_gates
+  - dlt_divers
+  - dlt_divers_tot
+  - dlt_inflow
+  - freeportQcms
+  - misc_data
+  - prop_Q_bypass
+  - upsac_flow
+  - watershed_ordering
+
 navbar:
   type: default
   left:
