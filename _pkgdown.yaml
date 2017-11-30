@@ -1,8 +1,8 @@
 title: cvpiaData
 url: https://flowwest.github.io/cvpiaData/
-  template:
+template:
   params:
-  bootswatch: paper
+    bootswatch: paper
 
 home:
   links:
@@ -10,38 +10,13 @@ home:
     href: https://www.fws.gov/lodi/anadromous_fish_restoration/afrp_index.htm
   - text: Bureau of Reclamation's CVPIA website
     href: https://www.usbr.gov/mp/cvpia/
-  
-reference:
-- title: Tributary Datasets
-  desc: 
-  contents:
-  - total_diversion
-  - prop_diversion
-  - returnQ
-  - misc_data
-- title: Bypass Datasets
-  desc: Yolo and Sutter bypass datasets
-  contents:
-  - prop_Q_bypasses
-  - prop_Q_sutter
-  - prop_Q_yolo
-  - bypass_over_top
-- title: Delta Data Sets
-  desc: Delta related inputs
-  contents:
-  - dlt_divers
-  - dlt_divers_tot
-  - cross_channel_gates
-  - freeportQcms
-  - prop_Q_dcc
-  - upsac_flow
-  - watershed_ordering
 
 navbar:
   type: default
   left:
   - text: 'Reference'
-  href: reference/index.html
+    href: reference/index.html
   right:
   - icon: fa-github fa-lg
-  href: https://github.com/flowwest/cvpiaData
+    href: https://github.com/flowwest/cvpiaData
+
