@@ -49,16 +49,45 @@
       
       </header><div class="row">
   <div class="contents col-md-9">
-    <div id="cvpiadata-a-package-for-generating-inputs-to-the-sit-model" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#cvpiadata-a-package-for-generating-inputs-to-the-sit-model" class="anchor"></a>cvpiaData : A package for generating inputs to the SIT model</h1></div>
-<p>The cvpiaData package enables users to generate the inputs for the SIT model given a scenario</p>
-<div id="cvpiadata-functions" class="section level3">
+    
+<hr>
+<p><img src="cvpia_logo.png" align="right" width="40%"></p>
+<div id="inputs-for-cvpia-sit-salmon-poplation-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#cvpiadata-functions" class="anchor"></a>CVPIAdata Functions:</h3>
-<p>load_SIT_data</p>
+<a href="#inputs-for-cvpia-sit-salmon-poplation-model" class="anchor"></a>Inputs for CVPIA SIT Salmon Poplation Model</h3>
+<blockquote>
+<p>place holder<br><em>The cvpiaData package enables users to generate the inputs for the SIT model given a scenario.</em></p>
+</blockquote>
+<div id="installation" class="section level4">
+<h4 class="hasAnchor">
+<a href="#installation" class="anchor"></a>Installation</h4>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages("devtools")</span>
+devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/devtools/topics/install_github">install_github</a></span>(<span class="st">"FlowWest/cvpiaData"</span>)</code></pre></div>
+</div>
+<div id="usage" class="section level4">
+<h4 class="hasAnchor">
+<a href="#usage" class="anchor"></a>Usage</h4>
+<p>This package provides input data in formats ready for the Salmon Population Model. There are several other data packages that feed into this package:</p>
+<ul>
+<li><a href="https://flowwest.github.io/cvpiaFlow/"><code>cvpiaFlow</code></a></li>
+<li><a href="https://flowwest.github.io/cvpiaHabitat/"><code>cvpiaHabitat</code></a></li>
+<li><a href="https://flowwest.github.io/cvpiaTemperature/"><code>cvpiaTemperature</code></a></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cached values</span>
+<span class="kw">data</span>(<span class="dt">package =</span> <span class="st">'cvpiaData'</span>)
+
+<span class="co"># set data for model scenaro</span>
+<span class="kw"><a href="reference/load_SIT_data.html">load_SIT_data</a></span>(<span class="dt">scenario =</span> <span class="st">'baseline'</span>)</code></pre></div>
+</div>
+<div id="about-cvpia-sit-data-management-strategy" class="section level4">
+<h4 class="hasAnchor">
+<a href="#about-cvpia-sit-data-management-strategy" class="anchor"></a>About CVPIA SIT Data Management Strategy</h4>
+<blockquote>
+<p>place holder</p>
+</blockquote>
 </div>
 </div>
+
   </div>
 
   <div class="col-md-3" id="sidebar">
