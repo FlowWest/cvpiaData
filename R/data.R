@@ -6,13 +6,12 @@
 #'   \item{watershed}{The name of the stream reach}
 #' }
 #'
-#' @source James T. Peterson
+#' @source James T. Peterson \email{jt.peterson@@oregonstate.edu}
 #'
 "watershed_ordering"
 
 #' Proportion Flow at Sutter and Yolo Bypasses
 #' @description The proportion of Lower Sacramento River flow at Sutter and Yolo Bypasses
-#' Sutter data comes from Mike Urkov, Yolo data comes from Mike Wright
 #'
 #'@format A data frame with 1021 rows and 4 variables:
 #' \describe{
@@ -22,12 +21,17 @@
 #'   \item{prop_Q_sutter}{Proportion of Lower Sacramento River flow at Sutter Bypass}
 #' }
 #'
-#' @source Mike Urkov, Mike Wright
+#' @source
+#' \itemize{
+#'   \item \strong{Data Wrangling:} Sadie Gill  \email{sgill@@flowwest.com}
+#'   \item \strong{Sutter Data Compiled By:} Mike Urkov \email{mike.urkov@@gmail.com}
+#'   \item \strong{Yolo Data Compiled By:} Michael Wright \email{mwright@@usbr.gov}
+#' }
 "prop_Q_bypass"
 
 #' Sutter and Yolo Bypass Over Topped
-#' @description  Binary record of the bypasses over topped in October or November based on CALSIMS flows
-#' data comes from Mike Urkov
+#' @description  Binary record of the bypasses over topped in October or November based on CALSIM flows
+#' data compiled by Mike Urkov
 #'
 #' @format A data frame with 82 rows and 3 variables:
 #' \describe{
@@ -36,7 +40,7 @@
 #'    \item{yolo}{1 = bypass over topped in October or November}
 #' }
 #'
-#' @source Mike Urkov
+#' @source Mike Urkov \email{mike.urkov@@gmail.com}
 "bypass_over_top"
 
 #' Delta Cross Channel Gates - Days Closed
@@ -80,7 +84,7 @@
 #' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
 #' below Vernalis.
 #' 
-#' @source Additional metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 #' 
 "dlt_divers"
 
@@ -99,7 +103,7 @@
 #' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
 #' below Vernalis.
 #' 
-#' @source Additional metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 #' 
 "dlt_divers_tot"
 
@@ -118,7 +122,7 @@
 #' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
 #' below Vernalis.
 #' 
-#' @source Additional metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 #' 
 "dlt_inflow"
 
@@ -131,7 +135,7 @@
 #' Each row represents a month, each column a year from 1980-1999. 
 #' This data is used to route fish into the delta.
 #' 
-#' @source Additional metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 #' 
 "freeportQcms"
 
@@ -144,7 +148,7 @@
 #' Each row represents a month, each column a year from 1980-1999. 
 #' This data is used to route fish into the delta.
 #' 
-#' @source Additional metadata contained in the cvpiaFlow package
+#' @source Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 #' 
 "upsac_flow"
 
@@ -170,6 +174,9 @@
 #' \item{prop.nat}{Proportion natural spawners}
 #' }
 #' 
-#' @source ?
+#' @source 
+#' Various  \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
+#' 
+#' \strong{Compiled by:} James T. Peterson \email{jt.peterson@@oregonstate.edu}
 #' 
 "misc_data"

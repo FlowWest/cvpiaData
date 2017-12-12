@@ -10,7 +10,7 @@
   \item{watershed}{The name of the stream reach}
 }}
 \source{
-James T. Peterson
+James T. Peterson \email{jt.peterson@oregonstate.edu}
 }
 \usage{
 watershed_ordering

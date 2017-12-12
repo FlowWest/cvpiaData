@@ -12,13 +12,16 @@
   \item{prop_Q_sutter}{Proportion of Lower Sacramento River flow at Sutter Bypass}
 }}
 \source{
-Mike Urkov, Mike Wright
+\itemize{
+  \item \strong{Data Wrangling:} Sadie Gill  \email{sgill@flowwest.com}
+  \item \strong{Sutter Data Compiled By:} Mike Urkov \email{mike.urkov@gmail.com}
+  \item \strong{Yolo Data Compiled By:} Michael Wright \email{mwright@usbr.gov}
+}
 }
 \usage{
 prop_Q_bypass
 }
 \description{
 The proportion of Lower Sacramento River flow at Sutter and Yolo Bypasses
-Sutter data comes from Mike Urkov, Yolo data comes from Mike Wright
 }
 \keyword{datasets}

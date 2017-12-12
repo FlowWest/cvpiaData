@@ -1,7 +1,7 @@
 #' Load SIT Model Inputs for Years 1980-1999 
 #' @description returns list of data values used by model
 #' @name load_SIT_data
-#' @param scenario default 'baseline', move scenarios to come
+#' @param scenario default 'baseline', more scenarios to come
 #' @return list of model inputs
 #' @export
 

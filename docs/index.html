@@ -53,12 +53,12 @@
     
 <hr>
 <p><img src="cvpia_logo.png" align="right" width="40%"></p>
-<div id="inputs-for-cvpia-sit-salmon-poplation-model" class="section level3">
+<div id="inputs-for-cvpia-sit-salmon-population-model" class="section level3">
 <h3 class="hasAnchor">
-<a href="#inputs-for-cvpia-sit-salmon-poplation-model" class="anchor"></a>Inputs for CVPIA SIT Salmon Poplation Model</h3>
-<blockquote>
-<p>place holder<br><em>The cvpiaData package enables users to generate the inputs for the SIT model given a scenario.</em></p>
-</blockquote>
+<a href="#inputs-for-cvpia-sit-salmon-population-model" class="anchor"></a>Inputs for CVPIA SIT Salmon Population Model</h3>
+<p><em>This website supports inputs for the CVPIA Salmon Population Model, specifically those related to flows, habitat, and temperature.</em></p>
+<p>The cvpiaData package enables users to load inputs formatted for use directly into the Salmon Population Model. Additional supporting data packages are provided below to allow model users access to review metadata, assumptions, and points of contact regarding the datasets that created the model inputs.</p>
+<p>Both the the Salmon Population Model and data packages are written in R, an open source programming language commonly used by statisticians, data scientists, and other professional modelers. Some familiarity with R will be necessary to fully use the data packages on this page. Additional packages may be generated in the future to support various scenarios under review by the CVPIA Science Integration Team.</p>
 <div id="installation" class="section level4">
 <h4 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h4>
@@ -68,17 +68,19 @@ devtools<span class="op">::</span><span class="kw"><a href="http://www.rdocument
 <div id="usage" class="section level4">
 <h4 class="hasAnchor">
 <a href="#usage" class="anchor"></a>Usage</h4>
-<p>This package provides input data in formats ready for the Salmon Population Model. There are several other data packages that feed into this package:</p>
+<p>This package provides input data in formats ready for the Salmon Population Model. There are three unique data packages that feed into this package:</p>
 <ul>
 <li><a href="https://flowwest.github.io/cvpiaFlow/"><code>cvpiaFlow</code></a></li>
 <li><a href="https://flowwest.github.io/cvpiaHabitat/"><code>cvpiaHabitat</code></a></li>
 <li><a href="https://flowwest.github.io/cvpiaTemperature/"><code>cvpiaTemperature</code></a></li>
 </ul>
+<p>These separate data packages are available for standalone use in R. The above links are available to review package documentation including metadata on the sources, assumptions, and points of contact for further questions.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># cached values</span>
 <span class="kw">data</span>(<span class="dt">package =</span> <span class="st">'cvpiaData'</span>)
 
 <span class="co"># set data for model scenaro</span>
 <span class="kw"><a href="reference/load_SIT_data.html">load_SIT_data</a></span>(<span class="dt">scenario =</span> <span class="st">'baseline'</span>)</code></pre></div>
+<p>The SIT may develop additional scenarios to evaluate management actions or to test model assumptions. As appropriate, those scenarios will be documented here.</p>
 </div>
 <div id="about-cvpia-sit-data-management-strategy" class="section level4">
 <h4 class="hasAnchor">

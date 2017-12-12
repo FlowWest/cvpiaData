@@ -17,8 +17,8 @@ reference:
   contents:
   - load_SIT_data
   - create_SIT_array
-- title: Model Formated Inputs
-  desc: Datasets filtered and formated to run SIT scenario
+- title: Model Formatted Inputs
+  desc: Datasets filtered and formatted to run SIT scenario
   contents:
   - bypass_over_top
   - cross_channel_gates

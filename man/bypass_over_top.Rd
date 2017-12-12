@@ -11,13 +11,13 @@
    \item{yolo}{1 = bypass over topped in October or November}
 }}
 \source{
-Mike Urkov
+Mike Urkov \email{mike.urkov@gmail.com}
 }
 \usage{
 bypass_over_top
 }
 \description{
-Binary record of the bypasses over topped in October or November based on CALSIMS flows
-data comes from Mike Urkov
+Binary record of the bypasses over topped in October or November based on CALSIM flows
+data compiled by Mike Urkov
 }
 \keyword{datasets}

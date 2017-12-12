@@ -10,7 +10,7 @@
 
 [ , , 2] South Delta}
 \source{
-Additional metadata contained in the cvpiaFlow package
+Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 }
 \usage{
 dlt_divers

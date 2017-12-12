@@ -6,7 +6,7 @@
 \title{Upper Sacramento Flows}
 \format{A dataframe with 12 rows and 20 variables}
 \source{
-Additional metadata contained in the cvpiaFlow package
+Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
 }
 \usage{
 upsac_flow

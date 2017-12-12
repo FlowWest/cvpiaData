@@ -7,7 +7,7 @@
 load_SIT_data(scenario = "baseline")
 }
 \arguments{
-\item{scenario}{default 'baseline', move scenarios to come}
+\item{scenario}{default 'baseline', more scenarios to come}
 }
 \value{
 list of model inputs
