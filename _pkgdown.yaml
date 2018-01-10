@@ -15,7 +15,7 @@ reference:
 - title: Functions
   desc: Functions that prepare and data for use with the model.
   contents:
-  - load_SIT_data
+  - load_baseline_data
   - create_SIT_array
 - title: Model Formatted Inputs
   desc: Datasets filtered and formatted to run SIT scenario
@@ -27,9 +27,12 @@ reference:
   - dlt_inflow
   - freeportQcms
   - misc_data
-  - prop_Q_bypass
+  - prop_Q_yolo
+  - prop_Q_sutter
   - upsac_flow
   - watershed_ordering
+  - prop_diversion
+  - total_diversion
 
 navbar:
   type: default

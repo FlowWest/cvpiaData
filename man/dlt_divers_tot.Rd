@@ -9,9 +9,6 @@
 [ , , 1] North Delta
 
 [ , , 2] South Delta}
-\source{
-Additional metadata contained in the \href{https://flowwest.github.io/cvpiaFlow/}{cvpiaFlow} package
-}
 \usage{
 dlt_divers_tot
 }
@@ -23,5 +20,11 @@ The North Delta is defined as the area west of and including the Sacramento Rive
 
 The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
 below Vernalis.
+
+For more details see:
+\itemize{
+  \item use this link within R \code{\link[cvpiaFlow]{delta_flows}}
+  \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/delta_flows.html}{link} if in a web browser
+}
 }
 \keyword{datasets}

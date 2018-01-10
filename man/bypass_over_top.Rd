@@ -18,6 +18,5 @@ bypass_over_top
 }
 \description{
 Binary record of the bypasses over topped in October or November based on CALSIM flows
-data compiled by Mike Urkov
 }
 \keyword{datasets}

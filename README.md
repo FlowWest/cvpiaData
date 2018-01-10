@@ -29,8 +29,8 @@ These separate data packages are available for standalone use in R. The above li
 # cached values
 data(package = 'cvpiaData')
 
-# set data for model scenaro
-load_SIT_data(scenario = 'baseline')
+# load data for model 
+load_baseline_data()
 ```
 
 The SIT may develop additional scenarios to evaluate management actions or to test model assumptions. As appropriate, those scenarios will be documented here.
@@ -38,3 +38,6 @@ The SIT may develop additional scenarios to evaluate management actions or to te
 #### About CVPIA SIT Data Management Strategy    
 The CVPIA SIT Data Management Strategy is based on concepts described by Hadley Wickham in the book, R for Data Science which were developed by Hadley in an article for the Journal of Statistical Software entitled “Tidy Data” [(August 2014, Volume 59, Issue 10).](https://www.jstatsoft.org/index.php/jss/article/view/v059i10/v59i10.pdf) The Strategy intends to develop tidy datasets that are easy to manipulate, model and visualize. The work of transforming messy datasets into tidy structure helps domain experts focus on the key questions facing the CVPIA. 
 
+
+<style>.logo{margin-top: 40px;}</style>
+<div class = 'logo'>Data Assembled and Maintained by <a href = "http://www.flowwest.com/" target = "_blank"> <img src="TransLogoTreb.png" width="150px"/></div>
