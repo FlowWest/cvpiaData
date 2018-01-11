@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sutter and Yolo Bypass Over Topped — bypass_over_top • cvpiaData</title>
+<title>Return Flow — returnQ • cvpiaData</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -74,26 +74,27 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sutter and Yolo Bypass Over Topped</h1>
+    <h1>Return Flow</h1>
     </div>
 
     
-    <p>Binary record of the bypasses over topped in October or November based on CALSIM flows</p>
+    <p>The proportion flows at tributary junction coming from natal watershed using October CALSIM II flows 
+from 1980-1999.</p>
     
 
-    <pre class="usage"><span class='no'>bypass_over_top</span></pre>
+    <pre class="usage"><span class='no'>returnQ</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 82 rows and 3 variables:</p><dl class='dl-horizontal'>
-   <dt>year</dt><dd><p>Year 1921-2002</p></dd>
-   <dt>tils.ove</dt><dd><p>1 = sutter bypass over topped in October or November</p></dd>
-   <dt>yolo.ovr</dt><dd><p>1 = yolo bypass over topped in October or November</p></dd>
-</dl>
+    <p>A dataframe with 12 rows and 20 variables</p>
     
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>Mike Urkov <a href='mailto:mike.urkov@gmail.com'>mike.urkov@gmail.com</a></p>
+    <p>Each row represents a month, each column a year from 1980-1999.</p>
+<p>For more details see:</p><ul>
+<li><p>use this link within R <code><a href='http://www.rdocumentation.org/packages/cvpiaFlow/topics/return_flow'>return_flow</a></code></p></li>
+<li><p>use this <a href='https://flowwest.github.io/cvpiaFlow/reference/return_flow.html'>link</a> if in a web browser</p></li>
+</ul>
     
 
   </div>
@@ -103,7 +104,7 @@
       
       <li><a href="#format">Format</a></li>
 
-      <li><a href="#source">Source</a></li>
+      <li><a href="#details">Details</a></li>
           </ul>
 
   </div>

@@ -7,8 +7,8 @@
 \format{A data frame with 82 rows and 3 variables:
 \describe{
    \item{year}{Year 1921-2002}
-   \item{sutter}{1 = bypass over topped in October or November}
-   \item{yolo}{1 = bypass over topped in October or November}
+   \item{tils.ove}{1 = sutter bypass over topped in October or November}
+   \item{yolo.ovr}{1 = yolo bypass over topped in October or November}
 }}
 \source{
 Mike Urkov \email{mike.urkov@gmail.com}

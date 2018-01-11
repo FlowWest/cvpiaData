@@ -38,8 +38,8 @@
 #' @format A data frame with 82 rows and 3 variables:
 #' \describe{
 #'    \item{year}{Year 1921-2002}
-#'    \item{sutter}{1 = bypass over topped in October or November}
-#'    \item{yolo}{1 = bypass over topped in October or November}
+#'    \item{tils.ove}{1 = sutter bypass over topped in October or November}
+#'    \item{yolo.ovr}{1 = yolo bypass over topped in October or November}
 #' }
 #'
 #' @source Mike Urkov \email{mike.urkov@@gmail.com}
@@ -223,3 +223,20 @@
 #'  
 #' 
 "total_diversion"
+
+#' Return Flow
+#' @description The proportion flows at tributary junction coming from natal watershed using October CALSIM II flows 
+#' from 1980-1999.
+#' 
+#' @format A dataframe with 12 rows and 20 variables
+#' 
+#' @details 
+#' Each row represents a month, each column a year from 1980-1999. 
+#' 
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaFlow]{return_flow}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/return_flow.html}{link} if in a web browser
+#' } 
+#' 
+"returnQ"

@@ -45,15 +45,6 @@ prop_Q_yolo <- cvpiaFlow::propQbypass %>%
 
 use_data(prop_Q_yolo)
 
-prop_Q_dcc <- cvpiaFlow::propQdcc %>% 
-  mutate(year = year(date), month = month(date)) %>% 
-  select(-date) %>%
-  filter(year >= 1980, year < 2000) %>% 
-  spread(year, propQdcc) %>% 
-  select(-month)
-
-use_data(prop_Q_dcc)
-
 returnQ <- cvpiaFlow::return_flow %>%
   mutate(year = year(date)) %>% 
   filter(year >= 1980, year <= 1999) %>% 

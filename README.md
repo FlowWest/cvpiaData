@@ -13,6 +13,12 @@ Both the the Salmon Population Model and data packages are written in  R, an ope
 
 ``` r
 # install.packages("devtools")
+
+# install these three supporting packages before installing cvpiaData
+devtools::install_github("FlowWest/cvpiaFlow")
+devtools::install_github("FlowWest/cvpiaTemperature")
+devtools::install_github("FlowWest/cvpiaHabitat")
+
 devtools::install_github("FlowWest/cvpiaData")
 ```  
 
