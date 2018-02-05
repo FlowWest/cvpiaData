@@ -81,8 +81,17 @@
     <p>returns list of data values used by model</p>
     
 
-    <pre class="usage"><span class='fu'>load_baseline_data</span>()</pre>
-        
+    <pre class="usage"><span class='fu'>load_baseline_data</span>(<span class='no'>species</span>)</pre>
+    
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>species</th>
+      <td><p>Call function with one of the following options to load species specific model inputs: 'fall', 'winter', 'spring', 'steelhead'</p></td>
+    </tr>
+    </table>
+    
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>list of model inputs</p>
@@ -115,12 +124,12 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># place these two lines within the SIT Salmon Population Model function to load the data</span>
-<span class='no'>all_inputs</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>cvpiaData</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data'>load_baseline_data</a></span>()
-<span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; &lt;environment: 0x5131330&gt;</div></pre>
+<span class='no'>all_inputs</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>cvpiaData</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data'>load_baseline_data</a></span>()</div><div class='output co'>#&gt; <span class='error'>Error in species %in% c("fall", "winter", "spring", "steelhead"): argument "species" is missing, with no default</span></div><div class='input'><span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; <span class='error'>Error in list2env(all_inputs, envir = environment()): object 'all_inputs' not found</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
+      <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
 

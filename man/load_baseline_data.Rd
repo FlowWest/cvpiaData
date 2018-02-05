@@ -4,7 +4,10 @@
 \alias{load_baseline_data}
 \title{Load SIT Model Inputs for Years 1980-1999}
 \usage{
-load_baseline_data()
+load_baseline_data(species)
+}
+\arguments{
+\item{species}{Call function with one of the following options to load species specific model inputs: 'fall', 'winter', 'spring', 'steelhead'}
 }
 \value{
 list of model inputs

@@ -65,17 +65,18 @@ upsac_flow <- cvpiaFlow::upsacQ %>%
 
 use_data(upsac_flow)
 
+d <- 1:12
+names(d) <- month.name
 
 # yolo and sutter(includes tisdale) overtopping
-# flow in bypass oct-nov for adults is 1
-bypass_over_top <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv') %>% 
+# flow in bypass for adults is 1
+bypass_over_top <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv') %>%
   separate(month_year, c('month', 'year'), sep = ' ') %>%
-  filter(month %in% c('October', 'November')) %>%
   mutate(sutter = ifelse(sutter > 0, 1, 0),
-                yolo = ifelse(yolo > 0, 1, 0)) %>%
-  group_by(year) %>%
-  summarise(tils.ove = max(sutter), yolo.ovr = max(yolo)) %>% 
-  filter(year >= 1980 & year <= 1989)
+                yolo = ifelse(yolo > 0, 1, 0),
+         month = d[month]) %>%
+  filter(year >= 1979 & year <= 1989) %>% 
+  arrange(year, month)
 
 use_data(bypass_over_top, overwrite = TRUE)
 
