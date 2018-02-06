@@ -47,7 +47,7 @@ use_data(prop_Q_yolo)
 
 returnQ <- cvpiaFlow::return_flow %>%
   mutate(year = year(date)) %>% 
-  filter(year >= 1980, year <= 1999) %>% 
+  filter(year >= 1979, year <= 1998) %>% 
   select(watershed, year, retQ) %>% 
   spread(year, retQ) %>% 
   left_join(cvpiaData::watershed_ordering) %>%

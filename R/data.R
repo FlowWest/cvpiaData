@@ -227,12 +227,12 @@
 
 #' Return Flow
 #' @description The proportion flows at tributary junction coming from natal watershed using October CALSIM II flows 
-#' from 1980-1999.
+#' from 1979-1998.
 #' 
 #' @format A dataframe with 12 rows and 20 variables
 #' 
 #' @details 
-#' Each row represents a month, each column a year from 1980-1999. 
+#' Each row represents a month, each column a year from 1979-1998. 
 #' 
 #' For more details see:
 #' \itemize{
