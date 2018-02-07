@@ -12,8 +12,12 @@ devtools::use_data(watershed_ordering)
 prev_escap <- read_csv('data-raw/All inputs.csv') %>% 
   select(watershed = Watershed, init.adult)
 
+# Feather and Yuba Rivers do not seperate spring and fall run in totals, 
+# here we apply the proportion of spring hatchery return adults that are used to 
+# adjust the totals for 2010 - 2012 Data used were from GrandTab 2017 version
+prop_spring <- mean(c(0.076777295, 0.056932196, 0.081441457)) #2010-2012 
 
-fall_run_init_adult <- grandTab::grandtab %>% 
+ fall_run_init_adult <- grandTab::grandtab %>% 
   filter(year >= 2010, type == 'Natural', run == 'Fall') %>% 
   mutate(watershed = replace(watershed, watershed == 'Upper-mid Sacramento River', 'Upper Sacramento River')) %>% 
   group_by(watershed) %>% 
@@ -22,15 +26,22 @@ fall_run_init_adult <- grandTab::grandtab %>%
   arrange(order) %>% 
   ungroup() %>% 
   left_join(prev_escap) %>% 
-  mutate(count = ifelse(mean_escap < 10 | is.na(mean_escap), init.adult, mean_escap),
-         count = replace(count, count == 0, NA)) %>% 
+  mutate(count = case_when(
+    init.adult == 0 ~ as.numeric(NA),
+    mean_escap < 10 | is.na(mean_escap) ~ init.adult,
+    watershed %in% c('Yuba River', 'Feather River') ~ mean_escap * (1 - prop_spring),
+    TRUE ~ mean_escap
+  )) %>% 
   select(watershed, init.adult = count)
 
+feat_yuba_fall <-  fall_run_init_adult %>% 
+  filter(watershed %in% c('Yuba River', 'Feather River'))
+ 
 has_spring_run <- cvpiaHabitat::modeling_exist %>% 
   filter(!is.na(SR_spawn)) %>% 
   pull(Watershed)
 
-spring_run_init_adult <- grandTab::grandtab %>% 
+spring_run_init_adult <- grandTab::grandtab %>%
   filter(year >= 2010, type == 'Natural', run == 'Spring') %>% 
   mutate(watershed = replace(watershed, watershed == 'Upper-mid Sacramento River', 'Upper Sacramento River')) %>% 
   group_by(watershed) %>% 
@@ -38,8 +49,14 @@ spring_run_init_adult <- grandTab::grandtab %>%
   full_join(watershed_ordering) %>% 
   arrange(order) %>% 
   ungroup() %>% 
-  mutate(count = ifelse(watershed %in% has_spring_run & is.na(mean_escap), 49, mean_escap),
-         count = replace(count, count < 10, 49)) %>% 
+  mutate(count = case_when(
+    watershed == 'Yuba River' ~ feat_yuba_fall$init.adult[2] * prop_spring,
+    watershed == 'Feather River' ~ feat_yuba_fall$init.adult[1] * prop_spring,
+    watershed %in% has_spring_run & is.na(mean_escap) ~ 49,
+    watershed %in% has_spring_run & mean_escap < 10 ~ 49,
+    watershed %in% has_spring_run ~ mean_escap,
+    TRUE ~ as.numeric(NA)
+  )) %>% 
   select(watershed, init.adult = count)
 
 # source: https://nrm.dfg.ca.gov/FileHandler.ashx?DocumentID=84381&inline=1 pg 7
