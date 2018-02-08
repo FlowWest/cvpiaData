@@ -75,7 +75,7 @@ bypass_over_top <- read_csv('data-raw/sutter_yolo_weir_overtopping.csv') %>%
   mutate(sutter = ifelse(sutter > 0, 1, 0),
                 yolo = ifelse(yolo > 0, 1, 0),
          month = d[month]) %>%
-  filter(year >= 1979 & year <= 1989) %>% 
+  filter(year >= 1979 & year <= 1999) %>% 
   arrange(year, month)
 
 use_data(bypass_over_top, overwrite = TRUE)

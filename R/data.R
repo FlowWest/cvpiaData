@@ -38,7 +38,7 @@
 #' @format A data frame with 82 rows and 3 variables:
 #' \describe{
 #'    \item{month}{Integer representation of calendar month}
-#'    \item{year}{Year 1921-2002}
+#'    \item{year}{Year 1979-1999}
 #'    \item{tils.ove}{1 = sutter bypass over topped}
 #'    \item{yolo.ovr}{1 = yolo bypass over topped}
 #' }
