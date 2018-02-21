@@ -522,7 +522,66 @@ upper_sacramento_fr_juv <-
     TRUE ~ upper_sac_OUT_fr_juv_approx(flows))) %>% 
   select(upper_sacramento=fry_habitat)
 
+# Lower Sacramento ------------------------------------------------------------
+lower_sacramento_river_flows <- get_flow("Lower Sacramento River")
 
+lower_sacramento_river_fr_fry <- cvpiaHabitat::set_instream_habitat("Lower Sacramento River", 
+                                                              species = "fr", 
+                                                              life_stage = "fry", 
+                                                              flow = lower_sacramento_river_flows)
+
+lower_sacramento_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Lower Sacramento River", 
+                                                                    species = "fr", 
+                                                                    life_stage = "juv", 
+                                                                    flow = lower_sacramento_river_flows)
+
+# Upper Mid Sacramento --------------------------------------------------------
+upper_mid_sacramento_flows <- get_flow("Upper-mid Sacramento River")
+
+upper_mid_sacramento_fr_fry <- cvpiaHabitat::set_instream_habitat("Upper-mid Sacramento River", 
+                                                                  species = "fr", 
+                                                                  life_stage = "fry", 
+                                                                  flow = upper_mid_sacramento_flows)
+
+upper_mid_sacramento_fr_juv <- cvpiaHabitat::set_instream_habitat("Upper-mid Sacramento River", 
+                                                                  species = "fr", 
+                                                                  life_stage = "juv", 
+                                                                  flow = upper_mid_sacramento_flows)
+
+
+
+# Lower Mid Sacramento --------------------------------------------------------
+# this requires the balance between two flows
+
+lower_mid_sacramento_flows_1 <- get_flow("Lower-mid Sacramento River1") 
+lower_mid_sacramento_flows_2 <- get_flow("Lower-mid Sacramento River2") 
+
+lower_mid_sacramento_river_fr_fry_1 <- cvpiaHabitat::set_instream_habitat("Lower-mid Sacramento River", 
+                                                                          species = "fr", 
+                                                                          life_stage = "fry", 
+                                                                          flow = lower_mid_sacramento_flows_1)
+
+lower_mid_sacramento_river_fr_fry_2 <- cvpiaHabitat::set_instream_habitat("Lower-mid Sacramento River", 
+                                                                          species = "fr", 
+                                                                          life_stage = "fry", 
+                                                                          flow = lower_mid_sacramento_flows_2)
+
+
+lower_mid_sacramento_river_fr_fry <- (35.6/58 * lower_mid_sacramento_river_fr_fry_1) + (22.4/58 * lower_mid_sacramento_river_fr_fry_2)
+
+
+lower_mid_sacramento_river_fr_juv_1 <- cvpiaHabitat::set_instream_habitat("Lower-mid Sacramento River", 
+                                                                          species = "fr", 
+                                                                          life_stage = "juv", 
+                                                                          flow = lower_mid_sacramento_flows_1)
+
+lower_mid_sacramento_river_fr_juv_2 <- cvpiaHabitat::set_instream_habitat("Lower-mid Sacramento River", 
+                                                                          species = "fr", 
+                                                                          life_stage = "juv", 
+                                                                          flow = lower_mid_sacramento_flows_2)
+
+
+lower_mid_sacramento_river_fr_juv <- (35.6/58 * lower_mid_sacramento_river_fr_juv_1) + (22.4/58 * lower_mid_sacramento_river_fr_juv_2)
 
 
 
@@ -554,7 +613,10 @@ inchannel_fry_habitat <- bind_cols(
   merced_river=merced_river_fr_fry,
   stanislaus_river=stanislaus_river_fr_fry,
   tuolumne_river=tuolumne_river_fr_fry,
-  san_joaquin_river=san_joaquin_river_fr_fry, 
+  san_joaquin_river=san_joaquin_river_fr_fry,
+  lower_sacramento_river=lower_sacramento_river_fr_fry,
+  upper_mid_sacramento_river=upper_mid_sacramento_fr_fry,
+  lower_mid_sacramento_river=lower_mid_sacramento_river_fr_fry,
   upper_sacramento_fr_fry
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
   mutate(life_stage="fry")
@@ -588,6 +650,9 @@ inchannel_juv_habitat <- bind_cols(
   stanislaus_river=stanislaus_river_fr_juv,
   tuolumne_river=tuolumne_river_fr_juv,
   san_joaquin_river=san_joaquin_river_fr_juv, 
+  lower_sacramento_river=lower_sacramento_river_fr_juv,
+  upper_mid_sacramento_river=upper_mid_sacramento_fr_juv,
+  lower_mid_sacramento_river=lower_mid_sacramento_river_fr_juv,
   upper_sacramento_fr_juv
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
 mutate(life_stage="juv")
