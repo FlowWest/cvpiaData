@@ -131,4 +131,13 @@ freeportQcms <- cvpiaFlow::freeportQ %>%
 devtools::use_data(freeportQcms)
 
 cross_channel_gates <- cvpiaFlow::delta_cross_channel_closed
-use_data(cross_channel_gates)  
+use_data(cross_channel_gates)
+
+degday <- cvpiaTemperature::deg_days %>%
+  spread(date, degdays) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
+
+use_data(degday)

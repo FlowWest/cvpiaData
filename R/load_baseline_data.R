@@ -54,7 +54,7 @@ load_baseline_data <- function(species) {
                        DLThab = NULL, 
                        floodP = NULL, 
                        gate.top = cvpiaData::bypass_over_top, # replaced gate.top
-                       DegDay = NULL,
+                       DegDay = cvpiaData::degday,
                        retQ = cvpiaData::returnQ, 
                        upSacQ = cvpiaData::upsac_flow,
                        freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel

@@ -241,3 +241,17 @@
 #' } 
 #' 
 "returnQ"
+
+#' Degree Days
+#' @description The monthly accumulated degree days (celsius)
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @details 
+#' Accumulated degree days for 1979-1999
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaTemperature]{deg_days}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/deg_days.html}{link} if in a web browser
+#' }
+#'  
+#' 
+"degday"

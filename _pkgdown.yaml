@@ -34,6 +34,7 @@ reference:
   - watershed_ordering
   - prop_diversion
   - total_diversion
+  - degday
 
 navbar:
   type: default
