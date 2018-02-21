@@ -1,7 +1,9 @@
 library(dplyr)
 library(purrr)
+library(cvpiaHabitat)
+library(lubridate)
 
-
+# create the columns that have the year and months for each flow
 year_month_df <- tibble::as_tibble(expand.grid(year = 1980:1999, month = 1:12)) %>% 
   arrange(year, month)
 
@@ -152,7 +154,7 @@ cottonwood_creek_fr_juv <- cvpiaHabitat::set_instream_habitat("Cottonwood Creek"
                                                               flow = cottonwood_creek_flows)
 
 
-# Cow Creek 
+# Cow Creek ------------------------------
 
 cow_creek_flows <- get_flow("Cow Creek")
 
@@ -207,7 +209,7 @@ elder_creek_fr_juv <- purrr::map_dbl(elder_creek_flows, function(f) {
                                      flow = f)
 })
 
-# Mill Creek
+# Mill Creek ---------------------------------
 
 mill_creek_flows <- get_flow("Mill Creek")
 
@@ -293,12 +295,12 @@ thomes_creek_fr_fry <- cvpiaHabitat::set_instream_habitat("Thomes Creek",
                                                           flow = thomes_creek_flows)
 
 
-# Upper mid Sacr SKIP
+# Upper mid Sacr SKIP ----------------
 
-# Sutter Bypass SKIP
+# Sutter Bypass SKIP -------------
 
 
-# Bear River
+# Bear River ----------------------------------------
 
 bear_river_flows <- get_flow("Bear River")
 #fry
@@ -312,7 +314,7 @@ bear_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Bear River",
                                                         life_stage = "juv", 
                                                         flow = bear_river_flows)
 
-# Feather River
+# Feather River -------------------------------
 
 feather_river_flows <- get_flow("Feather River")
 
@@ -375,7 +377,7 @@ calaveras_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Calaveras River",
                                                              flow = calaveras_river_flows)
 
 
-# Cosumnes River
+# Cosumnes River ----------------------------------
 
 cosumnes_river_flows <- get_flow("Cosumnes River")
 
@@ -413,7 +415,7 @@ mokelumne_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Mokelumne River",
                                                              flow = mokelumne_river_flows)
 
 
-# Merced River
+# Merced River -----------------------
 
 merced_river_flows <- get_flow("Merced River")
 
@@ -430,7 +432,7 @@ merced_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Merced River",
                                                           flow = merced_river_flows)
 
 
-# Stanislaus River 
+# Stanislaus River --------------------------------
 
 stan_river_flows <- get_flow("Stanislaus River")
 
@@ -447,7 +449,7 @@ stanislaus_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Stanislaus River"
                                                           flow = stan_river_flows)
 
 
-# Tuolomne River 
+# Tuolomne River --------------------------------------
 
 tuolumne_river_flows <- get_flow("Tuolumne River")
 
@@ -463,7 +465,7 @@ tuolumne_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Tuolumne River",
                                                             flow = tuolumne_river_flows)
 
 
-# San Joaquin River
+# San Joaquin River ----------------------------------
 
 san_joaquin_river_flows <- get_flow("San Joaquin River")
 
@@ -480,7 +482,51 @@ san_joaquin_river_fr_juv <- purrr::map_dbl(san_joaquin_river_flows, function(f) 
                                      flow = f)})
 
 
-# Bind to Dataframe -------------------------------------------
+# Upper sacramento river ------------------------------------------------------------
+# this is composed of two different curves, the first is the board in and second is boards out
+# board IN months 4-10
+# board OUT months 1-3, 11-12
+
+# These watersheds do not work with the current iteration on the habitat package
+# will do the approx functions manually here
+upper_sacramento_flows <- get_flow("Upper Sacramento River")
+
+# for fall run fry modeling does not exist so we use fall run juv
+upper_sac_IN_fr_fry_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_fry_wua, rule=2)
+
+upper_sac_IN_fr_juv_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_juv_wua, rule=2)
+
+upper_sac_OUT_fr_fry_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_fry_wua, rule=2)
+
+upper_sac_OUT_fr_juv_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_juv_wua, rule=2)
+
+# board IN months 4-10
+# board OUT months 1-3, 11-12
+upper_sac_input_df <- bind_cols(year_month_df, flows=upper_sacramento_flows)
+
+upper_sacramento_fr_fry <-
+  upper_sac_input_df %>% 
+  mutate(fry_habitat = case_when(
+    month %in% 4:10 ~ upper_sac_IN_fr_fry_approx(flows),
+    TRUE ~ upper_sac_OUT_fr_fry_approx(flows))) %>% 
+  select(upper_sacramento=fry_habitat)
+
+upper_sacramento_fr_juv <-
+  upper_sac_input_df %>% 
+  mutate(fry_habitat = case_when(
+    month %in% 4:10 ~ upper_sac_IN_fr_juv_approx(flows),
+    TRUE ~ upper_sac_OUT_fr_juv_approx(flows))) %>% 
+  select(upper_sacramento=fry_habitat)
+
+
+
+
+
+# Inchannel Bind to Dataframe -------------------------------------------
 
 # fry
 inchannel_fry_habitat <- bind_cols(
@@ -508,7 +554,8 @@ inchannel_fry_habitat <- bind_cols(
   merced_river=merced_river_fr_fry,
   stanislaus_river=stanislaus_river_fr_fry,
   tuolumne_river=tuolumne_river_fr_fry,
-  san_joaquin_river=san_joaquin_river_fr_fry
+  san_joaquin_river=san_joaquin_river_fr_fry, 
+  upper_sacramento_fr_fry
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
   mutate(life_stage="fry")
 
@@ -540,7 +587,8 @@ inchannel_juv_habitat <- bind_cols(
   merced_river=merced_river_fr_juv,
   stanislaus_river=stanislaus_river_fr_juv,
   tuolumne_river=tuolumne_river_fr_juv,
-  san_joaquin_river=san_joaquin_river_fr_juv
+  san_joaquin_river=san_joaquin_river_fr_juv, 
+  upper_sacramento_fr_juv
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
 mutate(life_stage="juv")
 
@@ -550,8 +598,10 @@ inchannel_habitat <- bind_rows(
   inchannel_juv_habitat
 )
 
+devtools::use_data(inchannel_habitat, overwrite = TRUE)
 
 
+# INCHANNEL FALL RUN SPAWNING --------------------------------------------------
 
 
 
