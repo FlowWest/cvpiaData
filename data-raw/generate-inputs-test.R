@@ -359,6 +359,10 @@ american_river_fr_fry <- cvpiaHabitat::set_instream_habitat("American River",
 
 
 
+# will do this manually for now
+# american_river_fr_fry_approx <- approxfun(cvpiaHabitat::american_river_instream$flow_cfs, 
+#                                         cvpiaHabitat::american_river_instream$, rule=2)
+
 
 
 # Calaveras River --------------------------------------------
@@ -674,6 +678,79 @@ get_flow_spawning <- purrr::partial(get_flow, years=c(1979,1999))
 antelope_creek_flows_spawning <- get_flow_spawning("Antelope Creek")
 
 antelope_creek_spawning <- purrr::map_dbl(antelope_creek_flows_spawning, ~set_spawning_habitat("Antelope Creek", "fr", .))
+
+
+# battle creek 
+battle_creek_flows_spawning <- get_flow_spawning("Battle Creek")
+battle_creek_spawning <- purrr::map_dbl(battle_creek_flows_spawning, 
+                                          ~set_spawning_habitat("Battle Creek", "fr", .))
+
+
+# bear creek 
+bear_creek_flows_spawning <- get_flow_spawning("Bear Creek")
+bear_creek_spawning <- purrr::map_dbl(bear_creek_flows_spawning, 
+                                          ~set_spawning_habitat("Bear Creek", "fr", .))
+
+# Big Chico creek 
+big_chico_creek_flows_spawning <- get_flow_spawning("Big Chico Creek")
+big_chico_creek_spawning <- purrr::map_dbl(big_chico_creek_flows_spawning, 
+                                      ~set_spawning_habitat("Big Chico Creek", "fr", .))
+
+# butte creek
+butte_creek_flows_spawning <- get_flow_spawning("Butte Creek")
+butte_creek_spawning <- purrr::map_dbl(butte_creek_flows_spawning, 
+                                           ~set_spawning_habitat("Butte Creek", "fr", .))
+
+# Clear creek
+clear_creek_flows_spawning <- get_flow_spawning("Clear Creek")
+clear_creek_spawning <- purrr::map_dbl(clear_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Clear Creek", "fr", .))
+
+
+
+# Cottonwood creek
+cottonwood_creek_flows_spawning <- get_flow_spawning("Cottonwood Creek")
+cottonwood_creek_spawning <- purrr::map_dbl(cottonwood_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Cottonwood Creek", "fr", .))
+
+# cow creek
+cow_creek_flows_spawning <- get_flow_spawning("Cow Creek")
+cow_creek_spawning <- purrr::map_dbl(cow_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Cow Creek", "fr", .))
+
+# deer creek
+deer_creek_flows_spawning <- get_flow_spawning("Deer Creek")
+deer_creek_spawning <- purrr::map_dbl(deer_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Deer Creek", "fr", .))
+
+# elder creek
+elder_creek_flows_spawning <- get_flow_spawning("Elder Creek")
+elder_creek_spawning <- purrr::map_dbl(elder_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Elder Creek", "fr", .))
+
+
+# mill creek
+mill_creek_flows_spawning <- get_flow_spawning("Mill Creek")
+mill_creek_spawning <- purrr::map_dbl(mill_creek_flows_spawning, 
+                                       ~set_spawning_habitat("Mill Creek", "fr", .))
+
+
+# Paynes creek
+paynes_creek_flows_spawning <- get_flow_spawning("Paynes Creek")
+paynes_creek_spawning <- purrr::map_dbl(paynes_creek_flows_spawning, 
+                                      ~set_spawning_habitat("Paynes Creek", "fr", .))
+
+# stony  creek
+mill_creek_flows_spawning <- get_flow_spawning("Mill Creek")
+mill_creek_spawning <- purrr::map_dbl(mill_creek_flows_spawning, 
+                                      ~set_spawning_habitat("Mill Creek", "fr", .))
+
+
+
+
+
+
+
 
 
 
