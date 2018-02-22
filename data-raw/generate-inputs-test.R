@@ -520,14 +520,14 @@ upper_sacramento_fr_fry <-
   mutate(fry_habitat = case_when(
     month %in% 4:10 ~ upper_sac_IN_fr_fry_approx(flows),
     TRUE ~ upper_sac_OUT_fr_fry_approx(flows))) %>% 
-  select(upper_sacramento=fry_habitat)
+  select(upper_sacramento=fry_habitat) %>% pull()
 
 upper_sacramento_fr_juv <-
   upper_sac_input_df %>% 
   mutate(fry_habitat = case_when(
     month %in% 4:10 ~ upper_sac_IN_fr_juv_approx(flows),
     TRUE ~ upper_sac_OUT_fr_juv_approx(flows))) %>% 
-  select(upper_sacramento=fry_habitat)
+  select(upper_sacramento=fry_habitat) %>% pull()
 
 # Lower Sacramento ------------------------------------------------------------
 lower_sacramento_river_flows <- get_flow("Lower Sacramento River")
@@ -595,7 +595,7 @@ lower_mid_sacramento_river_fr_juv <- (35.6/58 * lower_mid_sacramento_river_fr_ju
 # Inchannel Bind to Dataframe -------------------------------------------
 
 # fry
-inchannel_fry_habitat <- bind_cols(
+fall_run_inchannel_fry_habitat <- bind_cols(
   year_month_df, 
   "Upper Sacramento River"=upper_sacramento_fr_fry,
   "Antelope Creek"=antelope_creek_fr_fry, 
@@ -629,12 +629,12 @@ inchannel_fry_habitat <- bind_cols(
   "Tuolumne River"=tuolumne_river_fr_fry,
   "San Joaquin River"=san_joaquin_river_fr_fry
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
-  mutate(life_stage="fry")
+  mutate(life_stage="fry", species = "fr")
 
 
 #juv
 
-inchannel_juv_habitat <- bind_cols(
+fall_run_inchannel_juv_habitat <- bind_cols(
   year_month_df, 
   "Upper Sacramento"=upper_sacramento_fr_juv,
   "Antelope Creek"=antelope_creek_fr_juv, 
@@ -668,12 +668,12 @@ inchannel_juv_habitat <- bind_cols(
   "Tuolumne River"=tuolumne_river_fr_juv,
   "San Joaquin River"=san_joaquin_river_fr_juv
 ) %>% tidyr::gather(watershed, habitat, -c(year, month)) %>% 
-mutate(life_stage="juv")
+mutate(life_stage="juv", species = "fr")
 
 
 inchannel_habitat <- bind_rows(
-  inchannel_fry_habitat,
-  inchannel_juv_habitat
+  fall_run_inchannel_fry_habitat,
+  fall_run_inchannel_juv_habitat
 )
 
 devtools::use_data(inchannel_habitat, overwrite = TRUE)
@@ -681,7 +681,12 @@ devtools::use_data(inchannel_habitat, overwrite = TRUE)
 
 # INCHANNEL FALL RUN SPAWNING Years: 1979 to 1999 -----------------------------
 
+year_month_df_spawning <- tibble::as_tibble(expand.grid(year = 1979:1999, month = 1:12)) %>% 
+  arrange(year, month)
+
+
 get_flow_spawning <- purrr::partial(get_flow, years=c(1979,1999))
+
 
 # antelope 
 antelope_creek_flows_spawning <- get_flow_spawning("Antelope Creek")
@@ -842,7 +847,7 @@ tuolumne_river_spawning <- set_spawning_habitat("Tuolumne River", "fr",
 # san joaquin is NA
 san_joaquin_river_spawning <- NA
 
-
+inchanned_spawning_habitat 
 
 
 
