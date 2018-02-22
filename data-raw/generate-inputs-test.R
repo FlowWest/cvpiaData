@@ -666,11 +666,14 @@ inchannel_habitat <- bind_rows(
 devtools::use_data(inchannel_habitat, overwrite = TRUE)
 
 
-# INCHANNEL FALL RUN SPAWNING --------------------------------------------------
+# INCHANNEL FALL RUN SPAWNING Years: 1979 to 1999 -----------------------------
 
+get_flow_spawning <- purrr::partial(get_flow, years=c(1979,1999))
 
+# antelope 
+antelope_creek_flows_spawning <- get_flow_spawning("Antelope Creek")
 
-
+antelope_creek_spawning <- purrr::map_dbl(antelope_creek_flows_spawning, ~set_spawning_habitat("Antelope Creek", "fr", .))
 
 
 
