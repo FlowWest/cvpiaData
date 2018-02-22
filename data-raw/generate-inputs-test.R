@@ -688,6 +688,26 @@ year_month_df_spawning <- tibble::as_tibble(expand.grid(year = 1979:1999, month 
 get_flow_spawning <- purrr::partial(get_flow, years=c(1979,1999))
 
 
+# upper sac (board in/out logic here)
+upper_sac_flows_spawning <- get_flow_spawning("Upper Sacramento River")
+
+# for fall run fry modeling does not exist so we use fall run juv
+upper_sac_IN_fr_spawn_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_spawn_wua, rule=2)
+
+upper_sac_OUT_fr_spawn_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_spawn_wua, rule=2)
+
+upper_sac_spawning_input_df <- bind_cols(year_month_df_spawning, flows = upper_sac_flows_spawning)
+
+upper_sac_spawning <- upper_sac_spawning_input_df %>% 
+  mutate(habitat = case_when(
+    month %in% 4:10 ~ upper_sac_IN_fr_spawn_approx(flows), 
+    TRUE ~ upper_sac_OUT_fr_spawn_approx(flows)
+  )) %>% pull(habitat)
+
+
+
 # antelope 
 antelope_creek_flows_spawning <- get_flow_spawning("Antelope Creek")
 
@@ -768,10 +788,10 @@ thomes_creek_spawning <- purrr::map_dbl(thomes_creek_flows_spawning,
 # According to modeling exists, this should be NA!
 upper_mid_sac_flows_spawning <- get_flow_spawning("Upper-mid Sacramento River")
 upper_mid_sac_spawning <- set_spawning_habitat("Upper-mid Sacramento River", "fr", upper_mid_sac_flows_spawning)
-upper_mid_sac_spawning <- NA
+upper_mid_sac_spawning <- rep(NA, nrow(year_month_df_spawning))
 
 # Sutter Bypass --- PASS
-sutter_bypass_spawning <- NA
+sutter_bypass_spawning <- rep(NA, nrow(year_month_df_spawning))
 
 # Bear River
 bear_river_flows_spawning <- get_flow_spawning("Bear River")
@@ -795,10 +815,10 @@ lower_mid_sac_spawning_1 <- set_spawning_habitat("Lower-mid Sacramento River", "
                                                  lower_mid_sac_spawning_flows1)
 lower_mid_sac_spawning_2 <- set_spawning_habitat("Lower-mid Sacramento River", "fr", 
                                                  lower_mid_sac_spawning_flows2)
-lower_mid_sac_spawnning <- NA
+lower_mid_sac_spawnning <- rep(NA, nrow(year_month_df_spawning))
 
 # Yolo Bypass 
-yolo_bypass_spawning <- NA
+yolo_bypass_spawning <- rep(NA, nrow(year_month_df_spawning))
 
 # American River
 american_river_spawning_flows <- get_flow_spawning("American River")
@@ -807,7 +827,7 @@ american_river_spawning <- set_spawning_habitat("American River", "fr",
 
 
 # lower sacramento River 
-lower_sacramento_river_spawning <- NA
+lower_sacramento_river_spawning <- rep(NA, nrow(year_month_df_spawning))
 
 # Calaveras River
 calaveras_river_spawning_flows <- get_flow_spawning("Calaveras River")
@@ -845,12 +865,49 @@ tuolumne_river_spawning <- set_spawning_habitat("Tuolumne River", "fr",
                                                 tuolumne_river_spawning_flows)
 
 # san joaquin is NA
-san_joaquin_river_spawning <- NA
+san_joaquin_river_spawning <- rep(NA, nrow(year_month_df_spawning))
 
-inchanned_spawning_habitat 
+fall_run_inchannel_spawning_habitat <-  bind_cols(
+  year_month_df_spawning,
+  "Upper Sacramento River" = upper_sac_spawning,
+  "Antelope Creek" = antelope_creek_spawning,
+  "Battle Creek" = battle_creek_spawning, 
+  "Bear Creek" = bear_creek_spawning,
+  "Big Chico Creek" = big_chico_creek_spawning,
+  "Butte Creek" = butte_creek_spawning,
+  "Clear Creek" = clear_creek_spawning,
+  "Cottonwood Creek" = cottonwood_creek_spawning,
+  "Cow Creek" = cow_creek_spawning,
+  "Deer Creek" = deer_creek_spawning,
+  "Elder Creek" = elder_creek_spawning,
+  "Mill Creek"= mill_creek_spawning,
+  "Paynes Creek" = paynes_creek_spawning,
+  "Stony Creek" = stony_creek_spawning,
+  "Thomes Creek" = thomes_creek_spawning,
+  "Upper-mid Sacramento River" = upper_mid_sac_spawning,
+  "Sutter Bypass" = sutter_bypass_spawning,
+  "Bear River" = bear_river_spawning,
+  "Feather River" = feather_river_spawning,
+  "Yuba River" = yuba_river_spawning,
+  "Lower-mid Sacramento River" = lower_mid_sac_spawnning,
+  "Calaveras River" = calaveras_river_spawning,
+  "Cosumnes River" = cosumnes_river_spawning,
+  "Mokelumne River" = mokelumne_river_spawning,
+  "Merced River" = merced_river_spawning,
+  "Stanislaus River" = stanislaus_river_spawning,
+  "Tuolumne River" = tuolumne_river_spawning,
+  "San Joaquin River" = san_joaquin_river_spawning
+) %>% 
+  tidyr::gather(watershed, habitat, -c(year, month)) %>% 
+  mutate(species = "fr")
 
 
+inchannel_spawning_habitat <- bind_rows(
+  fall_run_inchannel_spawning_habitat
+)
 
+
+devtools::use_data(inchannel_spawning_habitat, overwrite = TRUE)
 
 
 
