@@ -141,3 +141,8 @@ degday <- cvpiaTemperature::deg_days %>%
   create_SIT_array()
 
 use_data(degday)
+
+ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>% 
+  spread(month, median_p20)
+
+use_data(ptemp20mc)
