@@ -36,11 +36,12 @@
 load_baseline_data <- function(species) {
   
   if(!(species %in% c('fall', 'winter', 'spring', 'steelhead'))) {
-    stop("please use one of the follow for the species argument: 'fall', 'winter', 'spring', 'steelhead'")
+    stop("please use one of the following for the species argument: 'fall', 'winter', 'spring', 'steelhead'")
   }
   
   switch(species,
          'fall' = list(inps = cvpiaData::misc_data,
+                       p.tempMC20 = cvpiaData::ptemp20mc,
                        p.diver = cvpiaData::prop_diversion, 
                        t.diver = cvpiaData::total_diversion,
                        dlt.divers = cvpiaData::dlt_divers, 
