@@ -352,18 +352,22 @@ yuba_river_fr_juv <- cvpiaHabitat::set_instream_habitat("Yuba River",
 
 american_river_flows <- get_flow("American River")
 
-# american_river_fr_fry <- purrr::map_dbl(american_river_flows, function(f) {
-#   cvpiaHabitat::set_instream_habitat("American River", 
-#                                      species = "fr", 
-#                                      life_stage = "fry", 
-#                                      flow = f)})
-# 
+american_river_fr_fry <-   purrr::map_dbl(american_river_flows, function(f) {
+    cvpiaHabitat::set_instream_habitat("American River", 
+                                       species = "fr", 
+                                       life_stage = "fry", 
+                                       flow = f)})
 
-american_river_fr_fry <- rep(NA, nrow(year_month_df))
-american_river_fr_juv <- rep(NA, nrow(year_month_df))
 
+american_river_fr_juv <-   purrr::map_dbl(american_river_flows, function(f) {
+  cvpiaHabitat::set_instream_habitat("American River", 
+                                     species = "fr", 
+                                     life_stage = "juv", 
+                                     flow = f)})
+
+  
 # will do this manually for now
-# american_river_fr_fry_approx <- approxfun(cvpiaHabitat::american_river_instream$flow_cfs, 
+# american_river_fr_fry_approx <- approxfun(cvpiaHabitat::american_river_instream$flow_cfs,
 #                                         cvpiaHabitat::american_river_instream$, rule=2)
 
 
