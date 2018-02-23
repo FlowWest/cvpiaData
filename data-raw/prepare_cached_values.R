@@ -146,3 +146,13 @@ ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>%
   spread(month, median_p20)
 
 use_data(ptemp20mc)
+
+dt_tmps <- cvpiaTemperature::delta_temps %>% 
+  filter(between(year(date), 1980, 1999)) %>% View
+  spread(date, monthly_mean_temp_c)
+
+dlt_temps <- array(NA, dim = c(12, 20, 2))
+dlt_temps[ , , 1] <- as.matrix(dt_tmps[1, -1])
+dlt_temps[ , , 2] <- as.matrix(dt_tmps[2, -1])
+
+devtools::use_data(dlt_temps)
