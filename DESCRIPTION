@@ -14,4 +14,8 @@ Imports:
     cvpiaFlow,
     cvpiaTemperature
 Suggests:
-    tidyverse
+    tidyverse,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+
