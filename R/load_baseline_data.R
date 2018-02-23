@@ -47,13 +47,15 @@ load_baseline_data <- function(species) {
                        dlt.divers = cvpiaData::dlt_divers, 
                        dlt.divers.tot = cvpiaData::dlt_divers_tot,
                        juv.tmp = NULL, 
-                       juv.tmp.dlt = NULL, 
+                       juv.tmp.dlt = cvpiaData::dlt_temps, 
                        Dlt.inf = cvpiaData::dlt_inflow,
                        prop.Q.yolo = cvpiaData::prop_Q_yolo, 
                        prop.Q.sutter = cvpiaData::prop_Q_sutter,
-                       IChab = NULL,
+                       IChab.fry = NULL,
+                       IChab.juv = NULL,
                        DLThab = NULL, 
                        floodP = NULL, 
+                       fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
                        gate.top = cvpiaData::bypass_over_top, # replaced gate.top
                        DegDay = cvpiaData::degday,
                        retQ = cvpiaData::returnQ, 
