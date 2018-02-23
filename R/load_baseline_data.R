@@ -29,7 +29,7 @@
 #' }
 #' @examples 
 #' # place these two lines within the SIT Salmon Population Model function to load the data
-#' all_inputs <- cvpiaData::load_baseline_data()
+#' all_inputs <- cvpiaData::load_baseline_data('fall')
 #' list2env(all_inputs, envir = environment())
 #' @export
 
@@ -39,90 +39,52 @@ load_baseline_data <- function(species) {
     stop("please use one of the following for the species argument: 'fall', 'winter', 'spring', 'steelhead'")
   }
   
-  switch(species,
-         'fall' = list(inps = cvpiaData::misc_data,
-                       p.tempMC20 = cvpiaData::ptemp20mc,
-                       p.diver = cvpiaData::prop_diversion, 
-                       t.diver = cvpiaData::total_diversion,
-                       dlt.divers = cvpiaData::dlt_divers, 
-                       dlt.divers.tot = cvpiaData::dlt_divers_tot,
-                       juv.tmp = NULL, 
-                       juv.tmp.dlt = cvpiaData::dlt_temps, 
-                       Dlt.inf = cvpiaData::dlt_inflow,
-                       prop.Q.yolo = cvpiaData::prop_Q_yolo, 
-                       prop.Q.sutter = cvpiaData::prop_Q_sutter,
-                       IChab.fry = NULL,
-                       IChab.juv = NULL,
-                       DLThab = NULL, 
-                       floodP = NULL, 
-                       fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
-                       gate.top = cvpiaData::bypass_over_top, # replaced gate.top
-                       DegDay = cvpiaData::degday,
-                       retQ = cvpiaData::returnQ, 
-                       upSacQ = cvpiaData::upsac_flow,
-                       freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
-                       dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
-                       egg.tmp.eff = NULL),
-         'winter' = list(inps = NULL,
-                         p.diver = NULL,
-                         t.diver = NULL,
-                         dlt.divers = NULL,
-                         dlt.divers.tot = NULL,
-                         juv.tmp = NULL, 
-                         juv.tmp.dlt = NULL, 
-                         Dlt.inf = NULL,
-                         prop.Q.yolo = NULL,
-                         prop.Q.sutter = NULL,
-                         IChab = NULL,
-                         DLThab = NULL, 
-                         floodP = NULL, 
-                         gate.top = NULL,
-                         DegDay = NULL,
-                         retQ = NULL,
-                         upSacQ = NULL,
-                         freeportQ = NULL,
-                         dlt.gates = NULL, 
-                         egg.tmp.eff = NULL),
-         'spring' = list(inps = NULL,
-                         p.diver = NULL,
-                         t.diver = NULL,
-                         dlt.divers = NULL,
-                         dlt.divers.tot = NULL,
-                         juv.tmp = NULL, 
-                         juv.tmp.dlt = NULL, 
-                         Dlt.inf = NULL,
-                         prop.Q.yolo = NULL,
-                         prop.Q.sutter = NULL,
-                         IChab = NULL,
-                         DLThab = NULL, 
-                         floodP = NULL, 
-                         gate.top = NULL,
-                         DegDay = NULL,
-                         retQ = NULL,
-                         upSacQ = NULL,
-                         freeportQ = NULL,
-                         dlt.gates = NULL, 
-                         egg.tmp.eff = NULL),
-         'steelhead' = list(inps = NULL,
-                            p.diver = NULL,
-                            t.diver = NULL,
-                            dlt.divers = NULL,
-                            dlt.divers.tot = NULL,
-                            juv.tmp = NULL, 
-                            juv.tmp.dlt = NULL, 
-                            Dlt.inf = NULL,
-                            prop.Q.yolo = NULL,
-                            prop.Q.sutter = NULL,
-                            IChab = NULL,
-                            DLThab = NULL, 
-                            floodP = NULL, 
-                            gate.top = NULL,
-                            DegDay = NULL,
-                            retQ = NULL,
-                            upSacQ = NULL,
-                            freeportQ = NULL,
-                            dlt.gates = NULL, 
-                            egg.tmp.eff = NULL))
+  all_inputs <- list(inps = cvpiaData::misc_data,
+                     p.tempMC20 = cvpiaData::ptemp20mc,
+                     p.diver = cvpiaData::prop_diversion, 
+                     t.diver = cvpiaData::total_diversion,
+                     dlt.divers = cvpiaData::dlt_divers, 
+                     dlt.divers.tot = cvpiaData::dlt_divers_tot,
+                     juv.tmp = cvpiaData::rearing_temps, 
+                     juv.tmp.dlt = cvpiaData::dlt_temps, 
+                     Dlt.inf = cvpiaData::dlt_inflow,
+                     DLThab = NULL, 
+                     prop.Q.yolo = cvpiaData::prop_Q_yolo, 
+                     prop.Q.sutter = cvpiaData::prop_Q_sutter,
+                     fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
+                     gate.top = cvpiaData::bypass_over_top, # replaced gate.top
+                     DegDay = cvpiaData::degday,
+                     retQ = cvpiaData::returnQ, 
+                     upSacQ = cvpiaData::upsac_flow,
+                     freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
+                     dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
+                     egg.tmp.eff = NULL)
+  
+  all_inputs = switch(species,
+         'fall' = {
+           all_inputs$IChab.spawn = NULL
+           all_inputs$IChab.fry = NULL
+           all_inputs$IChab.juv = NULL
+           all_inputs$floodP = NULL
+         },
+         'winter' = {
+           all_inputs$IChab.spawn = NULL
+           all_inputs$IChab.fry = NULL
+           all_inputs$IChab.juv = NULL
+           all_inputs$floodP = NULL
+         },
+         'spring' = {
+           all_inputs$IChab.spawn = NULL
+           all_inputs$IChab.fry = NULL
+           all_inputs$IChab.juv = NULL
+           all_inputs$floodP = NULL
+         },
+         'steelhead' = {
+           all_inputs$IChab.spawn = NULL
+           all_inputs$IChab.fry = NULL
+           all_inputs$IChab.juv = NULL
+           all_inputs$floodP = NULL
+         })
+  
+  return(all_inputs)
 }
-
-

@@ -157,5 +157,11 @@ dlt_temps[ , , 2] <- as.matrix(dt_tmps[2, -1])
 
 devtools::use_data(dlt_temps)
 
+rearing_temps <- cvpiaTemperature::juv_temp %>% 
+  spread(date, monthly_mean_temp_c) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
 
-
+devtools::use_data(rearing_temps)
