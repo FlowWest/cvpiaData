@@ -58,7 +58,7 @@ load_baseline_data <- function(species) {
                      upSacQ = cvpiaData::upsac_flow,
                      freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
                      dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
-                     egg.tmp.eff = NULL)
+                     egg.tmp.eff = cvpiaData::egg_temp_effect)
   
   all_inputs = switch(species,
          'fall' = {

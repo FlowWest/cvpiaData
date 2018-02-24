@@ -165,3 +165,9 @@ rearing_temps <- cvpiaTemperature::juv_temp %>%
   create_SIT_array()
 
 devtools::use_data(rearing_temps)
+
+egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>% 
+  mutate(mean_temp_effect = (Dry + Wet)/2) %>% 
+  select(watershed = Watershed.full, mean_temp_effect)
+
+devtools::use_data(egg_temp_effect)
