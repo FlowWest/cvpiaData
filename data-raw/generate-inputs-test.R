@@ -285,16 +285,6 @@ thomes_creek_fr_juv <- purrr::map_dbl(thomes_creek_flows, function(f) {
                                      life_stage = "juv", 
                                      flow = f)})
 
-
-
-
-#fry 
-thomes_creek_fr_fry <- cvpiaHabitat::set_instream_habitat("Thomes Creek", 
-                                                          species = "fr", 
-                                                          life_stage = "fry", 
-                                                          flow = thomes_creek_flows)
-
-
 # Upper mid Sacr SKIP ----------------
 
 # Sutter Bypass SKIP -------------
@@ -364,12 +354,6 @@ american_river_fr_juv <-   purrr::map_dbl(american_river_flows, function(f) {
                                      species = "fr", 
                                      life_stage = "juv", 
                                      flow = f)})
-
-  
-# will do this manually for now
-# american_river_fr_fry_approx <- approxfun(cvpiaHabitat::american_river_instream$flow_cfs,
-#                                         cvpiaHabitat::american_river_instream$, rule=2)
-
 
 
 # Calaveras River --------------------------------------------
@@ -894,6 +878,9 @@ fall_run_inchannel_spawning_habitat <-  bind_cols(
   "Feather River" = feather_river_spawning,
   "Yuba River" = yuba_river_spawning,
   "Lower-mid Sacramento River" = lower_mid_sac_spawnning,
+  "Yolo Bypass" = yolo_bypass_spawning,
+  "American River" = american_river_spawning,
+  "Lower Sacramento River" = lower_sacramento_river_spawning,
   "Calaveras River" = calaveras_river_spawning,
   "Cosumnes River" = cosumnes_river_spawning,
   "Mokelumne River" = mokelumne_river_spawning,
@@ -913,55 +900,25 @@ inchannel_spawning_habitat <- bind_rows(
 
 devtools::use_data(inchannel_spawning_habitat, overwrite = TRUE)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# cvpiaData::inchannel_spawning_habitat %>% 
+#   mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>% 
+#   select(date, watershed, habitat) %>% 
+#   spread(date, habitat) %>% View
+# 
+# wat <- cvpiaData::inchannel_spawning_habitat$watershed %>% unique
+# cvpiaData::watershed_ordering$watershed[!(cvpiaData::watershed_ordering$watershed %in% wat)]
+# 
+# cvpiaData::inchannel_habitat
+# am <- year_month_df
+# am$watershd = 'American River'
+# 
+# amj <- am
+# am$habitat = american_river_fr_fry
+# am$life_stage = 'fry'
+# am$species = 'fr'
+# 
+# amj$habitat = american_river_fr_juv
+# amj$life_stage = 'juv'
+# amj$species = 'fr'
+# 
+# bind_rows(am, amj)

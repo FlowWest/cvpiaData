@@ -34,6 +34,7 @@ reference:
   - prop_diversion
   - total_diversion
   - degday
+  - dlt_hab
 
 navbar:
   type: default

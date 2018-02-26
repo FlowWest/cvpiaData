@@ -144,7 +144,7 @@ ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>%
 use_data(ptemp20mc)
 
 dt_tmps <- cvpiaTemperature::delta_temps %>% 
-  filter(between(year(date), 1980, 1999)) %>% View
+  filter(between(year(date), 1980, 1999)) %>% 
   spread(date, monthly_mean_temp_c)
 
 dlt_temps <- array(NA, dim = c(12, 20, 2))
@@ -167,3 +167,19 @@ egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>%
   select(watershed = Watershed.full, mean_temp_effect)
 
 devtools::use_data(egg_temp_effect)
+
+
+dt_hab <- cvpiaHabitat::delta_habitat %>% 
+  filter(between(year(date), 1980, 1999)) %>% 
+  gather(delta, hab_area, -date) %>% 
+  spread(date, hab_area)
+
+dlt_hab <- array(NA, dim = c(12, 20, 2))
+dlt_hab[ , , 1] <- as.matrix(dt_hab[1, -1])
+dlt_hab[ , , 2] <- as.matrix(dt_hab[2, -1])
+
+use_data(dlt_hab)
+
+# inchannel habitat ----------------
+cvpiaData::inchannel_habitat %>% 
+  filter(species == 'fr', life_stage == 'fry')

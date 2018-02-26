@@ -39,8 +39,7 @@ load_baseline_data <- function(species) {
     stop("please use one of the following for the species argument: 'fall', 'winter', 'spring', 'steelhead'")
   }
   
-  all_inputs <- list(inps = cvpiaData::misc_data,
-                     p.tempMC20 = cvpiaData::ptemp20mc,
+  all_inputs <- list(p.tempMC20 = cvpiaData::ptemp20mc,
                      p.diver = cvpiaData::prop_diversion, 
                      t.diver = cvpiaData::total_diversion,
                      dlt.divers = cvpiaData::dlt_divers, 
@@ -48,7 +47,7 @@ load_baseline_data <- function(species) {
                      juv.tmp = cvpiaData::rearing_temps, 
                      juv.tmp.dlt = cvpiaData::dlt_temps, 
                      Dlt.inf = cvpiaData::dlt_inflow,
-                     DLThab = NULL, 
+                     DLThab = cvpiaData::dlt_hab, 
                      prop.Q.bypasses = cvpiaData::bypass_prop_Q, # replaced prop.Q.sutter and yolo
                      fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
                      gate.top = cvpiaData::bypass_over, # replaced gate.top
@@ -59,30 +58,34 @@ load_baseline_data <- function(species) {
                      dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
                      egg.tmp.eff = cvpiaData::egg_temp_effect)
   
-  all_inputs = switch(species,
+  switch(species,
          'fall' = {
-           all_inputs$IChab.spawn = NULL
-           all_inputs$IChab.fry = NULL
-           all_inputs$IChab.juv = NULL
-           all_inputs$floodP = NULL
+           all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ]
+           all_inputs$IChab.spawn = NA
+           all_inputs$IChab.fry = NA
+           all_inputs$IChab.juv = NA
+           all_inputs$floodP = NA
          },
          'winter' = {
-           all_inputs$IChab.spawn = NULL
-           all_inputs$IChab.fry = NULL
-           all_inputs$IChab.juv = NULL
-           all_inputs$floodP = NULL
+           all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
+           all_inputs$IChab.spawn = NA
+           all_inputs$IChab.fry = NA
+           all_inputs$IChab.juv = NA
+           all_inputs$floodP = NA
          },
          'spring' = {
-           all_inputs$IChab.spawn = NULL
-           all_inputs$IChab.fry = NULL
-           all_inputs$IChab.juv = NULL
-           all_inputs$floodP = NULL
+           all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'spring', ]
+           all_inputs$IChab.spawn = NA
+           all_inputs$IChab.fry = NA
+           all_inputs$IChab.juv = NA
+           all_inputs$floodP = NA
          },
          'steelhead' = {
-           all_inputs$IChab.spawn = NULL
-           all_inputs$IChab.fry = NULL
-           all_inputs$IChab.juv = NULL
-           all_inputs$floodP = NULL
+           all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ] # ?
+           all_inputs$IChab.spawn = NA
+           all_inputs$IChab.fry = NA
+           all_inputs$IChab.juv = NA
+           all_inputs$floodP = NA
          })
   
   return(all_inputs)

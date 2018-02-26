@@ -259,3 +259,26 @@
 #'  
 #' 
 "degday"
+
+#' Delta Rearing Habitat
+#' @description The delta high quality habitat area in square meters from 1980-1999.
+#' 
+#' @format A 3 dimensional array: 12 by 20 by 2 [months, years, deltas]
+#' 
+#' [ , , 1] North Delta
+#' 
+#' [ , , 2] South Delta
+#' 
+#' @details 
+#' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
+#'
+#' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
+#' below Vernalis.
+#' 
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{delta_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/delta_habitat.html}{link} if in a web browser
+#' }
+#' 
+"dlt_hab"
