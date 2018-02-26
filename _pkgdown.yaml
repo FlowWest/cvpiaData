@@ -20,7 +20,7 @@ reference:
 - title: Model Formatted Inputs
   desc: Datasets filtered and formatted to run SIT scenario
   contents:
-  - bypass_over_top
+  - bypass_over
   - cross_channel_gates
   - dlt_divers
   - dlt_divers_tot

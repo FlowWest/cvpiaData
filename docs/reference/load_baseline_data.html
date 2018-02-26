@@ -112,7 +112,7 @@
 <li><p>Instream habitat areas for each watershed</p></li>
 <li><p>Habitat areas for the deltas</p></li>
 <li><p>Floodplain habitat areas for each watershed</p></li>
-<li><p><a href='bypass_over_top.html'>Yearly record of bypasses overtopped in October of November  </a></p></li>
+<li><p>Yearly record of bypasses overtopped in October of November</p></li>
 <li><p>Accumulated degree days for adults before spawning</p></li>
 <li><p><a href='returnQ.html'>Proportion of flows at tributary junction from natal watershed in October</a></p></li>
 <li><p><a href='upsac_flow.html'>Upper Sacramento flow </a></p></li>
@@ -124,7 +124,8 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># place these two lines within the SIT Salmon Population Model function to load the data</span>
-<span class='no'>all_inputs</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>cvpiaData</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data'>load_baseline_data</a></span>()</div><div class='output co'>#&gt; <span class='error'>Error in species %in% c("fall", "winter", "spring", "steelhead"): argument "species" is missing, with no default</span></div><div class='input'><span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; <span class='error'>Error in list2env(all_inputs, envir = environment()): object 'all_inputs' not found</span></div></pre>
+<span class='no'>all_inputs</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>cvpiaData</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data'>load_baseline_data</a></span>(<span class='st'>'fall'</span>)
+<span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; <span class='error'>Error in list2env(all_inputs, envir = environment()): first argument must be a named list</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

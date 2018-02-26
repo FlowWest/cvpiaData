@@ -42,6 +42,6 @@ The list returned contains the following data:
 }
 \examples{
 # place these two lines within the SIT Salmon Population Model function to load the data
-all_inputs <- cvpiaData::load_baseline_data()
+all_inputs <- cvpiaData::load_baseline_data('fall')
 list2env(all_inputs, envir = environment())
 }

@@ -33,18 +33,21 @@
 "prop_Q_sutter"
 
 #' Sutter and Yolo Bypass Over Topped
-#' @description  Binary record of the bypasses over topped based on CALSIM flows
+#' @description  1979-1999 boolean record of the bypasses over topped based on CALSIM flows
 #'
-#' @format A data frame with 82 rows and 3 variables:
-#' \describe{
-#'    \item{month}{Integer representation of calendar month}
-#'    \item{year}{Year 1979-1999}
-#'    \item{tils.ove}{1 = sutter bypass over topped}
-#'    \item{yolo.ovr}{1 = yolo bypass over topped}
+#' @format A 3 dimensional array: 12 by 21 by 2 [months, years, bypasses]
+#' 
+#' [ , , 1] Sutter Bypass
+#' 
+#' [ , , 2] Yolo Bypass
+#' 
+#'@details For more details see:
+#'\itemize{
+#'   \item use this link within R \code{\link[cvpiaFlow]{bypass_overtopped}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/bypass_overtopped.html}{link} if in a web browser
 #' }
-#'
-#' @source Mike Urkov \email{mike.urkov@@gmail.com}
-"bypass_over_top"
+#' @source Sadie Gill \email{sgill@@flowwest.com}
+"bypass_over"
 
 #' Delta Cross Channel Gates - Days Closed
 #' @description The number of days the Delta Cross Channel gates are closed for each month based on typical operation.

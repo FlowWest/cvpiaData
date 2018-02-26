@@ -52,7 +52,7 @@ load_baseline_data <- function(species) {
                      prop.Q.yolo = cvpiaData::prop_Q_yolo, 
                      prop.Q.sutter = cvpiaData::prop_Q_sutter,
                      fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
-                     gate.top = cvpiaData::bypass_over_top, # replaced gate.top
+                     gate.top = cvpiaData::bypass_over, # replaced gate.top
                      DegDay = cvpiaData::degday,
                      retQ = cvpiaData::returnQ, 
                      upSacQ = cvpiaData::upsac_flow,
