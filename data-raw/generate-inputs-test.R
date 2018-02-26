@@ -488,16 +488,16 @@ upper_sacramento_flows <- get_flow("Upper Sacramento River")
 
 # for fall run fry modeling does not exist so we use fall run juv
 upper_sac_IN_fr_fry_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
-                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_fry_wua, rule=2)
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_fry_WUA, rule=2)
 
 upper_sac_IN_fr_juv_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
-                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_juv_wua, rule=2)
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_juv_WUA, rule=2)
 
 upper_sac_OUT_fr_fry_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
-                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_fry_wua, rule=2)
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_fry_WUA, rule=2)
 
 upper_sac_OUT_fr_juv_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
-                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_juv_wua, rule=2)
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_juv_WUA, rule=2)
 
 # board IN months 4-10
 # board OUT months 1-3, 11-12
@@ -681,10 +681,10 @@ upper_sac_flows_spawning <- get_flow_spawning("Upper Sacramento River")
 
 # for fall run fry modeling does not exist so we use fall run juv
 upper_sac_IN_fr_spawn_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_in$flow_cfs, 
-                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_spawn_wua, rule=2)
+                                        cvpiaHabitat::upper_sac_ACID_boards_in$FR_spawn_WUA, rule=2)
 
 upper_sac_OUT_fr_spawn_approx <- approxfun(cvpiaHabitat::upper_sac_ACID_boards_out$flow_cfs, 
-                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_spawn_wua, rule=2)
+                                         cvpiaHabitat::upper_sac_ACID_boards_out$FR_spawn_WUA, rule=2)
 
 upper_sac_spawning_input_df <- bind_cols(year_month_df_spawning, flows = upper_sac_flows_spawning)
 
@@ -773,9 +773,6 @@ thomes_creek_spawning <- purrr::map_dbl(thomes_creek_flows_spawning,
                                       ~set_spawning_habitat("Thomes Creek", "fr", .))
 
 # Upper-mid Sacramento River
-# According to modeling exists, this should be NA!
-upper_mid_sac_flows_spawning <- get_flow_spawning("Upper-mid Sacramento River")
-upper_mid_sac_spawning <- set_spawning_habitat("Upper-mid Sacramento River", "fr", upper_mid_sac_flows_spawning)
 upper_mid_sac_spawning <- rep(NA, nrow(year_month_df_spawning))
 
 # Sutter Bypass --- PASS
@@ -794,15 +791,6 @@ yuba_river_flows_spawning <- get_flow_spawning("Yuba River")
 yuba_river_spawning <- set_spawning_habitat("Yuba River", "fr", yuba_river_flows_spawning)
 
 # lower-mid sacramento
-# according to the modeling exists this should be NA!
-lower_mid_sac_spawning_flows1 <- get_flow_spawning("Lower-mid Sacramento River1")
-lower_mid_sac_spawning_flows2 <- get_flow_spawning("Lower-mid Sacramento River2")
-
-
-lower_mid_sac_spawning_1 <- set_spawning_habitat("Lower-mid Sacramento River", "fr", 
-                                                 lower_mid_sac_spawning_flows1)
-lower_mid_sac_spawning_2 <- set_spawning_habitat("Lower-mid Sacramento River", "fr", 
-                                                 lower_mid_sac_spawning_flows2)
 lower_mid_sac_spawnning <- rep(NA, nrow(year_month_df_spawning))
 
 # Yolo Bypass 
@@ -899,26 +887,3 @@ inchannel_spawning_habitat <- bind_rows(
 
 
 devtools::use_data(inchannel_spawning_habitat, overwrite = TRUE)
-
-# cvpiaData::inchannel_spawning_habitat %>% 
-#   mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>% 
-#   select(date, watershed, habitat) %>% 
-#   spread(date, habitat) %>% View
-# 
-# wat <- cvpiaData::inchannel_spawning_habitat$watershed %>% unique
-# cvpiaData::watershed_ordering$watershed[!(cvpiaData::watershed_ordering$watershed %in% wat)]
-# 
-# cvpiaData::inchannel_habitat
-# am <- year_month_df
-# am$watershd = 'American River'
-# 
-# amj <- am
-# am$habitat = american_river_fr_fry
-# am$life_stage = 'fry'
-# am$species = 'fr'
-# 
-# amj$habitat = american_river_fr_juv
-# amj$life_stage = 'juv'
-# amj$species = 'fr'
-# 
-# bind_rows(am, amj)
