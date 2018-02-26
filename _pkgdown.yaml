@@ -35,6 +35,9 @@ reference:
   - total_diversion
   - degday
   - dlt_hab
+  - spawn_fall
+  - inchannel_fry_fall
+  - inchannel_juv_fall
 
 navbar:
   type: default

@@ -282,3 +282,36 @@
 #' }
 #' 
 "dlt_hab"
+
+#' Spawning Habitat - Fall Run
+#' @description The 1979-1999 suitable spawning habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html}{link} if in a web browser
+#' }
+#' 
+"spawn_fall"
+
+#' Fry Inchannel Habitat - Fall Run
+#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"inchannel_fry_fall"
+
+#' Juvenile Inchannel Habitat - Fall Run
+#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"inchannel_juv_fall"

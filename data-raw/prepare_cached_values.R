@@ -181,5 +181,38 @@ dlt_hab[ , , 2] <- as.matrix(dt_hab[2, -1])
 use_data(dlt_hab)
 
 # inchannel habitat ----------------
-cvpiaData::inchannel_habitat %>% 
-  filter(species == 'fr', life_stage == 'fry')
+inchannel_fry_fall <- cvpiaData::inchannel_habitat %>% 
+  filter(species == 'fr', life_stage == 'fry') %>% 
+  mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>% 
+  select(date, watershed, habitat) %>% 
+  spread(date, habitat) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
+
+use_data(inchannel_fry_fall)
+
+inchannel_juv_fall <- cvpiaData::inchannel_habitat %>% 
+  filter(species == 'fr', life_stage == 'juv') %>% 
+  mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>% 
+  select(date, watershed, habitat) %>% 
+  spread(date, habitat) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
+
+use_data(inchannel_juv_fall)
+
+spawn_fall <- cvpiaData::inchannel_spawning_habitat %>% 
+  filter(species == 'fr') %>% 
+  mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>% 
+  select(date, watershed, habitat) %>% 
+  spread(date, habitat) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
+
+use_data(spawn_fall)
