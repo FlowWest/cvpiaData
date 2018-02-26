@@ -10,27 +10,28 @@
 #'
 "watershed_ordering"
 
-#' Proportion Flow at Yolo Bypasses
-#' @description The proportion of Lower Sacramento River flow at Yolo Bypasses
+#' Proportion Flow at Yolo and Sutter Bypasses
+#' @description The proportion of Lower Sacramento River flow at each bypass weir
 #'
-#' @format A data frame with 12 rows and 20 variables (months, years)
+#' @format A 3 dimensional array: 12 by 20 by 6 [months, years, bypasses]
+#' 
+#' \itemize{
+#'   \item [ , , 1] Sutter Bypass 1
+#'   \item [ , , 2] Sutter Bypass 2
+#'   \item [ , , 3] Sutter Bypass 3
+#'   \item [ , , 4] Sutter Bypass 4
+#'   \item [ , , 5] Yolo Bypass 1
+#'   \item [ , , 6] Yolo Bypass 2
+#' }
+
+#' 
 #' @details For more details see: 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaFlow]{propQbypass}}
 #'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/propQbypass.html}{link} if in a web browser
 #' }
-"prop_Q_yolo"
+"bypass_prop_Q"
 
-#' Proportion Flow at Sutter Bypasses
-#' @description The proportion of Lower Sacramento River flow at Sutter Bypasses
-#'
-#'@format A data frame with 12 rows and 20 variables (months, years)
-#'@details For more details see:
-#'\itemize{
-#'   \item use this link within R \code{\link[cvpiaFlow]{propQbypass}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/propQbypass.html}{link} if in a web browser
-#' }
-"prop_Q_sutter"
 
 #' Sutter and Yolo Bypass Over Topped
 #' @description  1979-1999 boolean record of the bypasses over topped based on CALSIM flows

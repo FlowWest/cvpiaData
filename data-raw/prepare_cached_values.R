@@ -26,24 +26,19 @@ total_diversion <- cvpiaFlow::total_diverted %>%
 
 use_data(total_diversion)
 
-prop_Q_sutter <- cvpiaFlow::propQbypass %>%
-  mutate(year = year(date), month = month(date)) %>% 
-  select(year, month, propQsutter) %>%
-  filter(year >= 1980, year < 2000) %>% 
-  spread(year, propQsutter) %>% 
-  select(-month)
+# bypass flows for rearing habitat
+bp_pf <- cvpiaFlow::propQbypass %>% 
+  select(-propQyolo, -propQsutter) %>% 
+  filter(between(year(date), 1980, 1999)) %>% 
+  gather(bypass, flow, -date) %>% 
+  spread(date, flow)
 
-use_data(prop_Q_sutter)
+bypass_prop_Q <- array(NA, dim = c(12, 20, 6))
+for (i in 1:6) {
+  bypass_prop_Q[ , , i] <- as.matrix(bp_pf[i, -1])
+}
 
-
-prop_Q_yolo <- cvpiaFlow::propQbypass %>%
-  mutate(year = year(date), month = month(date)) %>% 
-  select(year, month, propQyolo) %>%
-  filter(year >= 1980, year < 2000) %>% 
-  spread(year, propQyolo) %>% 
-  select(-month)
-
-use_data(prop_Q_yolo)
+use_data(bypass_prop_Q)
 
 returnQ <- cvpiaFlow::return_flow %>%
   mutate(year = year(date)) %>% 

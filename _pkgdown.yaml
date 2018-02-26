@@ -27,8 +27,7 @@ reference:
   - dlt_inflow
   - freeportQcms
   - misc_data
-  - prop_Q_yolo
-  - prop_Q_sutter
+  - bypass_prop_Q
   - returnQ
   - upsac_flow
   - watershed_ordering
