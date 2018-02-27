@@ -315,3 +315,63 @@
 #' }
 #'  
 "inchannel_juv_fall"
+
+#' Floodplain Habitat - Fall Run
+#' @description The 1980-1999 total floodplain rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_floodplain_habitat.html}{link} if in a web browser
+#' }
+#' Need to apply a suitability factor, recommend 27\%.
+#'  
+"floodplain_fall"
+
+#' Floodplain Habitat Activation Duration
+#' @description The 1980-1999 floodplain rearing habitat event duration in number of weeks
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{weeks_flooded}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/weeks_flooded.html}{link} if in a web browser
+#' }
+#' 
+#' Additional growth benefit on floodplain max out after 2 weeks, apply survival
+#' benefit for total duration.
+#'  
+"inundation_durations"
+
+#' Migratory Corridor Temperature Exceedance
+#' @description The mean monthly proportion of temperatures above 20°C
+#' @format  A dataframe with 31 rows and 14 variables 
+#' \describe{
+#'   \item{order}{SIT model watershed ordering}
+#'   \item{watershed}{watershed within CVPIA}
+#'   \item{1}{January}
+#'   \item{...}{}prop_temp_over_20_migr_cor
+#'   \item{12}{December}
+#' }
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaTemperature]{prop_temp_over_20_migr_cor}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/prop_temp_over_20_migr_cor.html}{link} if in a web browser
+#' }
+#' 
+"ptemp20mc"
+
+#' Temperature Effect on Egg Mortality
+#' @description The mean estimate of temperature effect used for egg to fry survival
+#' @format  A dataframe with 31 rows and 2 variables 
+#' \describe{
+#'   \item{watershed}{watershed within CVPIA}
+#'   \item{mean_temp_effect}{temperature effect}
+#' }
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaTemperature]{prop_temp_over_20_migr_cor}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/prop_temp_over_20_migr_cor.html}{link} if in a web browser
+#' }
+#' Was calculated by takeing the mean of dry and wet egg temp effects from previous model.
+#' 
+"egg_temp_effect"

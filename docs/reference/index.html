@@ -11,8 +11,8 @@
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
@@ -52,17 +52,18 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
+  <a href="../index.html">
+    <span class="fa fa-home fa-lg"></span>
+     
+  </a>
+</li>
+<li>
   <a href="../reference/index.html">Reference</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/flowwest/cvpiaData">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -91,28 +92,8 @@
       <tbody>
         <tr>
           <th colspan="2">
-            <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
-            <p class="section-desc"><p>Functions that prepare and data for use with the model.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="load_baseline_data.html">load_baseline_data</a></code> </p>
-          </td>
-          <td><p>Load SIT Model Inputs for Years 1980-1999</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="create_Sit_array.html">create_SIT_array</a></code> </p>
-          </td>
-          <td><p>Generate SIT Model Compatible Array</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-model-formatted-inputs" class="hasAnchor"><a href="#section-model-formatted-inputs" class="anchor"></a>Model Formatted Inputs</h2>
-            <p class="section-desc"><p>Datasets filtered and formatted to run SIT scenario</p></p>
+            <h2 id="section-all-functions" class="hasAnchor"><a href="#section-all-functions" class="anchor"></a>All functions</h2>
+            <p class="section-desc"></p>
           </th>
         </tr>
         <tr>
@@ -124,9 +105,27 @@
         </tr><tr>
           <!--  -->
           <td>
+            <p><code><a href="bypass_prop_Q.html">bypass_prop_Q</a></code> </p>
+          </td>
+          <td><p>Proportion Flow at Yolo and Sutter Bypasses</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="create_Sit_array.html">create_SIT_array</a></code> </p>
+          </td>
+          <td><p>Generate SIT Model Compatible Array</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
             <p><code><a href="cross_channel_gates.html">cross_channel_gates</a></code> </p>
           </td>
           <td><p>Delta Cross Channel Gates - Days Closed</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="degday.html">degday</a></code> </p>
+          </td>
+          <td><p>Degree Days</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -142,75 +141,33 @@
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="dlt_inflow.html">dlt_inflow</a></code> </p>
-          </td>
-          <td><p>Delta Inflow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="freeportQcms.html">freeportQcms</a></code> </p>
-          </td>
-          <td><p>Flow at Freeport</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="misc_data.html">misc_data</a></code> </p>
-          </td>
-          <td><p>Miscellaneous Model Inputs</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bypass_prop_Q.html">bypass_prop_Q</a></code> </p>
-          </td>
-          <td><p>Proportion Flow at Yolo and Sutter Bypasses</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="returnQ.html">returnQ</a></code> </p>
-          </td>
-          <td><p>Return Flow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="upsac_flow.html">upsac_flow</a></code> </p>
-          </td>
-          <td><p>Upper Sacramento Flows</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="watershed_ordering.html">watershed_ordering</a></code> </p>
-          </td>
-          <td><p>Ordering of Watersheds</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="prop_diversion.html">prop_diversion</a></code> </p>
-          </td>
-          <td><p>Proportion of Flow Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="total_diversion.html">total_diversion</a></code> </p>
-          </td>
-          <td><p>Total Flow Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="degday.html">degday</a></code> </p>
-          </td>
-          <td><p>Degree Days</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
             <p><code><a href="dlt_hab.html">dlt_hab</a></code> </p>
           </td>
           <td><p>Delta Rearing Habitat</p></td>
         </tr><tr>
           <!--  -->
           <td>
-            <p><code><a href="spawn_fall.html">spawn_fall</a></code> </p>
+            <p><code><a href="dlt_inflow.html">dlt_inflow</a></code> </p>
           </td>
-          <td><p>Spawning Habitat - Fall Run</p></td>
+          <td><p>Delta Inflow</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="egg_temp_effect.html">egg_temp_effect</a></code> </p>
+          </td>
+          <td><p>Temperature Effect on Egg Mortality</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="floodplain_fall.html">floodplain_fall</a></code> </p>
+          </td>
+          <td><p>Floodplain Habitat - Fall Run</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="freeportQcms.html">freeportQcms</a></code> </p>
+          </td>
+          <td><p>Flow at Freeport</p></td>
         </tr><tr>
           <!--  -->
           <td>
@@ -223,6 +180,66 @@
             <p><code><a href="inchannel_juv_fall.html">inchannel_juv_fall</a></code> </p>
           </td>
           <td><p>Juvenile Inchannel Habitat - Fall Run</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="inundation_durations.html">inundation_durations</a></code> </p>
+          </td>
+          <td><p>Floodplain Habitat Activation Duration</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="load_baseline_data.html">load_baseline_data</a></code> </p>
+          </td>
+          <td><p>Load SIT Model Inputs for Years 1980-1999</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="misc_data.html">misc_data</a></code> </p>
+          </td>
+          <td><p>Miscellaneous Model Inputs</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="prop_diversion.html">prop_diversion</a></code> </p>
+          </td>
+          <td><p>Proportion of Flow Diverted</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="ptemp20mc.html">ptemp20mc</a></code> </p>
+          </td>
+          <td><p>Migratory Corridor Temperature Exceedance</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="returnQ.html">returnQ</a></code> </p>
+          </td>
+          <td><p>Return Flow</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="spawn_fall.html">spawn_fall</a></code> </p>
+          </td>
+          <td><p>Spawning Habitat - Fall Run</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="total_diversion.html">total_diversion</a></code> </p>
+          </td>
+          <td><p>Total Flow Diverted</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="upsac_flow.html">upsac_flow</a></code> </p>
+          </td>
+          <td><p>Upper Sacramento Flows</p></td>
+        </tr><tr>
+          <!--  -->
+          <td>
+            <p><code><a href="watershed_ordering.html">watershed_ordering</a></code> </p>
+          </td>
+          <td><p>Ordering of Watersheds</p></td>
         </tr>
       </tbody>
       </table>
@@ -232,8 +249,7 @@
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#section-functions">Functions</a></li>
-      <li><a href="#section-model-formatted-inputs">Model Formatted Inputs</a></li>
+      <li><a href="#section-all-functions">All functions</a></li>
     </ul>
   </div>
 </div>

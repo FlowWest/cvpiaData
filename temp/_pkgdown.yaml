@@ -17,28 +17,33 @@ reference:
   contents:
   - load_baseline_data
   - create_SIT_array
-- title: Model Formatted Inputs
+- title: Model Inputs
   desc: Datasets filtered and formatted to run SIT scenario
   contents:
-  - bypass_over
   - cross_channel_gates
   - dlt_divers
   - dlt_divers_tot
   - dlt_inflow
   - freeportQcms
-  - misc_data
+  - bypass_over
   - bypass_prop_Q
   - returnQ
   - upsac_flow
-  - watershed_ordering
   - prop_diversion
   - total_diversion
-  - degday
   - dlt_hab
   - spawn_fall
   - inchannel_fry_fall
   - inchannel_juv_fall
-
+  - floodplain_fall
+  - inundation_durations
+  - rearing_temps
+  - dlt_temps
+  - degday
+  - ptemp20mc
+  - egg_temp_effect
+  - misc_data
+  - watershed_ordering
 navbar:
   type: default
   left:
