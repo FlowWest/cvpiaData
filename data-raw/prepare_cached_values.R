@@ -216,3 +216,15 @@ spawn_fall <- cvpiaData::inchannel_spawning_habitat %>%
   create_SIT_array()
 
 use_data(spawn_fall)
+
+floodplain_fall <- cvpiaData::floodplain_habitat %>% 
+  filter(species == 'fr') %>% 
+  mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>%
+  select(date, watershed, habitat) %>% 
+  spread(date, habitat) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>% 
+  create_SIT_array()
+
+devtools::use_data(floodplain_fall)

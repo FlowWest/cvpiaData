@@ -1,3 +1,4 @@
+library(tidyr)
 library(dplyr)
 library(purrr)
 library(cvpiaHabitat)
@@ -887,3 +888,200 @@ inchannel_spawning_habitat <- bind_rows(
 
 
 devtools::use_data(inchannel_spawning_habitat, overwrite = TRUE)
+
+
+# Floodplain FALL RUN Years: 1980 to 1999 -----------------------------
+
+year_month_df_floodplain <- tibble::as_tibble(expand.grid(year = 1980:1999, month = 1:12)) %>% 
+  arrange(year, month)
+
+
+# upper sac (board in/out logic here)
+upper_sac_flows_floodplain <- get_flow("Upper Sacramento River")
+
+upper_sac_floodplain <- set_floodplain_habitat('Upper Sacramento River', 'fr', upper_sac_flows_floodplain)
+
+# antelope 
+antelope_creek_flows_floodplain <- get_flow("Antelope Creek")
+
+antelope_creek_floodplain <- set_floodplain_habitat('Antelope Creek', 'fr', antelope_creek_flows_floodplain)
+
+
+# battle creek 
+battle_creek_flows_floodplain <- get_flow("Battle Creek")
+
+battle_creek_floodplain <- set_floodplain_habitat('Battle Creek', 'fr', battle_creek_flows_floodplain)
+
+# bear creek 
+bear_creek_flows_floodplain <- get_flow("Bear Creek")
+bear_creek_floodplain <- set_floodplain_habitat('Bear Creek', 'fr', bear_creek_flows_floodplain)
+
+# Big Chico creek 
+big_chico_creek_flows_floodplain <- get_flow("Big Chico Creek")
+big_chico_creek_floodplain <- set_floodplain_habitat('Big Chico Creek', 'fr', big_chico_creek_flows_floodplain)
+
+# butte creek
+butte_creek_flows_floodplain <- get_flow("Butte Creek")
+butte_creek_floodplain <- cvpiaHabitat::set_floodplain_habitat('Butte Creek', 'fr', butte_creek_flows_floodplain)
+
+# Clear creek
+clear_creek_flows_floodplain <- get_flow("Clear Creek")
+clear_creek_floodplain <- set_floodplain_habitat('Clear Creek', 'fr', clear_creek_flows_floodplain)
+
+# Cottonwood creek
+cottonwood_creek_flows_floodplain <- get_flow("Cottonwood Creek")
+cottonwood_creek_floodplain <- set_floodplain_habitat('Cottonwood Creek', 'fr', 
+                                                      cottonwood_creek_flows_floodplain)
+
+# cow creek
+cow_creek_flows_floodplain <- get_flow("Cow Creek")
+cow_creek_floodplain <- set_floodplain_habitat('Cow Creek', 'fr', cow_creek_flows_floodplain)
+
+# deer creek
+deer_creek_flows_floodplain <- get_flow("Deer Creek")
+deer_creek_floodplain <- set_floodplain_habitat('Deer Creek', 'fr', deer_creek_flows_floodplain)
+
+# elder creek
+elder_creek_flows_floodplain <- get_flow("Elder Creek")
+elder_creek_floodplain <- set_floodplain_habitat('Elder Creek', 'fr', elder_creek_flows_floodplain)
+
+
+# mill creek
+mill_creek_flows_floodplain <- get_flow("Mill Creek")
+mill_creek_floodplain <- set_floodplain_habitat('Mill Creek', 'fr', mill_creek_flows_floodplain)
+
+
+# Paynes creek
+paynes_creek_flows_floodplain <- get_flow("Paynes Creek")
+paynes_creek_floodplain <- set_floodplain_habitat('Paynes Creek', 'fr', paynes_creek_flows_floodplain)
+
+# stony  creek
+stony_creek_flows_floodplain <- get_flow("Stony Creek")
+stony_creek_floodplain <- set_floodplain_habitat('Stony Creek', 'fr', stony_creek_flows_floodplain)
+
+# Thomes creek
+thomes_creek_flows_floodplain <- get_flow("Thomes Creek")
+thomes_creek_floodplain <- cvpiaHabitat::set_floodplain_habitat('Thomes Creek', 'fr', thomes_creek_flows_floodplain)
+
+# Upper-mid Sacramento River
+up_mid_sac_flows_floodplain <- get_flow("Upper-mid Sacramento River")
+upper_mid_sac_floodplain <- set_floodplain_habitat('Upper-mid Sacramento River', 'fr',
+                                                   up_mid_sac_flows_floodplain)
+
+# Sutter Bypass --- PASS
+sutter_bypass_floodplain <- rep(NA, nrow(year_month_df_floodplain))
+
+# Bear River
+bear_river_flows_floodplain <- get_flow("Bear River")
+bear_river_floodplain <- set_floodplain_habitat('Bear River', 'fr', bear_river_flows_floodplain)
+
+# Feather River
+feather_river_flows_floodplain <- get_flow("Feather River")
+feather_river_floodplain <- set_floodplain_habitat("Feather River", "fr", feather_river_flows_floodplain)
+
+# Yuba River
+yuba_river_flows_floodplain <- get_flow("Yuba River")
+yuba_river_floodplain <- set_floodplain_habitat("Yuba River", "fr", yuba_river_flows_floodplain)
+
+# lower-mid sacramento 
+# TODO check with mark
+low_mid_sac_flows_floodplain <- get_flow("Lower-mid Sacramento River2") 
+low_mid_sac_floodplain <- set_floodplain_habitat('Lower-mid Sacramento River', 'fr',
+                                                   low_mid_sac_flows_floodplain)
+
+# Yolo Bypass 
+yolo_bypass_floodplain <- rep(NA, nrow(year_month_df_floodplain))
+
+# American River
+american_river_floodplain_flows <- get_flow("American River")
+american_river_floodplain <- set_floodplain_habitat('American River', 'fr', american_river_floodplain_flows)
+
+
+# lower sacramento River 
+lower_sac_flows_floodplain <- get_flow("Lower Sacramento River") 
+lower_sacramento_river_floodplain <- set_floodplain_habitat('Lower Sacramento River', 'fr',
+                                                 lower_sac_flows_floodplain)
+
+# Calaveras River
+calaveras_river_floodplain_flows <- get_flow("Calaveras River")
+calaveras_river_floodplain <- set_floodplain_habitat('Calaveras River', 'fr', calaveras_river_floodplain_flows)
+
+
+# Cosumnes River
+# TODO ask mark to scale cosumnes
+cosumnes_river_floodplain_flows <- get_flow("Cosumnes River")
+cosumnes_river_floodplain <- ifelse(cosumnes_river_floodplain_flows >= 1122, 106.1 * 4046.86, 0)
+# cosumnes_river_floodplain <- set_floodplain_habitat('Cosumnes River', 'fr', cosumnes_river_floodplain_flows)
+
+
+
+# mokelumne 
+mokelumne_river_floodplain_flows <- get_flow("Mokelumne River")
+mokelumne_river_floodplain <- set_floodplain_habitat("Mokelumne River", "fr", 
+                                                 mokelumne_river_floodplain_flows)
+
+
+# merced 
+merced_river_floodplain_flows <- get_flow("Merced River")
+merced_river_floodplain <- set_floodplain_habitat("Merced River", "fr", 
+                                              merced_river_floodplain_flows)
+
+# stanislaus
+stanislaus_river_floodplain_flows <- get_flow("Stanislaus River")
+stanislaus_river_floodplain <- set_floodplain_habitat("Stanislaus River", "fr", 
+                                                  stanislaus_river_floodplain_flows)
+
+# tuolumne 
+tuolumne_river_floodplain_flows <- get_flow("Tuolumne River")
+tuolumne_river_floodplain <- set_floodplain_habitat("Tuolumne River", "fr",
+                                                tuolumne_river_floodplain_flows)
+
+# san joaquin is NA
+san_joaquin_river_floodplain_flows <- get_flow("San Joaquin River")
+san_joaquin_river_floodplain <- set_floodplain_habitat('San Joaquin River', 'fr', 
+                                                       san_joaquin_river_floodplain_flows)
+
+fall_run_floodplain_habitat <-  bind_cols(
+  year_month_df_floodplain,
+  "Upper Sacramento River" = upper_sac_floodplain,
+  "Antelope Creek" = antelope_creek_floodplain,
+  "Battle Creek" = battle_creek_floodplain, 
+  "Bear Creek" = bear_creek_floodplain,
+  "Big Chico Creek" = big_chico_creek_floodplain,
+  "Butte Creek" = butte_creek_floodplain,
+  "Clear Creek" = clear_creek_floodplain,
+  "Cottonwood Creek" = cottonwood_creek_floodplain,
+  "Cow Creek" = cow_creek_floodplain,
+  "Deer Creek" = deer_creek_floodplain,
+  "Elder Creek" = elder_creek_floodplain,
+  "Mill Creek"= mill_creek_floodplain,
+  "Paynes Creek" = paynes_creek_floodplain,
+  "Stony Creek" = stony_creek_floodplain,
+  "Thomes Creek" = thomes_creek_floodplain,
+  "Upper-mid Sacramento River" = upper_mid_sac_floodplain,
+  "Sutter Bypass" = rep(NA, nrow(year_month_df_floodplain)),
+  "Bear River" = bear_river_floodplain,
+  "Feather River" = feather_river_floodplain,
+  "Yuba River" = yuba_river_floodplain,
+  "Lower-mid Sacramento River" = low_mid_sac_floodplain,
+  "Yolo Bypass" = rep(NA, nrow(year_month_df_floodplain)),
+  "American River" = american_river_floodplain,
+  "Lower Sacramento River" = lower_sacramento_river_floodplain,
+  "Calaveras River" = calaveras_river_floodplain,
+  "Cosumnes River" = cosumnes_river_floodplain,
+  "Mokelumne River" = mokelumne_river_floodplain,
+  "Merced River" = merced_river_floodplain,
+  "Stanislaus River" = stanislaus_river_floodplain,
+  "Tuolumne River" = tuolumne_river_floodplain,
+  "San Joaquin River" = san_joaquin_river_floodplain
+) %>% 
+  tidyr::gather(watershed, habitat, -c(year, month)) %>% 
+  mutate(species = "fr")
+
+
+floodplain_habitat <- bind_rows(
+  fall_run_floodplain_habitat
+)
+
+devtools::use_data(floodplain_habitat, overwrite = TRUE)
+

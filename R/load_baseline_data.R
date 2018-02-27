@@ -64,7 +64,8 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.spawn = cvpiaData::spawn_fall
            all_inputs$IChab.fry = cvpiaData::inchannel_fry_fall
            all_inputs$IChab.juv = cvpiaData::inchannel_juv_fall
-           all_inputs$floodP = NA
+           all_inputs$floodP = cvpiaData::floodplain_fall
+           all_inputs$floodp.bypass = NA
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
