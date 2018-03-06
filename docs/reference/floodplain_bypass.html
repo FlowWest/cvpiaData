@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Delta Total Diverted — dlt_divers_tot • cvpiaData</title>
+<title>Bypass Floodplain Habitat Area — floodplain_bypass • cvpiaData</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -74,29 +74,37 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Delta Total Diverted</h1>
+    <h1>Bypass Floodplain Habitat Area</h1>
     </div>
 
     
-    <p>The total diverted of delta inflow in cubic meters per second from 1980-1999.</p>
+    <p>The 1980-1999 total floodplain habitat area in square meters</p>
     
 
-    <pre class="usage"><span class='no'>dlt_divers_tot</span></pre>
+    <pre class="usage"><span class='no'>floodplain_bypass</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)</p>
-<p>[ , , 1] North Delta</p>
-<p>[ , , 2] South Delta</p>
+    <p>a 3 dimensional array [6 bypass sections, 12 months, 20 years]</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.</p>
-<p>The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
-below Vernalis.</p>
-<p>For more details see:</p><ul>
-<li><p>use this link within R <code><a href='http://www.rdocumentation.org/packages/cvpiaFlow/topics/delta_flows'>delta_flows</a></code></p></li>
-<li><p>use this <a href='https://flowwest.github.io/cvpiaFlow/reference/delta_flows.html'>link</a> if in a web browser</p></li>
+    <ul>
+<li><p>use this link within R <code><a href='http://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_bypass_floodplain_habitat'>set_bypass_floodplain_habitat</a></code></p></li>
+<li><p>use this <a href='https://flowwest.github.io/cvpiaHabitat/reference/set_bypass_floodplain_habitat.html'>link</a> if in a web browser</p></li>
+</ul>
+    <p>Note: Remember to apply a suitability factor to downscale the total area.</p>
+    
+    <h2 class="hasAnchor" id="bypass-sections"><a class="anchor" href="#bypass-sections"></a>Bypass Sections</h2>
+
+    
+    <ul>
+<li><p>[1, , ] sutter1 = to Moulton Weir</p></li>
+<li><p>[2, , ] sutter2 = to Colusa Weir</p></li>
+<li><p>[3, , ] sutter3 = to Tisdale Weir</p></li>
+<li><p>[4, , ] sutter4 = below Tisdale Weir</p></li>
+<li><p>[5, , ] yolo1 = Fremont Weir to Sacramento Weir</p></li>
+<li><p>[6, , ] yolo2 = below Sacramento Weir</p></li>
 </ul>
     
 
@@ -108,6 +116,8 @@ below Vernalis.</p>
       <li><a href="#format">Format</a></li>
 
       <li><a href="#details">Details</a></li>
+
+      <li><a href="#bypass-sections">Bypass Sections</a></li>
           </ul>
 
   </div>

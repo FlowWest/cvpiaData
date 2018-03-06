@@ -17,8 +17,7 @@ reference:
   contents:
   - load_baseline_data
   - create_SIT_array
-- title: Model Inputs
-  desc: Datasets filtered and formatted to run SIT scenario
+- title: Flow Inputs
   contents:
   - cross_channel_gates
   - dlt_divers
@@ -31,19 +30,29 @@ reference:
   - upsac_flow
   - prop_diversion
   - total_diversion
+- title: Habitat Inputs
+  contents:
   - dlt_hab
   - spawn_fall
   - inchannel_fry_fall
   - inchannel_juv_fall
   - floodplain_fall
   - inundation_durations
+  - inchannel_bypass
+  - floodplain_bypass
+- title: Temperature Inputs
+  contents:
   - rearing_temps
   - dlt_temps
   - degday
   - ptemp20mc
   - egg_temp_effect
+- title: Miscellaneous Inputs
+  contents:
   - misc_data
   - watershed_ordering
+
+
 navbar:
   type: default
   left:

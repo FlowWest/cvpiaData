@@ -50,7 +50,7 @@ load_baseline_data <- function(species) {
                      DLThab = cvpiaData::dlt_hab, 
                      prop.Q.bypasses = cvpiaData::bypass_prop_Q, # replaced prop.Q.sutter and yolo
                      IChab.bypass = cvpiaData::inchannel_bypass, # new bypass inchannel
-                     floodp.bypass = NA, # new bypass floodplain
+                     floodp.bypass = cvpiaData::floodplain_bypass, # new bypass floodplain
                      fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
                      gate.top = cvpiaData::bypass_over, # replaced gate.top
                      DegDay = cvpiaData::degday,

@@ -145,6 +145,29 @@
 #' 
 "dlt_inflow"
 
+#' Delta Inflow
+#' @description The delta temperature in °C from 1980-1999.
+#' 
+#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' 
+#' [ , , 1] North Delta
+#' 
+#' [ , , 2] South Delta
+#' 
+#' @details 
+#' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
+#'
+#' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
+#' below Vernalis.
+#' 
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaTemperature]{delta_temps}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/delta_temps.html}{link} if in a web browser
+#' }
+#' 
+"dlt_temps"
+
 #' Flow at Freeport
 #' @description The inflow at Freeport in cubic meters per second from 1980-1999.
 #' 
@@ -342,6 +365,17 @@
 #'  
 "inundation_durations"
 
+#' Rearing Temperature
+#' @description The 1980-1999 rearing temperature in °C
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaTemperature]{juv_temp}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/juv_temp.html}{link} if in a web browser
+#' }
+#'
+"rearing_temps"
+
 #' Migratory Corridor Temperature Exceedance
 #' @description The mean monthly proportion of temperatures above 20°C
 #' @format  A dataframe with 31 rows and 14 variables 
@@ -377,7 +411,7 @@
 "egg_temp_effect"
 
 #' Bypass Instream Habitat Area
-#' @description The 1980-1999 suitable juvenile rearin habitat area in square meters
+#' @description The 1980-1999 suitable juvenile rearing habitat area in square meters
 #' @format a 3 dimensional array [6 bypass sections, 12 months, 20 years]
 #' @details 
 #' \itemize{
@@ -397,3 +431,27 @@
 #' }
 #' 
 "inchannel_bypass"
+
+#' Bypass Floodplain Habitat Area
+#' @description The 1980-1999 total floodplain habitat area in square meters
+#' @format a 3 dimensional array [6 bypass sections, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_bypass_floodplain_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_bypass_floodplain_habitat.html}{link} if in a web browser
+#' }
+#' 
+#' Note: Remember to apply a suitability factor to downscale the total area.
+#' 
+#' @section Bypass Sections:
+#' 
+#' \itemize{
+#'   \item [1, , ] sutter1 = to Moulton Weir
+#'   \item [2, , ] sutter2 = to Colusa Weir
+#'   \item [3, , ] sutter3 = to Tisdale Weir
+#'   \item [4, , ] sutter4 = below Tisdale Weir
+#'   \item [5, , ] yolo1 = Fremont Weir to Sacramento Weir
+#'   \item [6, , ] yolo2 = below Sacramento Weir
+#' }
+#' 
+"floodplain_bypass"
