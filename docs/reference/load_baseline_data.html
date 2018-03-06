@@ -99,33 +99,38 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p>The list returned contains the following data:</p><ul>
-<li><p><a href='misc_data.html'>Miscellaneous model inputs</a></p></li>
+<li><p><a href='ptemp20mc.html'>Proportion of days in month exceeding 20°C</a></p></li>
 <li><p><a href='prop_diversion.html'>Proportion of flow diverted for each watershed</a></p></li>
 <li><p><a href='total_diversion.html'>Total flow diverted for each watershed</a></p></li>
 <li><p><a href='dlt_divers.html'>Proportion of flow diverted in the North and South deltas</a></p></li>
 <li><p><a href='dlt_divers_tot.html'>Total flow diverted in the North and South deltas</a></p></li>
-<li><p>Monthly mean temperature during juvenile outmigration in each watershed</p></li>
-<li><p>Monthly mean temperature during juvenile outmigration in the deltas</p></li>
+<li><p><a href='rearing_temps.html'>Monthly mean temperature during juvenile outmigration in each watershed</a></p></li>
+<li><p><a href='dlt_temps.html'>Monthly mean temperature during juvenile outmigration in the deltas</a></p></li>
 <li><p><a href='dlt_inflow.html'>Total inflow in the deltas</a></p></li>
-<li><p>Proportion of Sacramento River into Yolo Bypass</p></li>
-<li><p>Proportion of Sacramento River into Sutter Bypass</p></li>
-<li><p>Instream habitat areas for each watershed</p></li>
-<li><p>Habitat areas for the deltas</p></li>
-<li><p>Floodplain habitat areas for each watershed</p></li>
-<li><p>Yearly record of bypasses overtopped in October of November</p></li>
-<li><p>Accumulated degree days for adults before spawning</p></li>
+<li><p><a href='dlt_hab.html'>Habitat areas for the deltas</a></p></li>
+<li><p><a href='bypass_prop_Q.html'>Proportion of Sacramento River into bypasses</a></p></li>
+<li><p><a href='inchannel_bypass.html'>Instream habitat areas for each bypass</a></p></li>
+<li><p><a href='floodplain_bypass.html'>Floodplain habitat areas for each bypass</a></p></li>
+<li><p><a href='inundation_durations.html'>Floodplain habitat duration inundated for each watershed</a></p></li>
+<li><p><a href='bypass_over.html'>Monthly record of bypasses overtopped</a></p></li>
+<li><p><a href='degday.html'>Accumulated degree days for adults before spawning</a></p></li>
 <li><p><a href='returnQ.html'>Proportion of flows at tributary junction from natal watershed in October</a></p></li>
 <li><p><a href='upsac_flow.html'>Upper Sacramento flow </a></p></li>
 <li><p><a href='freeportQcms.html'>Flow at Georgiana slough</a></p></li>
 <li><p><a href='cross_channel_gates.html'>Total and proportion number of days the cross channel gates are typically closed per month</a></p></li>
-<li><p>Temperature effect on egg mortality</p></li>
+<li><p><a href='egg_temp_effect.html'>Temperature effect on egg mortality</a></p></li>
+<li><p><a href='misc_data.html'>Miscellaneous model inputs</a></p></li>
+<li><p><a href='spawn_fall.html'>Spawning habitat areas for each watershed</a></p></li>
+<li><p><a href='inchannel_fry_fall.html'>Fry instream habitat areas for each watershed</a></p></li>
+<li><p><a href='inchannel_juv_fall.html'>Juvenile instream habitat areas for each watershed</a></p></li>
+<li><p><a href='floodplain_fall.html'>Floodplain habitat areas for each watershed</a></p></li>
 </ul>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># place these two lines within the SIT Salmon Population Model function to load the data</span>
 <span class='no'>all_inputs</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>cvpiaData</span><span class='kw ns'>::</span><span class='fu'><a href='http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data'>load_baseline_data</a></span>(<span class='st'>'fall'</span>)
-<span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; &lt;environment: 0x8d64eb8&gt;</div></pre>
+<span class='fu'>list2env</span>(<span class='no'>all_inputs</span>, <span class='kw'>envir</span> <span class='kw'>=</span> <span class='fu'>environment</span>())</div><div class='output co'>#&gt; &lt;environment: 0x8d07588&gt;</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
