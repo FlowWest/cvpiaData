@@ -375,3 +375,25 @@
 #' Was calculated by takeing the mean of dry and wet egg temp effects from previous model.
 #' 
 "egg_temp_effect"
+
+#' Bypass Instream Habitat Area
+#' @description The 1980-1999 suitable juvenile rearin habitat area in square meters
+#' @format a 3 dimensional array [6 bypass sections, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_bypass_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_bypass_instream_habitat.html}{link} if in a web browser
+#' }
+#' 
+#' @section Bypass Sections:
+#' 
+#' \itemize{
+#'   \item [1, , ] sutter1 = to Moulton Weir
+#'   \item [2, , ] sutter2 = to Colusa Weir
+#'   \item [3, , ] sutter3 = to Tisdale Weir
+#'   \item [4, , ] sutter4 = below Tisdale Weir
+#'   \item [5, , ] yolo1 = Fremont Weir to Sacramento Weir
+#'   \item [6, , ] yolo2 = below Sacramento Weir
+#' }
+#' 
+"inchannel_bypass"

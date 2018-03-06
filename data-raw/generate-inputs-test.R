@@ -1085,3 +1085,26 @@ floodplain_habitat <- bind_rows(
 
 devtools::use_data(floodplain_habitat, overwrite = TRUE)
 
+
+# bypass in stream ----------------
+
+bpf <- cvpiaFlow::bypass_flows %>% 
+  filter(between(year(date), 1980, 1999))
+
+bypass_instream <- bind_cols(
+  'date' = pull(bpf, date),
+  'yolo1' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'yolo1', flow = pull(bpf, yolo1)),
+  'yolo2' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'yolo2', flow = pull(bpf, yolo2)),
+  'sutter1' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'sutter1', flow = pull(bpf, sutter1)),
+  'sutter2' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'sutter2', flow = pull(bpf, sutter2)),
+  'sutter3' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'sutter3', flow = pull(bpf, sutter3)),
+  'sutter4' = cvpiaHabitat::set_bypass_instream_habitat(bypass = 'sutter4', flow = pull(bpf, sutter4))
+)
+
+inchannel_bypass <- bypass_instream %>% 
+  gather(bypass, sq_meters, -date) %>% 
+  spread(date, sq_meters) %>% 
+  select(-bypass) %>% 
+  create_SIT_array()
+
+devtools::use_data(inchannel_bypass)

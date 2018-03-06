@@ -49,6 +49,8 @@ load_baseline_data <- function(species) {
                      Dlt.inf = cvpiaData::dlt_inflow,
                      DLThab = cvpiaData::dlt_hab, 
                      prop.Q.bypasses = cvpiaData::bypass_prop_Q, # replaced prop.Q.sutter and yolo
+                     IChab.bypass = inchannel_bypass, # new bypass inchannel
+                     floodp.bypass = NA, # new bypass floodplain
                      fp.weeks = cvpiaData::inundation_durations, # number of weeks inundated floodplain
                      gate.top = cvpiaData::bypass_over, # replaced gate.top
                      DegDay = cvpiaData::degday,
@@ -65,7 +67,6 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = cvpiaData::inchannel_fry_fall
            all_inputs$IChab.juv = cvpiaData::inchannel_juv_fall
            all_inputs$floodP = cvpiaData::floodplain_fall
-           all_inputs$floodp.bypass = NA
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
