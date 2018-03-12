@@ -469,5 +469,6 @@
 #' Proportion Pulse Flow
 #' @format a 3 dimension array [31 watersheds, 12 months, 20 years]
 #' 
-#' @details This is a place holder
+#' @details This is a place holder array with zeros
+#' Could be used for (Q_pulse - Q_base)/Q_base
 "prop_pulse"

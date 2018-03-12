@@ -12,6 +12,7 @@ prop_pulse
 Proportion Pulse Flow
 }
 \details{
-This is a place holder
+This is a place holder array with zeros
+Could be used for (Q_pulse - Q_base)/Q_base
 }
 \keyword{datasets}

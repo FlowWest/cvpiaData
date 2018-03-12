@@ -40,6 +40,7 @@ The list returned contains the following data:
   \item \link[=egg_temp_effect]{egg.tmp.eff} = Temperature effect on egg mortality
   \item \link[=misc_data]{inps} = Miscellaneous model inputs
   \item \link[=misc_delta]{Dlt.inp} = Miscellaneous delta model inputs
+  \item \link[=prop_pulse]{prop.pulse} = Proportion pulse flows
   \item \link[=spawn_fall]{IChab.spawn} = Spawning habitat areas for each watershed
   \item \link[=inchannel_fry_fall]{IChab.fry} = Fry instream habitat areas for each watershed
   \item \link[=inchannel_juv_fall]{IChab.juv} = Juvenile instream habitat areas for each watershed
