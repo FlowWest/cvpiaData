@@ -4,7 +4,22 @@
 \name{prop_pulse}
 \alias{prop_pulse}
 \title{Proportion Pulse Flow}
-\format{a 3 dimension array [31 watersheds, 12 months, 20 years]}
+\format{a dataframe with 31 rows and 13 variables 
+\describe{
+  \item{watershed}{CVPIA watershed}
+  \item{1}{January proportion pulse}
+  \item{2}{February proportion pulse}
+  \item{3}{March proportion pulse}
+  \item{4}{April proportion pulse}
+  \item{5}{May proportion pulse}
+  \item{6}{June proportion pulse}
+  \item{7}{July proportion pulse}
+  \item{8}{August proportion pulse}
+  \item{9}{September proportion pulse}
+  \item{10}{October proportion pulse}
+  \item{11}{November proportion pulse}
+  \item{12}{December proportion pulse}
+}}
 \usage{
 prop_pulse
 }
@@ -12,7 +27,12 @@ prop_pulse
 Proportion Pulse Flow
 }
 \details{
-This is a place holder array with zeros
-Could be used for (Q_pulse - Q_base)/Q_base
+prop_pulse = sd(flow)/median(flow)
+
+For more details see:
+\itemize{
+  \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
+  \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/flows_cfs.html}{link} if in a web browser
+}
 }
 \keyword{datasets}

@@ -29,6 +29,7 @@
 #'   \item \link[=misc_data]{inps} = Miscellaneous model inputs
 #'   \item \link[=misc_delta]{Dlt.inp} = Miscellaneous delta model inputs
 #'   \item \link[=prop_pulse]{prop.pulse} = Proportion pulse flows
+#'   \item \link[=med_flow]{medQ} = Monthly median flows
 #'   \item \link[=spawn_fall]{IChab.spawn} = Spawning habitat areas for each watershed
 #'   \item \link[=inchannel_fry_fall]{IChab.fry} = Fry instream habitat areas for each watershed
 #'   \item \link[=inchannel_juv_fall]{IChab.juv} = Juvenile instream habitat areas for each watershed
@@ -67,7 +68,8 @@ load_baseline_data <- function(species) {
                      dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
                      egg.tmp.eff = cvpiaData::egg_temp_effect,
                      Dlt.inp = cvpiaData::misc_delta,
-                     prop.pulse = cvpiaData::prop_pulse)
+                     prop.pulse = cvpiaData::prop_pulse,
+                     medQ = cvpiaData::med_flow)
   
   switch(species,
          'fall' = {

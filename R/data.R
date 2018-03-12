@@ -467,8 +467,56 @@
 "misc_delta"
 
 #' Proportion Pulse Flow
-#' @format a 3 dimension array [31 watersheds, 12 months, 20 years]
+#' @format a dataframe with 31 rows and 13 variables 
+#' \describe{
+#'   \item{watershed}{CVPIA watershed}
+#'   \item{1}{January proportion pulse}
+#'   \item{2}{February proportion pulse}
+#'   \item{3}{March proportion pulse}
+#'   \item{4}{April proportion pulse}
+#'   \item{5}{May proportion pulse}
+#'   \item{6}{June proportion pulse}
+#'   \item{7}{July proportion pulse}
+#'   \item{8}{August proportion pulse}
+#'   \item{9}{September proportion pulse}
+#'   \item{10}{October proportion pulse}
+#'   \item{11}{November proportion pulse}
+#'   \item{12}{December proportion pulse}
+#' }
+#' @details prop_pulse = sd(flow)/median(flow)
 #' 
-#' @details This is a place holder array with zeros
-#' Could be used for (Q_pulse - Q_base)/Q_base
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/flows_cfs.html}{link} if in a web browser
+#' } 
+#' 
 "prop_pulse"
+
+#' Median Flow
+#' @description The monthly median flows of 1980-1999 in cubic feet per second
+#' @format a dataframe with 31 rows and 13 variables 
+#' \describe{
+#'   \item{watershed}{CVPIA watershed}
+#'   \item{1}{January median flow}
+#'   \item{2}{February median flow}
+#'   \item{3}{March median flow}
+#'   \item{4}{April median flow}
+#'   \item{5}{May median flow}
+#'   \item{6}{June median flow}
+#'   \item{7}{July median flow}
+#'   \item{8}{August median flow}
+#'   \item{9}{September median flow}
+#'   \item{10}{October median flow}
+#'   \item{11}{November median flow}
+#'   \item{12}{December median flow}
+#' }
+#' @details 
+#' 
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/flows_cfs.html}{link} if in a web browser
+#' } 
+#' 
+"med_flow"

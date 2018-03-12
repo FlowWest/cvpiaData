@@ -31,6 +31,7 @@ reference:
   - prop_diversion
   - total_diversion
   - prop_pulse
+  - med_flow
 - title: Habitat Inputs
   contents:
   - dlt_hab
