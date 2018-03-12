@@ -39,6 +39,7 @@ The list returned contains the following data:
   \item \link[=cross_channel_gates]{Total and proportion number of days the cross channel gates are typically closed per month}
   \item \link[=egg_temp_effect]{Temperature effect on egg mortality}
   \item \link[=misc_data]{Miscellaneous model inputs}
+  \item \link[=misc_delta]{Miscellaneous delta model inputs}
   \item \link[=spawn_fall]{Spawning habitat areas for each watershed}
   \item \link[=inchannel_fry_fall]{Fry instream habitat areas for each watershed}
   \item \link[=inchannel_juv_fall]{Juvenile instream habitat areas for each watershed}

@@ -228,3 +228,11 @@ floodplain_fall <- cvpiaData::floodplain_habitat %>%
   create_SIT_array()
 
 devtools::use_data(floodplain_fall)
+
+misc_delta <- data.frame(
+  delta = c('North Delta', 'South Delta'),
+  High.pred = c(1, 1),
+  contct.pts = c(718, 1437)
+)
+
+devtools::use_data(misc_delta)

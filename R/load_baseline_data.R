@@ -27,6 +27,7 @@
 #'   \item \link[=cross_channel_gates]{Total and proportion number of days the cross channel gates are typically closed per month}
 #'   \item \link[=egg_temp_effect]{Temperature effect on egg mortality}
 #'   \item \link[=misc_data]{Miscellaneous model inputs}
+#'   \item \link[=misc_delta]{Miscellaneous delta model inputs}
 #'   \item \link[=spawn_fall]{Spawning habitat areas for each watershed}
 #'   \item \link[=inchannel_fry_fall]{Fry instream habitat areas for each watershed}
 #'   \item \link[=inchannel_juv_fall]{Juvenile instream habitat areas for each watershed}
@@ -63,7 +64,8 @@ load_baseline_data <- function(species) {
                      upSacQ = cvpiaData::upsac_flow,
                      freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
                      dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
-                     egg.tmp.eff = cvpiaData::egg_temp_effect)
+                     egg.tmp.eff = cvpiaData::egg_temp_effect,
+                     Dlt.inp = cvpiaData::misc_delta)
   
   switch(species,
          'fall' = {
