@@ -236,3 +236,7 @@ misc_delta <- data.frame(
 )
 
 devtools::use_data(misc_delta)
+
+prop_pulse <- array(0, dim = c(31, 12, 20))
+devtools::use_data(prop_pulse)
+

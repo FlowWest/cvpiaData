@@ -465,3 +465,9 @@
 #' }
 #' 
 "misc_delta"
+
+#' Proportion Pulse Flow
+#' @format a 3 dimension array [31 watersheds, 12 months, 20 years]
+#' 
+#' @details This is a place holder
+"prop_pulse"

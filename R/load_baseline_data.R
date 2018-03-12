@@ -6,32 +6,32 @@
 #' @details 
 #' The list returned contains the following data:
 #' \itemize{
-#'   \item \link[=ptemp20mc]{Proportion of days in month exceeding 20°C}
-#'   \item \link[=prop_diversion]{Proportion of flow diverted for each watershed}
-#'   \item \link[=total_diversion]{Total flow diverted for each watershed}
-#'   \item \link[=dlt_divers]{Proportion of flow diverted in the North and South deltas}
-#'   \item \link[=dlt_divers_tot]{Total flow diverted in the North and South deltas}
-#'   \item \link[=rearing_temps]{Monthly mean temperature during juvenile outmigration in each watershed}
-#'   \item \link[=dlt_temps]{Monthly mean temperature during juvenile outmigration in the deltas}
-#'   \item \link[=dlt_inflow]{Total inflow in the deltas}
-#'   \item \link[=dlt_hab]{Habitat areas for the deltas}
-#'   \item \link[=bypass_prop_Q]{Proportion of Sacramento River into bypasses}
-#'   \item \link[=inchannel_bypass]{Instream habitat areas for each bypass}
-#'   \item \link[=floodplain_bypass]{Floodplain habitat areas for each bypass}
-#'   \item \link[=inundation_durations]{Floodplain habitat duration inundated for each watershed}
-#'   \item \link[=bypass_over]{Monthly record of bypasses overtopped}
-#'   \item \link[=degday]{Accumulated degree days for adults before spawning}
-#'   \item \link[=returnQ]{Proportion of flows at tributary junction from natal watershed in October}
-#'   \item \link[=upsac_flow]{Upper Sacramento flow }
-#'   \item \link[=freeportQcms]{Flow at Georgiana slough}
-#'   \item \link[=cross_channel_gates]{Total and proportion number of days the cross channel gates are typically closed per month}
-#'   \item \link[=egg_temp_effect]{Temperature effect on egg mortality}
-#'   \item \link[=misc_data]{Miscellaneous model inputs}
-#'   \item \link[=misc_delta]{Miscellaneous delta model inputs}
-#'   \item \link[=spawn_fall]{Spawning habitat areas for each watershed}
-#'   \item \link[=inchannel_fry_fall]{Fry instream habitat areas for each watershed}
-#'   \item \link[=inchannel_juv_fall]{Juvenile instream habitat areas for each watershed}
-#'   \item \link[=floodplain_fall]{Floodplain habitat areas for each watershed}
+#'   \item \link[=ptemp20mc]{p.tempMC20} = Proportion of days in month exceeding 20°C
+#'   \item \link[=prop_diversion]{p.diver} = Proportion of flow diverted for each watershed
+#'   \item \link[=total_diversion]{t.diver} = Total flow diverted for each watershed
+#'   \item \link[=dlt_divers]{dlt.divers} = Proportion of flow diverted in the North and South deltas
+#'   \item \link[=dlt_divers_tot]{dlt.divers.tot} = Total flow diverted in the North and South deltas
+#'   \item \link[=rearing_temps]{juv.tmp} = Monthly mean temperature during juvenile outmigration in each watershed
+#'   \item \link[=dlt_temps]{juv.tmp.dlt} = Monthly mean temperature during juvenile outmigration in the deltas
+#'   \item \link[=dlt_inflow]{Dlt.inf} = Total inflow in the deltas
+#'   \item \link[=dlt_hab]{DLThab} = Habitat areas for the deltas
+#'   \item \link[=bypass_prop_Q]{prop.Q.bypasses} = Proportion of Sacramento River into bypasses
+#'   \item \link[=inchannel_bypass]{IChab.bypass} = Instream habitat areas for each bypass
+#'   \item \link[=floodplain_bypass]{floodp.bypass} = Floodplain habitat areas for each bypass
+#'   \item \link[=inundation_durations]{fp.weeks} = Floodplain habitat duration inundated for each watershed
+#'   \item \link[=bypass_over]{gate.top} = Monthly record of bypasses overtopped
+#'   \item \link[=degday]{DegDay} = Accumulated degree days for adults before spawning
+#'   \item \link[=returnQ]{retQ} = Proportion of flows at tributary junction from natal watershed in October
+#'   \item \link[=upsac_flow]{upSacQ} = Upper Sacramento flow
+#'   \item \link[=freeportQcms]{freeportQ} = Flow at Georgiana slough
+#'   \item \link[=cross_channel_gates]{dlt.gates} = Total and proportion number of days the cross channel gates are typically closed per month
+#'   \item \link[=egg_temp_effect]{egg.tmp.eff} = Temperature effect on egg mortality
+#'   \item \link[=misc_data]{inps} = Miscellaneous model inputs
+#'   \item \link[=misc_delta]{Dlt.inp} = Miscellaneous delta model inputs
+#'   \item \link[=spawn_fall]{IChab.spawn} = Spawning habitat areas for each watershed
+#'   \item \link[=inchannel_fry_fall]{IChab.fry} = Fry instream habitat areas for each watershed
+#'   \item \link[=inchannel_juv_fall]{IChab.juv} = Juvenile instream habitat areas for each watershed
+#'   \item \link[=floodplain_fall]{floodP} = Floodplain habitat areas for each watershed
 #' }
 #' @examples 
 #' # place these two lines within the SIT Salmon Population Model function to load the data
@@ -65,7 +65,8 @@ load_baseline_data <- function(species) {
                      freeportQ = cvpiaData::freeportQcms, #sac flow at georgiana slough and delta cross channel
                      dlt.gates = cvpiaData::cross_channel_gates, # replaced gate.top
                      egg.tmp.eff = cvpiaData::egg_temp_effect,
-                     Dlt.inp = cvpiaData::misc_delta)
+                     Dlt.inp = cvpiaData::misc_delta,
+                     prop.pulse = cvpiaData::prop_pulse)
   
   switch(species,
          'fall' = {

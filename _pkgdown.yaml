@@ -30,6 +30,7 @@ reference:
   - upsac_flow
   - prop_diversion
   - total_diversion
+  - prop_pulse
 - title: Habitat Inputs
   contents:
   - dlt_hab
@@ -50,6 +51,7 @@ reference:
 - title: Miscellaneous Inputs
   contents:
   - misc_data
+  - misc_delta
   - watershed_ordering
 
 
