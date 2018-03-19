@@ -42,6 +42,7 @@ reference:
   - inundation_durations
   - inchannel_bypass
   - floodplain_bypass
+  - pools
 - title: Temperature Inputs
   contents:
   - rearing_temps

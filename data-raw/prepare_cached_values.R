@@ -277,47 +277,7 @@ med_flow <- cvpiaFlow::flows_cfs %>%
 
 devtools::use_data(med_flow)
 
-# 
-# upmidsac_flow <- dataRetrieval::readNWISdv(siteNumbers = '11390500', parameterCd = '00060', 
-#                                            startDate = '1988-01-01', endDate = '1999-12-31')
-# 
-# meas <- upmidsac_flow %>% 
-#   select(Date, flow = X_00060_00003) %>% 
-#   mutate(year = year(Date), month = month(Date)) %>% 
-#   group_by(month, year) %>% 
-#   summarise(prop_pulse = sd(flow)/median(flow)) %>% 
-#   ungroup()
-# 
-# month_mod <- cvpiaFlow::flows_cfs %>% 
-#   filter(between(year(date), 1988, 1999)) %>% 
-#   gather(watershed, flow, -date) %>% 
-#   filter(watershed == 'Upper-mid Sacramento River') %>% 
-#   group_by(month = month(date), watershed) %>% 
-#   summarise(prop_pulse_month = sd(flow)/median(flow)) %>% 
-#   select(-watershed)
-# 
-# year_mod <- cvpiaFlow::flows_cfs %>% 
-#   filter(between(year(date), 1988, 1999)) %>% 
-#   gather(watershed, flow, -date) %>% 
-#   filter(watershed == 'Upper-mid Sacramento River') %>% 
-#   group_by(year = year(date)) %>% 
-#   mutate(sd = sd(flow)) %>% 
-#   group_by(month = month(date)) %>% 
-#   mutate(med = median(flow)) %>% 
-#   ungroup() %>% 
-#   mutate(prop_pulse_year = sd/med) %>% 
-#   select(year, month, prop_pulse_year) 
-# 
-# meas %>% 
-#   left_join(year_mod) %>% 
-#   left_join(month_mod) %>% 
-#   # ggplot(aes(x = prop_pulse, y = prop_pulse_year)) +
-#   ggplot(aes(x = prop_pulse, y = 1/ (1 + exp(prop_pulse_month)))) +
-#   geom_point()
-# 
-# t1 <- meas %>% 
-#   left_join(year_mod) %>% 
-#   left_join(month_mod) 
-# 
-# cor(t1$prop_pulse, t1$prop_pulse_year)
-# cor(t1$prop_pulse, t1$prop_pulse_month)
+# pools-------------
+pools <- cvpiaHabitat::pools
+
+use_data(pools)

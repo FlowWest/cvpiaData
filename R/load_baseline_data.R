@@ -81,10 +81,10 @@ load_baseline_data <- function(species) {
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
-           all_inputs$IChab.spawn = NA
-           all_inputs$IChab.fry = NA
-           all_inputs$IChab.juv = NA
-           all_inputs$floodP = NA
+           all_inputs$IChab.spawn = cvpiaData::spawn_fall
+           all_inputs$IChab.fry = inchannel_fry_fall
+           all_inputs$IChab.juv = inchannel_juv_fall
+           all_inputs$floodP = floodplain_fall
          },
          'spring' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'spring', ]
@@ -92,6 +92,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = NA
            all_inputs$IChab.juv = NA
            all_inputs$floodP = NA
+           all_inputs$SR.pools = cvpiaData::pools$SR_pools_sq_meters
          },
          'steelhead' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ] # ?
@@ -99,6 +100,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = NA
            all_inputs$IChab.juv = NA
            all_inputs$floodP = NA
+           all_inputs$ST.pools = cvpiaData::pools$ST_pools_sq_meters
          })
   
   return(all_inputs)

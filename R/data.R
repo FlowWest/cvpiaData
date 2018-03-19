@@ -520,3 +520,15 @@
 #' } 
 #' 
 "med_flow"
+
+#' Pools
+#' @description Area in square meters of pools for each watershed
+#' 
+#' @details
+#' For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{pools}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/pools.html}{link} if in a web browser
+#' } 
+#' 
+'pools'
