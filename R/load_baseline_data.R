@@ -74,32 +74,32 @@ load_baseline_data <- function(species) {
   switch(species,
          'fall' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ]
-           all_inputs$IChab.spawn = cvpiaData::spawn_fall
-           all_inputs$IChab.fry = cvpiaData::inchannel_fry_fall
-           all_inputs$IChab.juv = cvpiaData::inchannel_juv_fall
-           all_inputs$floodP = cvpiaData::floodplain_fall
+           all_inputs$IChab.spawn = cvpiaData::fr_spawn
+           all_inputs$IChab.fry = cvpiaData::fr_fry
+           all_inputs$IChab.juv = cvpiaData::fr_juv
+           all_inputs$floodP = cvpiaData::fr_fp
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
-           all_inputs$IChab.spawn = cvpiaData::spawn_fall
-           all_inputs$IChab.fry = inchannel_fry_fall
-           all_inputs$IChab.juv = inchannel_juv_fall
-           all_inputs$floodP = floodplain_fall
+           all_inputs$IChab.spawn = cvpiaData::fr_spawn
+           all_inputs$IChab.fry = cvpiaData::fr_fry
+           all_inputs$IChab.juv = cvpiaData::fr_juv
+           all_inputs$floodP = cvpiaData::fr_fp
          },
          'spring' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'spring', ]
-           all_inputs$IChab.spawn = NA
-           all_inputs$IChab.fry = NA
-           all_inputs$IChab.juv = NA
-           all_inputs$floodP = NA
+           all_inputs$IChab.spawn = cvpiaData::sr_spawn
+           all_inputs$IChab.fry = cvpiaData::sr_fry
+           all_inputs$IChab.juv = cvpiaData::sr_juv
+           all_inputs$floodP = cvpiaData::sr_fp
            all_inputs$SR.pools = cvpiaData::pools$SR_pools_sq_meters
          },
          'steelhead' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ] # ?
-           all_inputs$IChab.spawn = NA
-           all_inputs$IChab.fry = NA
-           all_inputs$IChab.juv = NA
-           all_inputs$floodP = NA
+           all_inputs$IChab.spawn = cvpiaData::st_spawn
+           all_inputs$IChab.fry = cvpiaData::st_fry
+           all_inputs$IChab.juv = cvpiaData::st_juv
+           all_inputs$floodP = cvpiaData::st_fp
            all_inputs$ST.pools = cvpiaData::pools$ST_pools_sq_meters
          })
   
