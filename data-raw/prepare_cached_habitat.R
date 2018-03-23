@@ -6,6 +6,7 @@ library(cvpiaHabitat)
 
 source('R/utils.R')
 
+# functions ---------
 get_flow <- function(watershed, years=c(1980, 1999)) {
   
     # get the flow values at the dates
