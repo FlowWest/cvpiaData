@@ -244,3 +244,9 @@ devtools::use_data(med_flow)
 pools <- cvpiaHabitat::pools
 
 use_data(pools)
+
+has_spring_run <- data.frame(
+  watershed = cvpiaHabitat::modeling_exist$Watershed,
+  has_spring_run = !is.na(cvpiaHabitat::modeling_exist$SR_juv))[-32, ]
+
+devtools::use_data(has_spring_run)

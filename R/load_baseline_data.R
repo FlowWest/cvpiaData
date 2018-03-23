@@ -93,6 +93,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.juv = cvpiaData::sr_juv
            all_inputs$floodP = cvpiaData::sr_fp
            all_inputs$SR.pools = cvpiaData::pools$SR_pools_sq_meters
+           all_inputs$has.SR = cvpiaData::has_spring_run
          },
          'steelhead' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'fall', ] # ?
