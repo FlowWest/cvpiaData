@@ -306,51 +306,6 @@
 #' 
 "dlt_hab"
 
-#' Spawning Habitat - Fall Run
-#' @description The 1979-1999 suitable spawning habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html}{link} if in a web browser
-#' }
-#' 
-"spawn_fall"
-
-#' Fry Inchannel Habitat - Fall Run
-#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
-#' }
-#'  
-"inchannel_fry_fall"
-
-#' Juvenile Inchannel Habitat - Fall Run
-#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
-#' }
-#'  
-"inchannel_juv_fall"
-
-#' Floodplain Habitat - Fall Run
-#' @description The 1980-1999 total floodplain rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_floodplain_habitat.html}{link} if in a web browser
-#' }
-#' Need to apply a suitability factor, recommend 27\%.
-#'  
-"floodplain_fall"
-
 #' Floodplain Habitat Activation Duration
 #' @description The 1980-1999 floodplain rearing habitat event duration in number of weeks
 #' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
@@ -532,3 +487,138 @@
 #' } 
 #' 
 'pools'
+
+#' Spawning Habitat - Fall Run
+#' @description The 1979-1999 suitable spawning habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html}{link} if in a web browser
+#' }
+#' 
+"fr_spawn"
+
+#' Fry Inchannel Habitat - Fall Run
+#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"fr_fry"
+
+#' Juvenile Inchannel Habitat - Fall Run
+#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"fr_juv"
+
+#' Floodplain Habitat - Fall Run
+#' @description The 1980-1999 total floodplain rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_floodplain_habitat.html}{link} if in a web browser
+#' }
+#' Need to apply a suitability factor, recommend 27\%.
+#'  
+"fr_fp"
+
+#' Spawning Habitat - Spring Run
+#' @description The 1979-1999 suitable spawning habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html}{link} if in a web browser
+#' }
+#' 
+"sr_spawn"
+
+#' Fry Inchannel Habitat - Spring Run
+#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"sr_fry"
+
+#' Juvenile Inchannel Habitat - Spring Run
+#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"sr_juv"
+
+#' Floodplain Habitat - Spring Run
+#' @description The 1980-1999 total floodplain rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_floodplain_habitat.html}{link} if in a web browser
+#' }
+#' Need to apply a suitability factor, recommend 27\%.
+#'  
+"sr_fp"
+
+#' Spawning Habitat - Steelhead
+#' @description The 1979-1999 suitable spawning habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html}{link} if in a web browser
+#' }
+#' 
+"st_spawn"
+
+#' Fry Inchannel Habitat - Steelhead
+#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"st_fry"
+
+#' Juvenile Inchannel Habitat - Steelhead
+#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html}{link} if in a web browser
+#' }
+#'  
+"st_juv"
+
+#' Floodplain Habitat - Steelhead
+#' @description The 1980-1999 total floodplain rearing habitat area in square meters
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details 
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaHabitat/reference/set_floodplain_habitat.html}{link} if in a web browser
+#' }
+#' Need to apply a suitability factor, recommend 27\%.
+#'  
+"st_fp"

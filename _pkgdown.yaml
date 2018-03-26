@@ -35,10 +35,18 @@ reference:
 - title: Habitat Inputs
   contents:
   - dlt_hab
-  - spawn_fall
-  - inchannel_fry_fall
-  - inchannel_juv_fall
-  - floodplain_fall
+  - fr_spawn
+  - fr_fry
+  - fr_juv
+  - fr_fp
+  - sr_spawn
+  - sr_fry
+  - sr_juv
+  - sr_fp
+  - st_spawn
+  - st_fry
+  - st_juv
+  - st_fp
   - inundation_durations
   - inchannel_bypass
   - floodplain_bypass
