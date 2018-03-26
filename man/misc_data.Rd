@@ -23,9 +23,10 @@
 \item{prop.nat}{Proportion natural spawners}
 }}
 \source{
-Various  \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
+Various \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
 
-\strong{Compiled by:} James T. Peterson \email{jt.peterson@oregonstate.edu}
+
+Compiled by: James T. Peterson \email{jt.peterson@oregonstate.edu}
 }
 \usage{
 misc_data

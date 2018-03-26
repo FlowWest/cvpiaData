@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Miscellaneous Model Inputs — misc_data • cvpiaData</title>
+<title>Spring Run Present — has_spring_run • cvpiaData</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -74,39 +74,21 @@
       <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Miscellaneous Model Inputs</h1>
+    <h1>Spring Run Present</h1>
     </div>
 
     
-    <p>Data used within the salmon population model that have a single value per watershed.</p>
+    <p>Spring Run Present</p>
     
 
-    <pre class="usage"><span class='no'>misc_data</span></pre>
+    <pre class="usage"><span class='no'>has_spring_run</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a dataframe with 31 rows and 15 variables</p><dl class='dl-horizontal'>
-<dt>order</dt><dd><p>Model consistent ordering of watersheds</p></dd>
-<dt>watershed</dt><dd><p>Name of watershed within CVPIA</p></dd>
-<dt>init.adult</dt><dd><p>Intial adult escapement used for the simulation</p></dd>
-<dt>SCDELT</dt><dd><p>Boolean value: 1 if the watershed feeds into the South Delta</p></dd>
-<dt>hatch.alloc</dt><dd><p>The proportion of hatchery fish spawning</p></dd>
-<dt>TISD</dt><dd><p>Boolean value: 1 if the watershed can enter Sutter Bypass</p></dd>
-<dt>YOLO</dt><dd><p>Boolean value: 1 if the watershed can enter Yolo Bypass</p></dd>
-<dt>p.tempMC2025</dt><dd><p>Proportion of time from October to November in which the temperature is between 20°C and 25°C</p></dd>
-<dt>A.HARV</dt><dd><p>Proportion of adults harvested from golden gate until they reach their natal shed</p></dd>
-<dt>P.scour.nst</dt><dd><p>Estimated Probability of nests scoured</p></dd>
-<dt>P.strand.early</dt><dd><p>Estimated Probability of stranding early</p></dd>
-<dt>P.strand.late</dt><dd><p>Estimated Probability of stranding late</p></dd>
-<dt>High.pred</dt><dd><p>Estimated Probability of high predation during rearing</p></dd>
-<dt>contact</dt><dd><p>Number of contact points, estimated using PAD</p></dd>
-<dt>prop.nat</dt><dd><p>Proportion natural spawners</p></dd>
+    <p>a dataframe with 31 rows and 2 variables</p><dl class='dl-horizontal'>
+  <dt>watershed</dt><dd><p>CVPIA watershed name</p></dd>
+  <dt>has_spring_run</dt><dd><p>TRUE if spring run exist within watershed</p></dd>
 </dl>
-    
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
-
-    <p>Various <a href='https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf'>CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum</a></p>
-    <p>Compiled by: James T. Peterson <a href='mailto:jt.peterson@oregonstate.edu'>jt.peterson@oregonstate.edu</a></p>
     
 
   </div>
@@ -115,8 +97,6 @@
     <ul class="nav nav-pills nav-stacked">
       
       <li><a href="#format">Format</a></li>
-
-      <li><a href="#source">Source</a></li>
           </ul>
 
   </div>

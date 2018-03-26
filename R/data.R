@@ -224,9 +224,10 @@
 #' }
 #' 
 #' @source 
-#' Various  \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
+#' Various \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
 #' 
-#' \strong{Compiled by:} James T. Peterson \email{jt.peterson@@oregonstate.edu}
+#' 
+#' Compiled by: James T. Peterson \email{jt.peterson@@oregonstate.edu}
 #' 
 "misc_data"
 
@@ -622,3 +623,13 @@
 #' Need to apply a suitability factor, recommend 27\%.
 #'  
 "st_fp"
+
+#' Spring Run Present
+#'
+#' @format a dataframe with 31 rows and 2 variables
+#' \describe{
+#'   \item{watershed}{CVPIA watershed name}
+#'   \item{has_spring_run}{TRUE if spring run exist within watershed}
+#' }
+#'
+"has_spring_run"

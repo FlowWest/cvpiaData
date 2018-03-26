@@ -30,11 +30,35 @@
 #'   \item \link[=misc_delta]{Dlt.inp} = Miscellaneous delta model inputs
 #'   \item \link[=prop_pulse]{prop.pulse} = Proportion pulse flows
 #'   \item \link[=med_flow]{medQ} = Monthly median flows
-#'   \item \link[=spawn_fall]{IChab.spawn} = Spawning habitat areas for each watershed
-#'   \item \link[=inchannel_fry_fall]{IChab.fry} = Fry instream habitat areas for each watershed
-#'   \item \link[=inchannel_juv_fall]{IChab.juv} = Juvenile instream habitat areas for each watershed
-#'   \item \link[=floodplain_fall]{floodP} = Floodplain habitat areas for each watershed
 #' }
+#' 
+#' Fall Run Specific Outputs:
+#' \itemize{
+#'   \item \link[=fr_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+#'   \item \link[=fr_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+#'   \item \link[=fr_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+#'   \item \link[=fr_fp]{floodP} = Floodplain habitat areas for each watershed
+#' }
+#' 
+#' Spring Run Specific Outputs:
+#' \itemize{
+#'   \item \link[=sr_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+#'   \item \link[=sr_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+#'   \item \link[=sr_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+#'   \item \link[=sr_fp]{floodP} = Floodplain habitat areas for each watershed
+#'   \item \link[=pools]{SR.pools} = Holding Habitat
+#'   \item \link[=has_spring_run]{has.SR} = Spring Run are present in watershed
+#' }
+#' 
+#' #' Steelhead Specific Outputs:
+#' \itemize{
+#'   \item \link[=st_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+#'   \item \link[=st_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+#'   \item \link[=st_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+#'   \item \link[=st_fp]{floodP} = Floodplain habitat areas for each watershed
+#'   \item \link[=pools]{ST.pools} = Holding Habitat
+#' }
+#' 
 #' @examples 
 #' # place these two lines within the SIT Salmon Population Model function to load the data
 #' all_inputs <- cvpiaData::load_baseline_data('fall')
