@@ -14,5 +14,5 @@ create_SIT_array(input)
 3 dimension array [location, month, year]
 }
 \description{
-takes output from spread_for_array and transforms to array data structure for SIT model input
+transforms to array data structure for SIT model input
 }

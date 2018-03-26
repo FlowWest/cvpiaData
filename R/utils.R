@@ -1,5 +1,5 @@
 #' Generate SIT Model Compatible Array
-#' @description takes output from spread_for_array and transforms to array data structure for SIT model input
+#' @description transforms to array data structure for SIT model input
 #' @name create_Sit_array
 #' @param input a vector of data, length = 252 for 12 months and 20 years of data
 #' @return 3 dimension array [location, month, year]
