@@ -24,7 +24,7 @@ within this document to accommodate new scenarios for the model.
 ## Helper functions and Libraries
 
 The following packages are used by the functions. The packages [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), and [lubridate](http://lubridate.tidyverse.org/) 
-are useful for date manipulations. The package [purrr](http://purrr.tidyverse.org/) is a
+are useful for data manipulations. The package [purrr](http://purrr.tidyverse.org/) is a
 functional programming toolkit to replace for loops. 
 ```{r, warning = FALSE, message = FALSE}
 library(dplyr)
