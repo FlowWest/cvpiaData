@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Using CVPIA Data Packages to Generate Model Inputs</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Using CVPIA Data Packages to Generate Model Inputs</h1>
+
+
+
+<p>The following vignette provides a method for generating spawning, fry, juvenile, and floodplain rearing habitat inputs for the CVPIA salmon life cycle model. Readers will get a sense of how to use the data and functions from the <a href="https://flowwest.github.io/cvpiaFlow/">cvpiaFlow</a> and <a href="https://flowwest.github.io/cvpiaHabitat/">cvpiaHabitat</a> packages. They will also be able to generate additional habitat inputs by modifying the functions within this document to accommodate new scenarios for the model.</p>
+<div id="helper-functions-and-libraries" class="section level2">
+<h2>Helper functions and Libraries</h2>
+<p>The following packages are used by the functions. The packages <a href="http://dplyr.tidyverse.org/">dplyr</a>, <a href="http://tidyr.tidyverse.org/">tidyr</a>, and <a href="http://lubridate.tidyverse.org/">lubridate</a> are useful for data manipulations. The package <a href="http://purrr.tidyverse.org/">purrr</a> is a functional programming toolkit to replace for loops.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(tidyr)
+<span class="kw">library</span>(purrr)
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(cvpiaHabitat)
+<span class="kw">library</span>(cvpiaFlow)</code></pre></div>
+<p>These functions are called by the other habitat setting functions.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># returns flow for each month of a watershed during simulation window</span>
+get_flow &lt;-<span class="st"> </span><span class="cf">function</span>(watershed, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">1980</span>, <span class="dv">1999</span>)) {
+  
+    <span class="co"># get the flow values at the dates</span>
+    dplyr<span class="op">::</span><span class="kw">pull</span>(dplyr<span class="op">::</span><span class="kw">filter</span>(dplyr<span class="op">::</span><span class="kw">select</span>(cvpiaFlow<span class="op">::</span>flows_cfs, date, watershed), 
+                                             lubridate<span class="op">::</span><span class="kw">year</span>(date) <span class="op">&gt;=</span><span class="st"> </span>years[<span class="dv">1</span>], 
+                                             lubridate<span class="op">::</span><span class="kw">year</span>(date) <span class="op">&lt;=</span><span class="st"> </span>years[<span class="dv">2</span>]), <span class="dv">2</span>)
+}
+
+<span class="co"># transforms to array data structure for SIT model input, [watersheds, months, years]</span>
+create_SIT_array &lt;-<span class="st"> </span><span class="cf">function</span>(input) {
+
+  output &lt;-<span class="st"> </span><span class="kw">array</span>(<span class="ot">NA</span>, <span class="dt">dim =</span> <span class="kw">c</span>(<span class="kw">nrow</span>(input), <span class="dv">12</span>, <span class="kw">ncol</span>(input) <span class="op">/</span><span class="st"> </span><span class="dv">12</span>))
+  index &lt;-<span class="st">  </span><span class="dv">1</span>
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="kw">seq</span>(<span class="dv">1</span>, <span class="kw">ncol</span>(input), <span class="dv">12</span>)) {
+    output[ , , index] &lt;-<span class="st"> </span><span class="kw">as.matrix</span>(input[ , i<span class="op">:</span>(i <span class="op">+</span><span class="st"> </span><span class="dv">11</span>)])
+    index &lt;-<span class="st"> </span>index <span class="op">+</span><span class="st"> </span><span class="dv">1</span>
+  }
+  <span class="kw">return</span>(output)
+
+}</code></pre></div>
+</div>
+<div id="spawning-habitat" class="section level2">
+<h2>Spawning Habitat</h2>
+<p>The following function outputs the three dimensional array that is used by the life cycle model to represent spawning habitat for each month and year in the simulation window. It handles the special case of Upper Sacramento River, which has two separate WUA area estimates for when the A.C.I.D. boards are in and out. The function takes the additional argument <code>month</code> for Upper Sacramento River in order to use the correct WUA relationship given the state of the boards. The A.C.I.D boards are in April 1st - October 31st. The function also sets the spawning area value to <code>NA</code> for watersheds without spawning. Additionally, here is the source code for <a href="https://github.com/FlowWest/cvpiaHabitat/blob/master/R/set-spawning-habitat.R">set_spawning_habitat.</a></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_spawn_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(species) {
+  
+  watersheds &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span>modeling_exist <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(FR_spawn), Watershed <span class="op">!=</span><span class="st"> 'Upper Sacramento River'</span>, Watershed <span class="op">!=</span><span class="st"> 'Upper Mid Sac Region'</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">pull</span>(Watershed)
+  
+  most &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map_df</span>(watersheds, <span class="cf">function</span>(watershed) {
+    flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">1979</span>, <span class="dv">1999</span>))
+    habitat &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw">set_spawning_habitat</span>(watershed, 
+                                                  <span class="dt">species =</span> species,
+                                                  <span class="dt">flow =</span> flows)
+    <span class="kw">tibble</span>(
+      <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1979</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+      <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">21</span>),
+      <span class="dt">watershed =</span> watershed, 
+      <span class="dt">hab_sq_m =</span> habitat)
+  })
+  
+  <span class="co"># deal with sacramento special cases</span>
+  <span class="co"># upper sac</span>
+  up_sac_flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">'Upper Sacramento River'</span>, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">1979</span>, <span class="dv">1999</span>))
+  months &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">21</span>)
+  up_sac_hab &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map2_dbl</span>(months, up_sac_flows, <span class="cf">function</span>(month, flow) {
+    cvpiaHabitat<span class="op">::</span><span class="kw">set_spawning_habitat</span>(<span class="st">'Upper Sacramento River'</span>, 
+                                       <span class="dt">species =</span> species, 
+                                       <span class="dt">flow =</span> flow, <span class="dt">month =</span> month)
+  })
+  
+  up_sac &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+    <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1979</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+    <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">21</span>),
+    <span class="dt">watershed =</span> <span class="st">'Upper Sacramento River'</span>, 
+    <span class="dt">hab_sq_m =</span> up_sac_hab)
+  
+  hab &lt;-<span class="st">   </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(most, up_sac) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">bind_cols</span>(<span class="kw">tibble</span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+                     <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+                     <span class="st">`</span><span class="dt">Upper-mid Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+                     <span class="st">`</span><span class="dt">Lower-mid Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+                     <span class="st">`</span><span class="dt">Lower Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+                     <span class="st">`</span><span class="dt">San Joaquin River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">gather</span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw">ymd</span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">create_SIT_array</span>()
+  
+  <span class="kw">return</span>(hab)
+}</code></pre></div>
+<p>To create habitat arrays for the different species, you can call the above function with the appropriate species argument.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_spawn &lt;-<span class="st"> </span><span class="kw">get_spawn_hab_all</span>(<span class="st">'fr'</span>) <span class="co">#fall run</span>
+sr_spawn &lt;-<span class="st"> </span><span class="kw">get_spawn_hab_all</span>(<span class="st">'sr'</span>) <span class="co">#spring run</span>
+st_spawn &lt;-<span class="st"> </span><span class="kw">get_spawn_hab_all</span>(<span class="st">'st'</span>) <span class="co">#steelhead</span></code></pre></div>
+<p>If you wish to modify the above function to make a new scenario, a possible way to override the default data output from <code>cvpiaData::load_baseline_data</code> is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">all_model_inputs &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span><span class="kw">load_baseline_data</span>(<span class="st">'fall'</span>)
+<span class="co"># user must define get_spawn_hab_all_modified to their specifications</span>
+all_model_inputs<span class="op">$</span>IChab.spawn &lt;-<span class="st"> </span><span class="kw">get_spawn_hab_all_modified</span>(<span class="st">'fr'</span>) </code></pre></div>
+<p>Or, you could swap out the watershed’s values with a vector of new values. This vector must be of length 252, with the first value representing the habitat value for 01/1979 and the last 12/1999.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_modified &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>fr_spawn <span class="co">#copy baseline fall run spawning habitat</span>
+new_upper_sac_vals &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">252</span>
+<span class="co"># upper sacramento is the first watershed, see cvpiaData::watershed_ordering</span>
+fr_modified[<span class="dv">1</span>,,] &lt;-<span class="st"> </span>new_upper_sac_vals 
+all_model_inputs<span class="op">$</span>IChab.spawn &lt;-<span class="st"> </span>fr_modified[<span class="dv">1</span>,,]</code></pre></div>
+</div>
+<div id="rearing-habitat" class="section level2">
+<h2>Rearing Habitat</h2>
+<p>This function generates either the fry or juvenile rearing habitat in each watershed for a specified species. The function handles the two special cases, the Upper Sacramento River and the Lower-mid Sacramento River. The <code>set_instream_habitat</code> function takes the additional argument <code>month</code> for Upper Sacramento River in order to use the correct WUA relationship given the state of the boards. The A.C.I.D boards are in April 1st - October 31st. The Lower-mid Sacramento River has two flow representations, one above Fremont Weir and one below. For the Lower-Mid Sacramento river, the <code>set_instream_habitat</code> function takes the additional argument <code>flow2</code> and calculates the habitat at each flow then sums them proportional to the length of stream above and below the weir.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_rear_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(species, life_stage) {
+
+  watersheds &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>watershed_ordering <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Upper Sacramento River'</span>, <span class="st">'Sutter Bypass'</span>,
+                             <span class="st">'Lower-mid Sacramento River'</span>, <span class="st">'Yolo Bypass'</span>))) <span class="op">%&gt;%</span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">pull</span>(watershed)
+  
+  most &lt;-<span class="st"> </span><span class="kw">map_df</span>(watersheds, <span class="cf">function</span>(watershed) {
+    flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed)
+    habitat &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw">set_instream_habitat</span>(watershed, 
+                                                  <span class="dt">species =</span> species,
+                                                  <span class="dt">life_stage =</span> life_stage, 
+                                                  <span class="dt">flow =</span> flows)
+    <span class="kw">tibble</span>(
+      <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+      <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
+      <span class="dt">watershed =</span> watershed, 
+      <span class="dt">hab_sq_m =</span> habitat)
+  })
+  
+  <span class="co"># deal with sacramento special cases</span>
+  <span class="co"># upper sac</span>
+  up_sac_flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">'Upper Sacramento River'</span>)
+  months &lt;-<span class="st"> </span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>)
+  up_sac_hab &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map2_dbl</span>(months, up_sac_flows, <span class="cf">function</span>(month, flow) {
+    cvpiaHabitat<span class="op">::</span><span class="kw">set_instream_habitat</span>(<span class="st">'Upper Sacramento River'</span>, 
+                                       <span class="dt">species =</span> species, 
+                                       <span class="dt">life_stage =</span> life_stage, 
+                                       <span class="dt">flow =</span> flow, <span class="dt">month =</span> month)
+  })
+  
+  up_sac &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+    <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+    <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
+    <span class="dt">watershed =</span> <span class="st">'Upper Sacramento River'</span>, 
+    <span class="dt">hab_sq_m =</span> up_sac_hab)
+     
+  <span class="co"># lower-mid sac</span>
+  low_mid_sac_flow1 &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">'Lower-mid Sacramento River1'</span>)
+  low_mid_sac_flow2 &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">'Lower-mid Sacramento River2'</span>)
+  
+  low_mid_sac_hab &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map2_dbl</span>(low_mid_sac_flow1, low_mid_sac_flow2, <span class="cf">function</span>(flow, flow2) {
+    cvpiaHabitat<span class="op">::</span><span class="kw">set_instream_habitat</span>(<span class="st">'Lower-mid Sacramento River'</span>, 
+                                       <span class="dt">species =</span> species, 
+                                       <span class="dt">life_stage =</span> life_stage, 
+                                       <span class="dt">flow =</span> flow, <span class="dt">flow2 =</span> flow2)
+  })
+  
+  low_mid_sac &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+    <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+    <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
+    <span class="dt">watershed =</span> <span class="st">'Lower-mid Sacramento River'</span>, 
+    <span class="dt">hab_sq_m =</span> low_mid_sac_hab)
+  
+  hab &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(most, up_sac, low_mid_sac) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">bind_cols</span>(<span class="kw">tibble</span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
+                     <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">gather</span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw">ymd</span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">create_SIT_array</span>()
+  
+  <span class="kw">return</span>(hab)
+}</code></pre></div>
+<p>To create habitat arrays for the different species, you can call the above function with the appropriate species argument.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_fry &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'fr'</span>, <span class="st">'fry'</span>) <span class="co">#fall run</span>
+sr_fry &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'sr'</span>, <span class="st">'fry'</span>) <span class="co">#spring run</span>
+st_fry &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'st'</span>, <span class="st">'fry'</span>) <span class="co">#steelhead</span>
+
+fr_juv &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'fr'</span>, <span class="st">'juv'</span>) <span class="co">#fall run</span>
+sr_juv &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'sr'</span>, <span class="st">'juv'</span>) <span class="co">#spring run</span>
+st_juv &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all</span>(<span class="st">'st'</span>, <span class="st">'juv'</span>) <span class="co">#steelhead</span></code></pre></div>
+<p>If you wish to modify the above function to make a new scenario, a possible way to override the default data output from <code>cvpiaData::load_baseline_data</code> is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">all_model_inputs &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span><span class="kw">load_baseline_data</span>(<span class="st">'fall'</span>)
+<span class="co"># user must define get_rear_hab_all_modified to their specifications</span>
+all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all_modified</span>(<span class="st">'fr'</span>, <span class="st">'fry'</span>)
+all_model_inputs<span class="op">$</span>IChab.juv &lt;-<span class="st"> </span><span class="kw">get_rear_hab_all_modified</span>(<span class="st">'fr'</span>, <span class="st">'juv'</span>)</code></pre></div>
+<p>Or, you could swap out the watershed’s values with a vector of new values. This vector must be of length 240, with the first value representing the habitat value for 01/1980 and the last 12/1999.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_modified &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>fr_fry <span class="co">#copy baseline fall run fry rearing habitat</span>
+new_upper_sac_vals &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">240</span>
+<span class="co"># upper sacramento is the first watershed, see cvpiaData::watershed_ordering</span>
+fr_modified[<span class="dv">1</span>,,] &lt;-<span class="st"> </span>new_upper_sac_vals 
+all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span>fr_modified[<span class="dv">1</span>,,]</code></pre></div>
+</div>
+<div id="floodplain-habitat" class="section level2">
+<h2>Floodplain Habitat</h2>
+<p>This function sets the floodplain rearing habitat for all the watersheds. The Lower-mid Sacramento River has two flow representations, one above Fremont Weir and one below. The flow value below the weir is used to calculate floodplain habitat area.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_floodplain_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(watersheds, species) {
+
+  watersheds_fp &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>watershed_ordering <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">filter</span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Sutter Bypass'</span>,<span class="st">'Yolo Bypass'</span>, <span class="st">'Lower-mid Sacramento River'</span>))) <span class="op">%&gt;%</span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">pull</span>(watershed)
+  
+  most &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw">map_df</span>(watersheds, <span class="cf">function</span>(watershed) {
+    flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed)
+    habitat &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw">acres_to_square_meters</span>(
+      cvpiaHabitat<span class="op">::</span><span class="kw">set_floodplain_habitat</span>(watershed, species, flows))
+    
+    <span class="kw">tibble</span>(
+      <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+      <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
+      <span class="dt">watershed =</span> watershed, 
+      <span class="dt">hab_sq_m =</span> habitat)
+  })
+  
+  <span class="co"># lower-mid sacramento </span>
+  low_mid_sac_flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">&quot;Lower-mid Sacramento River2&quot;</span>) 
+  low_mid_sac_fp &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw">acres_to_square_meters</span>(
+    cvpiaHabitat<span class="op">::</span><span class="kw">set_floodplain_habitat</span>(<span class="st">'Lower-mid Sacramento River'</span>, species,
+                                         low_mid_sac_flows))
+  low_mid_sac &lt;-<span class="st"> </span><span class="kw">tibble</span>(
+    <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
+    <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
+    <span class="dt">watershed =</span> <span class="st">'Lower-mid Sacramento River'</span>, 
+    <span class="dt">hab_sq_m =</span> low_mid_sac_fp)
+  
+  hab &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">bind_rows</span>(most, low_mid_sac) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">bind_cols</span>(<span class="kw">tibble</span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
+                     <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">gather</span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">mutate</span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw">ymd</span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>tidyr<span class="op">::</span><span class="kw">spread</span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">left_join</span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">arrange</span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw">select</span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">create_SIT_array</span>()
+  
+  <span class="kw">return</span>(hab)
+  
+}</code></pre></div>
+<p>To create habitat arrays for the different species, you can call the above function with the appropriate species argument.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'fr'</span>) <span class="co">#fall run</span>
+sr_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'sr'</span>) <span class="co">#spring run</span>
+st_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'st'</span>) <span class="co">#steelhead</span></code></pre></div>
+<p>NOTE: The floodplain area is total wetted area and needs a suitability factor applied for all watersheds except the Sacramento Reaches, the Sutter and Yolo Bypasses, and the North and South Deltas which the floodplain area has already had a suitability criteria applied. See the apply suitability <a href="https://flowwest.github.io/cvpiaHabitat/reference/apply_suitability.html">function</a> for more details.</p>
+<p>If you wish to modify the above function to make a new scenario, a possible way to override the default data output from <code>cvpiaData::load_baseline_data</code> is as follows:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">all_model_inputs &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span><span class="kw">load_baseline_data</span>(<span class="st">'fall'</span>)
+<span class="co"># user must define get_floodplain_hab_all_modified to their specifications</span>
+all_model_inputs<span class="op">$</span>floodP &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all_modified</span>(<span class="st">'fr'</span>)</code></pre></div>
+<p>Or, you could swap out the watershed’s values with a vector of new values. This vector must be of length 240, with the first value representing the habitat value for 01/1980 and the last 12/1999.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_modified &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>fr_fp <span class="co">#copy baseline fall run floodplain rearing habitat</span>
+new_upper_sac_vals &lt;-<span class="st"> </span><span class="dv">1</span><span class="op">:</span><span class="dv">240</span>
+<span class="co"># upper sacramento is the first watershed, see cvpiaData::watershed_ordering</span>
+fr_modified[<span class="dv">1</span>,,] &lt;-<span class="st"> </span>new_upper_sac_vals 
+all_model_inputs<span class="op">$</span>floodP &lt;-<span class="st"> </span>fr_modified[<span class="dv">1</span>,,]</code></pre></div>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

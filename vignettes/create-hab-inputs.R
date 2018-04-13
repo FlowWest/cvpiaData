@@ -1,32 +1,10 @@
----
-title: "Using CVPIA Data Packages to Generate Model Inputs"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{'Using CVPIA Data Packages to Generate Model Inputs'}
-  %\VignetteEngine{knitr::rmarkdown}
-  %\VignetteEncoding{UTF-8}
----
-
-```{r setup, include = FALSE}
+## ----setup, include = FALSE----------------------------------------------
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-```
-The following vignette provides a method for generating spawning, fry, juvenile, 
-and floodplain rearing habitat inputs for the CVPIA salmon life cycle model.
-Readers will get a sense of how to use the data and functions from the
-[cvpiaFlow](https://flowwest.github.io/cvpiaFlow/) and [cvpiaHabitat](https://flowwest.github.io/cvpiaHabitat/) 
-packages. They will also be able to generate additional habitat inputs by modifying the functions 
-within this document to accommodate new scenarios for the model.
 
-
-## Helper functions and Libraries
-
-The following packages are used by the functions. The packages [dplyr](http://dplyr.tidyverse.org/), [tidyr](http://tidyr.tidyverse.org/), and [lubridate](http://lubridate.tidyverse.org/) 
-are useful for data manipulations. The package [purrr](http://purrr.tidyverse.org/) is a
-functional programming toolkit to replace for loops. 
-```{r, warning = FALSE, message = FALSE}
+## ---- warning = FALSE, message = FALSE-----------------------------------
 library(dplyr)
 library(tidyr)
 library(purrr)
@@ -34,10 +12,8 @@ library(lubridate)
 library(cvpiaHabitat)
 library(cvpiaFlow)
 
-```
 
-These functions are called by the other habitat setting functions.
-```{r}
+## ------------------------------------------------------------------------
 # returns flow for each month of a watershed during simulation window
 get_flow <- function(watershed, years=c(1980, 1999)) {
   
@@ -59,19 +35,8 @@ create_SIT_array <- function(input) {
   return(output)
 
 }
-```
 
-## Spawning Habitat
-
-The following function outputs the three dimensional array that is used by the
-life cycle model to represent spawning habitat for each month and year in the
-simulation window. It handles the special case of Upper Sacramento River, which
-has two separate WUA area estimates for when the A.C.I.D. boards are in and out. The function
-takes the additional argument `month` for Upper Sacramento River in order to use
-the correct WUA relationship given the state of the boards. The A.C.I.D boards 
-are in April 1st - October 31st. The function also sets the spawning area value
-to `NA` for watersheds without spawning. Additionally, here is the source code for [set_spawning_habitat.](https://github.com/FlowWest/cvpiaHabitat/blob/master/R/set-spawning-habitat.R)
-```{r}
+## ------------------------------------------------------------------------
 get_spawn_hab_all <- function(species) {
   
   watersheds <- cvpiaHabitat::modeling_exist %>% 
@@ -125,47 +90,25 @@ get_spawn_hab_all <- function(species) {
   
   return(hab)
 }
-```
 
-To create habitat arrays for the different species, you can call the above function
-with the appropriate species argument.
-```{r, eval = FALSE}
-fr_spawn <- get_spawn_hab_all('fr') #fall run
-sr_spawn <- get_spawn_hab_all('sr') #spring run
-st_spawn <- get_spawn_hab_all('st') #steelhead
-```
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_spawn <- get_spawn_hab_all('fr') #fall run
+#  sr_spawn <- get_spawn_hab_all('sr') #spring run
+#  st_spawn <- get_spawn_hab_all('st') #steelhead
 
-If you wish to modify the above function to make a new scenario, a possible way 
-to override the default data output from `cvpiaData::load_baseline_data` is as follows:
-```{r, eval = FALSE}
-all_model_inputs <- cvpiaData::load_baseline_data('fall')
-# user must define get_spawn_hab_all_modified to their specifications
-all_model_inputs$IChab.spawn <- get_spawn_hab_all_modified('fr') 
-```
+## ---- eval = FALSE-------------------------------------------------------
+#  all_model_inputs <- cvpiaData::load_baseline_data('fall')
+#  # user must define get_spawn_hab_all_modified to their specifications
+#  all_model_inputs$IChab.spawn <- get_spawn_hab_all_modified('fr')
 
-Or, you could swap out the watershed's values with a vector of new values. This
-vector must be of length 252, with the first value representing the habitat value
-for 01/1979 and the last 12/1999.
-```{r, eval = FALSE}
-fr_modified <- cvpiaData::fr_spawn #copy baseline fall run spawning habitat
-new_upper_sac_vals <- 1:252
-# upper sacramento is the first watershed, see cvpiaData::watershed_ordering
-fr_modified[1,,] <- new_upper_sac_vals 
-all_model_inputs$IChab.spawn <- fr_modified[1,,]
-```
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_modified <- cvpiaData::fr_spawn #copy baseline fall run spawning habitat
+#  new_upper_sac_vals <- 1:252
+#  # upper sacramento is the first watershed, see cvpiaData::watershed_ordering
+#  fr_modified[1,,] <- new_upper_sac_vals
+#  all_model_inputs$IChab.spawn <- fr_modified[1,,]
 
-
-## Rearing Habitat
-This function generates either the fry or juvenile rearing habitat in
-each watershed for a specified species. The function handles the two special cases,
-the Upper Sacramento River and the Lower-mid Sacramento River. The `set_instream_habitat`
-function takes the additional argument `month` for Upper Sacramento River in order to use
-the correct WUA relationship given the state of the boards. The A.C.I.D boards 
-are in April 1st - October 31st. The Lower-mid Sacramento River has two flow representations,
-one above Fremont Weir and one below. For the Lower-Mid Sacramento river, the `set_instream_habitat`
-function takes the additional argument `flow2` and calculates the habitat at each 
-flow then sums them proportional to the length of stream above and below the weir.
-```{r}
+## ------------------------------------------------------------------------
 get_rear_hab_all <- function(species, life_stage) {
 
   watersheds <- cvpiaData::watershed_ordering %>% 
@@ -236,48 +179,31 @@ get_rear_hab_all <- function(species, life_stage) {
   return(hab)
 }
 
-```
 
-To create habitat arrays for the different species, you can call the above function
-with the appropriate species argument.
-```{r, eval = FALSE}
-fr_fry <- get_rear_hab_all('fr', 'fry') #fall run
-sr_fry <- get_rear_hab_all('sr', 'fry') #spring run
-st_fry <- get_rear_hab_all('st', 'fry') #steelhead
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_fry <- get_rear_hab_all('fr', 'fry') #fall run
+#  sr_fry <- get_rear_hab_all('sr', 'fry') #spring run
+#  st_fry <- get_rear_hab_all('st', 'fry') #steelhead
+#  
+#  fr_juv <- get_rear_hab_all('fr', 'juv') #fall run
+#  sr_juv <- get_rear_hab_all('sr', 'juv') #spring run
+#  st_juv <- get_rear_hab_all('st', 'juv') #steelhead
+#  
 
-fr_juv <- get_rear_hab_all('fr', 'juv') #fall run
-sr_juv <- get_rear_hab_all('sr', 'juv') #spring run
-st_juv <- get_rear_hab_all('st', 'juv') #steelhead
+## ---- eval = FALSE-------------------------------------------------------
+#  all_model_inputs <- cvpiaData::load_baseline_data('fall')
+#  # user must define get_rear_hab_all_modified to their specifications
+#  all_model_inputs$IChab.fry <- get_rear_hab_all_modified('fr', 'fry')
+#  all_model_inputs$IChab.juv <- get_rear_hab_all_modified('fr', 'juv')
 
-```
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_modified <- cvpiaData::fr_fry #copy baseline fall run fry rearing habitat
+#  new_upper_sac_vals <- 1:240
+#  # upper sacramento is the first watershed, see cvpiaData::watershed_ordering
+#  fr_modified[1,,] <- new_upper_sac_vals
+#  all_model_inputs$IChab.fry <- fr_modified[1,,]
 
-If you wish to modify the above function to make a new scenario, a possible way 
-to override the default data output from `cvpiaData::load_baseline_data` is as follows:
-```{r, eval = FALSE}
-all_model_inputs <- cvpiaData::load_baseline_data('fall')
-# user must define get_rear_hab_all_modified to their specifications
-all_model_inputs$IChab.fry <- get_rear_hab_all_modified('fr', 'fry')
-all_model_inputs$IChab.juv <- get_rear_hab_all_modified('fr', 'juv')
-```
-
-Or, you could swap out the watershed's values with a vector of new values. This
-vector must be of length 240, with the first value representing the habitat value
-for 01/1980 and the last 12/1999.
-```{r, eval = FALSE}
-fr_modified <- cvpiaData::fr_fry #copy baseline fall run fry rearing habitat
-new_upper_sac_vals <- 1:240
-# upper sacramento is the first watershed, see cvpiaData::watershed_ordering
-fr_modified[1,,] <- new_upper_sac_vals 
-all_model_inputs$IChab.fry <- fr_modified[1,,]
-```
-
-## Floodplain Habitat
-
-This function sets the floodplain rearing habitat for all the watersheds. 
-The Lower-mid Sacramento River has two flow representations, one above Fremont 
-Weir and one below. The flow value below the weir is used to calculate floodplain
-habitat area.
-``` {r}
+## ------------------------------------------------------------------------
 get_floodplain_hab_all <- function(watersheds, species) {
 
   watersheds_fp <- cvpiaData::watershed_ordering %>% 
@@ -324,37 +250,22 @@ get_floodplain_hab_all <- function(watersheds, species) {
   
 }
 
-```
 
-To create habitat arrays for the different species, you can call the above function
-with the appropriate species argument.
-```{r, eval = FALSE}
-fr_fp <- get_floodplain_hab_all('fr') #fall run
-sr_fp <- get_floodplain_hab_all('sr') #spring run
-st_fp <- get_floodplain_hab_all('st') #steelhead
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_fp <- get_floodplain_hab_all('fr') #fall run
+#  sr_fp <- get_floodplain_hab_all('sr') #spring run
+#  st_fp <- get_floodplain_hab_all('st') #steelhead
+#  
 
-```
-NOTE: The floodplain area is total wetted area and needs a suitability factor applied
-for all watersheds except the Sacramento Reaches, the Sutter and Yolo Bypasses, and the
-North and South Deltas which the floodplain area has already had a suitability criteria
-applied. See the apply suitability [function](https://flowwest.github.io/cvpiaHabitat/reference/apply_suitability.html) for more details.
+## ---- eval = FALSE-------------------------------------------------------
+#  all_model_inputs <- cvpiaData::load_baseline_data('fall')
+#  # user must define get_floodplain_hab_all_modified to their specifications
+#  all_model_inputs$floodP <- get_floodplain_hab_all_modified('fr')
 
-If you wish to modify the above function to make a new scenario, a possible way 
-to override the default data output from `cvpiaData::load_baseline_data` is as follows:
-```{r, eval = FALSE}
-all_model_inputs <- cvpiaData::load_baseline_data('fall')
-# user must define get_floodplain_hab_all_modified to their specifications
-all_model_inputs$floodP <- get_floodplain_hab_all_modified('fr')
-```
-
-Or, you could swap out the watershed's values with a vector of new values. This
-vector must be of length 240, with the first value representing the habitat value
-for 01/1980 and the last 12/1999.
-```{r, eval = FALSE}
-fr_modified <- cvpiaData::fr_fp #copy baseline fall run floodplain rearing habitat
-new_upper_sac_vals <- 1:240
-# upper sacramento is the first watershed, see cvpiaData::watershed_ordering
-fr_modified[1,,] <- new_upper_sac_vals 
-all_model_inputs$floodP <- fr_modified[1,,]
-```
+## ---- eval = FALSE-------------------------------------------------------
+#  fr_modified <- cvpiaData::fr_fp #copy baseline fall run floodplain rearing habitat
+#  new_upper_sac_vals <- 1:240
+#  # upper sacramento is the first watershed, see cvpiaData::watershed_ordering
+#  fr_modified[1,,] <- new_upper_sac_vals
+#  all_model_inputs$floodP <- fr_modified[1,,]
 

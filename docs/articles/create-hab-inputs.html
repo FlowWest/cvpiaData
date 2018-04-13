@@ -292,7 +292,6 @@ all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span
   })
   
   <span class="co"># lower-mid sacramento </span>
-  <span class="co"># </span><span class="al">TODO</span><span class="co"> check with mark flow location</span>
   low_mid_sac_flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">"Lower-mid Sacramento River2"</span>) 
   low_mid_sac_fp &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/acres_to_square_meters">acres_to_square_meters</a></span>(
     cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_floodplain_habitat">set_floodplain_habitat</a></span>(<span class="st">'Lower-mid Sacramento River'</span>, species,
@@ -323,6 +322,7 @@ all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">fr_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'fr'</span>) <span class="co">#fall run</span>
 sr_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'sr'</span>) <span class="co">#spring run</span>
 st_fp &lt;-<span class="st"> </span><span class="kw">get_floodplain_hab_all</span>(<span class="st">'st'</span>) <span class="co">#steelhead</span></code></pre></div>
+<p>NOTE: The floodplain area is total wetted area and needs a suitability factor applied for all watersheds except the Sacramento Reaches, the Sutter and Yolo Bypasses, and the North and South Deltas which the floodplain area has already had a suitability criteria applied. See the apply suitability <a href="https://flowwest.github.io/cvpiaHabitat/reference/apply_suitability.html">function</a> for more details.</p>
 <p>If you wish to modify the above function to make a new scenario, a possible way to override the default data output from <code><a href="http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data">cvpiaData::load_baseline_data</a></code> is as follows:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">all_model_inputs &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaData/topics/load_baseline_data">load_baseline_data</a></span>(<span class="st">'fall'</span>)
 <span class="co"># user must define get_floodplain_hab_all_modified to their specifications</span>
