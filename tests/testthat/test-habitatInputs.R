@@ -85,7 +85,7 @@ test_that('Clear Creek FR fry', {
   
   expect_equal(
     cvpiaHabitat::set_instream_habitat('Clear Creek', 'fr', 'fry', flow_01_90),
-    cvpiaData::fr_fry[7, 3, 11],
+    cvpiaData::fr_fry[7, 1, 11],
     tolerance = .01
   )
 })
@@ -95,7 +95,7 @@ test_that('Clear Creek SR fry', {
   
   expect_equal(
     cvpiaHabitat::set_instream_habitat('Clear Creek', 'sr', 'fry', flow_01_90),
-    cvpiaData::sr_fry[7, 3, 11],
+    cvpiaData::sr_fry[7, 1, 11],
     tolerance = .01
   )
 })
@@ -105,7 +105,7 @@ test_that('Clear Creek ST fry', {
   
   expect_equal(
     cvpiaHabitat::set_instream_habitat('Clear Creek', 'st', 'fry', flow_01_90),
-    cvpiaData::st_fry[7, 3, 11],
+    cvpiaData::st_fry[7, 1, 11],
     tolerance = .01
   )
 })
@@ -115,8 +115,77 @@ test_that('Calaveras FR fry', {
   
   expect_equal(
     cvpiaHabitat::set_instream_habitat('Calaveras River', 'fr', 'fry', flow_01_90),
-    cvpiaData::st_fry[25, 3, 11],
+    cvpiaData::st_fry[25, 1, 11],
     tolerance = .01
   )
+  
+})
+
+test_that('Upper Sacramento FR spawn', {
+  flow_01_90 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-01-31', 'Upper Sacramento River']
+  
+  expect_equal(
+    cvpiaHabitat::set_spawning_habitat('Upper Sacramento River', 'fr', flow_01_90, month = 1),
+    cvpiaData::fr_spawn[1, 1, 11],
+    tolerance = .01
+  )
+  
+})
+
+test_that('Upper Sacramento FR fry', {
+  flow_01_90 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-01-31', 'Upper Sacramento River']
+  
+  expect_equal(
+    cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 'fr', 'fry', flow_01_90),
+    cvpiaData::fr_fry[1, 1, 11],
+    tolerance = .01
+  )
+  
+})
+
+test_that('Lower-mid Sacramento FR fry', {
+  flow_01_90 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-01-31', 'Lower-mid Sacramento River1']
+  flow_01_90_2 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-01-31', 'Lower-mid Sacramento River2']
+  
+  expect_equal(
+    cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 'fr', 'fry', flow_01_90, flow2 = flow_01_90_2),
+    cvpiaData::fr_fry[21, 1, 11],
+    tolerance = .01
+  )
+  
+})
+
+test_that('Lower-mid Sacramento FR fp', {
+  flow_01_80 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1980-01-31', 'Lower-mid Sacramento River1']
+  flow_01_80_2 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1980-01-31', 'Lower-mid Sacramento River2']
+  
+  expect_equal(
+    cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento River', 'fr', flow_01_80, flow2 = flow_01_80_2),
+    cvpiaData::fr_fp[21, 1, 1],
+    tolerance = .01
+  )
+  
+})
+
+test_that('Lower Sacramento FR fp', {
+  flow_03_90 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-03-31', 'Lower Sacramento River']
+  
+  expect_equal(
+    cvpiaHabitat::set_floodplain_habitat('Lower Sacramento River', 'fr', flow_03_90),
+    cvpiaData::fr_fp[24, 3, 11],
+    tolerance = .01
+  )
+  
+})
+
+test_that('Lower Sacramento FR fry', {
+  flow_03_90 <- cvpiaFlow::flows_cfs[cvpiaFlow::flows_cfs$date == '1990-03-31', 'Lower Sacramento River']
+  
+  expect_equal(
+    cvpiaHabitat::set_instream_habitat('Lower Sacramento River', 'fr', 'fry', flow_03_90),
+    cvpiaData::fr_fry[24, 3, 11],
+    tolerance = .01
+  )
+  
 })
 
