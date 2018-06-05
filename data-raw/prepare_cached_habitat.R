@@ -30,21 +30,6 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
   })
   
   # deal with sacramento special cases
-  # upper sac
-  up_sac_flows <- get_flow('Upper Sacramento River')
-  months <- rep(1:12, 20)
-  up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
-    cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
-                                       species = species, 
-                                       life_stage = life_stage, 
-                                       flow = flow, month = month)
-  })
-  
-  up_sac <- tibble(
-    year = rep(1980:1999, each = 12),
-    month = rep(1:12, 20),
-    watershed = 'Upper Sacramento River', 
-    hab_sq_m = up_sac_hab)
      
   # lower-mid sac
   low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
@@ -63,7 +48,7 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
     watershed = 'Lower-mid Sacramento River', 
     hab_sq_m = low_mid_sac_hab)
   
-  hab <- bind_rows(most, up_sac, low_mid_sac) %>% 
+  hab <- bind_rows(most, low_mid_sac) %>% 
     spread(watershed, hab_sq_m) %>% 
     bind_cols(tibble(`Sutter Bypass` = rep(NA, 240),
                      `Yolo Bypass` = rep(NA, 240))) %>% 
@@ -143,11 +128,11 @@ get_floodplain_hab_all <- function(watersheds, species) {
   })
   
   # lower-mid sacramento 
-  # TODO check with mark flow location
-  low_mid_sac_flows <- get_flow("Lower-mid Sacramento River2") 
+  low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1") 
+  low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2") 
   low_mid_sac_fp <- cvpiaHabitat::acres_to_square_meters(
     cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento River', species,
-                                         low_mid_sac_flows))
+                                         low_mid_sac_flows1, flow2 = low_mid_sac_flows2))
   low_mid_sac <- tibble(
     year = rep(1980:1999, each = 12),
     month = rep(1:12, 20),
@@ -180,14 +165,14 @@ fr_spawn <- get_spawn_hab_all(spawning_watersheds, 'fr')
 sr_spawn <- get_spawn_hab_all(spawning_watersheds, 'sr')
 st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
 
-devtools::use_data(fr_spawn)
-devtools::use_data(sr_spawn)
-devtools::use_data(st_spawn)
+devtools::use_data(fr_spawn, overwrite = TRUE)
+devtools::use_data(sr_spawn, overwrite = TRUE)
+devtools::use_data(st_spawn, overwrite = TRUE)
 
 # rearing--------------------
 
 watersheds_in_order <- cvpiaData::watershed_ordering %>% 
-  filter(!(watershed  %in% c('Upper Sacramento River', 'Sutter Bypass',
+  filter(!(watershed  %in% c('Sutter Bypass',
                              'Lower-mid Sacramento River', 'Yolo Bypass'))) %>%
   pull(watershed)
 
@@ -196,18 +181,18 @@ fr_fry <- get_rear_hab_all(watersheds_in_order, 'fr', 'fry')
 sr_fry <- get_rear_hab_all(watersheds_in_order, 'sr', 'fry')
 st_fry <- get_rear_hab_all(watersheds_in_order, 'st', 'fry')
 
-devtools::use_data(fr_fry)
-devtools::use_data(sr_fry)
-devtools::use_data(st_fry)
+devtools::use_data(fr_fry, overwrite = TRUE)
+devtools::use_data(sr_fry, overwrite = TRUE)
+devtools::use_data(st_fry, overwrite = TRUE)
 
   #juvenile------
 fr_juv <- get_rear_hab_all(watersheds_in_order, 'fr', 'juv')
 sr_juv <- get_rear_hab_all(watersheds_in_order, 'sr', 'juv')
 st_juv <- get_rear_hab_all(watersheds_in_order, 'st', 'juv')
 
-devtools::use_data(fr_juv)
-devtools::use_data(sr_juv)
-devtools::use_data(st_juv)
+devtools::use_data(fr_juv, overwrite = TRUE)
+devtools::use_data(sr_juv, overwrite = TRUE)
+devtools::use_data(st_juv, overwrite = TRUE)
 
 # floodplain------------------------
 watersheds_fp <- cvpiaData::watershed_ordering %>% 
@@ -218,9 +203,9 @@ fr_fp <- get_floodplain_hab_all(watersheds_fp, 'fr')
 sr_fp <- get_floodplain_hab_all(watersheds_fp, 'sr')
 st_fp <- get_floodplain_hab_all(watersheds_fp, 'st')
 
-devtools::use_data(fr_fp)
-devtools::use_data(sr_fp)
-devtools::use_data(st_fp)
+devtools::use_data(fr_fp, overwrite = TRUE)
+devtools::use_data(sr_fp, overwrite = TRUE)
+devtools::use_data(st_fp, overwrite = TRUE)
 
 # bypass in stream ----------------
 
