@@ -254,5 +254,5 @@ floodplain_bypass <- bypass_floodplain %>%
   select(-bypass) %>% 
   create_SIT_array()
 
-devtools::use_data(inchannel_bypass)
-devtools::use_data(floodplain_bypass)
+devtools::use_data(inchannel_bypass, overwrite = TRUE)
+devtools::use_data(floodplain_bypass, overwrite = TRUE)
