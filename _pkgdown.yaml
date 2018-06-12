@@ -75,6 +75,8 @@ navbar:
     menu:
     - text: Create Habitat Inputs
       href: articles/create-hab-inputs.html
+  - text: News
+    href: news/index.html
   right:
   - icon: fa-github fa-lg
     href: https://github.com/flowwest/cvpiaData
