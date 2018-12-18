@@ -1,6 +1,6 @@
 Package: cvpiaData
 Title: CVPIA DSM Inputs
-Version: 1.0.0
+Version: 1.1.0
 Authors@R: person("Sadie", "Gill", email = "sgill@flowwest.com", role = "cre")
 Description: Prepares flow, habitat and temperature data as inputs for CVPIA SIT 
     Salmon Population Model.
@@ -19,3 +19,5 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+URL: https://github.com/FlowWest/cvpiaData
+BugReports: https://github.com/FlowWest/cvpiaData/issues
