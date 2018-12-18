@@ -1,6 +1,9 @@
+pandoc: 1.19.2.1
+pkgdown: 1.1.0
+pkgdown_sha: ~
+articles:
+  create-hab-inputs: create-hab-inputs.html
 urls:
   reference: https://flowwest.github.io/cvpiaData//reference
   article: https://flowwest.github.io/cvpiaData//articles
-articles:
-  create-hab-inputs: create-hab-inputs.html
 

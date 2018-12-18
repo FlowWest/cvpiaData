@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Function reference" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">cvpiaData</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">cvpiaData</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.1.0</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -79,6 +92,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -86,312 +100,308 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1>
-        Reference
-        <small>version&nbsp;1.0.0</small>
-      </h1>
+      <h1>Reference</h1>
     </div>
 
-    <div class="contents">
-      <table class="ref-index">
+    <table class="ref-index">
 
-      <colgroup>
-        <col class="alias" />
-        <col class="title" />
-      </colgroup>
+    <colgroup>
+      
+      <col class="alias" />
+      <col class="title" />
+    </colgroup>
 
-      <tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
-            <p class="section-desc"><p>Functions that prepare and data for use with the model.</p></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="load_baseline_data.html">load_baseline_data</a></code> </p>
-          </td>
-          <td><p>Load SIT Model Inputs for Years 1980-1999</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="create_Sit_array.html">create_SIT_array</a></code> </p>
-          </td>
-          <td><p>Generate SIT Model Compatible Array</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-flow-inputs" class="hasAnchor"><a href="#section-flow-inputs" class="anchor"></a>Flow Inputs</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="cross_channel_gates.html">cross_channel_gates</a></code> </p>
-          </td>
-          <td><p>Delta Cross Channel Gates - Days Closed</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dlt_divers.html">dlt_divers</a></code> </p>
-          </td>
-          <td><p>Delta Proportion Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dlt_divers_tot.html">dlt_divers_tot</a></code> </p>
-          </td>
-          <td><p>Delta Total Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dlt_inflow.html">dlt_inflow</a></code> </p>
-          </td>
-          <td><p>Delta Inflow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="freeportQcms.html">freeportQcms</a></code> </p>
-          </td>
-          <td><p>Flow at Freeport</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bypass_over.html">bypass_over</a></code> </p>
-          </td>
-          <td><p>Sutter and Yolo Bypass Over Topped</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="bypass_prop_Q.html">bypass_prop_Q</a></code> </p>
-          </td>
-          <td><p>Proportion Flow at Yolo and Sutter Bypasses</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="returnQ.html">returnQ</a></code> </p>
-          </td>
-          <td><p>Return Flow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="upsac_flow.html">upsac_flow</a></code> </p>
-          </td>
-          <td><p>Upper Sacramento Flows</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="prop_diversion.html">prop_diversion</a></code> </p>
-          </td>
-          <td><p>Proportion of Flow Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="total_diversion.html">total_diversion</a></code> </p>
-          </td>
-          <td><p>Total Flow Diverted</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="prop_pulse.html">prop_pulse</a></code> </p>
-          </td>
-          <td><p>Proportion Pulse Flow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="med_flow.html">med_flow</a></code> </p>
-          </td>
-          <td><p>Median Flow</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-habitat-inputs" class="hasAnchor"><a href="#section-habitat-inputs" class="anchor"></a>Habitat Inputs</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dlt_hab.html">dlt_hab</a></code> </p>
-          </td>
-          <td><p>Delta Rearing Habitat</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fr_spawn.html">fr_spawn</a></code> </p>
-          </td>
-          <td><p>Spawning Habitat - Fall Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fr_fry.html">fr_fry</a></code> </p>
-          </td>
-          <td><p>Fry Inchannel Habitat - Fall Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fr_juv.html">fr_juv</a></code> </p>
-          </td>
-          <td><p>Juvenile Inchannel Habitat - Fall Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="fr_fp.html">fr_fp</a></code> </p>
-          </td>
-          <td><p>Floodplain Habitat - Fall Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sr_spawn.html">sr_spawn</a></code> </p>
-          </td>
-          <td><p>Spawning Habitat - Spring Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sr_fry.html">sr_fry</a></code> </p>
-          </td>
-          <td><p>Fry Inchannel Habitat - Spring Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sr_juv.html">sr_juv</a></code> </p>
-          </td>
-          <td><p>Juvenile Inchannel Habitat - Spring Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="sr_fp.html">sr_fp</a></code> </p>
-          </td>
-          <td><p>Floodplain Habitat - Spring Run</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="st_spawn.html">st_spawn</a></code> </p>
-          </td>
-          <td><p>Spawning Habitat - Steelhead</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="st_fry.html">st_fry</a></code> </p>
-          </td>
-          <td><p>Fry Inchannel Habitat - Steelhead</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="st_juv.html">st_juv</a></code> </p>
-          </td>
-          <td><p>Juvenile Inchannel Habitat - Steelhead</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="st_fp.html">st_fp</a></code> </p>
-          </td>
-          <td><p>Floodplain Habitat - Steelhead</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="inundation_durations.html">inundation_durations</a></code> </p>
-          </td>
-          <td><p>Floodplain Habitat Activation Duration</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="inchannel_bypass.html">inchannel_bypass</a></code> </p>
-          </td>
-          <td><p>Bypass Instream Habitat Area</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="floodplain_bypass.html">floodplain_bypass</a></code> </p>
-          </td>
-          <td><p>Bypass Floodplain Habitat Area</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="pools.html">pools</a></code> </p>
-          </td>
-          <td><p>Pools</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-temperature-inputs" class="hasAnchor"><a href="#section-temperature-inputs" class="anchor"></a>Temperature Inputs</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="rearing_temps.html">rearing_temps</a></code> </p>
-          </td>
-          <td><p>Rearing Temperature</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="dlt_temps.html">dlt_temps</a></code> </p>
-          </td>
-          <td><p>Delta Inflow</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="degday.html">degday</a></code> </p>
-          </td>
-          <td><p>Degree Days</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="ptemp20mc.html">ptemp20mc</a></code> </p>
-          </td>
-          <td><p>Migratory Corridor Temperature Exceedance</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="egg_temp_effect.html">egg_temp_effect</a></code> </p>
-          </td>
-          <td><p>Temperature Effect on Egg Mortality</p></td>
-        </tr>
-      </tbody><tbody>
-        <tr>
-          <th colspan="2">
-            <h2 id="section-miscellaneous-inputs" class="hasAnchor"><a href="#section-miscellaneous-inputs" class="anchor"></a>Miscellaneous Inputs</h2>
-            <p class="section-desc"></p>
-          </th>
-        </tr>
-        <tr>
-          <!--  -->
-          <td>
-            <p><code><a href="misc_data.html">misc_data</a></code> </p>
-          </td>
-          <td><p>Miscellaneous Model Inputs</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="misc_delta.html">misc_delta</a></code> </p>
-          </td>
-          <td><p>Delta Miscellaneous Inputs</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="watershed_ordering.html">watershed_ordering</a></code> </p>
-          </td>
-          <td><p>Ordering of Watersheds</p></td>
-        </tr><tr>
-          <!--  -->
-          <td>
-            <p><code><a href="has_spring_run.html">has_spring_run</a></code> </p>
-          </td>
-          <td><p>Spring Run Present</p></td>
-        </tr>
-      </tbody>
-      </table>
-    </div>
+    <tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-functions" class="hasAnchor"><a href="#section-functions" class="anchor"></a>Functions</h2>
+          <p class="section-desc"><p>Functions that prepare and data for use with the model.</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="load_baseline_data.html">load_baseline_data()</a></code> </p>
+        </td>
+        <td><p>Load SIT Model Inputs for Years 1980-1999</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="create_Sit_array.html">create_SIT_array()</a></code> </p>
+        </td>
+        <td><p>Generate SIT Model Compatible Array</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-flow-inputs" class="hasAnchor"><a href="#section-flow-inputs" class="anchor"></a>Flow Inputs</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="cross_channel_gates.html">cross_channel_gates</a></code> </p>
+        </td>
+        <td><p>Delta Cross Channel Gates - Days Closed</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dlt_divers.html">dlt_divers</a></code> </p>
+        </td>
+        <td><p>Delta Proportion Diverted</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dlt_divers_tot.html">dlt_divers_tot</a></code> </p>
+        </td>
+        <td><p>Delta Total Diverted</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dlt_inflow.html">dlt_inflow</a></code> </p>
+        </td>
+        <td><p>Delta Inflow</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="freeportQcms.html">freeportQcms</a></code> </p>
+        </td>
+        <td><p>Flow at Freeport</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bypass_over.html">bypass_over</a></code> </p>
+        </td>
+        <td><p>Sutter and Yolo Bypass Over Topped</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="bypass_prop_Q.html">bypass_prop_Q</a></code> </p>
+        </td>
+        <td><p>Proportion Flow at Yolo and Sutter Bypasses</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="returnQ.html">returnQ</a></code> </p>
+        </td>
+        <td><p>Return Flow</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="upsac_flow.html">upsac_flow</a></code> </p>
+        </td>
+        <td><p>Upper Sacramento Flows</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="prop_diversion.html">prop_diversion</a></code> </p>
+        </td>
+        <td><p>Proportion of Flow Diverted</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="total_diversion.html">total_diversion</a></code> </p>
+        </td>
+        <td><p>Total Flow Diverted</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="prop_pulse.html">prop_pulse</a></code> </p>
+        </td>
+        <td><p>Proportion Pulse Flow</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="med_flow.html">med_flow</a></code> </p>
+        </td>
+        <td><p>Median Flow</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-habitat-inputs" class="hasAnchor"><a href="#section-habitat-inputs" class="anchor"></a>Habitat Inputs</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="dlt_hab.html">dlt_hab</a></code> </p>
+        </td>
+        <td><p>Delta Rearing Habitat</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fr_spawn.html">fr_spawn</a></code> </p>
+        </td>
+        <td><p>Spawning Habitat - Fall Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fr_fry.html">fr_fry</a></code> </p>
+        </td>
+        <td><p>Fry Inchannel Habitat - Fall Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fr_juv.html">fr_juv</a></code> </p>
+        </td>
+        <td><p>Juvenile Inchannel Habitat - Fall Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="fr_fp.html">fr_fp</a></code> </p>
+        </td>
+        <td><p>Floodplain Habitat - Fall Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sr_spawn.html">sr_spawn</a></code> </p>
+        </td>
+        <td><p>Spawning Habitat - Spring Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sr_fry.html">sr_fry</a></code> </p>
+        </td>
+        <td><p>Fry Inchannel Habitat - Spring Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sr_juv.html">sr_juv</a></code> </p>
+        </td>
+        <td><p>Juvenile Inchannel Habitat - Spring Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="sr_fp.html">sr_fp</a></code> </p>
+        </td>
+        <td><p>Floodplain Habitat - Spring Run</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="st_spawn.html">st_spawn</a></code> </p>
+        </td>
+        <td><p>Spawning Habitat - Steelhead</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="st_fry.html">st_fry</a></code> </p>
+        </td>
+        <td><p>Fry Inchannel Habitat - Steelhead</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="st_juv.html">st_juv</a></code> </p>
+        </td>
+        <td><p>Juvenile Inchannel Habitat - Steelhead</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="st_fp.html">st_fp</a></code> </p>
+        </td>
+        <td><p>Floodplain Habitat - Steelhead</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="inundation_durations.html">inundation_durations</a></code> </p>
+        </td>
+        <td><p>Floodplain Habitat Activation Duration</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="inchannel_bypass.html">inchannel_bypass</a></code> </p>
+        </td>
+        <td><p>Bypass Instream Habitat Area</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="floodplain_bypass.html">floodplain_bypass</a></code> </p>
+        </td>
+        <td><p>Bypass Floodplain Habitat Area</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="pools.html">pools</a></code> </p>
+        </td>
+        <td><p>Pools</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-temperature-inputs" class="hasAnchor"><a href="#section-temperature-inputs" class="anchor"></a>Temperature Inputs</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="rearing_temps.html">rearing_temps</a></code> </p>
+        </td>
+        <td><p>Rearing Temperature</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="dlt_temps.html">dlt_temps</a></code> </p>
+        </td>
+        <td><p>Delta Inflow</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="degday.html">degday</a></code> </p>
+        </td>
+        <td><p>Degree Days</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="ptemp20mc.html">ptemp20mc</a></code> </p>
+        </td>
+        <td><p>Migratory Corridor Temperature Exceedance</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="egg_temp_effect.html">egg_temp_effect</a></code> </p>
+        </td>
+        <td><p>Temperature Effect on Egg Mortality</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-miscellaneous-inputs" class="hasAnchor"><a href="#section-miscellaneous-inputs" class="anchor"></a>Miscellaneous Inputs</h2>
+          <p class="section-desc"></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="misc_data.html">misc_data</a></code> </p>
+        </td>
+        <td><p>Miscellaneous Model Inputs</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="misc_delta.html">misc_delta</a></code> </p>
+        </td>
+        <td><p>Delta Miscellaneous Inputs</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="watershed_ordering.html">watershed_ordering</a></code> </p>
+        </td>
+        <td><p>Ordering of Watersheds</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="has_spring_run.html">has_spring_run</a></code> </p>
+        </td>
+        <td><p>Spring Run Present</p></td>
+      </tr>
+    </tbody>
+    </table>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -412,11 +422,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
