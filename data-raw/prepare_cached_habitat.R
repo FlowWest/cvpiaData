@@ -17,6 +17,7 @@ get_flow <- function(watershed, years=c(1980, 1999)) {
 
 get_rear_hab_all <- function(watersheds, species, life_stage) {
   most <- map_df(watersheds, function(watershed) {
+    
     flows <- get_flow(watershed)
     habitat <- cvpiaHabitat::set_instream_habitat(watershed, 
                                                   species = species,
@@ -116,8 +117,7 @@ get_spawn_hab_all <- function(watersheds, species) {
 get_floodplain_hab_all <- function(watersheds, species) {
   most <- map_df(watersheds, function(watershed) {
     flows <- get_flow(watershed)
-    habitat <- cvpiaHabitat::acres_to_square_meters(
-      cvpiaHabitat::set_floodplain_habitat(watershed, species, flows))
+    habitat <- cvpiaHabitat::set_floodplain_habitat(watershed, species, flows)
     
     tibble(
       year = rep(1980:1999, each = 12),
@@ -184,7 +184,7 @@ watersheds_in_order <- cvpiaData::watershed_ordering %>%
                              'Lower-mid Sacramento River', 'Yolo Bypass'))) %>%
   pull(watershed)
 
-  #fry------
+#fry------
 fr_fry <- get_rear_hab_all(watersheds_in_order, 'fr', 'fry')
 sr_fry <- get_rear_hab_all(watersheds_in_order, 'sr', 'fry')
 st_fry <- get_rear_hab_all(watersheds_in_order, 'st', 'fry')
@@ -193,7 +193,7 @@ devtools::use_data(fr_fry, overwrite = TRUE)
 devtools::use_data(sr_fry, overwrite = TRUE)
 devtools::use_data(st_fry, overwrite = TRUE)
 
-  #juvenile------
+#juvenile------
 fr_juv <- get_rear_hab_all(watersheds_in_order, 'fr', 'juv')
 sr_juv <- get_rear_hab_all(watersheds_in_order, 'sr', 'juv')
 st_juv <- get_rear_hab_all(watersheds_in_order, 'st', 'juv')
