@@ -180,18 +180,6 @@ dlt_hab[ , , 2] <- as.matrix(dt_hab[2, -1])
 
 use_data(dlt_hab)
 
-floodplain_fall <- cvpiaData::floodplain_habitat %>% 
-  filter(species == 'fr') %>% 
-  mutate(date = ymd(paste(year, month, 1, sep = '-'))) %>%
-  select(date, watershed, habitat) %>% 
-  spread(date, habitat) %>% 
-  left_join(cvpiaData::watershed_ordering) %>% 
-  arrange(order) %>% 
-  select(-watershed, -order) %>% 
-  create_SIT_array()
-
-devtools::use_data(floodplain_fall)
-
 misc_delta <- data.frame(
   delta = c('North Delta', 'South Delta'),
   High.pred = c(1, 1),
