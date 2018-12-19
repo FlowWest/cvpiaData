@@ -256,3 +256,101 @@ floodplain_bypass <- bypass_floodplain %>%
 
 devtools::use_data(inchannel_bypass, overwrite = TRUE)
 devtools::use_data(floodplain_bypass, overwrite = TRUE)
+
+# Winter Run ------------
+# only in sacramento
+View(cvpiaData::watershed_ordering)
+cvpiaData::watershed_ordering$watershed[c(1, 16, 21, 24)]
+
+ # spawn just in Upper Sac
+wr_spawn <- array(NA, c(31, 12, 21))
+up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 1999))
+months <- rep(1:12, 21)
+up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
+  cvpiaHabitat::set_spawning_habitat('Upper Sacramento River', 
+                                     species = 'wr', 
+                                     flow = flow, month = month)
+})
+
+wr_spawn[1,,] <- up_sac_hab
+devtools::use_data(wr_spawn)
+
+ # fry and juv
+wr_fry <- array(NA, c(31, 12, 20))
+wr_fry[1,,] <- cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
+                                                  species = 'wr',
+                                                  life_stage = 'fry', 
+                                                  flow = get_flow('Upper Sacramento River'))
+wr_fry[16,,] <- cvpiaHabitat::set_instream_habitat('Upper-mid Sacramento River', 
+                                                  species = 'wr',
+                                                  life_stage = 'fry', 
+                                                  flow = get_flow('Upper-mid Sacramento River'))
+# deal with sacramento special cases
+# lower-mid sac
+low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
+low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2')
+
+low_mid_sac_hab <- map2_dbl(low_mid_sac_flow1, low_mid_sac_flow2, function(flow, flow2) {
+  cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 
+                                     species = 'wr', 
+                                     life_stage = 'fry', 
+                                     flow = flow, flow2 = flow2)
+})
+
+
+wr_fry[21,,] <- low_mid_sac_hab
+
+wr_fry[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River', 
+                                                   species = 'wr',
+                                                   life_stage = 'fry', 
+                                                   flow = get_flow('Lower Sacramento River'))
+
+devtools::use_data(wr_fry)
+
+wr_juv <- array(NA, c(31, 12, 20))
+wr_juv[1,,] <- cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
+                                                  species = 'wr',
+                                                  life_stage = 'juv', 
+                                                  flow = get_flow('Upper Sacramento River'))
+wr_juv[16,,] <- cvpiaHabitat::set_instream_habitat('Upper-mid Sacramento River', 
+                                                   species = 'wr',
+                                                   life_stage = 'juv', 
+                                                   flow = get_flow('Upper-mid Sacramento River'))
+# deal with sacramento special cases
+# lower-mid sac
+low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
+low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2')
+
+low_mid_sac_hab <- map2_dbl(low_mid_sac_flow1, low_mid_sac_flow2, function(flow, flow2) {
+  cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 
+                                     species = 'wr', 
+                                     life_stage = 'juv', 
+                                     flow = flow, flow2 = flow2)
+})
+
+
+wr_juv[21,,] <- low_mid_sac_hab
+
+wr_juv[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River', 
+                                                   species = 'wr',
+                                                   life_stage = 'juv', 
+                                                   flow = get_flow('Lower Sacramento River'))
+
+devtools::use_data(wr_juv)
+
+
+ # floodplain
+wr_fp <- array(NA, c(31, 12, 20))
+wr_fp[1,,] <- cvpiaHabitat::set_floodplain_habitat('Upper Sacramento River', 'wr', get_flow('Upper Sacramento River'))
+wr_fp[16,,] <- cvpiaHabitat::set_floodplain_habitat('Upper-mid Sacramento River', 'wr', get_flow('Upper-mid Sacramento River'))
+wr_fp[24,,] <- cvpiaHabitat::set_floodplain_habitat('Lower Sacramento River', 'wr', get_flow('Lower Sacramento River'))
+
+# lower-mid sacramento 
+low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1") 
+low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2") 
+low_mid_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento River', 'wr',
+                                                       low_mid_sac_flows1, flow2 = low_mid_sac_flows2)
+
+wr_fp[21,,] <- low_mid_sac_fp
+
+devtools::use_data(wr_fp)
