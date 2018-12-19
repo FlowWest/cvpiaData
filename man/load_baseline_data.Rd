@@ -46,38 +46,38 @@ The list returned contains the following data:
 
 Fall Run Specific Outputs:
 \itemize{
-  \item \link[=spawn]{IChab.spawn} = Spawning habitat areas for each watershed
-  \item \link[=fry]{IChab.fry} = Fry instream habitat areas for each watershed
-  \item \link[=juvenile]{IChab.juv} = Juvenile instream habitat areas for each watershed
-  \item \link[=floodplain]{floodP} = Floodplain habitat areas for each watershed
+  \item \link[=fr_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+  \item \link[=fr_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+  \item \link[=fr_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+  \item \link[=fr_fp]{floodP} = Floodplain habitat areas for each watershed
 }
 
 Spring Run Specific Outputs:
 \itemize{
-  \item \link[=spawn]{IChab.spawn} = Spawning habitat areas for each watershed
-  \item \link[=fry]{IChab.fry} = Fry instream habitat areas for each watershed
-  \item \link[=juvenile]{IChab.juv} = Juvenile instream habitat areas for each watershed
-  \item \link[=floodplain]{floodP} = Floodplain habitat areas for each watershed
+  \item \link[=sr_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+  \item \link[=sr_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+  \item \link[=sr_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+  \item \link[=sr_fp]{floodP} = Floodplain habitat areas for each watershed
   \item \link[=pools]{SR.pools} = Holding Habitat
   \item \link[=has_spring_run]{has.SR} = Spring Run are present in watershed
 }
 
-#' Steelhead Specific Outputs:
+Steelhead Specific Outputs:
 \itemize{
-  \item \link[=spawn]{IChab.spawn} = Spawning habitat areas for each watershed
-  \item \link[=fry]{IChab.fry} = Fry instream habitat areas for each watershed
-  \item \link[=juvenile]{IChab.juv} = Juvenile instream habitat areas for each watershed
-  \item \link[=floodplain]{floodP} = Floodplain habitat areas for each watershed
+  \item \link[=st_spawn]{IChab.spawn} = Spawning habitat areas for each watershed
+  \item \link[=st_fry]{IChab.fry} = Fry instream habitat areas for each watershed
+  \item \link[=st_juv]{IChab.juv} = Juvenile instream habitat areas for each watershed
+  \item \link[=st_fp]{floodP} = Floodplain habitat areas for each watershed
   \item \link[=pools]{ST.pools} = Holding Habitat
   \item \link[cvpiaHabitat]{IChab.adult} = Adult instream habitat areas for each watershed
 }
 
 Winter Run Specific Outputs:
 \itemize{
-  \item \link[=pawn]{IChab.spawn} = Spawning habitat areas for each Sacramento River segment
-  \item \link[=fry]{IChab.fry} = Fry instream habitat areas for each Sacramento River segment
-  \item \link[=juvenile]{IChab.juv} = Juvenile instream habitat areas for each Sacramento River segment
-  \item \link[=floodplain]{floodP} = Floodplain habitat areas for each Sacramento River segment
+  \item \link[=wr_spawn]{IChab.spawn} = Spawning habitat areas for each Sacramento River segment
+  \item \link[=wr_fry]{IChab.fry} = Fry instream habitat areas for each Sacramento River segment
+  \item \link[=wr_juv]{IChab.juv} = Juvenile instream habitat areas for each Sacramento River segment
+  \item \link[=wr_fp]{floodP} = Floodplain habitat areas for each Sacramento River segment
 }
 }
 \examples{

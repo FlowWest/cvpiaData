@@ -37,22 +37,16 @@
     <loc>https://flowwest.github.io/cvpiaData//reference/egg_temp_effect.html</loc>
   </url>
   <url>
+    <loc>https://flowwest.github.io/cvpiaData//reference/floodplain.html</loc>
+  </url>
+  <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/floodplain_bypass.html</loc>
   </url>
   <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/fr_fp.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/fr_fry.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/fr_juv.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/fr_spawn.html</loc>
-  </url>
-  <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/freeportQcms.html</loc>
+  </url>
+  <url>
+    <loc>https://flowwest.github.io/cvpiaData//reference/fry.html</loc>
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/has_spring_run.html</loc>
@@ -62,6 +56,9 @@
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/inundation_durations.html</loc>
+  </url>
+  <url>
+    <loc>https://flowwest.github.io/cvpiaData//reference/juvenile.html</loc>
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/load_baseline_data.html</loc>
@@ -94,28 +91,7 @@
     <loc>https://flowwest.github.io/cvpiaData//reference/returnQ.html</loc>
   </url>
   <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/sr_fp.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/sr_fry.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/sr_juv.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/sr_spawn.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/st_fp.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/st_fry.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/st_juv.html</loc>
-  </url>
-  <url>
-    <loc>https://flowwest.github.io/cvpiaData//reference/st_spawn.html</loc>
+    <loc>https://flowwest.github.io/cvpiaData//reference/spawn.html</loc>
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/total_diversion.html</loc>
