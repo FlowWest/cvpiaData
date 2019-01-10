@@ -12,3 +12,8 @@ _12/18/2018_
 * Add steelhead adult habitat
 
 ----
+
+## cvpiaData 1.0.2
+_1/10/2019_
+
+* Update cached spring run habitat values

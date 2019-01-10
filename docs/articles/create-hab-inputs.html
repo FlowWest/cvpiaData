@@ -29,7 +29,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">cvpiaData</a>
-        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.1</span>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">1.0.2</span>
       </span>
     </div>
 
@@ -99,7 +99,7 @@
 get_flow &lt;-<span class="st"> </span><span class="cf">function</span>(watershed, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">1980</span>, <span class="dv">1999</span>)) {
   
     <span class="co"># get the flow values at the dates</span>
-    dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(cvpiaFlow<span class="op">::</span>flows_cfs, date, watershed), 
+    dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(cvpiaFlow<span class="op">::</span>flows_cfs, date, watershed), 
                                              lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span>(date) <span class="op">&gt;=</span><span class="st"> </span>years[<span class="dv">1</span>], 
                                              lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/year.html">year</a></span>(date) <span class="op">&lt;=</span><span class="st"> </span>years[<span class="dv">2</span>]), <span class="dv">2</span>)
 }
@@ -124,15 +124,15 @@ create_SIT_array &lt;-<span class="st"> </span><span class="cf">function</span>(
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_spawn_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(species) {
   
   watersheds &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span>modeling_exist <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="kw">is.na</span>(FR_spawn), Watershed <span class="op">!=</span><span class="st"> 'Upper Sacramento River'</span>, Watershed <span class="op">!=</span><span class="st"> 'Upper Mid Sac Region'</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(Watershed)
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span><span class="kw">is.na</span>(FR_spawn), Watershed <span class="op">!=</span><span class="st"> 'Upper Sacramento River'</span>, Watershed <span class="op">!=</span><span class="st"> 'Upper Mid Sac Region'</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(Watershed)
   
   most &lt;-<span class="st"> </span>purrr<span class="op">::</span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span>(watersheds, <span class="cf">function</span>(watershed) {
     flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed, <span class="dt">years=</span><span class="kw">c</span>(<span class="dv">1979</span>, <span class="dv">1999</span>))
     habitat &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_spawning_habitat">set_spawning_habitat</a></span>(watershed, 
                                                   <span class="dt">species =</span> species,
                                                   <span class="dt">flow =</span> flows)
-    <span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+    <span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
       <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1979</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
       <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">21</span>),
       <span class="dt">watershed =</span> watershed, 
@@ -149,27 +149,27 @@ create_SIT_array &lt;-<span class="st"> </span><span class="cf">function</span>(
                                        <span class="dt">flow =</span> flow, <span class="dt">month =</span> month)
   })
   
-  up_sac &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+  up_sac &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
     <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1979</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
     <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">21</span>),
     <span class="dt">watershed =</span> <span class="st">'Upper Sacramento River'</span>, 
     <span class="dt">hab_sq_m =</span> up_sac_hab)
   
-  hab &lt;-<span class="st">   </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, up_sac) <span class="op">%&gt;%</span><span class="st"> </span>
+  hab &lt;-<span class="st">   </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, up_sac) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
                      <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
                      <span class="st">`</span><span class="dt">Upper-mid Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
                      <span class="st">`</span><span class="dt">Lower-mid Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
                      <span class="st">`</span><span class="dt">Lower Sacramento River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>),
                      <span class="st">`</span><span class="dt">San Joaquin River</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">252</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span>tidyr<span class="op">::</span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="../reference/create_Sit_array.html">create_SIT_array</a></span>()
   
   <span class="kw">return</span>(hab)
@@ -196,9 +196,9 @@ all_model_inputs<span class="op">$</span>IChab.spawn &lt;-<span class="st"> </sp
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_rear_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(species, life_stage) {
 
   watersheds &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>watershed_ordering <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Sutter Bypass'</span>,
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Sutter Bypass'</span>,
                              <span class="st">'Lower-mid Sacramento River'</span>, <span class="st">'Yolo Bypass'</span>))) <span class="op">%&gt;%</span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(watershed)
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(watershed)
   
   most &lt;-<span class="st"> </span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span>(watersheds, <span class="cf">function</span>(watershed) {
     flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed)
@@ -206,7 +206,7 @@ all_model_inputs<span class="op">$</span>IChab.spawn &lt;-<span class="st"> </sp
                                                   <span class="dt">species =</span> species,
                                                   <span class="dt">life_stage =</span> life_stage, 
                                                   <span class="dt">flow =</span> flows)
-    <span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+    <span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
       <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
       <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
       <span class="dt">watershed =</span> watershed, 
@@ -225,23 +225,23 @@ all_model_inputs<span class="op">$</span>IChab.spawn &lt;-<span class="st"> </sp
                                        <span class="dt">flow =</span> flow, <span class="dt">flow2 =</span> flow2)
   })
   
-  low_mid_sac &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+  low_mid_sac &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
     <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
     <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
     <span class="dt">watershed =</span> <span class="st">'Lower-mid Sacramento River'</span>, 
     <span class="dt">hab_sq_m =</span> low_mid_sac_hab)
   
-  hab &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, low_mid_sac) <span class="op">%&gt;%</span><span class="st"> </span>
+  hab &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, low_mid_sac) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
                      <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="../reference/create_Sit_array.html">create_SIT_array</a></span>()
   
   <span class="kw">return</span>(hab)
@@ -273,17 +273,17 @@ all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">get_floodplain_hab_all &lt;-<span class="st"> </span><span class="cf">function</span>(watersheds, species) {
 
   watersheds_fp &lt;-<span class="st"> </span>cvpiaData<span class="op">::</span>watershed_ordering <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Sutter Bypass'</span>,<span class="st">'Yolo Bypass'</span>, 
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="op">!</span>(watershed  <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">'Sutter Bypass'</span>,<span class="st">'Yolo Bypass'</span>, 
     <span class="st">'Lower-mid Sacramento River'</span>, <span class="st">'Upper Sacramento River'</span>,
     <span class="st">'Upper-mid Sacramento River'</span>, <span class="st">'Lower Sacramento River'</span>))) <span class="op">%&gt;%</span>
-<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(watershed)
+<span class="st">    </span>dplyr<span class="op">::</span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span>(watershed)
   
   most &lt;-<span class="st"> </span><span class="kw"><a href="https://purrr.tidyverse.org/reference/map.html">map_df</a></span>(watersheds, <span class="cf">function</span>(watershed) {
     flows &lt;-<span class="st"> </span><span class="kw">get_flow</span>(watershed)
     habitat &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/acres_to_square_meters">acres_to_square_meters</a></span>(
       cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_floodplain_habitat">set_floodplain_habitat</a></span>(watershed, species, flows))
     
-    <span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+    <span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
       <span class="dt">year =</span> <span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>),
       <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">20</span>),
       <span class="dt">watershed =</span> watershed, 
@@ -305,24 +305,24 @@ all_model_inputs<span class="op">$</span>IChab.fry &lt;-<span class="st"> </span
   low_mid_sac_flows2 &lt;-<span class="st"> </span><span class="kw">get_flow</span>(<span class="st">"Lower-mid Sacramento River2"</span>) 
   low_mid_sac_fp &lt;-<span class="st"> </span>cvpiaHabitat<span class="op">::</span><span class="kw"><a href="http://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_floodplain_habitat">set_floodplain_habitat</a></span>(<span class="st">'Lower-mid Sacramento River'</span>, species,
                                                          low_mid_sac_flows1, <span class="dt">flow2 =</span> low_mid_sac_flows2)
-  sac &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
+  sac &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(
     <span class="dt">year =</span> <span class="kw">rep</span>(<span class="kw">rep</span>(<span class="dv">1980</span><span class="op">:</span><span class="dv">1999</span>, <span class="dt">each =</span> <span class="dv">12</span>), <span class="dt">times =</span> <span class="dv">4</span>),
     <span class="dt">month =</span> <span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">12</span>, <span class="dv">80</span>),
     <span class="dt">watershed =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="st">'Upper Sacramento River'</span>, <span class="st">'Upper-mid Sacramento River'</span>, 
                       <span class="st">'Lower-mid Sacramento River'</span>, <span class="st">'Lower Sacramento River'</span>), <span class="dt">each =</span> <span class="dv">240</span>), 
     <span class="dt">hab_sq_m =</span> <span class="kw">c</span>(up_sac_fp, up_mid_sac_fp, low_mid_sac_fp, low_sac_fp))
   
-  hab &lt;-<span class="st"> </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, sac) <span class="op">%&gt;%</span><span class="st"> </span>
+  hab &lt;-<span class="st"> </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_rows</a></span>(most, sac) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(watershed, hab_sq_m) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="http://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/bind.html">bind_cols</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/reexports.html">tibble</a></span>(<span class="st">`</span><span class="dt">Sutter Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>),
                      <span class="st">`</span><span class="dt">Yolo Bypass</span><span class="st">`</span> =<span class="st"> </span><span class="kw">rep</span>(<span class="ot">NA</span>, <span class="dv">240</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/gather.html">gather</a></span>(watershed, habitat, <span class="op">-</span>year, <span class="op">-</span>month) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(<span class="dt">date =</span> lubridate<span class="op">::</span><span class="kw"><a href="http://lubridate.tidyverse.org/reference/ymd.html">ymd</a></span>(<span class="kw">paste</span>(year, month, <span class="dv">1</span>, <span class="st">'-'</span>))) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(date, watershed, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="https://tidyr.tidyverse.org/reference/spread.html">spread</a></span>(date, habitat) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw"><a href="http://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">left_join</a></span>(cvpiaData<span class="op">::</span>watershed_ordering) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(order) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(<span class="op">-</span>watershed, <span class="op">-</span>order) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">    </span><span class="kw"><a href="../reference/create_Sit_array.html">create_SIT_array</a></span>()
   
   <span class="kw">return</span>(hab)
