@@ -172,15 +172,15 @@ spawning_watersheds <- cvpiaHabitat::modeling_exist %>%
 
 
 fr_spawn <- get_spawn_hab_all(spawning_watersheds, 'fr')
+st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
 
 sr_spawn <- get_spawn_hab_all(spawning_watersheds, 'sr')
 # several watershed that do not have spring run populations but SIT wants to enable colonization
-sr_spawn[15, , ] <- fr_spawn[15, , ] # Thomes Creek
+sr_spawn[15, , ] <- st_spawn[15, , ] # Thomes Creek
 sr_spawn[25, , ] <- fr_spawn[25, , ] # Calaveras River
 sr_spawn[26, , ] <- fr_spawn[26, , ] # Cosumnes River
 sr_spawn[28, , ] <- fr_spawn[28, , ] # Merced River
 
-st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
 
 devtools::use_data(fr_spawn, overwrite = TRUE)
 devtools::use_data(sr_spawn, overwrite = TRUE)
