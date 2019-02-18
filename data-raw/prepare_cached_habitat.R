@@ -170,8 +170,16 @@ spawning_watersheds <- cvpiaHabitat::modeling_exist %>%
   filter(!is.na(FR_spawn), Watershed != 'Upper Sacramento River', Watershed != 'Upper Mid Sac Region') %>% 
   pull(Watershed)
 
+
 fr_spawn <- get_spawn_hab_all(spawning_watersheds, 'fr')
+
 sr_spawn <- get_spawn_hab_all(spawning_watersheds, 'sr')
+# several watershed that do not have spring run populations but SIT wants to enable colonization
+sr_spawn[15, , ] <- fr_spawn[15, , ] # Thomes Creek
+sr_spawn[25, , ] <- fr_spawn[25, , ] # Calaveras River
+sr_spawn[26, , ] <- fr_spawn[26, , ] # Cosumnes River
+sr_spawn[28, , ] <- fr_spawn[28, , ] # Merced River
+
 st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
 
 devtools::use_data(fr_spawn, overwrite = TRUE)
@@ -186,7 +194,14 @@ watersheds_in_order <- cvpiaData::watershed_ordering %>%
 
 #fry------
 fr_fry <- get_rear_hab_all(watersheds_in_order, 'fr', 'fry')
+
 sr_fry <- get_rear_hab_all(watersheds_in_order, 'sr', 'fry')
+# several watershed that do not have spring run populations but SIT wants to enable colonization
+sr_fry[15, , ] <- fr_fry[15, , ] # Thomes Creek
+sr_fry[25, , ] <- fr_fry[25, , ] # Calaveras River
+sr_fry[26, , ] <- fr_fry[26, , ] # Cosumnes River
+sr_fry[28, , ] <- fr_fry[28, , ] # Merced River
+
 st_fry <- get_rear_hab_all(watersheds_in_order, 'st', 'fry')
 
 devtools::use_data(fr_fry, overwrite = TRUE)
@@ -195,7 +210,14 @@ devtools::use_data(st_fry, overwrite = TRUE)
 
 #juvenile------
 fr_juv <- get_rear_hab_all(watersheds_in_order, 'fr', 'juv')
+
 sr_juv <- get_rear_hab_all(watersheds_in_order, 'sr', 'juv')
+# several watershed that do not have spring run populations but SIT wants to enable colonization
+sr_juv[15, , ] <- fr_juv[15, , ] # Thomes Creek
+sr_juv[25, , ] <- fr_juv[25, , ] # Calaveras River
+sr_juv[26, , ] <- fr_juv[26, , ] # Cosumnes River
+sr_juv[28, , ] <- fr_juv[28, , ] # Merced River
+
 st_juv <- get_rear_hab_all(watersheds_in_order, 'st', 'juv')
 
 devtools::use_data(fr_juv, overwrite = TRUE)
