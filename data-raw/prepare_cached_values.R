@@ -13,7 +13,7 @@ prop_diversion <- cvpiaFlow::proportion_diverted %>%
   select(-watershed, -order) %>% 
   create_SIT_array()
 
-use_data(prop_diversion)
+use_data(prop_diversion, overwrite = TRUE)
 
 total_diversion <- cvpiaFlow::total_diverted %>%   
   filter(year(date) >= 1980, year(date) < 2000) %>% 
@@ -24,7 +24,7 @@ total_diversion <- cvpiaFlow::total_diverted %>%
   select(-watershed, -order) %>% 
   create_SIT_array()
 
-use_data(total_diversion)
+use_data(total_diversion, overwrite = TRUE)
 
 # bypass flows for rearing habitat
 bp_pf <- cvpiaFlow::propQbypass %>% 

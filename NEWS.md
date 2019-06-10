@@ -18,7 +18,16 @@ _1/10/2019_
 
 * Update cached spring run habitat values
 
+----
+
 ## cvpiaData 1.0.3
 _2/18/2019_
 
 * Update cached spring run habitat values for Thomes Creek, Calavares River, Cosumnes River, and Merced River
+
+----
+
+## cvpiaData 1.0.4
+_6/10/2019_
+
+* Update total and proportion diverted for the Lower-mid Sacramento River
