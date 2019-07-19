@@ -31,3 +31,8 @@ _2/18/2019_
 _6/10/2019_
 
 * Update total and proportion diverted for the Lower-mid Sacramento River
+
+## cvpiaData 1.0.5
+_7/19/2019_
+
+* Update temperature inputs for Antelope Creek, Bear Creek, Elder Creek, Paynes Creek, Bear River, Feather River, and Calaveras River
