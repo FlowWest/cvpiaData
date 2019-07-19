@@ -136,12 +136,12 @@ degday <- cvpiaTemperature::deg_days %>%
   select(-watershed, -order) %>% 
   create_SIT_array()
 
-use_data(degday)
+use_data(degday, overwrite = TRUE)
 
 ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>% 
   spread(month, median_p20)
 
-use_data(ptemp20mc)
+use_data(ptemp20mc, overwrite = TRUE)
 
 dt_tmps <- cvpiaTemperature::delta_temps %>% 
   filter(between(year(date), 1980, 1999)) %>% 
@@ -151,7 +151,7 @@ dlt_temps <- array(NA, dim = c(12, 20, 2))
 dlt_temps[ , , 1] <- as.matrix(dt_tmps[1, -1])
 dlt_temps[ , , 2] <- as.matrix(dt_tmps[2, -1])
 
-devtools::use_data(dlt_temps)
+devtools::use_data(dlt_temps, overwrite = TRUE)
 
 rearing_temps <- cvpiaTemperature::juv_temp %>% 
   spread(date, monthly_mean_temp_c) %>% 
@@ -160,7 +160,7 @@ rearing_temps <- cvpiaTemperature::juv_temp %>%
   select(-watershed, -order) %>% 
   create_SIT_array()
 
-devtools::use_data(rearing_temps)
+devtools::use_data(rearing_temps, overwrite = TRUE)
 
 egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>% 
   mutate(mean_temp_effect = (Dry + Wet)/2) %>% 
