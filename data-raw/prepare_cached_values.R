@@ -1,9 +1,30 @@
 library(tidyverse)
 library(lubridate)
-library(devtools)
+library(usethis)
 
 source('R/utils.R')
 
+
+# using bypass node that is activated the most for meanQ
+bypass <- cvpiaFlow::bypass_flows %>%
+  select(date, `Sutter Bypass` = sutter4, `Yolo Bypass` = yolo2) 
+
+meanQ <- cvpiaFlow::flows_cfs %>%
+  left_join(bypass) %>% 
+  filter(between(year(date), 1980, 1999)) %>% 
+  gather(watershed, flow_cfs, -date) %>% 
+  filter(watershed != 'Lower-mid Sacramento River1') %>% 
+  mutate(flow_cms = cvpiaFlow::cfs_to_cms(flow_cfs),
+         watershed = ifelse(watershed == 'Lower-mid Sacramento River2', 'Lower-mid Sacramento River', watershed)) %>% 
+  select(-flow_cfs) %>% 
+  spread(date, flow_cms) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  arrange(order) %>% 
+  select(-watershed, -order) %>%  
+  create_SIT_array()
+
+use_data(meanQ)
+  
 prop_diversion <- cvpiaFlow::proportion_diverted %>%
   filter(year(date) >= 1980, year(date) < 2000) %>% 
   gather(watershed, prop_diver, -date) %>% 
