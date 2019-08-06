@@ -239,7 +239,7 @@
 #'   \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
 #'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/flows_cfs.html}{link} if in a web browser
 #' }
-"prop_diversion"
+"meanQ"
 
 #' Proportion of Flow Diverted
 #' @description The proportion of flow diverted for each watershed every month of every year in the simulation (1980-1999).
