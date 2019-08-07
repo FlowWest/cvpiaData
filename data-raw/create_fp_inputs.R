@@ -52,5 +52,5 @@ inundation_durations <- durations %>%
   create_SIT_array()
   
 
-devtools::use_data(inundation_durations, overwrite = TRUE)
+usethis::use_data(inundation_durations, overwrite = TRUE)
 
