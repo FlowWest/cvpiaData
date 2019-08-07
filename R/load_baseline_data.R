@@ -58,6 +58,7 @@
 #'   \item \link[=st_fp]{floodP} = Floodplain habitat areas for each watershed
 #'   \item \link[=pools]{ST.pools} = Holding Habitat
 #'   \item \link[cvpiaHabitat]{IChab.adult} = Adult instream habitat areas for each watershed
+#'   \item \link[=meanQ]{meanQ} = Monthly mean flow for each watershed
 #' }
 #' 
 #' Winter Run Specific Outputs:
@@ -137,6 +138,7 @@ load_baseline_data <- function(species) {
            all_inputs$floodP = cvpiaData::st_fp
            all_inputs$ST.pools = cvpiaData::pools$ST_pools_sq_meters
            all_inputs$IChab.adult = cvpiaHabitat::IChab.adult
+           all_inputs$meanQ = cvpiaData::meanQ
          })
   
   return(all_inputs)
