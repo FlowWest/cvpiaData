@@ -182,9 +182,9 @@ sr_spawn[26, , ] <- fr_spawn[26, , ] # Cosumnes River
 sr_spawn[28, , ] <- fr_spawn[28, , ] # Merced River
 
 
-devtools::use_data(fr_spawn, overwrite = TRUE)
-devtools::use_data(sr_spawn, overwrite = TRUE)
-devtools::use_data(st_spawn, overwrite = TRUE)
+usethis::use_data(fr_spawn, overwrite = TRUE)
+usethis::use_data(sr_spawn, overwrite = TRUE)
+usethis::use_data(st_spawn, overwrite = TRUE)
 
 # rearing--------------------
 watersheds_in_order <- cvpiaData::watershed_ordering %>% 
@@ -204,9 +204,9 @@ sr_fry[26, , ] <- fr_fry[26, , ] # Cosumnes River
 sr_fry[28, , ] <- fr_fry[28, , ] # Merced River
 
 
-devtools::use_data(fr_fry, overwrite = TRUE)
-devtools::use_data(sr_fry, overwrite = TRUE)
-devtools::use_data(st_fry, overwrite = TRUE)
+usethis::use_data(fr_fry, overwrite = TRUE)
+usethis::use_data(sr_fry, overwrite = TRUE)
+usethis::use_data(st_fry, overwrite = TRUE)
 
 #juvenile------
 fr_juv <- get_rear_hab_all(watersheds_in_order, 'fr', 'juv')
@@ -220,9 +220,9 @@ sr_juv[26, , ] <- fr_juv[26, , ] # Cosumnes River
 sr_juv[28, , ] <- fr_juv[28, , ] # Merced River
 
 
-devtools::use_data(fr_juv, overwrite = TRUE)
-devtools::use_data(sr_juv, overwrite = TRUE)
-devtools::use_data(st_juv, overwrite = TRUE)
+usethis::use_data(fr_juv, overwrite = TRUE)
+usethis::use_data(sr_juv, overwrite = TRUE)
+usethis::use_data(st_juv, overwrite = TRUE)
 
 # floodplain------------------------
 watersheds_fp <- cvpiaData::watershed_ordering %>% 
@@ -242,9 +242,9 @@ sr_fp[26, , ] <- fr_fp[26, , ] # Cosumnes River
 sr_fp[28, , ] <- fr_fp[28, , ] # Merced River
 
 
-devtools::use_data(fr_fp, overwrite = TRUE)
-devtools::use_data(sr_fp, overwrite = TRUE)
-devtools::use_data(st_fp, overwrite = TRUE)
+usethis::use_data(fr_fp, overwrite = TRUE)
+usethis::use_data(sr_fp, overwrite = TRUE)
+usethis::use_data(st_fp, overwrite = TRUE)
 
 # bypass in stream ----------------
 
@@ -283,8 +283,8 @@ floodplain_bypass <- bypass_floodplain %>%
   select(-bypass) %>% 
   create_SIT_array()
 
-devtools::use_data(inchannel_bypass, overwrite = TRUE)
-devtools::use_data(floodplain_bypass, overwrite = TRUE)
+usethis::use_data(inchannel_bypass, overwrite = TRUE)
+usethis::use_data(floodplain_bypass, overwrite = TRUE)
 
 # Winter Run ------------
 # only in sacramento
@@ -302,7 +302,7 @@ up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
 })
 
 wr_spawn[1,,] <- up_sac_hab
-devtools::use_data(wr_spawn)
+usethis::use_data(wr_spawn)
 
  # fry and juv
 wr_fry <- array(NA, c(31, 12, 20))
@@ -334,7 +334,7 @@ wr_fry[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River',
                                                    life_stage = 'fry', 
                                                    flow = get_flow('Lower Sacramento River'))
 
-devtools::use_data(wr_fry)
+usethis::use_data(wr_fry)
 
 wr_juv <- array(NA, c(31, 12, 20))
 wr_juv[1,,] <- cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
@@ -365,7 +365,7 @@ wr_juv[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River',
                                                    life_stage = 'juv', 
                                                    flow = get_flow('Lower Sacramento River'))
 
-devtools::use_data(wr_juv)
+usethis::use_data(wr_juv)
 
 
  # floodplain
@@ -382,4 +382,4 @@ low_mid_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento Riv
 
 wr_fp[21,,] <- low_mid_sac_fp
 
-devtools::use_data(wr_fp)
+usethis::use_data(wr_fp)

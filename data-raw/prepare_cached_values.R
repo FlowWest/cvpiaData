@@ -109,7 +109,7 @@ dlt_divers <- array(NA, dim = c(12, 20, 2))
 dlt_divers[ , , 1] <- as.matrix(dl_prop_div[1, -1])
 dlt_divers[ , , 2] <- as.matrix(dl_prop_div[2, -1])
 
-devtools::use_data(dlt_divers)
+usethis::use_data(dlt_divers)
 
 # delta total diversions
 dl_tot_div <- cvpiaFlow::delta_flows %>% 
@@ -122,7 +122,7 @@ dlt_divers_tot <- array(NA, dim = c(12, 20, 2))
 dlt_divers_tot[ , , 1] <- as.matrix(dl_tot_div[1, -1])
 dlt_divers_tot[ , , 2] <- as.matrix(dl_tot_div[2, -1])
 
-devtools::use_data(dlt_divers_tot)
+usethis::use_data(dlt_divers_tot)
 
 # delta inflows
 dl_inflow <- cvpiaFlow::delta_flows %>% 
@@ -135,7 +135,7 @@ dlt_inflow <- array(NA, dim = c(12, 20, 2))
 dlt_inflow[ , , 1] <- as.matrix(dl_inflow[1, -1])
 dlt_inflow[ , , 2] <- as.matrix(dl_inflow[2, -1])
   
-devtools::use_data(dlt_inflow)
+usethis::use_data(dlt_inflow)
 
 # flow at freeport 
 freeportQcms <- cvpiaFlow::freeportQ %>% 
@@ -145,7 +145,7 @@ freeportQcms <- cvpiaFlow::freeportQ %>%
   spread(year, freeportQcms) %>% 
   select(-month) 
 
-devtools::use_data(freeportQcms)
+usethis::use_data(freeportQcms)
 
 cross_channel_gates <- cvpiaFlow::delta_cross_channel_closed
 use_data(cross_channel_gates)
@@ -172,7 +172,7 @@ dlt_temps <- array(NA, dim = c(12, 20, 2))
 dlt_temps[ , , 1] <- as.matrix(dt_tmps[1, -1])
 dlt_temps[ , , 2] <- as.matrix(dt_tmps[2, -1])
 
-devtools::use_data(dlt_temps, overwrite = TRUE)
+usethis::use_data(dlt_temps, overwrite = TRUE)
 
 rearing_temps <- cvpiaTemperature::juv_temp %>% 
   spread(date, monthly_mean_temp_c) %>% 
@@ -181,13 +181,13 @@ rearing_temps <- cvpiaTemperature::juv_temp %>%
   select(-watershed, -order) %>% 
   create_SIT_array()
 
-devtools::use_data(rearing_temps, overwrite = TRUE)
+usethis::use_data(rearing_temps, overwrite = TRUE)
 
 egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>% 
   mutate(mean_temp_effect = (Dry + Wet)/2) %>% 
   select(watershed = Watershed.full, mean_temp_effect)
 
-devtools::use_data(egg_temp_effect)
+usethis::use_data(egg_temp_effect)
 
 
 dt_hab <- cvpiaHabitat::delta_habitat %>% 
@@ -207,7 +207,7 @@ misc_delta <- data.frame(
   contct.pts = c(718, 1437)
 )
 
-devtools::use_data(misc_delta)
+usethis::use_data(misc_delta)
 
 byp <- as.data.frame(matrix(as.numeric(NA), nrow = 2, ncol = 13))
 names(byp) <- c('watershed', as.character(1:12))
@@ -229,7 +229,7 @@ prop_pulse <- cvpiaFlow::flows_cfs %>%
   select(-order) 
 
 # prop_pulse <- array(0, dim = c(31, 12, 20))
-devtools::use_data(prop_pulse, overwrite = TRUE)
+usethis::use_data(prop_pulse, overwrite = TRUE)
 
 # median flow
 med_flow <- cvpiaFlow::flows_cfs %>%
@@ -247,7 +247,7 @@ med_flow <- cvpiaFlow::flows_cfs %>%
   arrange(order) %>% 
   select(-order) 
 
-devtools::use_data(med_flow)
+usethis::use_data(med_flow)
 
 # pools-------------
 pools <- cvpiaHabitat::pools
@@ -258,4 +258,4 @@ has_spring_run <- data.frame(
   watershed = cvpiaHabitat::modeling_exist$Watershed,
   has_spring_run = !is.na(cvpiaHabitat::modeling_exist$SR_juv))[-32, ]
 
-devtools::use_data(has_spring_run)
+usethis::use_data(has_spring_run)
