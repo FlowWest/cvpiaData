@@ -223,7 +223,6 @@ prop_pulse <- cvpiaFlow::flows_cfs %>%
   mutate(`Lower-mid Sacramento River` = 35.6/58 * `Lower-mid Sacramento River1` + 22.4/58 *`Lower-mid Sacramento River2`) %>% 
   select(-`Lower-mid Sacramento River1`, -`Lower-mid Sacramento River2`) %>% 
   gather(watershed, flow, -date) %>% 
-  mutate(flow = ifelse(is.na(flow), 0, flow)) %>% 
   group_by(month = month(date), watershed) %>% 
   summarise(prop_pulse = sd(flow)/median(flow)) %>% 
   mutate(prop_pulse = replace(prop_pulse, is.infinite(prop_pulse), 0)) %>% 
@@ -233,6 +232,8 @@ prop_pulse <- cvpiaFlow::flows_cfs %>%
   left_join(cvpiaData::watershed_ordering) %>% 
   arrange(order) %>% 
   select(-order) 
+
+prop_pulse[is.na(prop_pulse)] <- 0
 
 # prop_pulse <- array(0, dim = c(31, 12, 20))
 usethis::use_data(prop_pulse, overwrite = TRUE)
@@ -265,3 +266,5 @@ has_spring_run <- data.frame(
   has_spring_run = !is.na(cvpiaHabitat::modeling_exist$SR_juv))[-32, ]
 
 usethis::use_data(has_spring_run)
+
+
