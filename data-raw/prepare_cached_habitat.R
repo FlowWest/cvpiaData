@@ -59,6 +59,7 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
     left_join(cvpiaData::watershed_ordering) %>% 
     arrange(order) %>% 
     select(-watershed, -order) %>% 
+    replace(., is.na(.), 0) %>% 
     create_SIT_array()
   
   return(hab)
@@ -109,7 +110,9 @@ get_spawn_hab_all <- function(watersheds, species) {
     left_join(cvpiaData::watershed_ordering) %>% 
     arrange(order) %>% 
     select(-watershed, -order) %>% 
+    replace(., is.na(.), 0) %>%
     create_SIT_array()
+  
   
   return(hab)
 }
@@ -159,7 +162,9 @@ get_floodplain_hab_all <- function(watersheds, species) {
     left_join(cvpiaData::watershed_ordering) %>% 
     arrange(order) %>% 
     select(-watershed, -order) %>% 
+    replace(., is.na(.), 0) %>%
     create_SIT_array()
+  
   
   return(hab)
   
@@ -172,9 +177,7 @@ spawning_watersheds <- cvpiaHabitat::modeling_exist %>%
 
 
 fr_spawn <- get_spawn_hab_all(spawning_watersheds, 'fr')
-fr_spawn[is.na(fr_spawn)] <- 0 # eww but ok for now
 st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
-st_spawn[is.na(st_spawn)] <- 0
 
 sr_spawn <- get_spawn_hab_all(spawning_watersheds, 'sr')
 # several watershed that do not have spring run populations but SIT wants to enable colonization
@@ -197,9 +200,7 @@ watersheds_in_order <- cvpiaData::watershed_ordering %>%
 
 #fry------
 fr_fry <- get_rear_hab_all(watersheds_in_order, 'fr', 'fry')
-fr_fry[is.na(fr_fry)] <- 0
 st_fry <- get_rear_hab_all(watersheds_in_order, 'st', 'fry')
-st_fry[is.na(st_fry)] <- 0
 
 sr_fry <- get_rear_hab_all(watersheds_in_order, 'sr', 'fry')
 # several watershed that do not have spring run populations but SIT wants to enable colonization
@@ -207,7 +208,6 @@ sr_fry[15, , ] <- st_fry[15, , ] # Thomes Creek
 sr_fry[25, , ] <- fr_fry[25, , ] # Calaveras River
 sr_fry[26, , ] <- fr_fry[26, , ] # Cosumnes River
 sr_fry[28, , ] <- fr_fry[28, , ] # Merced River
-sr_fry[is.na(sr_fry)] <- 0
 
 usethis::use_data(fr_fry, overwrite = TRUE)
 usethis::use_data(sr_fry, overwrite = TRUE)
@@ -215,9 +215,7 @@ usethis::use_data(st_fry, overwrite = TRUE)
 
 #juvenile------
 fr_juv <- get_rear_hab_all(watersheds_in_order, 'fr', 'juv')
-fr_juv[is.na(fr_juv)] <- 0
 st_juv <- get_rear_hab_all(watersheds_in_order, 'st', 'juv')
-st_juv[is.na(st_juv)] <- 0
 
 sr_juv <- get_rear_hab_all(watersheds_in_order, 'sr', 'juv')
 # several watershed that do not have spring run populations but SIT wants to enable colonization
@@ -225,7 +223,6 @@ sr_juv[15, , ] <- st_juv[15, , ] # Thomes Creek
 sr_juv[25, , ] <- fr_juv[25, , ] # Calaveras River
 sr_juv[26, , ] <- fr_juv[26, , ] # Cosumnes River
 sr_juv[28, , ] <- fr_juv[28, , ] # Merced River
-sr_juv[is.na(sr_juv)] <- 0
 
 usethis::use_data(fr_juv, overwrite = TRUE)
 usethis::use_data(sr_juv, overwrite = TRUE)
@@ -239,9 +236,7 @@ watersheds_fp <- cvpiaData::watershed_ordering %>%
   pull(watershed)
 
 fr_fp <- get_floodplain_hab_all(watersheds_fp, 'fr')
-fr_fp[is.na(fr_fp)] <- 0
 st_fp <- get_floodplain_hab_all(watersheds_fp, 'st')
-st_fp[is.na(st_fp)] <- 0
 
 sr_fp <- get_floodplain_hab_all(watersheds_fp, 'sr')
 # several watershed that do not have spring run populations but SIT wants to enable colonization
@@ -249,7 +244,6 @@ sr_fp[15, , ] <- st_fp[15, , ] # Thomes Creek
 sr_fp[25, , ] <- fr_fp[25, , ] # Calaveras River
 sr_fp[26, , ] <- fr_fp[26, , ] # Cosumnes River
 sr_fp[28, , ] <- fr_fp[28, , ] # Merced River
-sr_fp[is.na(sr_fp)] <- 0
 
 usethis::use_data(fr_fp, overwrite = TRUE)
 usethis::use_data(sr_fp, overwrite = TRUE)
