@@ -1,7 +1,7 @@
 library(tidyverse)
 library(lubridate)
 library(usethis)
-
+library(cvpiaTemperature)
 source('R/utils.R')
 
 
@@ -268,3 +268,44 @@ has_spring_run <- data.frame(
 usethis::use_data(has_spring_run)
 
 
+# New temperature inputs 
+
+# proportion of month that temps > 20 based on average monthly temp in streams
+
+inv.logit<-function(eta){1/(1+exp(-eta))}
+
+aveT20 <- juv_temp %>% 
+  transmute(
+    date, 
+    watershed,
+    av_T20 = inv.logit(-8.9836+ 0.4818*monthly_mean_temp_c)
+  )
+
+usethis::use_data(aveT20, overwrite = TRUE)
+
+aveT20D <- delta_temps %>% 
+  transmute(
+    date, 
+    watershed, 
+    aveT20D = inv.logit(-18.11910 + 0.94687*monthly_mean_temp_c)  
+  )
+
+usethis::use_data(aveT20D, overwrite = TRUE)
+
+maxT24 <- juv_temp %>% 
+  transmute(
+    date, 
+    watershed,
+    maxT24 = inv.logit(-22.3888+ 1.4385* monthly_mean_temp_c)
+  )
+
+usethis::use_data(maxT24, overwrite = TRUE)
+
+maxT29 <- juv_temp %>% 
+  transmute(
+    date, 
+    watershed, 
+    maxT29 = inv.logit(-18.9101+ 1.0058*monthly_mean_temp_c)
+  )
+
+usethis::use_data(maxT29, overwrite = TRUE)
