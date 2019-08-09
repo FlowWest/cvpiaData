@@ -187,3 +187,18 @@ test_that('Lower Sacramento FR fry', {
   
 })
 
+test_that('No NA values in Cached Values', {
+  check_nas <- function(species) {
+    x <- load_baseline_data(species = species)
+    sum(any(is.na(x$IChab.fry)),
+        any(is.na(x$IChab.spawn)),
+        any(is.na(x$IChab.juv)),
+        any(is.na(x$floodP)))
+  }
+  expect_equal(
+    sum(check_nas('fall'), check_nas('spring'), check_nas('winter'), check_nas('steelhead')), 
+    0
+  )
+})
+
+

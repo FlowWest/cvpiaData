@@ -28,6 +28,7 @@ use_data(meanQ)
 prop_diversion <- cvpiaFlow::proportion_diverted %>%
   filter(year(date) >= 1980, year(date) < 2000) %>% 
   gather(watershed, prop_diver, -date) %>% 
+  mutate(prop_diver = ifelse(is.na(prop_diver), 0, prop_diver)) %>% 
   spread(date, prop_diver) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
   arrange(order) %>% 
@@ -39,6 +40,7 @@ use_data(prop_diversion, overwrite = TRUE)
 total_diversion <- cvpiaFlow::total_diverted %>%   
   filter(year(date) >= 1980, year(date) < 2000) %>% 
   gather(watershed, tot_diver, -date) %>% 
+  mutate(tot_diver = ifelse(is.na(tot_diver), 0, tot_diver)) %>% 
   spread(date, tot_diver) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
   arrange(order) %>% 
@@ -65,6 +67,7 @@ returnQ <- cvpiaFlow::return_flow %>%
   mutate(year = year(date)) %>% 
   filter(year >= 1979, year <= 1998) %>% 
   select(watershed, year, retQ) %>% 
+  mutate(retQ = ifelse(is.na(retQ), 0, retQ)) %>% 
   spread(year, retQ) %>% 
   left_join(cvpiaData::watershed_ordering) %>%
   arrange(order) %>% 
@@ -151,6 +154,7 @@ cross_channel_gates <- cvpiaFlow::delta_cross_channel_closed
 use_data(cross_channel_gates)
 
 degday <- cvpiaTemperature::deg_days %>%
+  mutate(degdays = ifelse(is.na(degdays), 0, degdays)) %>% 
   spread(date, degdays) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
   arrange(order) %>% 
@@ -159,7 +163,8 @@ degday <- cvpiaTemperature::deg_days %>%
 
 use_data(degday, overwrite = TRUE)
 
-ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>% 
+ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>%
+  mutate(median_p20 = ifelse(is.na(median_p20), 0, median_p20)) %>% 
   spread(month, median_p20)
 
 use_data(ptemp20mc, overwrite = TRUE)
@@ -228,6 +233,8 @@ prop_pulse <- cvpiaFlow::flows_cfs %>%
   arrange(order) %>% 
   select(-order) 
 
+prop_pulse[is.na(prop_pulse)] <- 0
+
 # prop_pulse <- array(0, dim = c(31, 12, 20))
 usethis::use_data(prop_pulse, overwrite = TRUE)
 
@@ -259,3 +266,5 @@ has_spring_run <- data.frame(
   has_spring_run = !is.na(cvpiaHabitat::modeling_exist$SR_juv))[-32, ]
 
 usethis::use_data(has_spring_run)
+
+
