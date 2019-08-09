@@ -104,7 +104,11 @@ load_baseline_data <- function(species) {
                      egg.tmp.eff = cvpiaData::egg_temp_effect,
                      Dlt.inp = cvpiaData::misc_delta,
                      prop.pulse = cvpiaData::prop_pulse,
-                     medQ = cvpiaData::med_flow)
+                     medQ = cvpiaData::med_flow, 
+                     aveT20 = cvpiaData::aveT20, 
+                     aveT20D = cvpiaData::aveT20D, 
+                     maxT24 = cvpiaData::maxT24, 
+                     maxT29 = cvpiaData::maxT29)
   
   switch(species,
          'fall' = {
