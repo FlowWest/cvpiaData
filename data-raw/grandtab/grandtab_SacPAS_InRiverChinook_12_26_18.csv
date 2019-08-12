@@ -1,0 +1,1468 @@
+year,count,run,watershed,notes
+2017,354,Fall,Battle Creek,Downstream of CNFH
+2016,1236,Fall,Battle Creek,Downstream of CNFH
+2015,3642,Fall,Battle Creek,Downstream of CNFH
+2014,27064,Fall,Battle Creek,Downstream of CNFH
+2013,30834,Fall,Battle Creek,Downstream of CNFH
+2012,31554,Fall,Battle Creek,Downstream of CNFH
+2011,12513,Fall,Battle Creek,Downstream of CNFH
+2010,6631,Fall,Battle Creek,Downstream of CNFH
+2009,3047,Fall,Battle Creek,Downstream of CNFH
+2008,4286,Fall,Battle Creek,Downstream of CNFH
+2007,9904,Fall,Battle Creek,Downstream of CNFH
+2006,19493,Fall,Battle Creek,Downstream of CNFH
+2005,20520,Fall,Battle Creek,Downstream of CNFH
+2004,23861,Fall,Battle Creek,Downstream of CNFH
+2003,64764,Fall,Battle Creek,Downstream of CNFH
+2002,397149,Fall,Battle Creek,Downstream of CNFH
+2001,100604,Fall,Battle Creek,Downstream of CNFH
+2000,53447,Fall,Battle Creek,Downstream of CNFH
+1999,92929,Fall,Battle Creek,Downstream of CNFH
+1998,53957,Fall,Battle Creek,Downstream of CNFH
+1997,50744,Fall,Battle Creek,Downstream of CNFH
+1996,52409,Fall,Battle Creek,Downstream of CNFH
+1995,56515,Fall,Battle Creek,Downstream of CNFH
+1994,24274,Fall,Battle Creek,Downstream of CNFH
+1993,11029,Fall,Battle Creek,Downstream of CNFH
+1992,5433,Fall,Battle Creek,Downstream of CNFH
+1991,6558,Fall,Battle Creek,Downstream of CNFH
+1990,6453,Fall,Battle Creek,Downstream of CNFH
+1989,18829,Fall,Battle Creek,Downstream of CNFH
+1988,51923,Fall,Battle Creek,Downstream of CNFH
+1987,5868,Fall,Battle Creek,Downstream of CNFH
+1986,11508,Fall,Battle Creek,Downstream of CNFH
+1985,12792,Fall,Battle Creek,Downstream of CNFH
+1984,8312,Fall,Battle Creek,Downstream of CNFH
+1983,5227,Fall,Battle Creek,Downstream of CNFH
+1982,7270,Fall,Battle Creek,Downstream of CNFH
+1981,6933,Fall,Battle Creek,Downstream of CNFH
+1980,4940,Fall,Battle Creek,Downstream of CNFH
+1979,4430,Fall,Battle Creek,Downstream of CNFH
+1978,1770,Fall,Battle Creek,Downstream of CNFH
+1977,5604,Fall,Battle Creek,Downstream of CNFH
+1976,3147,Fall,Battle Creek,Downstream of CNFH
+1975,2426,Fall,Battle Creek,Downstream of CNFH
+2011,0,Fall,Battle Creek,Upstream of CNFH
+2010,1,Fall,Battle Creek,Upstream of CNFH
+2009,0,Fall,Battle Creek,Upstream of CNFH
+2008,0,Fall,Battle Creek,Upstream of CNFH
+2007,0,Fall,Battle Creek,Upstream of CNFH
+2006,0,Fall,Battle Creek,Upstream of CNFH
+2005,0,Fall,Battle Creek,Upstream of CNFH
+2004,0,Fall,Battle Creek,Upstream of CNFH
+2003,0,Fall,Battle Creek,Upstream of CNFH
+2002,0,Fall,Battle Creek,Upstream of CNFH
+2001,0,Fall,Battle Creek,Upstream of CNFH
+2000,0,Fall,Battle Creek,Upstream of CNFH
+1999,,Fall,Battle Creek,Upstream of CNFH
+1998,,Fall,Battle Creek,Upstream of CNFH
+1997,,Fall,Battle Creek,Upstream of CNFH
+1996,,Fall,Battle Creek,Upstream of CNFH
+1995,,Fall,Battle Creek,Upstream of CNFH
+1994,,Fall,Battle Creek,Upstream of CNFH
+1993,,Fall,Battle Creek,Upstream of CNFH
+1992,,Fall,Battle Creek,Upstream of CNFH
+1991,,Fall,Battle Creek,Upstream of CNFH
+1990,,Fall,Battle Creek,Upstream of CNFH
+1989,233,Fall,Battle Creek,Upstream of CNFH
+1988,1937,Fall,Battle Creek,Upstream of CNFH
+1987,2125,Fall,Battle Creek,Upstream of CNFH
+1986,7263,Fall,Battle Creek,Upstream of CNFH
+1985,10696,Fall,Battle Creek,Upstream of CNFH
+2017,2,Fall,Bear Creek,
+2016,32,Fall,Bear Creek,
+2015,2,Fall,Bear Creek,
+2014,,Fall,Bear Creek,
+2013,,Fall,Bear Creek,
+2012,,Fall,Bear Creek,
+2011,,Fall,Bear Creek,
+2010,,Fall,Bear Creek,
+2009,6,Fall,Bear Creek,
+2008,19,Fall,Bear Creek,
+2007,140,Fall,Bear Creek,
+2006,,Fall,Bear Creek,
+2005,,Fall,Bear Creek,
+2004,,Fall,Bear Creek,
+2003,,Fall,Bear Creek,
+2002,,Fall,Bear Creek,
+2001,,Fall,Bear Creek,
+2000,,Fall,Bear Creek,
+1999,,Fall,Bear Creek,
+1998,,Fall,Bear Creek,
+1997,,Fall,Bear Creek,
+1996,,Fall,Bear Creek,
+1995,,Fall,Bear Creek,
+1994,,Fall,Bear Creek,
+1993,,Fall,Bear Creek,
+1992,,Fall,Bear Creek,
+1991,,Fall,Bear Creek,
+1990,,Fall,Bear Creek,
+1989,,Fall,Bear Creek,
+1988,,Fall,Bear Creek,
+1987,,Fall,Bear Creek,
+1986,,Fall,Bear Creek,
+1985,,Fall,Bear Creek,
+1984,,Fall,Bear Creek,
+1983,,Fall,Bear Creek,
+1982,,Fall,Bear Creek,
+1981,,Fall,Bear Creek,
+1980,,Fall,Bear Creek,
+1979,,Fall,Bear Creek,
+1978,,Fall,Bear Creek,
+1977,,Fall,Bear Creek,
+1976,167,Fall,Bear Creek,
+2017,2353,Fall,Clear Creek,
+2016,2481,Fall,Clear Creek,
+2015,8809,Fall,Clear Creek,
+2014,15794,Fall,Clear Creek,
+2013,13337,Fall,Clear Creek,
+2012,7631,Fall,Clear Creek,
+2011,4841,Fall,Clear Creek,
+2010,7192,Fall,Clear Creek,
+2009,3228,Fall,Clear Creek,
+2008,7677,Fall,Clear Creek,
+2007,4157,Fall,Clear Creek,
+2006,8422,Fall,Clear Creek,
+2005,14824,Fall,Clear Creek,
+2004,6365,Fall,Clear Creek,
+2003,9475,Fall,Clear Creek,
+2002,16071,Fall,Clear Creek,
+2001,10865,Fall,Clear Creek,
+2000,6687,Fall,Clear Creek,
+1999,8003,Fall,Clear Creek,
+1998,4259,Fall,Clear Creek,
+1997,8569,Fall,Clear Creek,
+1996,5922,Fall,Clear Creek,
+1995,9298,Fall,Clear Creek,
+1994,2546,Fall,Clear Creek,
+1993,1246,Fall,Clear Creek,
+1992,600,Fall,Clear Creek,
+1991,2026,Fall,Clear Creek,
+1990,1011,Fall,Clear Creek,
+1989,2153,Fall,Clear Creek,
+1988,4453,Fall,Clear Creek,
+1987,,Fall,Clear Creek,
+1986,,Fall,Clear Creek,
+1985,700,Fall,Clear Creek,
+1984,4000,Fall,Clear Creek,
+1983,,Fall,Clear Creek,
+1982,785,Fall,Clear Creek,
+1981,3133,Fall,Clear Creek,
+1980,,Fall,Clear Creek,
+1979,,Fall,Clear Creek,
+1978,60,Fall,Clear Creek,
+1977,1362,Fall,Clear Creek,
+1976,1013,Fall,Clear Creek,
+2017,124,Fall,Cottonwood Creek,
+2016,813,Fall,Cottonwood Creek,
+2015,604,Fall,Cottonwood Creek,
+2014,1940,Fall,Cottonwood Creek,
+2013,2774,Fall,Cottonwood Creek,
+2012,2556,Fall,Cottonwood Creek,
+2011,2144,Fall,Cottonwood Creek,
+2010,1137,Fall,Cottonwood Creek,
+2009,1055,Fall,Cottonwood Creek,
+2008,510,Fall,Cottonwood Creek,
+2007,1250,Fall,Cottonwood Creek,
+2006,,Fall,Cottonwood Creek,
+2005,,Fall,Cottonwood Creek,
+2004,,Fall,Cottonwood Creek,
+2003,,Fall,Cottonwood Creek,
+2002,,Fall,Cottonwood Creek,
+2001,,Fall,Cottonwood Creek,
+2000,,Fall,Cottonwood Creek,
+1999,,Fall,Cottonwood Creek,
+1998,,Fall,Cottonwood Creek,
+1997,,Fall,Cottonwood Creek,
+1996,,Fall,Cottonwood Creek,
+1995,,Fall,Cottonwood Creek,
+1994,,Fall,Cottonwood Creek,
+1993,,Fall,Cottonwood Creek,
+1992,1585,Fall,Cottonwood Creek,
+1991,676,Fall,Cottonwood Creek,
+1990,,Fall,Cottonwood Creek,
+1989,,Fall,Cottonwood Creek,
+1988,,Fall,Cottonwood Creek,
+1987,,Fall,Cottonwood Creek,
+1986,,Fall,Cottonwood Creek,
+1985,,Fall,Cottonwood Creek,
+1984,500,Fall,Cottonwood Creek,
+1983,1000,Fall,Cottonwood Creek,
+1982,700,Fall,Cottonwood Creek,
+1981,3356,Fall,Cottonwood Creek,
+1980,,Fall,Cottonwood Creek,
+1979,,Fall,Cottonwood Creek,
+1978,1120,Fall,Cottonwood Creek,
+1977,1512,Fall,Cottonwood Creek,
+1976,2427,Fall,Cottonwood Creek,
+2017,288,Fall,Cow Creek,
+2016,822,Fall,Cow Creek,
+2015,591,Fall,Cow Creek,
+2014,3535,Fall,Cow Creek,
+2013,3011,Fall,Cow Creek,
+2012,1488,Fall,Cow Creek,
+2011,1810,Fall,Cow Creek,
+2010,536,Fall,Cow Creek,
+2009,261,Fall,Cow Creek,
+2008,478,Fall,Cow Creek,
+2007,2044,Fall,Cow Creek,
+2006,4209,Fall,Cow Creek,
+2005,,Fall,Cow Creek,
+2004,,Fall,Cow Creek,
+2003,,Fall,Cow Creek,
+2002,,Fall,Cow Creek,
+2001,,Fall,Cow Creek,
+2000,,Fall,Cow Creek,
+1999,,Fall,Cow Creek,
+1998,,Fall,Cow Creek,
+1997,,Fall,Cow Creek,
+1996,,Fall,Cow Creek,
+1995,,Fall,Cow Creek,
+1994,,Fall,Cow Creek,
+1993,,Fall,Cow Creek,
+1992,,Fall,Cow Creek,
+1991,,Fall,Cow Creek,
+1990,,Fall,Cow Creek,
+1989,,Fall,Cow Creek,
+1988,,Fall,Cow Creek,
+1987,,Fall,Cow Creek,
+1986,,Fall,Cow Creek,
+1985,,Fall,Cow Creek,
+1984,250,Fall,Cow Creek,
+1983,,Fall,Cow Creek,
+1982,,Fall,Cow Creek,
+1981,,Fall,Cow Creek,
+1980,,Fall,Cow Creek,
+1979,,Fall,Cow Creek,
+1978,,Fall,Cow Creek,
+1977,,Fall,Cow Creek,
+1976,726,Fall,Cow Creek,
+2017,2099,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2016,3982,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2015,21766,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2014,29966,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2013,32515,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2012,22435,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2011,10623,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2010,13824,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2009,5311,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2008,23134,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2007,14097,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2006,46568,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2005,44950,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2004,34050,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2003,66485,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2002,45552,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2001,57920,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2000,87793,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1999,133365,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1998,5718,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1997,98765,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1996,71725,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1995,53385,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1994,44729,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1993,33471,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1992,23914,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1991,20523,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1990,32109,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1989,48968,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1988,63998,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1987,76562,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1986,68593,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1985,52120,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1984,36898,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1983,26226,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1982,17731,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1981,26261,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1980,21961,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1979,47758,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1978,32235,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1977,15784,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1976,43604,Fall,Upper Sacramento River,Keswick Dam to RBDD
+1975,52248,Fall,Upper Sacramento River,Keswick Dam to RBDD
+2017,0,Fall,Paynes Creek,
+2016,8,Fall,Paynes Creek,
+2015,0,Fall,Paynes Creek,
+2014,72,Fall,Paynes Creek,
+2013,175,Fall,Paynes Creek,
+2012,,Fall,Paynes Creek,
+2011,,Fall,Paynes Creek,
+2010,,Fall,Paynes Creek,
+2009,,Fall,Paynes Creek,
+2008,,Fall,Paynes Creek,
+2007,,Fall,Paynes Creek,
+2006,,Fall,Paynes Creek,
+2005,,Fall,Paynes Creek,
+2004,,Fall,Paynes Creek,
+2003,,Fall,Paynes Creek,
+2002,,Fall,Paynes Creek,
+2001,,Fall,Paynes Creek,
+2000,,Fall,Paynes Creek,
+1999,,Fall,Paynes Creek,
+1998,,Fall,Paynes Creek,
+1997,,Fall,Paynes Creek,
+1996,,Fall,Paynes Creek,
+1995,,Fall,Paynes Creek,
+1994,,Fall,Paynes Creek,
+1993,,Fall,Paynes Creek,
+1992,,Fall,Paynes Creek,
+1991,,Fall,Paynes Creek,
+1990,,Fall,Paynes Creek,
+1989,,Fall,Paynes Creek,
+1988,,Fall,Paynes Creek,
+1987,,Fall,Paynes Creek,
+1986,,Fall,Paynes Creek,
+1985,,Fall,Paynes Creek,
+1984,90,Fall,Paynes Creek,
+1983,100,Fall,Paynes Creek,
+1982,30,Fall,Paynes Creek,
+2017,9886,Fall,American River,
+2016,14473,Fall,American River,
+2015,15732,Fall,American River,
+2014,26475,Fall,American River,
+2013,58228,Fall,American River,
+2012,38328,Fall,American River,
+2011,25626,Fall,American River,
+2010,14688,Fall,American River,
+2009,5297,Fall,American River,
+2008,2514,Fall,American River,
+2007,10120,Fall,American River,
+2006,24540,Fall,American River,
+2005,62679,Fall,American River,
+2004,99230,Fall,American River,
+2003,163742,Fall,American River,
+2002,124252,Fall,American River,
+2001,135384,Fall,American River,
+2000,100852,Fall,American River,
+1999,55339,Fall,American River,
+1998,50457,Fall,American River,
+1997,47195,Fall,American River,
+1996,69745,Fall,American River,
+1995,70618,Fall,American River,
+1994,33598,Fall,American River,
+1993,31027,Fall,American River,
+1992,5911,Fall,American River,
+1991,17683,Fall,American River,
+1990,5339,Fall,American River,
+1989,19183,Fall,American River,
+1988,24889,Fall,American River,
+1987,39885,Fall,American River,
+1986,49372,Fall,American River,
+1985,56120,Fall,American River,
+1984,27447,Fall,American River,
+1983,26400,Fall,American River,
+1982,33000,Fall,American River,
+1981,43462,Fall,American River,
+1980,34259,Fall,American River,
+1979,37315,Fall,American River,
+1978,12929,Fall,American River,
+1977,41605,Fall,American River,
+1976,23159,Fall,American River,
+1975,32132,Fall,American River,
+1984,300,Fall,Bear River,
+2017,105,Fall,Butte Creek,
+2016,626,Fall,Butte Creek,
+2015,82,Fall,Butte Creek,
+2014,1412,Fall,Butte Creek,
+2013,2200,Fall,Butte Creek,
+2012,813,Fall,Butte Creek,
+2011,416,Fall,Butte Creek,
+2010,370,Fall,Butte Creek,
+2009,306,Fall,Butte Creek,
+2008,275,Fall,Butte Creek,
+2007,1225,Fall,Butte Creek,
+2006,1920,Fall,Butte Creek,
+2005,4255,Fall,Butte Creek,
+2004,2516,Fall,Butte Creek,
+2003,3492,Fall,Butte Creek,
+2002,3665,Fall,Butte Creek,
+2001,4433,Fall,Butte Creek,
+2000,,Fall,Butte Creek,
+1999,,Fall,Butte Creek,
+1998,500,Fall,Butte Creek,
+1997,800,Fall,Butte Creek,
+1996,500,Fall,Butte Creek,
+1995,445,Fall,Butte Creek,
+1994,,Fall,Butte Creek,
+1993,,Fall,Butte Creek,
+1992,,Fall,Butte Creek,
+1991,,Fall,Butte Creek,
+1990,,Fall,Butte Creek,
+1989,,Fall,Butte Creek,
+1988,,Fall,Butte Creek,
+1987,,Fall,Butte Creek,
+1986,,Fall,Butte Creek,
+1985,100,Fall,Butte Creek,
+1984,,Fall,Butte Creek,
+1983,1000,Fall,Butte Creek,
+1982,,Fall,Butte Creek,
+1981,,Fall,Butte Creek,
+1980,,Fall,Butte Creek,
+1979,,Fall,Butte Creek,
+1978,20,Fall,Butte Creek,
+1977,,Fall,Butte Creek,
+1976,640,Fall,Butte Creek,
+1975,1000,Fall,Butte Creek,
+1985,25,Fall,Dry Creek,
+1984,,Fall,Dry Creek,
+1983,500,Fall,Dry Creek,
+2017,10534,Fall,Feather River,
+2016,38775,Fall,Feather River,
+2015,20566,Fall,Feather River,
+2014,61200,Fall,Feather River,
+2013,151209,Fall,Feather River,
+2012,63649,Fall,Feather River,
+2011,47289,Fall,Feather River,
+2010,44914,Fall,Feather River,
+2009,4847,Fall,Feather River,
+2008,5939,Fall,Feather River,
+2007,21909,Fall,Feather River,
+2006,76414,Fall,Feather River,
+2005,49160,Fall,Feather River,
+2004,54171,Fall,Feather River,
+2003,89946,Fall,Feather River,
+2002,105163,Fall,Feather River,
+2001,178645,Fall,Feather River,
+2000,114717,Fall,Feather River,
+1999,,Fall,Feather River,
+1998,,Fall,Feather River,
+1997,50547,Fall,Feather River,
+1996,57170,Fall,Feather River,
+1995,59912,Fall,Feather River,
+1994,38382,Fall,Feather River,
+1993,30923,Fall,Feather River,
+1992,24105,Fall,Feather River,
+1991,31345,Fall,Feather River,
+1990,,Fall,Feather River,
+1989,40541,Fall,Feather River,
+1988,42556,Fall,Feather River,
+1987,67738,Fall,Feather River,
+1986,46843,Fall,Feather River,
+1985,50191,Fall,Feather River,
+1984,41769,Fall,Feather River,
+1983,22823,Fall,Feather River,
+1982,47956,Fall,Feather River,
+1981,44738,Fall,Feather River,
+1980,31605,Fall,Feather River,
+1979,28415,Fall,Feather River,
+1978,33000,Fall,Feather River,
+1977,37668,Fall,Feather River,
+1976,56802,Fall,Feather River,
+1975,37735,Fall,Feather River,
+2017,1634,Fall,Yuba River,
+2016,4057,Fall,Yuba River,
+2015,6507,Fall,Yuba River,
+2014,11615,Fall,Yuba River,
+2013,14880,Fall,Yuba River,
+2012,7668,Fall,Yuba River,
+2011,8928,Fall,Yuba River,
+2010,14375,Fall,Yuba River,
+2009,4635,Fall,Yuba River,
+2008,3508,Fall,Yuba River,
+2007,2604,Fall,Yuba River,
+2006,8121,Fall,Yuba River,
+2005,17630,Fall,Yuba River,
+2004,15269,Fall,Yuba River,
+2003,28316,Fall,Yuba River,
+2002,24051,Fall,Yuba River,
+2001,23392,Fall,Yuba River,
+2000,14995,Fall,Yuba River,
+1999,24230,Fall,Yuba River,
+1998,31090,Fall,Yuba River,
+1997,25948,Fall,Yuba River,
+1996,27900,Fall,Yuba River,
+1995,14237,Fall,Yuba River,
+1994,10890,Fall,Yuba River,
+1993,6703,Fall,Yuba River,
+1992,6362,Fall,Yuba River,
+1991,14008,Fall,Yuba River,
+1990,,Fall,Yuba River,
+1989,7622,Fall,Yuba River,
+1988,9000,Fall,Yuba River,
+1987,18518,Fall,Yuba River,
+1986,19328,Fall,Yuba River,
+1985,13042,Fall,Yuba River,
+1984,9665,Fall,Yuba River,
+1983,13756,Fall,Yuba River,
+1982,39367,Fall,Yuba River,
+1981,14025,Fall,Yuba River,
+1980,12406,Fall,Yuba River,
+1979,12430,Fall,Yuba River,
+1978,7416,Fall,Yuba River,
+1977,8722,Fall,Yuba River,
+1976,3779,Fall,Yuba River,
+1975,5641,Fall,Yuba River,
+2017,3,Fall,Antelope Creek,
+2016,138,Fall,Antelope Creek,
+2015,6,Fall,Antelope Creek,
+2014,143,Fall,Antelope Creek,
+2013,,Fall,Antelope Creek,
+2012,,Fall,Antelope Creek,
+2011,,Fall,Antelope Creek,
+2010,,Fall,Antelope Creek,
+2009,,Fall,Antelope Creek,
+2008,,Fall,Antelope Creek,
+2007,,Fall,Antelope Creek,
+2006,,Fall,Antelope Creek,
+2005,,Fall,Antelope Creek,
+2004,,Fall,Antelope Creek,
+2003,,Fall,Antelope Creek,
+2002,,Fall,Antelope Creek,
+2001,,Fall,Antelope Creek,
+2000,,Fall,Antelope Creek,
+1999,,Fall,Antelope Creek,
+1998,,Fall,Antelope Creek,
+1997,,Fall,Antelope Creek,
+1996,,Fall,Antelope Creek,
+1995,,Fall,Antelope Creek,
+1994,,Fall,Antelope Creek,
+1993,,Fall,Antelope Creek,
+1992,0,Fall,Antelope Creek,
+1991,,Fall,Antelope Creek,
+1990,,Fall,Antelope Creek,
+1989,,Fall,Antelope Creek,
+1988,,Fall,Antelope Creek,
+1987,,Fall,Antelope Creek,
+1986,,Fall,Antelope Creek,
+1985,,Fall,Antelope Creek,
+1984,260,Fall,Antelope Creek,
+1983,60,Fall,Antelope Creek,
+1982,162,Fall,Antelope Creek,
+1981,407,Fall,Antelope Creek,
+1980,,Fall,Antelope Creek,
+1979,,Fall,Antelope Creek,
+1978,,Fall,Antelope Creek,
+1977,660,Fall,Antelope Creek,
+1976,60,Fall,Antelope Creek,
+1975,90,Fall,Antelope Creek,
+1985,25,Fall,Big Chico,
+1984,200,Fall,Big Chico,
+1983,500,Fall,Big Chico,
+1977,200,Fall,Coyote Creek,
+1976,160,Fall,Coyote Creek,
+1975,160,Fall,Coyote Creek,
+1984,60,Fall,Craig Creek,
+1983,60,Fall,Craig Creek,
+1982,90,Fall,Craig Creek,
+1981,100,Fall,Craig Creek,
+1980,,Fall,Craig Creek,
+1979,,Fall,Craig Creek,
+1978,,Fall,Craig Creek,
+1977,,Fall,Craig Creek,
+1976,,Fall,Craig Creek,
+1975,270,Fall,Craig Creek,
+2017,106,Fall,Deer Creek,
+2016,253,Fall,Deer Creek,
+2015,612,Fall,Deer Creek,
+2014,849,Fall,Deer Creek,
+2013,1026,Fall,Deer Creek,
+2012,873,Fall,Deer Creek,
+2011,662,Fall,Deer Creek,
+2010,166,Fall,Deer Creek,
+2009,58,Fall,Deer Creek,
+2008,194,Fall,Deer Creek,
+2007,563,Fall,Deer Creek,
+2006,1905,Fall,Deer Creek,
+2005,963,Fall,Deer Creek,
+2004,300,Fall,Deer Creek,
+2003,,Fall,Deer Creek,
+2002,,Fall,Deer Creek,
+2001,,Fall,Deer Creek,
+2000,,Fall,Deer Creek,
+1999,,Fall,Deer Creek,
+1998,270,Fall,Deer Creek,
+1997,1203,Fall,Deer Creek,
+1996,,Fall,Deer Creek,
+1995,,Fall,Deer Creek,
+1994,307,Fall,Deer Creek,
+1993,72,Fall,Deer Creek,
+1992,,Fall,Deer Creek,
+1991,,Fall,Deer Creek,
+1990,,Fall,Deer Creek,
+1989,358,Fall,Deer Creek,
+1988,,Fall,Deer Creek,
+1987,64,Fall,Deer Creek,
+1986,256,Fall,Deer Creek,
+1985,900,Fall,Deer Creek,
+1984,680,Fall,Deer Creek,
+1983,370,Fall,Deer Creek,
+1982,480,Fall,Deer Creek,
+1981,820,Fall,Deer Creek,
+1980,210,Fall,Deer Creek,
+1979,780,Fall,Deer Creek,
+1978,90,Fall,Deer Creek,
+1977,220,Fall,Deer Creek,
+1976,315,Fall,Deer Creek,
+1975,328,Fall,Deer Creek,
+1984,50,Fall,Dye Creek,
+1983,20,Fall,Dye Creek,
+1982,25,Fall,Dye Creek,
+2017,50,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2016,309,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2015,6894,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2014,4910,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2013,7569,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2012,6266,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2011,1334,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2010,2548,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2009,516,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2008,1609,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2007,2964,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2006,8900,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2005,12062,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2004,9554,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2003,22744,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2002,20138,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2001,17376,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2000,8895,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1999,27827,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1998,600,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1997,20531,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1996,12361,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1995,10549,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1994,13817,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1993,12760,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1992,8315,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1991,10108,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1990,16175,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1989,10101,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1988,18262,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1987,31120,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1986,38544,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1985,42028,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1984,17960,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1983,30751,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1982,22578,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1981,40340,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1980,28413,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1979,64932,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1978,45921,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1977,44074,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1976,36100,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+1975,34200,Fall,Upper Sacramento River,RBDD to Princeton Ferry
+2017,342,Fall,Mill Creek,
+2016,602,Fall,Mill Creek,
+2015,1033,Fall,Mill Creek,
+2014,2488,Fall,Mill Creek,
+2013,2197,Fall,Mill Creek,
+2012,890,Fall,Mill Creek,
+2011,1231,Fall,Mill Creek,
+2010,144,Fall,Mill Creek,
+2009,102,Fall,Mill Creek,
+2008,218,Fall,Mill Creek,
+2007,851,Fall,Mill Creek,
+2006,1403,Fall,Mill Creek,
+2005,2426,Fall,Mill Creek,
+2004,1192,Fall,Mill Creek,
+2003,2426,Fall,Mill Creek,
+2002,2611,Fall,Mill Creek,
+2001,,Fall,Mill Creek,
+2000,,Fall,Mill Creek,
+1999,,Fall,Mill Creek,
+1998,546,Fall,Mill Creek,
+1997,478,Fall,Mill Creek,
+1996,,Fall,Mill Creek,
+1995,,Fall,Mill Creek,
+1994,1081,Fall,Mill Creek,
+1993,1975,Fall,Mill Creek,
+1992,999,Fall,Mill Creek,
+1991,,Fall,Mill Creek,
+1990,,Fall,Mill Creek,
+1989,1565,Fall,Mill Creek,
+1988,1487,Fall,Mill Creek,
+1987,282,Fall,Mill Creek,
+1986,574,Fall,Mill Creek,
+1985,3840,Fall,Mill Creek,
+1984,5800,Fall,Mill Creek,
+1983,200,Fall,Mill Creek,
+1982,1290,Fall,Mill Creek,
+1981,1020,Fall,Mill Creek,
+1980,320,Fall,Mill Creek,
+1979,810,Fall,Mill Creek,
+1978,300,Fall,Mill Creek,
+1977,318,Fall,Mill Creek,
+1976,245,Fall,Mill Creek,
+1975,1208,Fall,Mill Creek,
+1984,30,Fall,Salt Creek,
+1983,15,Fall,Salt Creek,
+1982,20,Fall,Salt Creek,
+1984,20,Fall,Singer Creek,
+1981,393,Fall,Stoney Creek,
+1981,167,Fall,Thomes Creek,
+1980,151,Fall,Thomes Creek,
+1979,,Fall,Thomes Creek,
+1978,,Fall,Thomes Creek,
+1977,,Fall,Thomes Creek,
+1976,,Fall,Thomes Creek,
+1975,170,Fall,Thomes Creek,
+1984,50,Fall,Toomes Creek,
+1983,15,Fall,Toomes Creek,
+1982,15,Fall,Toomes Creek,
+1981,,Fall,Toomes Creek,
+1980,,Fall,Toomes Creek,
+1979,,Fall,Toomes Creek,
+1978,,Fall,Toomes Creek,
+1977,120,Fall,Toomes Creek,
+1976,20,Fall,Toomes Creek,
+2017,670,Fall,Cosumnes River,
+2016,1248,Fall,Cosumnes River,
+2015,204,Fall,Cosumnes River,
+2014,373,Fall,Cosumnes River,
+2013,0,Fall,Cosumnes River,
+2012,1071,Fall,Cosumnes River,
+2011,53,Fall,Cosumnes River,
+2010,740,Fall,Cosumnes River,
+2009,0,Fall,Cosumnes River,
+2008,15,Fall,Cosumnes River,
+2007,77,Fall,Cosumnes River,
+2006,530,Fall,Cosumnes River,
+2005,370,Fall,Cosumnes River,
+2004,1208,Fall,Cosumnes River,
+2003,122,Fall,Cosumnes River,
+2002,1350,Fall,Cosumnes River,
+2001,,Fall,Cosumnes River,
+2000,460,Fall,Cosumnes River,
+1999,229,Fall,Cosumnes River,
+1998,300,Fall,Cosumnes River,
+1997,,Fall,Cosumnes River,
+1996,,Fall,Cosumnes River,
+1995,,Fall,Cosumnes River,
+1994,,Fall,Cosumnes River,
+1993,,Fall,Cosumnes River,
+1992,,Fall,Cosumnes River,
+1991,,Fall,Cosumnes River,
+1990,,Fall,Cosumnes River,
+1989,,Fall,Cosumnes River,
+1988,100,Fall,Cosumnes River,
+1987,0,Fall,Cosumnes River,
+1986,,Fall,Cosumnes River,
+1985,220,Fall,Cosumnes River,
+1984,1000,Fall,Cosumnes River,
+1983,200,Fall,Cosumnes River,
+1982,,Fall,Cosumnes River,
+1981,,Fall,Cosumnes River,
+1980,200,Fall,Cosumnes River,
+1979,150,Fall,Cosumnes River,
+1978,100,Fall,Cosumnes River,
+1977,,Fall,Cosumnes River,
+1976,,Fall,Cosumnes River,
+1975,725,Fall,Cosumnes River,
+2017,3191,Fall,Merced River,
+2016,2541,Fall,Merced River,
+2015,1247,Fall,Merced River,
+2014,922,Fall,Merced River,
+2013,2826,Fall,Merced River,
+2012,2011,Fall,Merced River,
+2011,1571,Fall,Merced River,
+2010,651,Fall,Merced River,
+2009,358,Fall,Merced River,
+2008,389,Fall,Merced River,
+2007,485,Fall,Merced River,
+2006,1429,Fall,Merced River,
+2005,1942,Fall,Merced River,
+2004,3270,Fall,Merced River,
+2003,2530,Fall,Merced River,
+2002,8866,Fall,Merced River,
+2001,9181,Fall,Merced River,
+2000,11130,Fall,Merced River,
+1999,3129,Fall,Merced River,
+1998,3292,Fall,Merced River,
+1997,2714,Fall,Merced River,
+1996,3291,Fall,Merced River,
+1995,2320,Fall,Merced River,
+1994,2646,Fall,Merced River,
+1993,1269,Fall,Merced River,
+1992,618,Fall,Merced River,
+1991,78,Fall,Merced River,
+1990,36,Fall,Merced River,
+1989,345,Fall,Merced River,
+1988,4135,Fall,Merced River,
+1987,3168,Fall,Merced River,
+1986,6789,Fall,Merced River,
+1985,14841,Fall,Merced River,
+1984,27640,Fall,Merced River,
+1983,16453,Fall,Merced River,
+1982,3074,Fall,Merced River,
+1981,9491,Fall,Merced River,
+1980,2849,Fall,Merced River,
+1979,1920,Fall,Merced River,
+1978,525,Fall,Merced River,
+1977,350,Fall,Merced River,
+1976,1200,Fall,Merced River,
+1975,1700,Fall,Merced River,
+2017,5639,Fall,Mokelumne River,
+2016,1984,Fall,Mokelumne River,
+2015,4581,Fall,Mokelumne River,
+2014,3297,Fall,Mokelumne River,
+2013,7071,Fall,Mokelumne River,
+2012,5471,Fall,Mokelumne River,
+2011,2674,Fall,Mokelumne River,
+2010,1920,Fall,Mokelumne River,
+2009,680,Fall,Mokelumne River,
+2008,173,Fall,Mokelumne River,
+2007,470,Fall,Mokelumne River,
+2006,1732,Fall,Mokelumne River,
+2005,10406,Fall,Mokelumne River,
+2004,1588,Fall,Mokelumne River,
+2003,2122,Fall,Mokelumne River,
+2002,2840,Fall,Mokelumne River,
+2001,2307,Fall,Mokelumne River,
+2000,1973,Fall,Mokelumne River,
+1999,2183,Fall,Mokelumne River,
+1998,4122,Fall,Mokelumne River,
+1997,3681,Fall,Mokelumne River,
+1996,4038,Fall,Mokelumne River,
+1995,2194,Fall,Mokelumne River,
+1994,1238,Fall,Mokelumne River,
+1993,993,Fall,Mokelumne River,
+1992,935,Fall,Mokelumne River,
+1991,368,Fall,Mokelumne River,
+1990,429,Fall,Mokelumne River,
+1989,199,Fall,Mokelumne River,
+1988,400,Fall,Mokelumne River,
+1987,1000,Fall,Mokelumne River,
+1986,5254,Fall,Mokelumne River,
+1985,7459,Fall,Mokelumne River,
+1984,8298,Fall,Mokelumne River,
+1983,11293,Fall,Mokelumne River,
+1982,6695,Fall,Mokelumne River,
+1981,4954,Fall,Mokelumne River,
+1980,2592,Fall,Mokelumne River,
+1979,1000,Fall,Mokelumne River,
+1978,600,Fall,Mokelumne River,
+1977,250,Fall,Mokelumne River,
+1976,455,Fall,Mokelumne River,
+1975,1501,Fall,Mokelumne River,
+2017,5655,Fall,Stanislaus River,
+2016,9330,Fall,Stanislaus River,
+2015,6136,Fall,Stanislaus River,
+2014,3060,Fall,Stanislaus River,
+2013,2845,Fall,Stanislaus River,
+2012,4006,Fall,Stanislaus River,
+2011,1309,Fall,Stanislaus River,
+2010,1086,Fall,Stanislaus River,
+2009,595,Fall,Stanislaus River,
+2008,865,Fall,Stanislaus River,
+2007,443,Fall,Stanislaus River,
+2006,1923,Fall,Stanislaus River,
+2005,1427,Fall,Stanislaus River,
+2004,4015,Fall,Stanislaus River,
+2003,5902,Fall,Stanislaus River,
+2002,7787,Fall,Stanislaus River,
+2001,7033,Fall,Stanislaus River,
+2000,8498,Fall,Stanislaus River,
+1999,4349,Fall,Stanislaus River,
+1998,3087,Fall,Stanislaus River,
+1997,5588,Fall,Stanislaus River,
+1996,168,Fall,Stanislaus River,
+1995,619,Fall,Stanislaus River,
+1994,1031,Fall,Stanislaus River,
+1993,677,Fall,Stanislaus River,
+1992,255,Fall,Stanislaus River,
+1991,394,Fall,Stanislaus River,
+1990,480,Fall,Stanislaus River,
+1989,1510,Fall,Stanislaus River,
+1988,10212,Fall,Stanislaus River,
+1987,6292,Fall,Stanislaus River,
+1986,6497,Fall,Stanislaus River,
+1985,13473,Fall,Stanislaus River,
+1984,11439,Fall,Stanislaus River,
+1983,500,Fall,Stanislaus River,
+1982,,Fall,Stanislaus River,
+1981,1000,Fall,Stanislaus River,
+1980,100,Fall,Stanislaus River,
+1979,110,Fall,Stanislaus River,
+1978,50,Fall,Stanislaus River,
+1977,0,Fall,Stanislaus River,
+1976,600,Fall,Stanislaus River,
+1975,1200,Fall,Stanislaus River,
+2017,1096,Fall,Tuolumne River,
+2016,1347,Fall,Tuolumne River,
+2015,113,Fall,Tuolumne River,
+2014,438,Fall,Tuolumne River,
+2013,1926,Fall,Tuolumne River,
+2012,783,Fall,Tuolumne River,
+2011,893,Fall,Tuolumne River,
+2010,540,Fall,Tuolumne River,
+2009,124,Fall,Tuolumne River,
+2008,388,Fall,Tuolumne River,
+2007,224,Fall,Tuolumne River,
+2006,562,Fall,Tuolumne River,
+2005,668,Fall,Tuolumne River,
+2004,1984,Fall,Tuolumne River,
+2003,2163,Fall,Tuolumne River,
+2002,7173,Fall,Tuolumne River,
+2001,8782,Fall,Tuolumne River,
+2000,17873,Fall,Tuolumne River,
+1999,8232,Fall,Tuolumne River,
+1998,8910,Fall,Tuolumne River,
+1997,7146,Fall,Tuolumne River,
+1996,4362,Fall,Tuolumne River,
+1995,827,Fall,Tuolumne River,
+1994,506,Fall,Tuolumne River,
+1993,471,Fall,Tuolumne River,
+1992,132,Fall,Tuolumne River,
+1991,77,Fall,Tuolumne River,
+1990,96,Fall,Tuolumne River,
+1989,1275,Fall,Tuolumne River,
+1988,5779,Fall,Tuolumne River,
+1987,14751,Fall,Tuolumne River,
+1986,7404,Fall,Tuolumne River,
+1985,40322,Fall,Tuolumne River,
+1984,13689,Fall,Tuolumne River,
+1983,14836,Fall,Tuolumne River,
+1982,7126,Fall,Tuolumne River,
+1981,14253,Fall,Tuolumne River,
+1980,559,Fall,Tuolumne River,
+1979,1183,Fall,Tuolumne River,
+1978,1300,Fall,Tuolumne River,
+1977,450,Fall,Tuolumne River,
+1976,1700,Fall,Tuolumne River,
+1975,1600,Fall,Tuolumne River,
+2016,0,Spring,Upper Sacramento River,Downstream of RBDD
+2015,0,Spring,Upper Sacramento River,Downstream of RBDD
+2014,0,Spring,Upper Sacramento River,Downstream of RBDD
+2013,0,Spring,Upper Sacramento River,Downstream of RBDD
+2012,0,Spring,Upper Sacramento River,Downstream of RBDD
+2011,0,Spring,Upper Sacramento River,Downstream of RBDD
+2010,0,Spring,Upper Sacramento River,Downstream of RBDD
+2009,0,Spring,Upper Sacramento River,Downstream of RBDD
+2008,52,Spring,Upper Sacramento River,Downstream of RBDD
+2007,0,Spring,Upper Sacramento River,Downstream of RBDD
+2006,0,Spring,Upper Sacramento River,Downstream of RBDD
+2005,30,Spring,Upper Sacramento River,Downstream of RBDD
+2004,0,Spring,Upper Sacramento River,Downstream of RBDD
+2003,0,Spring,Upper Sacramento River,Downstream of RBDD
+2002,0,Spring,Upper Sacramento River,Downstream of RBDD
+2001,21,Spring,Upper Sacramento River,Downstream of RBDD
+2000,0,Spring,Upper Sacramento River,Downstream of RBDD
+1999,0,Spring,Upper Sacramento River,Downstream of RBDD
+1998,0,Spring,Upper Sacramento River,Downstream of RBDD
+1997,2,Spring,Upper Sacramento River,Downstream of RBDD
+1996,0,Spring,Upper Sacramento River,Downstream of RBDD
+1995,77,Spring,Upper Sacramento River,Downstream of RBDD
+1994,0,Spring,Upper Sacramento River,Downstream of RBDD
+1993,0,Spring,Upper Sacramento River,Downstream of RBDD
+1992,0,Spring,Upper Sacramento River,Downstream of RBDD
+1991,59,Spring,Upper Sacramento River,Downstream of RBDD
+1990,302,Spring,Upper Sacramento River,Downstream of RBDD
+1989,0,Spring,Upper Sacramento River,Downstream of RBDD
+1988,266,Spring,Upper Sacramento River,Downstream of RBDD
+1987,1460,Spring,Upper Sacramento River,Downstream of RBDD
+1986,6110,Spring,Upper Sacramento River,Downstream of RBDD
+1985,2713,Spring,Upper Sacramento River,Downstream of RBDD
+1984,,Spring,Upper Sacramento River,Downstream of RBDD
+1983,1793,Spring,Upper Sacramento River,Downstream of RBDD
+1982,,Spring,Upper Sacramento River,Downstream of RBDD
+1981,,Spring,Upper Sacramento River,Downstream of RBDD
+1980,6,Spring,Upper Sacramento River,Downstream of RBDD
+2016,0,Spring,Upper Sacramento River,Upstream of RBDD
+2015,0,Spring,Upper Sacramento River,Upstream of RBDD
+2014,0,Spring,Upper Sacramento River,Upstream of RBDD
+2013,0,Spring,Upper Sacramento River,Upstream of RBDD
+2012,0,Spring,Upper Sacramento River,Upstream of RBDD
+2011,0,Spring,Upper Sacramento River,Upstream of RBDD
+2010,0,Spring,Upper Sacramento River,Upstream of RBDD
+2009,0,Spring,Upper Sacramento River,Upstream of RBDD
+2008,0,Spring,Upper Sacramento River,Upstream of RBDD
+2007,248,Spring,Upper Sacramento River,Upstream of RBDD
+2006,0,Spring,Upper Sacramento River,Upstream of RBDD
+2005,0,Spring,Upper Sacramento River,Upstream of RBDD
+2004,370,Spring,Upper Sacramento River,Upstream of RBDD
+2003,0,Spring,Upper Sacramento River,Upstream of RBDD
+2002,195,Spring,Upper Sacramento River,Upstream of RBDD
+2001,600,Spring,Upper Sacramento River,Upstream of RBDD
+2000,43,Spring,Upper Sacramento River,Upstream of RBDD
+1999,262,Spring,Upper Sacramento River,Upstream of RBDD
+1998,1115,Spring,Upper Sacramento River,Upstream of RBDD
+1997,126,Spring,Upper Sacramento River,Upstream of RBDD
+1996,378,Spring,Upper Sacramento River,Upstream of RBDD
+1995,349,Spring,Upper Sacramento River,Upstream of RBDD
+1994,862,Spring,Upper Sacramento River,Upstream of RBDD
+1993,391,Spring,Upper Sacramento River,Upstream of RBDD
+1992,371,Spring,Upper Sacramento River,Upstream of RBDD
+1991,766,Spring,Upper Sacramento River,Upstream of RBDD
+1990,3896,Spring,Upper Sacramento River,Upstream of RBDD
+1989,5131,Spring,Upper Sacramento River,Upstream of RBDD
+1988,9601,Spring,Upper Sacramento River,Upstream of RBDD
+1987,10911,Spring,Upper Sacramento River,Upstream of RBDD
+1986,15948,Spring,Upper Sacramento River,Upstream of RBDD
+1985,10200,Spring,Upper Sacramento River,Upstream of RBDD
+1984,7823,Spring,Upper Sacramento River,Upstream of RBDD
+1983,3854,Spring,Upper Sacramento River,Upstream of RBDD
+1982,23156,Spring,Upper Sacramento River,Upstream of RBDD
+1981,20655,Spring,Upper Sacramento River,Upstream of RBDD
+1980,9363,Spring,Upper Sacramento River,Upstream of RBDD
+1979,2856,Spring,Upper Sacramento River,Upstream of RBDD
+1978,5669,Spring,Upper Sacramento River,Upstream of RBDD
+1977,11545,Spring,Upper Sacramento River,Upstream of RBDD
+1976,25095,Spring,Upper Sacramento River,Upstream of RBDD
+1975,10234,Spring,Upper Sacramento River,Upstream of RBDD
+2017,8,Spring,Antelope Creek,
+2016,7,Spring,Antelope Creek,
+2015,5,Spring,Antelope Creek,
+2014,7,Spring,Antelope Creek,
+2013,0,Spring,Antelope Creek,
+2012,1,Spring,Antelope Creek,
+2011,6,Spring,Antelope Creek,
+2010,17,Spring,Antelope Creek,
+2009,0,Spring,Antelope Creek,
+2008,3,Spring,Antelope Creek,
+2007,26,Spring,Antelope Creek,
+2006,102,Spring,Antelope Creek,
+2005,82,Spring,Antelope Creek,
+2004,3,Spring,Antelope Creek,
+2003,46,Spring,Antelope Creek,
+2002,46,Spring,Antelope Creek,
+2001,8,Spring,Antelope Creek,
+2000,9,Spring,Antelope Creek,
+1999,40,Spring,Antelope Creek,
+1998,154,Spring,Antelope Creek,
+1997,0,Spring,Antelope Creek,
+1996,1,Spring,Antelope Creek,
+1995,7,Spring,Antelope Creek,
+1994,0,Spring,Antelope Creek,
+1993,3,Spring,Antelope Creek,
+1992,0,Spring,Antelope Creek,
+1991,,Spring,Antelope Creek,
+1990,,Spring,Antelope Creek,
+1989,,Spring,Antelope Creek,
+1988,,Spring,Antelope Creek,
+1987,,Spring,Antelope Creek,
+1986,,Spring,Antelope Creek,
+1985,,Spring,Antelope Creek,
+1984,,Spring,Antelope Creek,
+1983,59,Spring,Antelope Creek,
+2017,30,Spring,Battle Creek,
+2016,180,Spring,Battle Creek,
+2015,181,Spring,Battle Creek,
+2014,429,Spring,Battle Creek,
+2013,608,Spring,Battle Creek,
+2012,799,Spring,Battle Creek,
+2011,157,Spring,Battle Creek,
+2010,172,Spring,Battle Creek,
+2009,194,Spring,Battle Creek,
+2008,105,Spring,Battle Creek,
+2007,291,Spring,Battle Creek,
+2006,221,Spring,Battle Creek,
+2005,73,Spring,Battle Creek,
+2004,90,Spring,Battle Creek,
+2003,221,Spring,Battle Creek,
+2002,222,Spring,Battle Creek,
+2001,111,Spring,Battle Creek,
+2000,78,Spring,Battle Creek,
+1999,73,Spring,Battle Creek,
+1998,178,Spring,Battle Creek,
+1997,107,Spring,Battle Creek,
+1996,35,Spring,Battle Creek,
+1995,66,Spring,Battle Creek,
+1994,,Spring,Battle Creek,
+1993,,Spring,Battle Creek,
+1992,,Spring,Battle Creek,
+1991,,Spring,Battle Creek,
+1990,2,Spring,Battle Creek,
+1989,7,Spring,Battle Creek,
+2017,0,Spring,Big Chico,
+2016,0,Spring,Big Chico,
+2015,0,Spring,Big Chico,
+2014,0,Spring,Big Chico,
+2013,0,Spring,Big Chico,
+2012,0,Spring,Big Chico,
+2011,124,Spring,Big Chico,
+2010,2,Spring,Big Chico,
+2009,6,Spring,Big Chico,
+2008,0,Spring,Big Chico,
+2007,0,Spring,Big Chico,
+2006,299,Spring,Big Chico,
+2005,37,Spring,Big Chico,
+2004,0,Spring,Big Chico,
+2003,81,Spring,Big Chico,
+2002,0,Spring,Big Chico,
+2001,39,Spring,Big Chico,
+2000,27,Spring,Big Chico,
+1999,27,Spring,Big Chico,
+1998,369,Spring,Big Chico,
+1997,2,Spring,Big Chico,
+1996,2,Spring,Big Chico,
+1995,200,Spring,Big Chico,
+1994,2,Spring,Big Chico,
+1993,38,Spring,Big Chico,
+1992,,Spring,Big Chico,
+1991,,Spring,Big Chico,
+1990,,Spring,Big Chico,
+1989,,Spring,Big Chico,
+1988,,Spring,Big Chico,
+1987,,Spring,Big Chico,
+1986,,Spring,Big Chico,
+1985,0,Spring,Big Chico,
+1984,0,Spring,Big Chico,
+1983,,Spring,Big Chico,
+1982,,Spring,Big Chico,
+1981,,Spring,Big Chico,
+1980,,Spring,Big Chico,
+1979,,Spring,Big Chico,
+1978,,Spring,Big Chico,
+1977,100,Spring,Big Chico,
+2017,565,Spring,Butte Creek,Carcass survey
+2016,5731,Spring,Butte Creek,Carcass survey
+2015,569,Spring,Butte Creek,Carcass survey
+2014,5083,Spring,Butte Creek,Carcass survey
+2013,16782,Spring,Butte Creek,Carcass survey
+2012,16317,Spring,Butte Creek,Carcass survey
+2011,4871,Spring,Butte Creek,Carcass survey
+2010,1991,Spring,Butte Creek,Carcass survey
+2009,2687,Spring,Butte Creek,Carcass survey
+2008,11046,Spring,Butte Creek,Carcass survey
+2007,6871,Spring,Butte Creek,Carcass survey
+2006,6537,Spring,Butte Creek,Carcass survey
+2005,17592,Spring,Butte Creek,Carcass survey
+2004,10558,Spring,Butte Creek,Carcass survey
+2003,17404,Spring,Butte Creek,Carcass survey
+2002,16409,Spring,Butte Creek,Carcass survey
+2001,18670,Spring,Butte Creek,Carcass survey
+2000,4118,Spring,Butte Creek,Snorkel survey
+1999,3679,Spring,Butte Creek,Snorkel survey
+1998,20259,Spring,Butte Creek,Snorkel survey
+1997,635,Spring,Butte Creek,Snorkel survey
+1996,1413,Spring,Butte Creek,Snorkel survey
+1995,7500,Spring,Butte Creek,Snorkel survey
+1994,474,Spring,Butte Creek,Snorkel survey
+1993,650,Spring,Butte Creek,Snorkel survey
+1992,730,Spring,Butte Creek,Snorkel survey
+1991,,Spring,Butte Creek,Snorkel survey
+1990,250,Spring,Butte Creek,Snorkel survey
+1989,1300,Spring,Butte Creek,Snorkel survey
+1988,1290,Spring,Butte Creek,Snorkel survey
+1987,14,Spring,Butte Creek,Snorkel survey
+1986,1371,Spring,Butte Creek,Snorkel survey
+1985,254,Spring,Butte Creek,Snorkel survey
+1984,23,Spring,Butte Creek,Snorkel survey
+1983,50,Spring,Butte Creek,Snorkel survey
+1982,534,Spring,Butte Creek,Snorkel survey
+1981,250,Spring,Butte Creek,Snorkel survey
+1980,226,Spring,Butte Creek,Snorkel survey
+1979,10,Spring,Butte Creek,Snorkel survey
+1978,128,Spring,Butte Creek,Snorkel survey
+1977,100,Spring,Butte Creek,Snorkel survey
+1976,46,Spring,Butte Creek,Snorkel survey
+1975,650,Spring,Butte Creek,Unknown
+2017,25,Spring,Clear Creek,
+2016,29,Spring,Clear Creek,
+2015,45,Spring,Clear Creek,
+2014,95,Spring,Clear Creek,
+2013,659,Spring,Clear Creek,
+2012,68,Spring,Clear Creek,
+2011,8,Spring,Clear Creek,
+2010,21,Spring,Clear Creek,
+2009,120,Spring,Clear Creek,
+2008,200,Spring,Clear Creek,
+2007,194,Spring,Clear Creek,
+2006,77,Spring,Clear Creek,
+2005,69,Spring,Clear Creek,
+2004,98,Spring,Clear Creek,
+2003,25,Spring,Clear Creek,
+2002,66,Spring,Clear Creek,
+2001,0,Spring,Clear Creek,
+2000,9,Spring,Clear Creek,
+1999,35,Spring,Clear Creek,
+1998,47,Spring,Clear Creek,
+1997,,Spring,Clear Creek,
+1996,,Spring,Clear Creek,
+1995,2,Spring,Clear Creek,
+1994,0,Spring,Clear Creek,
+1993,1,Spring,Clear Creek,
+2017,0,Spring,Cottonwood Creek,
+2016,0,Spring,Cottonwood Creek,
+2015,0,Spring,Cottonwood Creek,
+2014,2,Spring,Cottonwood Creek,
+2013,1,Spring,Cottonwood Creek,
+2012,1,Spring,Cottonwood Creek,
+2011,2,Spring,Cottonwood Creek,
+2010,15,Spring,Cottonwood Creek,
+2009,0,Spring,Cottonwood Creek,
+2008,0,Spring,Cottonwood Creek,
+2007,34,Spring,Cottonwood Creek,
+2006,55,Spring,Cottonwood Creek,
+2005,47,Spring,Cottonwood Creek,
+2004,17,Spring,Cottonwood Creek,
+2003,73,Spring,Cottonwood Creek,
+2002,125,Spring,Cottonwood Creek,
+2001,245,Spring,Cottonwood Creek,
+2000,122,Spring,Cottonwood Creek,
+1999,102,Spring,Cottonwood Creek,
+1998,477,Spring,Cottonwood Creek,
+1997,0,Spring,Cottonwood Creek,
+1996,6,Spring,Cottonwood Creek,
+1995,8,Spring,Cottonwood Creek,
+1994,,Spring,Cottonwood Creek,
+1993,1,Spring,Cottonwood Creek,
+1992,,Spring,Cottonwood Creek,
+1991,,Spring,Cottonwood Creek,
+1990,,Spring,Cottonwood Creek,
+1989,0,Spring,Cottonwood Creek,
+1988,,Spring,Cottonwood Creek,
+1987,,Spring,Cottonwood Creek,
+1986,,Spring,Cottonwood Creek,
+1985,,Spring,Cottonwood Creek,
+1984,,Spring,Cottonwood Creek,
+1983,,Spring,Cottonwood Creek,
+1982,0,Spring,Cottonwood Creek,
+1981,,Spring,Cottonwood Creek,
+1980,,Spring,Cottonwood Creek,
+1979,,Spring,Cottonwood Creek,
+1978,,Spring,Cottonwood Creek,
+1977,,Spring,Cottonwood Creek,
+1976,,Spring,Cottonwood Creek,
+1975,3,Spring,Cottonwood Creek,
+2017,219,Spring,Deer Creek,
+2016,331,Spring,Deer Creek,
+2015,268,Spring,Deer Creek,
+2014,830,Spring,Deer Creek,
+2013,708,Spring,Deer Creek,
+2012,734,Spring,Deer Creek,
+2011,271,Spring,Deer Creek,
+2010,262,Spring,Deer Creek,
+2009,213,Spring,Deer Creek,
+2008,140,Spring,Deer Creek,
+2007,644,Spring,Deer Creek,
+2006,2432,Spring,Deer Creek,
+2005,2239,Spring,Deer Creek,
+2004,804,Spring,Deer Creek,
+2003,2759,Spring,Deer Creek,
+2002,2195,Spring,Deer Creek,
+2001,1622,Spring,Deer Creek,
+2000,637,Spring,Deer Creek,
+1999,1591,Spring,Deer Creek,
+1998,1879,Spring,Deer Creek,
+1997,466,Spring,Deer Creek,
+1996,614,Spring,Deer Creek,
+1995,1295,Spring,Deer Creek,
+1994,485,Spring,Deer Creek,
+1993,259,Spring,Deer Creek,
+1992,209,Spring,Deer Creek,
+1991,479,Spring,Deer Creek,
+1990,496,Spring,Deer Creek,
+1989,84,Spring,Deer Creek,
+1988,371,Spring,Deer Creek,
+1987,200,Spring,Deer Creek,
+1986,543,Spring,Deer Creek,
+1985,301,Spring,Deer Creek,
+1984,,Spring,Deer Creek,
+1983,500,Spring,Deer Creek,
+1982,1500,Spring,Deer Creek,
+1981,,Spring,Deer Creek,
+1980,1500,Spring,Deer Creek,
+1979,,Spring,Deer Creek,
+1978,1200,Spring,Deer Creek,
+1977,340,Spring,Deer Creek,
+1976,,Spring,Deer Creek,
+1975,8500,Spring,Deer Creek,
+1982,90,Spring,Feather River,
+1981,531,Spring,Feather River,
+1980,400,Spring,Feather River,
+1979,,Spring,Feather River,
+1978,2,Spring,Feather River,
+2017,258,Spring,Mill Creek,
+2016,175,Spring,Mill Creek,
+2015,127,Spring,Mill Creek,
+2014,679,Spring,Mill Creek,
+2013,644,Spring,Mill Creek,
+2012,768,Spring,Mill Creek,
+2011,366,Spring,Mill Creek,
+2010,482,Spring,Mill Creek,
+2009,220,Spring,Mill Creek,
+2008,381,Spring,Mill Creek,
+2007,920,Spring,Mill Creek,
+2006,1002,Spring,Mill Creek,
+2005,1150,Spring,Mill Creek,
+2004,998,Spring,Mill Creek,
+2003,1426,Spring,Mill Creek,
+2002,1594,Spring,Mill Creek,
+2001,1104,Spring,Mill Creek,
+2000,544,Spring,Mill Creek,
+1999,560,Spring,Mill Creek,
+1998,424,Spring,Mill Creek,
+1997,202,Spring,Mill Creek,
+1996,253,Spring,Mill Creek,
+1995,320,Spring,Mill Creek,
+1994,723,Spring,Mill Creek,
+1993,61,Spring,Mill Creek,
+1992,237,Spring,Mill Creek,
+1991,319,Spring,Mill Creek,
+1990,844,Spring,Mill Creek,
+1989,563,Spring,Mill Creek,
+1988,572,Spring,Mill Creek,
+1987,90,Spring,Mill Creek,
+1986,291,Spring,Mill Creek,
+1985,121,Spring,Mill Creek,
+1984,191,Spring,Mill Creek,
+1983,,Spring,Mill Creek,
+1982,700,Spring,Mill Creek,
+1981,,Spring,Mill Creek,
+1980,500,Spring,Mill Creek,
+1979,,Spring,Mill Creek,
+1978,925,Spring,Mill Creek,
+1977,460,Spring,Mill Creek,
+1976,,Spring,Mill Creek,
+1975,3500,Spring,Mill Creek,
+2002,2,Spring,Thomes Creek,
+2001,,Spring,Thomes Creek,
+2000,,Spring,Thomes Creek,
+1999,,Spring,Thomes Creek,
+1998,1,Spring,Thomes Creek,
+2001,108,Spring,Yuba River,
+2000,,Spring,Yuba River,
+1999,,Spring,Yuba River,
+1998,,Spring,Yuba River,
+1997,,Spring,Yuba River,
+1996,,Spring,Yuba River,
+1995,,Spring,Yuba River,
+1994,,Spring,Yuba River,
+1993,,Spring,Yuba River,
+1992,,Spring,Yuba River,
+1991,,Spring,Yuba River,
+1990,,Spring,Yuba River,
+1989,,Spring,Yuba River,
+1988,,Spring,Yuba River,
+1987,,Spring,Yuba River,
+1986,,Spring,Yuba River,
+1985,,Spring,Yuba River,
+1984,,Spring,Yuba River,
+1983,,Spring,Yuba River,
+1982,,Spring,Yuba River,
+1981,200,Spring,Yuba River,
+1980,200,Spring,Yuba River,
+2010,1,Winter,Battle Creek,Upstream of CNFH
+2009,0,Winter,Battle Creek,Upstream of CNFH
+2008,0,Winter,Battle Creek,Upstream of CNFH
+2007,0,Winter,Battle Creek,Upstream of CNFH
+2006,0,Winter,Battle Creek,Upstream of CNFH
+2005,6,Winter,Battle Creek,Upstream of CNFH
+2004,0,Winter,Battle Creek,Upstream of CNFH
+2003,,Winter,Battle Creek,Upstream of CNFH
+2002,,Winter,Battle Creek,Upstream of CNFH
+2001,,Winter,Battle Creek,Upstream of CNFH
+2000,,Winter,Battle Creek,Upstream of CNFH
+1999,2,Winter,Battle Creek,Upstream of CNFH
+1998,,Winter,Battle Creek,Upstream of CNFH
+1997,,Winter,Battle Creek,Upstream of CNFH
+1996,44,Winter,Battle Creek,Upstream of CNFH
+1995,325,Winter,Battle Creek,Upstream of CNFH
+1994,88,Winter,Battle Creek,Upstream of CNFH
+2016,0,Winter,Upper Sacramento River,Downstream of RBDD
+2015,0,Winter,Upper Sacramento River,Downstream of RBDD
+2014,0,Winter,Upper Sacramento River,Downstream of RBDD
+2013,0,Winter,Upper Sacramento River,Downstream of RBDD
+2012,0,Winter,Upper Sacramento River,Downstream of RBDD
+2011,0,Winter,Upper Sacramento River,Downstream of RBDD
+2010,0,Winter,Upper Sacramento River,Downstream of RBDD
+2009,0,Winter,Upper Sacramento River,Downstream of RBDD
+2008,0,Winter,Upper Sacramento River,Downstream of RBDD
+2007,0,Winter,Upper Sacramento River,Downstream of RBDD
+2006,0,Winter,Upper Sacramento River,Downstream of RBDD
+2005,48,Winter,Upper Sacramento River,Downstream of RBDD
+2004,0,Winter,Upper Sacramento River,Downstream of RBDD
+2003,0,Winter,Upper Sacramento River,Downstream of RBDD
+2002,28,Winter,Upper Sacramento River,Downstream of RBDD
+2001,12,Winter,Upper Sacramento River,Downstream of RBDD
+2000,35,Winter,Upper Sacramento River,Downstream of RBDD
+1999,0,Winter,Upper Sacramento River,Downstream of RBDD
+1998,0,Winter,Upper Sacramento River,Downstream of RBDD
+1997,62,Winter,Upper Sacramento River,Downstream of RBDD
+1996,0,Winter,Upper Sacramento River,Downstream of RBDD
+1995,0,Winter,Upper Sacramento River,Downstream of RBDD
+1994,7,Winter,Upper Sacramento River,Downstream of RBDD
+1993,0,Winter,Upper Sacramento River,Downstream of RBDD
+1992,9,Winter,Upper Sacramento River,Downstream of RBDD
+1991,44,Winter,Upper Sacramento River,Downstream of RBDD
+1990,0,Winter,Upper Sacramento River,Downstream of RBDD
+1989,28,Winter,Upper Sacramento River,Downstream of RBDD
+1988,14,Winter,Upper Sacramento River,Downstream of RBDD
+1987,728,Winter,Upper Sacramento River,Downstream of RBDD
+1986,97,Winter,Upper Sacramento River,Downstream of RBDD
+1985,,Winter,Upper Sacramento River,Downstream of RBDD
+1984,1445,Winter,Upper Sacramento River,Downstream of RBDD
+1983,,Winter,Upper Sacramento River,Downstream of RBDD
+1982,,Winter,Upper Sacramento River,Downstream of RBDD
+1981,39,Winter,Upper Sacramento River,Downstream of RBDD
+1980,2756,Winter,Upper Sacramento River,Downstream of RBDD
+2016,795,Winter,Upper Sacramento River,Upstream of RBDD
+2015,1409,Winter,Upper Sacramento River,Upstream of RBDD
+2014,3182,Winter,Upper Sacramento River,Upstream of RBDD
+2013,2627,Winter,Upper Sacramento River,Upstream of RBDD
+2012,5920,Winter,Upper Sacramento River,Upstream of RBDD
+2011,2578,Winter,Upper Sacramento River,Upstream of RBDD
+2010,738,Winter,Upper Sacramento River,Upstream of RBDD
+2009,1533,Winter,Upper Sacramento River,Upstream of RBDD
+2008,4416,Winter,Upper Sacramento River,Upstream of RBDD
+2007,2725,Winter,Upper Sacramento River,Upstream of RBDD
+2006,2487,Winter,Upper Sacramento River,Upstream of RBDD
+2005,17149,Winter,Upper Sacramento River,Upstream of RBDD
+2004,15730,Winter,Upper Sacramento River,Upstream of RBDD
+2003,7784,Winter,Upper Sacramento River,Upstream of RBDD
+2002,8105,Winter,Upper Sacramento River,Upstream of RBDD
+2001,7325,Winter,Upper Sacramento River,Upstream of RBDD
+2000,8085,Winter,Upper Sacramento River,Upstream of RBDD
+1999,1261,Winter,Upper Sacramento River,Upstream of RBDD
+1998,3264,Winter,Upper Sacramento River,Upstream of RBDD
+1997,2831,Winter,Upper Sacramento River,Upstream of RBDD
+1996,836,Winter,Upper Sacramento River,Upstream of RBDD
+1995,1012,Winter,Upper Sacramento River,Upstream of RBDD
+1994,1159,Winter,Upper Sacramento River,Upstream of RBDD
+1993,144,Winter,Upper Sacramento River,Upstream of RBDD
+1992,369,Winter,Upper Sacramento River,Upstream of RBDD
+1991,1159,Winter,Upper Sacramento River,Upstream of RBDD
+1990,177,Winter,Upper Sacramento River,Upstream of RBDD
+1989,384,Winter,Upper Sacramento River,Upstream of RBDD
+1988,635,Winter,Upper Sacramento River,Upstream of RBDD
+1987,2129,Winter,Upper Sacramento River,Upstream of RBDD
+1986,2068,Winter,Upper Sacramento River,Upstream of RBDD
+1985,2566,Winter,Upper Sacramento River,Upstream of RBDD
+1984,3686,Winter,Upper Sacramento River,Upstream of RBDD
+1983,2662,Winter,Upper Sacramento River,Upstream of RBDD
+1982,1827,Winter,Upper Sacramento River,Upstream of RBDD
+1981,1233,Winter,Upper Sacramento River,Upstream of RBDD
+1980,19795,Winter,Upper Sacramento River,Upstream of RBDD
+1979,1142,Winter,Upper Sacramento River,Upstream of RBDD
+1978,2339,Winter,Upper Sacramento River,Upstream of RBDD
+1977,24735,Winter,Upper Sacramento River,Upstream of RBDD
+1976,16470,Winter,Upper Sacramento River,Upstream of RBDD
+1975,33029,Winter,Upper Sacramento River,Upstream of RBDD
+1974,22579,Winter,Upper Sacramento River,Upstream of RBDD
+2010,0,Winter,Calaveras River,
+2009,0,Winter,Calaveras River,
+2008,0,Winter,Calaveras River,
+2007,0,Winter,Calaveras River,
+2006,0,Winter,Calaveras River,
+2005,,Winter,Calaveras River,
+2004,,Winter,Calaveras River,
+2003,,Winter,Calaveras River,
+2002,,Winter,Calaveras River,
+2001,,Winter,Calaveras River,
+2000,,Winter,Calaveras River,
+1999,,Winter,Calaveras River,
+1998,,Winter,Calaveras River,
+1997,,Winter,Calaveras River,
+1996,,Winter,Calaveras River,
+1995,,Winter,Calaveras River,
+1994,,Winter,Calaveras River,
+1993,,Winter,Calaveras River,
+1992,,Winter,Calaveras River,
+1991,,Winter,Calaveras River,
+1990,,Winter,Calaveras River,
+1989,,Winter,Calaveras River,
+1988,,Winter,Calaveras River,
+1987,,Winter,Calaveras River,
+1986,,Winter,Calaveras River,
+1985,,Winter,Calaveras River,
+1984,,Winter,Calaveras River,
+1983,100,Winter,Calaveras River,
+1982,,Winter,Calaveras River,
+1981,,Winter,Calaveras River,
+1980,,Winter,Calaveras River,
+1979,,Winter,Calaveras River,
+1978,,Winter,Calaveras River,
+1977,150,Winter,Calaveras River,
+1976,,Winter,Calaveras River,
+1975,500,Winter,Calaveras River,
+1974,500,Winter,Calaveras River,
