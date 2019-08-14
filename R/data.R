@@ -638,4 +638,26 @@ NULL
 "maxT29"
 
 
+# TODO 
+#' Proportion from Hatchery
+#' @description the proportion of hatchery fish for each of the tribs.
+"prop_hatch"
+
+
+#' Fall Run Known Adults (with estimates)
+#' @description this dataset containts all known Fall Run adults from GrandTab as
+#' well as estimated values for tribs with missing data on certain years.
+#' @format 
+#' \describe{
+#'   \item{order}{the order of watershed}
+#'   \item{watershed}{name of the watershed}
+#'   \item{1975-2017}{number of adults in the watershed}
+#' }
+"known_adults_with_estimates"
+
+
+
+
+
+
 
