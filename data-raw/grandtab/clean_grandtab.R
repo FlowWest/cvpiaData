@@ -4,11 +4,12 @@ library(tidyverse)
 # that lives in the processGrandTab.R script
 
 gt <- read_csv('data-raw/grandtab/Grandtab_Modified_sacpass.csv')
-adamg_gt_final <- read_csv('data-raw/grandtab/Calibration2018_NaturalAdults_FallRun_NoFillIns.csv')
 hatchery_expansion <- read_csv("data-raw/grandtab/hatchery expansion.csv", 
                                col_names = c("trib", "hatchery", "natural", "total_escape", "year", "no_hatch_ret", 
                                              "source"), 
                                skip = 1)
+
+watersheds <- cvpiaData::watershed_ordering$watershed
 
 sacpas_fall_run <- gt %>% 
   filter(
@@ -32,13 +33,14 @@ prop_sr <- tibble(
 )
 
 # prop of spring run
-prp <-mean(prop.spring[,1])
+prp <-mean(prop_sr$prp)
 
 sacpas_yuba_feather <- gt %>% 
   filter(
     location %in% c("Yuba River", "Feather River"), 
     type == "In-River", 
-    run %in% c("Spring", "Fall")
+    run %in% c("Spring", "Fall"), 
+    !is.na(count)
   ) %>% 
   select(location, minorbasin, year=endyear, run, count)
 
@@ -48,20 +50,24 @@ yuba_feather_computed_counts <- sacpas_yuba_feather %>%
   summarise(count = sum(count, na.rm = TRUE)) %>% 
   ungroup() %>% 
   mutate(
-    count = ceiling(count * (1 - prp)), 
+    count = ceiling(count * (1 - prp)), # apply known fall run proportion
     run = "Fall"
   ) %>% 
   rename(watershed = location)
 
 sacpas_fall_imputed <- sacpas_fall_run %>% 
   filter(
-    !(watershed %in% c("Yuba River", "Feather River"))
+    run == "Fall",
+    !(watershed %in% c("Yuba River", "Feather River")) # remove old ones
   ) %>% 
-  bind_rows(yuba_feather_computed_counts)
+  bind_rows(yuba_feather_computed_counts) %>% # add in the new ones 
+  select(run, watershed, year, count)
+
 
 # making sure counts match up with the processing from Adam's script
 sacpas_fall_imputed %>% filter(watershed == "Feather River", between(year, 1998, 2018)) %>% 
   pull(count) %>% sum()
+
 
 stuff %>% filter(watershed == "Feather River") %>% pull(count) %>% sum()
 
@@ -70,38 +76,74 @@ stuff %>% filter(watershed == "Feather River") %>% pull(count) %>% sum()
 
 # battle creek appears as two watersheds we can tream them as one
 # the mainstem is the upper sacramento river, fix them both here
-sacpas_names_fixed <- sacpas_fall_imputed %>% 
+sacpas_batcreek_upsac <- sacpas_fall_imputed %>% 
+  filter(
+    str_detect(watershed, "Battle Creek") | watershed == "Mainstem"
+  ) %>% 
   mutate(watershed = case_when(
     str_detect(watershed, "Battle Creek") ~ "Battle Creek", 
-    watershed == "Mainstem" ~ "Upper Sacramento River",
-    TRUE ~ watershed
-  ))
-
-# id the duplicate watersheds; these will have total > 1 
-sacpas_names_fixed %>% 
-  group_by(watershed, year) %>% 
-  summarise(
-    total = n()
-  ) %>% ungroup() %>% 
-  filter(total > 1) %>% 
-  distinct(watershed)
-
-# the solution implemented by Adam is to just sum these up 
-sacpas_dups_fixed <- sacpas_names_fixed %>% 
+    watershed == "Mainstem" ~ "Upper Sacramento River"
+  )) %>% 
   group_by(run, watershed, year) %>% 
   summarise(
     count = sum(count, na.rm = TRUE)
   ) %>% ungroup()
 
-# check against adam's counts; need to run grandtab object up to line 73
-grandTab %>% filter(watershed == "Upper Sacramento River") %>% pull(count) %>% sum()
-sacpas_dups_fixed %>% filter(watershed == "Upper Sacramento River", 
-                             between(year, 1998, 2018)) %>% pull(count) %>% sum()
+# confirm values match up with Adam's
+# should be 957790
+sacpas_batcreek_upsac %>% filter(watershed == "Battle Creek", 
+                                 between(year, 1998, 2018)) %>% pull(count) %>% sum()
+# should be 865218
+sacpas_batcreek_upsac %>% filter(watershed == "Upper Sacramento River", 
+                                 between(year, 1998, 2018)) %>% pull(count) %>% sum()
 
-grandTab %>% filter(watershed == "Battle Creek") %>% pull(count) %>% sum()
+# the solution implemented by Adam is to just sum these up 
+sacpas_dups_fixed <- sacpas_fall_imputed %>% 
+  filter(
+    !(str_detect(watershed, "Battle Creek") | watershed == "Mainstem")
+  ) %>% 
+  bind_rows(sacpas_batcreek_upsac)
+
+# check again 
+# should be 957790
 sacpas_dups_fixed %>% filter(watershed == "Battle Creek", 
-                             between(year, 1998, 2018)) %>% pull(count) %>% sum()
+                                 between(year, 1998, 2018)) %>% pull(count) %>% sum()
+# should be 865218
+sacpas_dups_fixed %>% filter(watershed == "Upper Sacramento River", 
+                                 between(year, 1998, 2018)) %>% pull(count) %>% sum()
 
+
+# there are some years that are just left out, here I introduce these back into 
+# the dataset so we can count them as missing and fill them in later
+
+
+# 2017-1975 is 42
+sacpas_dups_fixed %>% 
+  filter(watershed %in% cvpiaData::watershed_ordering$watershed) %>%
+  group_by(watershed) %>% 
+  summarise(years_of_record = n_distinct(year)) %>% 
+  filter(years_of_record < 42)
+
+year_to_watershed_expected <- 
+  expand.grid(
+    watershed = unique(sacpas_dups_fixed$watershed), 
+    year = 1975:2017, 
+    stringsAsFactors = FALSE
+  ) %>% arrange(watershed)
+
+shed_escapees <- 
+  year_to_watershed_expected %>% 
+  left_join(sacpas_dups_fixed %>% filter(watershed %in% cvpiaData::watershed_ordering$watershed)) %>% 
+  as_tibble() %>% 
+  fill(run) %>% 
+  filter(watershed %in% cvpiaData::watershed_ordering$watershed, 
+         watershed != "Bear River")
+
+# should now be 0
+shed_escapees %>% 
+  filter(watershed %in% cvpiaData::watershed_ordering$watershed) %>%
+  group_by(watershed) %>% 
+  summarise(years_of_record = n_distinct(year)) 
 
 # Set Hatchery Fish ------------------------------------------------------------
 
@@ -111,7 +153,7 @@ hatchery_exp_real <-
   hatchery_expansion %>% filter(source != "made up")
 
 # this dataframe gets written out as a csv
-proportion_hatched <- hatchery_exp_real %>% 
+prop_hatch <- hatchery_exp_real %>% 
   group_by(watershed = trib) %>% 
   summarise(
     prop_hatched = mean(hatchery)
@@ -123,8 +165,101 @@ proportion_hatched <- hatchery_exp_real %>%
   select(watershed, order, sort, prop.Hatch = prop_hatched)
 
 # test this matches with Adam's should return 0
-sum(prop.hatch$prop.Hatch != proportion_hatched$prop.Hatch)
+sum(prop.hatch$prop.Hatch != prop_hatch$prop.Hatch)
+
+
+
+usethis::use_data(prop_hatch, overwrite = TRUE)
 
 
 # Fill in missing data ---------------------------------------------------------
+# the overall processing task is to get total number of valley of escapees for years
+# of complete record (no missing data on any trib), use this to get the proportion
+# of escapees from each of the tribs
+prop_escapees_in_complete_years <- shed_escapees %>% 
+  # filter(year >= 1998) %>% 
+  group_by(year) %>% 
+  summarise(
+    missing_years = sum(is.na(count)), 
+    valley_total = sum(count, na.rm = TRUE)) %>% 
+  filter(missing_years == 1) %>% 
+  left_join(shed_escapees, by = c("year" = "year")) %>% 
+  mutate(prop_escapees = count/valley_total) %>% 
+  group_by(watershed) %>% 
+  summarise(
+    avg_prop_escapees = mean(prop_escapees)
+  )
+
+
+reference_escapees <- shed_escapees %>% 
+  filter(watershed == "Upper Sacramento River") %>% 
+  left_join(prop_escapees_in_complete_years) %>% 
+  mutate(total_escapees = ceiling(count/avg_prop_escapees)) %>% 
+  select(
+    year, total_escapees
+  )
+
+
+# plot against Adam's reference line
+ggplot() + 
+  geom_line(data=reference_escapees, aes(year, total_escapees)) + 
+  geom_line(data=tot.escape, aes(year, total.Escape, color="adam"))
+
+
+estimated_watershed_escapees <- tibble(
+  watershed = all_watersheds$inps$watershed,
+  order = all_watersheds$inps$order, 
+  s_hab = all_watersheds$IChab.spawn[, 1, 1]
+) %>% 
+  filter(!is.na(s_hab)) %>% 
+  pull(watershed) %>% 
+  expand.grid(watershed = ., year = 1975:2017, stringsAsFactors = FALSE) %>% 
+  left_join(prop_escapees_in_complete_years) %>% 
+  arrange(watershed) %>% 
+  as_tibble() %>% 
+  mutate(avg_prop_escapees = ifelse(is.na(avg_prop_escapees), 
+                                    min(avg_prop_escapees, na.rm = TRUE), 
+                                    avg_prop_escapees)) %>% 
+  left_join(reference_escapees) %>% 
+  left_join(shed_escapees) %>% 
+  mutate(
+    estimated_count = ifelse(is.na(count), 
+                             round(total_escapees*avg_prop_escapees, 0), 
+                             count)
+  ) %>% 
+  left_join(cvpiaData::watershed_ordering) %>% 
+  select(order, watershed, year, estimated_count)
+
+
+estimated_watershed_escapees %>% 
+  filter(watershed == "American River") %>% 
+  ggplot(aes(year, estimated_count, color=watershed)) + geom_line()
+
+
+# same watersheds?
+adam_ws <- unique(all.comb$watershed)
+ws <- unique(estimated_watershed_escapees$watershed)
+setdiff(adam_ws, ws) # good
+setdiff(ws, adam_ws) # good
+
+# good means these are all zeros
+ws %>% 
+  map_int(function(w) {
+    x <- all.comb %>% 
+      filter(watershed == w) %>% 
+      pull(est.count)
+    
+    y <- estimated_watershed_escapees %>% 
+      filter(watershed == w, between(year, 1998, 2017)) %>% 
+      pull(estimated_count)
+    
+    sum(x != y)
+  })
+
+
+# Fill in Matrix --------------------------------------------------------------
+estimated_watershed_escapees %>% 
+  spread(year, estimated_count) %>% 
+  select(watershed, order, `1975`:`2017`)
+
 
