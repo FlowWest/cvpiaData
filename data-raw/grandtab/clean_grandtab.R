@@ -11,6 +11,8 @@ hatchery_expansion <- read_csv("data-raw/grandtab/hatchery expansion.csv",
 
 watersheds <- cvpiaData::watershed_ordering$watershed
 
+# FALL RUN ===========================================================================
+
 sacpas_fall_run <- gt %>% 
   filter(
     type == "In-River", 
@@ -255,16 +257,118 @@ ws %>%
 
 
 # Fill in Matrix --------------------------------------------------------------
-nat_adults_filled_in <- estimated_watershed_escapees %>% 
-  select(-raw_count) %>% 
-  spread(year, estimated_count) %>% 
-  select(watershed, order, `1998`:`2017`) 
+fr_known_adults <- estimated_watershed_escapees %>% 
+  mutate(
+    estimated_count = ifelse(
+      watershed %in% c("Upper-mid Sacramento River", "Sutter Bypass", 
+                       "Lower-mid Sacramento River", "Yolo Bypass", 
+                       "Lower Sacramento River", "San Joaquin River"), 
+      0, estimated_count
+    )
+  ) %>% 
+  select(order, watershed, year, estimated_count) %>%  
+  filter(between(year, 1980, 1999)) %>% 
+  spread(year, estimated_count)
 
-nat_adults_no_fill <- estimated_watershed_escapees %>% 
-  select(-estimated_count) %>% 
-  spread(year, raw_count) %>% 
-  select(watershed, order, `1998`:`2017`) 
 
-# it looks like the filled in version of this has some explicit rows always set to zero
+usethis::use_data(fr_known_adults, overwrite = TRUE)
+
+
+# SPRING RUN ===================================================================
+
+sacpas_spring_run <- gt %>% 
+  filter(
+    type == "In-River", 
+    run == "Spring", 
+    location != "All"
+  ) %>% 
+  select(run, watershed = location, 
+         minorbasin, year = endyear, count)
+
+
+# for feather and yuba apply the same processing as fall run but use proportion to extract spring run  
+
+prop_sr <- tibble(
+  prp=c(0.076777295, 0.056932196, 0.081441457), 
+  Year=c(2010,2011,2012)
+)
+
+# prop of spring run
+prp <-mean(prop_sr$prp)
+
+sacpas_yuba_feather_spring <- gt %>% 
+  filter(
+    location %in% c("Yuba River", "Feather River"), 
+    type == "In-River", 
+    run %in% c("Spring", "Fall"), 
+    !is.na(count)
+  ) %>% 
+  select(location, minorbasin, year=endyear, run, count)
+
+# sum over each watershed and year to get total Fall+Spring counts
+yuba_feather_computed_counts_spring <- sacpas_yuba_feather_spring %>% 
+  group_by(location, year) %>% 
+  summarise(count = sum(count, na.rm = TRUE)) %>% 
+  ungroup() %>% 
+  mutate(
+    count = ceiling(count * (prp)), # apply known spring run proportion
+    run = "Spring"
+  ) %>% 
+  rename(watershed = location)
+
+
+sacpas_spring_imputed <- sacpas_spring_run %>% 
+  filter(
+    run == "Spring",
+    !(watershed %in% c("Yuba River", "Feather River")) # remove old ones
+  ) %>% 
+  bind_rows(yuba_feather_computed_counts_spring) %>% # add in the new ones 
+  select(run, watershed, year, count)
+
+sacpas_spring_imputed %>% filter(between(year, 1998, 2017)) %>% 
+  filter(watershed %in% cvpiaData::watershed_ordering$watershed) %>% 
+  select(watershed, year, count) %>% 
+  spread(year, count)  %>% View()
+
+
+sr_known_adults <- 
+  expand.grid(
+    watershed = cvpiaData::watershed_ordering$watershed, 
+    year = 1975:2017, 
+    stringsAsFactors = FALSE
+  ) %>% arrange(watershed) %>% 
+  mutate(count = as.numeric(NA)) %>% 
+  left_join(sacpas_spring_imputed, by=c("watershed"="watershed", "year"="year")) %>% 
+  transmute(
+    run = "Spring", 
+    watershed,
+    year, 
+    count = count.y
+  ) %>%
+  left_join(cvpiaData::watershed_ordering) %>% 
+  select(order, watershed, year, count) %>% 
+  filter(between(year, 1980, 1999)) %>% 
+  spread(year, count)
+
+usethis::use_data(sr_known_adults, overwrite = TRUE)
+
+# WINTER RUN ===================================================================
+
+wr_known_adults <- gt %>% 
+  filter(
+    type == "In-River", 
+    run == "Winter", 
+    location != "All"
+  ) %>% 
+  select(run, watershed = location, 
+        year = endyear, count) %>% 
+  group_by(year) %>% 
+  summarise(
+    count = sum(count, na.rm = TRUE)
+  ) %>% 
+  filter(between(year, 1980, 1999))
+
+usethis::use_data(wr_known_adults, overwrite = TRUE)
+
 
 
