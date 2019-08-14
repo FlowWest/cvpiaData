@@ -108,7 +108,8 @@ load_baseline_data <- function(species) {
                      aveT20 = cvpiaData::aveT20, 
                      aveT20D = cvpiaData::aveT20D, 
                      maxT24 = cvpiaData::maxT24, 
-                     maxT29 = cvpiaData::maxT29)
+                     maxT29 = cvpiaData::maxT29, 
+                     known.Adults = cvpiaData::known_adults)
   
   switch(species,
          'fall' = {
