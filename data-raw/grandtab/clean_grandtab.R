@@ -17,9 +17,8 @@ sacpas_fall_run <- gt %>%
     run == "Fall", 
     location != "All"
   ) %>% 
-  select(
-    run, watershed = location, minorbasin, year = endyear, count
-  )
+  select(run, watershed = location, 
+         minorbasin, year = endyear, count)
 
 
 # Yuba/Feather Imputation ------------------------------------------------------
@@ -117,7 +116,7 @@ sacpas_dups_fixed %>% filter(watershed == "Upper Sacramento River",
 # the dataset so we can count them as missing and fill them in later
 
 
-# 2017-1975 is 42
+# 2017-1975 is 43
 sacpas_dups_fixed %>% 
   filter(watershed %in% cvpiaData::watershed_ordering$watershed) %>%
   group_by(watershed) %>% 
@@ -136,8 +135,7 @@ shed_escapees <-
   left_join(sacpas_dups_fixed %>% filter(watershed %in% cvpiaData::watershed_ordering$watershed)) %>% 
   as_tibble() %>% 
   fill(run) %>% 
-  filter(watershed %in% cvpiaData::watershed_ordering$watershed, 
-         watershed != "Bear River")
+  filter(watershed %in% cvpiaData::watershed_ordering$watershed)
 
 # should now be 0
 shed_escapees %>% 
@@ -177,12 +175,11 @@ usethis::use_data(prop_hatch, overwrite = TRUE)
 # of complete record (no missing data on any trib), use this to get the proportion
 # of escapees from each of the tribs
 prop_escapees_in_complete_years <- shed_escapees %>% 
-  # filter(year >= 1998) %>% 
   group_by(year) %>% 
   summarise(
     missing_years = sum(is.na(count)), 
     valley_total = sum(count, na.rm = TRUE)) %>% 
-  filter(missing_years == 1) %>% 
+  filter(missing_years == 2) %>% 
   left_join(shed_escapees, by = c("year" = "year")) %>% 
   mutate(prop_escapees = count/valley_total) %>% 
   group_by(watershed) %>% 
@@ -228,7 +225,7 @@ estimated_watershed_escapees <- tibble(
                              count)
   ) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
-  select(order, watershed, year, estimated_count)
+  select(order, watershed, year, estimated_count, raw_count = count)
 
 
 estimated_watershed_escapees %>% 
@@ -258,8 +255,16 @@ ws %>%
 
 
 # Fill in Matrix --------------------------------------------------------------
-estimated_watershed_escapees %>% 
+nat_adults_filled_in <- estimated_watershed_escapees %>% 
+  select(-raw_count) %>% 
   spread(year, estimated_count) %>% 
-  select(watershed, order, `1975`:`2017`)
+  select(watershed, order, `1998`:`2017`) 
+
+nat_adults_no_fill <- estimated_watershed_escapees %>% 
+  select(-estimated_count) %>% 
+  spread(year, raw_count) %>% 
+  select(watershed, order, `1998`:`2017`) 
+
+# it looks like the filled in version of this has some explicit rows always set to zero
 
 
