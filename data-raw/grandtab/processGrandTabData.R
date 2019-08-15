@@ -14,17 +14,19 @@ require(openxlsx)
 # 
 # devtools::install_github('FlowWest/cvpiaCalibration')
 
-
+inps <- load_baseline_data("fall")$inps
 
 library("cvpiaTemperature")
 library("cvpiaHabitat")
 library("cvpiaFlow")
 library("cvpiaData")
 
-grandTab<-read.csv("grandtab_SacPAS_InRiverChinook_12_26_18.csv")
+grandTab<-read.csv("data-raw/grandtab/grandtab_SacPAS_InRiverChinook_12_26_18.csv")
 names(grandTab)<-tolower(names(grandTab))
 head(grandTab,n=10)
 summary(grandTab)
+
+# Fall and spring run from 1998 to 2017
 grandTab<-grandTab[which(grandTab$year<2018 & grandTab$year>1997),]
 grandTab<-grandTab[which(grandTab$run=="Fall" | grandTab$run=="Spring" ),]
 
@@ -33,14 +35,17 @@ grandTab<-grandTab[which(grandTab$run=="Fall" | grandTab$run=="Spring" ),]
 #in totals, here we apply the proportion of spring hatchery return
 #adults that are used to adjust the totals for 2010 - 2012
 ###############################################################################
+
 prop.spring<-data.frame(prp=c(0.076777295, 0.056932196, 0.081441457), Year=c(2010,2011,2012))
 prp<-mean(prop.spring[,1])
 stuff<-grandTab[which(grandTab$watershed=="Feather River" | grandTab$watershed=="Yuba River"),-5]
-stuff<-stuff[-1*which(is.na(stuff$count)==TRUE),]
+stuff<-stuff[-1*which(is.na(stuff$count)==TRUE),] # take out NA values
 stuff<-aggregate(x=stuff$count,by=list(year=stuff$year,watershed=stuff$watershed),FUN=sum) # I summed them based because only 2 years tried to separate spring and fall
 names(stuff)[3]<-"count"
-stuff$count<-ceiling(stuff$count*(1-prp)) #how many are fall run
+stuff$count<-ceiling(stuff$count*(1-prp)) # get the proportion of the fall run
 
+# first filter grandtab to only the fall run then remove the current values for feather
+# and yuba and append the new computed values. 
 grandTab<-grandTab[which(grandTab$run=="Fall"),]
 grandTab<-grandTab[which(grandTab$watershed !="Feather River" & grandTab$watershed !="Yuba River"),c(1,4,2)]
 grandTab<-rbind(grandTab,stuff)
@@ -75,7 +80,7 @@ shed.escapee<-grandTab
 ###############################################################################
 #set hatchery fish
 ###############################################################################
-hatchery<-read.csv("hatchery expansion.csv")
+hatchery<-read.csv("data-raw/grandtab/hatchery expansion.csv")
 names(hatchery)<-tolower(names(hatchery))
 hatchery<-hatchery[-1*which(hatchery$source=="made up"),]
 prop.hatch<-aggregate(x=hatchery$hatchery,by=list(watershed=hatchery$trib),FUN=mean) # took mean based on values found here - http://www.casalmon.org/salmon-snapshots/history/battle-creek
@@ -126,7 +131,11 @@ all.comb$prop.escape<-ifelse(is.na(all.comb$prop.escape)==TRUE,min(prop.escapee$
 #fill in missing data based on total escapement and proportion in each trib
 all.comb<-merge(all.comb,tot.escape,all=T)
 all.comb<-merge(all.comb,shed.escapee,all=T)
-all.comb$est.count<-ifelse(is.na(all.comb$count)==TRUE,round(all.comb$total.Escape*all.comb$prop.escape,0),all.comb$count)
+all.comb$est.count<-ifelse(
+  is.na(all.comb$count)==TRUE,
+  round(all.comb$total.Escape*all.comb$prop.escape,0),
+  all.comb$count
+)
 
 ###############################################################################
 #create csv file for calibration
@@ -139,6 +148,7 @@ for(ii in 1:n.sheds){
   # ii=1
   this<-all.comb[which((all.comb$watershed==all.watersheds$watershed[ii])==TRUE),]
   if(dim(this)[1]>0){
+    cat("watershed: ", as.character(all.watersheds$watershed[ii]), " has ", dim(this)[1], " dims\n")
     for(jj in 1:n.years){
       # jj=1
       that<-this$count[which(this$year==all.years[jj])]
@@ -152,19 +162,3 @@ tada<-data.frame(all.watersheds,tater)
 tada[is.na(tada)]<-0
 names(tada)<-c("watershed","order",all.years)
 write.csv(tada,"Calibration2018_NaturalAdults_FallRun_NoFillIns.csv",row.names=FALSE)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
