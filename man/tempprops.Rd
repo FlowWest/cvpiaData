@@ -7,7 +7,7 @@
 \alias{maxT24}
 \alias{maxT29}
 \title{Temperature Proportions}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 7440 rows and 3 columns.}
+\format{An object of class \code{array} of dimension 31 x 12 x 20.}
 \usage{
 aveT20
 

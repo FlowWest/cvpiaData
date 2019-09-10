@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Fry Inchannel Habitat — fry • cvpiaData</title>
+<title>Temperature Proportions — tempprops • cvpiaData</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,10 @@
 
 
 
-<meta property="og:title" content="Fry Inchannel Habitat — fry" />
+<meta property="og:title" content="Temperature Proportions — tempprops" />
 
-<meta property="og:description" content="The 1980-1999 fry suitable inchannel rearing habitat area in square meters" />
+<meta property="og:description" content="a set of the temperature proportions for both tribs and the delta.
+See details below for more information." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,34 +109,37 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Fry Inchannel Habitat</h1>
+    <h1>Temperature Proportions</h1>
     <small class="dont-index">Source: <a href='https://github.com/FlowWest/cvpiaData/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>fry.Rd</code></div>
+    <div class="hidden name"><code>tempprops.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>The 1980-1999 fry suitable inchannel rearing habitat area in square meters</p>
+    <p>a set of the temperature proportions for both tribs and the delta.
+See details below for more information.</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>fr_fry</span>
+    <pre class="usage"><span class='no'>aveT20</span>
 
-<span class='no'>wr_fry</span>
+<span class='no'>aveT20D</span>
 
-<span class='no'>sr_fry</span>
+<span class='no'>maxT24</span>
 
-<span class='no'>st_fry</span></pre>
+<span class='no'>maxT29</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>a 3 dimensional array [31 watersheds, 12 months, 20 years]</p>
+    <p>An object of class <code>tbl_df</code> (inherits from <code>tbl</code>, <code>data.frame</code>) with 7440 rows and 3 columns.</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <ul>
-<li><p>use this link within R <code><a href='https://www.rdocumentation.org/packages/cvpiaHabitat/topics/set_instream_habitat'>set_instream_habitat</a></code></p></li>
-<li><p>use this <a href='https://flowwest.github.io/cvpiaHabitat/reference/set_instream_habitat.html'>link</a> if in a web browser</p></li>
+<li><p><code>aveT20</code> are proportions of months for which stream temperature was greater than 20</p></li>
+<li><p><code>aveT20D</code> are proportions of months for which delta temperature was greater than 20</p></li>
+<li><p><code>aveT24</code> probability that max temps &gt; 24 in a month based on average monthly temp in streams (chinook only)</p></li>
+<li><p><code>aveT29</code> probability that max temps &gt; 29 in a month based on average monthly temp in streams (steelhead only)</p></li>
 </ul>
     
 
