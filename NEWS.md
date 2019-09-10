@@ -36,3 +36,16 @@ _6/10/2019_
 _7/19/2019_
 
 * Update temperature inputs for Antelope Creek, Bear Creek, Elder Creek, Paynes Creek, Bear River, Feather River, and Calaveras River
+
+## cvpiaData 1.0.6 
+_9/10/2019_
+
+* add new temperature inputs aveT20, aveT20D, maxT24, maxT29
+* replace NA values with 0's
+* add mean flow in cms
+
+
+
+
+
+
