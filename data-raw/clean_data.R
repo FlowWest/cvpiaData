@@ -1,13 +1,13 @@
 library(devtools)
 library(tidyverse)
 library(grandTab)
-
+library(usethis)
 
 
 watershed_ordering <- readr::read_csv('data-raw/All inputs.csv') %>%
   dplyr::select(order = Order, watershed = Watershed)
 
-devtools::use_data(watershed_ordering)
+usethis::use_data(watershed_ordering)
 
 prev_escap <- read_csv('data-raw/All inputs.csv') %>% 
   select(watershed = Watershed, init.adult)

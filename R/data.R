@@ -231,6 +231,16 @@
 #' 
 "misc_data"
 
+#' Monthly Mean Flow
+#' @description The mean flow in cubic meters per second for each watershed every month of every year in the simulation (1980-1999).
+#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @details For more details see:
+#' \itemize{
+#'   \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
+#'   \item use this \href{https://flowwest.github.io/cvpiaFlow/reference/flows_cfs.html}{link} if in a web browser
+#' }
+"meanQ"
+
 #' Proportion of Flow Diverted
 #' @description The proportion of flow diverted for each watershed every month of every year in the simulation (1980-1999).
 #' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
@@ -600,3 +610,32 @@ NULL
 #' }
 #'
 "has_spring_run"
+
+#' Temperature Proportions
+#' @description a set of the temperature proportions for both tribs and the delta.
+#' See details below for more information.
+#' @details 
+#' \itemize{
+#'   \item{\code{aveT20} are proportions of months for which stream temperature was greater than 20°C}
+#'   \item{\code{aveT20D} are proportions of months for which delta temperature was greater than 20°C}
+#'   \item{\code{aveT24} probability that max temps > 24°C in a month based on average monthly temp in streams (chinook only)}
+#'   \item{\code{aveT29} probability that max temps > 29°C in a month based on average monthly temp in streams (steelhead only)}
+#' }
+#' @name tempprops
+#' @aliases NULL
+NULL
+
+#' @rdname tempprops
+"aveT20"
+
+#' @rdname tempprops
+"aveT20D"
+
+#' @rdname tempprops
+"maxT24"
+
+#' @rdname tempprops
+"maxT29"
+
+
+

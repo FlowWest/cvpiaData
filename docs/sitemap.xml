@@ -64,6 +64,9 @@
     <loc>https://flowwest.github.io/cvpiaData//reference/load_baseline_data.html</loc>
   </url>
   <url>
+    <loc>https://flowwest.github.io/cvpiaData//reference/meanQ.html</loc>
+  </url>
+  <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/med_flow.html</loc>
   </url>
   <url>
@@ -92,6 +95,9 @@
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/spawn.html</loc>
+  </url>
+  <url>
+    <loc>https://flowwest.github.io/cvpiaData//reference/tempprops.html</loc>
   </url>
   <url>
     <loc>https://flowwest.github.io/cvpiaData//reference/total_diversion.html</loc>
