@@ -616,10 +616,10 @@ NULL
 #' See details below for more information.
 #' @details 
 #' \itemize{
-#'   \item{\code{aveT20} are proportions of months for which stream temperature was greater than 20}
-#'   \item{\code{aveT20D} are proportions of months for which delta temperature was greater than 20}
-#'   \item{\code{aveT24} probability that max temps > 24 in a month based on average monthly temp in streams (chinook only)}
-#'   \item{\code{aveT29} probability that max temps > 29 in a month based on average monthly temp in streams (steelhead only)}
+#'   \item{\code{aveT20} are proportions of months for which stream temperature was greater than 20°C}
+#'   \item{\code{aveT20D} are proportions of months for which delta temperature was greater than 20°C}
+#'   \item{\code{aveT24} probability that max temps > 24°C in a month based on average monthly temp in streams (chinook only)}
+#'   \item{\code{aveT29} probability that max temps > 29°C in a month based on average monthly temp in streams (steelhead only)}
 #' }
 #' @name tempprops
 #' @aliases NULL
