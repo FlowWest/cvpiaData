@@ -278,7 +278,7 @@ aveT20 <- juv_temp %>%
   transmute(
     date, 
     watershed,
-    aveT20 = inv.logit(-8.9836+ 0.4818*monthly_mean_temp_c)
+    aveT20 = inv.logit(-8.9836 + 0.4818 * monthly_mean_temp_c)
   ) %>% 
   spread(date, aveT20) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
@@ -292,7 +292,7 @@ aveT20D <- delta_temps %>%
   transmute(
     date, 
     watershed, 
-    aveT20D = inv.logit(-18.11910 + 0.94687*monthly_mean_temp_c)  
+    aveT20D = inv.logit(-18.11910 + 0.94687 * monthly_mean_temp_c)  
   ) %>% 
   spread(date, aveT20D) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
@@ -307,7 +307,7 @@ maxT24 <- juv_temp %>%
   transmute(
     date, 
     watershed,
-    maxT24 = inv.logit(-22.3888+ 1.4385* monthly_mean_temp_c)
+    maxT24 = inv.logit(-22.3888 + 1.4385 * monthly_mean_temp_c)
   ) %>% 
   spread(date, maxT24) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
@@ -321,7 +321,7 @@ maxT29 <- juv_temp %>%
   transmute(
     date, 
     watershed, 
-    maxT29 = inv.logit(-18.9101+ 1.0058*monthly_mean_temp_c)
+    maxT29 = inv.logit(-18.9101 + 1.0058 * monthly_mean_temp_c)
   ) %>% 
   spread(date, maxT29) %>% 
   left_join(cvpiaData::watershed_ordering) %>% 
