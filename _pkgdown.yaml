@@ -50,6 +50,10 @@ reference:
   - degday
   - ptemp20mc
   - egg_temp_effect
+  - aveT20
+  - aveT20D
+  - maxT24
+  - maxT29
 - title: Miscellaneous Inputs
   contents:
   - misc_data
