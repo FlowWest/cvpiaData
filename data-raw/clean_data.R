@@ -17,7 +17,7 @@ prev_escap <- read_csv('data-raw/All inputs.csv') %>%
 # adjust the totals for 2010 - 2012 Data used were from GrandTab 2017 version
 prop_spring <- mean(c(0.076777295, 0.056932196, 0.081441457)) #2010-2012 
 
- fall_run_init_adult <- grandTab::grandtab %>% 
+fall_run_init_adult <- grandTab::grandtab %>% 
   filter(year >= 2010, type == 'Natural', run == 'Fall') %>% 
   mutate(watershed = replace(watershed, watershed == 'Upper-mid Sacramento River', 'Upper Sacramento River')) %>% 
   group_by(watershed) %>% 
@@ -36,7 +36,7 @@ prop_spring <- mean(c(0.076777295, 0.056932196, 0.081441457)) #2010-2012
 
 feat_yuba_fall <-  fall_run_init_adult %>% 
   filter(watershed %in% c('Yuba River', 'Feather River'))
- 
+
 has_spring_run <- cvpiaHabitat::modeling_exist %>% 
   filter(!is.na(SR_spawn)) %>% 
   pull(Watershed)
@@ -66,8 +66,8 @@ winter_run_init_adult <- tibble(
   group_by(watershed) %>% 
   summarise(init.adult = mean(count)) %>% 
   full_join(watershed_ordering)
-  
-  
+
+
 # init.adult update for new date range TODO
 # SCDELT
 # hatch.alloc
@@ -89,7 +89,7 @@ fr <- read_csv('data-raw/All inputs FALL RUN.csv')  %>%
   select(order = Order, sort = Srt, watershed = Watershed, SCDELT, hatch.alloc, 
          TISD, YOLO, p.tempMC2025, A.HARV, P.scour.nst, P.strand.early, P.strand.late, 
          High.pred, contact, prop.nat.remov) %>% 
-    mutate(run = 'fall') %>% 
+  mutate(run = 'fall') %>% 
   left_join(fall_run_init_adult)
 
 wr <- read_csv('data-raw/All inputs WINTER RUN.csv')  %>% 

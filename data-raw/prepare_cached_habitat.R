@@ -295,9 +295,9 @@ View(cvpiaData::watershed_ordering)
 cvpiaData::watershed_ordering$watershed[c(1, 16, 21, 24)]
 
  # spawn just in Upper Sac
-wr_spawn <- array(NA, c(31, 12, 21))
-up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 1999))
-months <- rep(1:12, 21)
+wr_spawn <- array(NA, c(31, 12, 23)) # 23 is years from 1979 to 2001
+up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 2001))
+months <- rep(1:12, 23)
 up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
   cvpiaHabitat::set_spawning_habitat('Upper Sacramento River', 
                                      species = 'wr', 
