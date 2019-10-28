@@ -394,19 +394,27 @@ usethis::use_data(wr_juv, overwrite = TRUE)
 
 
 # floodplain
-wr_fp <- array(NA, c(31, 12, 20))
-wr_fp[1,,] <- cvpiaHabitat::set_floodplain_habitat('Upper Sacramento River', 'wr', get_flow('Upper Sacramento River'))
-wr_fp[16,,] <- cvpiaHabitat::set_floodplain_habitat('Upper-mid Sacramento River', 'wr', get_flow('Upper-mid Sacramento River'))
-wr_fp[24,,] <- cvpiaHabitat::set_floodplain_habitat('Lower Sacramento River', 'wr', get_flow('Lower Sacramento River'))
+wr_fp <- array(NA, c(31, 12, 21)) 
+wr_fp[1,,] <- cvpiaHabitat::set_floodplain_habitat('Upper Sacramento River', 'wr', 
+                                                   get_flow('Upper Sacramento River',
+                                                            years = c(1980, 2000)))
+wr_fp[16,,] <- cvpiaHabitat::set_floodplain_habitat('Upper-mid Sacramento River', 'wr', 
+                                                    get_flow('Upper-mid Sacramento River',
+                                                             years = c(1980, 2000)))
+wr_fp[24,,] <- cvpiaHabitat::set_floodplain_habitat('Lower Sacramento River', 'wr', 
+                                                    get_flow('Lower Sacramento River',
+                                                             years = c(1980, 2000)))
 
 # lower-mid sacramento 
-low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1") 
-low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2") 
+low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1", years = c(1980, 2000)) 
+low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2", years = c(1980, 2000)) 
 low_mid_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento River', 'wr',
                                                        low_mid_sac_flows1, flow2 = low_mid_sac_flows2)
 
 wr_fp[21,,] <- low_mid_sac_fp
 
 wr_fp[is.na(wr_fp)] <- 0
+# confirm new dimensions 
+dim(wr_fp)
 
 usethis::use_data(wr_fp, overwrite = TRUE)
