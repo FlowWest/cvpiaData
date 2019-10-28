@@ -65,24 +65,24 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
   return(hab)
 }
 
-get_spawn_hab_all <- function(watersheds, species) {
-  
+get_spawn_hab_all <- function(watersheds, species, years = 1979:2000) {
+  total_obs <- 12 * length(years)
   most <- map_df(watersheds, function(watershed) {
-    flows <- get_flow(watershed, years=c(1979, 1999))
+    flows <- get_flow(watershed, years=range(years))
     habitat <- cvpiaHabitat::set_spawning_habitat(watershed, 
                                                   species = species,
                                                   flow = flows)
     tibble(
-      year = rep(1979:1999, each = 12),
-      month = rep(1:12, 21),
+      year = rep(years, each = 12),
+      month = rep(1:12, length(years)),
       watershed = watershed, 
       hab_sq_m = habitat)
   })
   
   # deal with sacramento special cases
   # upper sac
-  up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 1999))
-  months <- rep(1:12, 21)
+  up_sac_flows <- get_flow('Upper Sacramento River', years=range(years))
+  months <- rep(1:12, length(years))
   up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
     cvpiaHabitat::set_spawning_habitat('Upper Sacramento River', 
                                        species = species, 
@@ -90,19 +90,19 @@ get_spawn_hab_all <- function(watersheds, species) {
   })
   
   up_sac <- tibble(
-    year = rep(1979:1999, each = 12),
-    month = rep(1:12, 21),
+    year = rep(years, each = 12),
+    month = rep(1:12, length(years)),
     watershed = 'Upper Sacramento River', 
     hab_sq_m = up_sac_hab)
   
   hab <-   bind_rows(most, up_sac) %>% 
     spread(watershed, hab_sq_m) %>% 
-    bind_cols(tibble(`Sutter Bypass` = rep(NA, 252),
-                     `Yolo Bypass` = rep(NA, 252),
-                     `Upper-mid Sacramento River` = rep(NA, 252),
-                     `Lower-mid Sacramento River` = rep(NA, 252),
-                     `Lower Sacramento River` = rep(NA, 252),
-                     `San Joaquin River` = rep(NA, 252))) %>% 
+    bind_cols(tibble(`Sutter Bypass` = rep(NA, total_obs),
+                     `Yolo Bypass` = rep(NA, total_obs),
+                     `Upper-mid Sacramento River` = rep(NA, total_obs),
+                     `Lower-mid Sacramento River` = rep(NA, total_obs),
+                     `Lower Sacramento River` = rep(NA, total_obs),
+                     `San Joaquin River` = rep(NA, total_obs))) %>% 
     gather(watershed, habitat, -year, -month) %>% 
     mutate(date = lubridate::ymd(paste(year, month, 1, '-'))) %>% 
     select(date, watershed, habitat) %>% 
