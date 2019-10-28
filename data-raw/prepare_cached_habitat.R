@@ -15,7 +15,8 @@ get_flow <- function(watershed, years=c(1980, 1999)) {
                                              lubridate::year(date) <= years[2]), 2)
 }
 
-get_rear_hab_all <- function(watersheds, species, life_stage) {
+get_rear_hab_all <- function(watersheds, species, life_stage, years = 1980:1999) {
+  total_obs <- 12 * length(years)
   most <- map_df(watersheds, function(watershed) {
     
     flows <- get_flow(watershed)
@@ -24,16 +25,16 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
                                                   life_stage = life_stage, 
                                                   flow = flows)
     tibble(
-      year = rep(1980:1999, each = 12),
-      month = rep(1:12, 20),
+      year = rep(years, each = 12),
+      month = rep(1:12, length(years)),
       watershed = watershed, 
       hab_sq_m = habitat)
   })
   
   # deal with sacramento special cases
   # lower-mid sac
-  low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
-  low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2')
+  low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1', range(years))
+  low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2', range(years))
   
   low_mid_sac_hab <- map2_dbl(low_mid_sac_flow1, low_mid_sac_flow2, function(flow, flow2) {
     cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 
@@ -43,15 +44,15 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
   })
   
   low_mid_sac <- tibble(
-    year = rep(1980:1999, each = 12),
-    month = rep(1:12, 20),
+    year = rep(years, each = 12),
+    month = rep(1:12, length(years)),
     watershed = 'Lower-mid Sacramento River', 
     hab_sq_m = low_mid_sac_hab)
   
   hab <- bind_rows(most, low_mid_sac) %>% 
     spread(watershed, hab_sq_m) %>% 
-    bind_cols(tibble(`Sutter Bypass` = rep(NA, 240),
-                     `Yolo Bypass` = rep(NA, 240))) %>% 
+    bind_cols(tibble(`Sutter Bypass` = rep(NA, total_obs),
+                     `Yolo Bypass` = rep(NA, total_obs))) %>% 
     gather(watershed, habitat, -year, -month) %>% 
     mutate(date = lubridate::ymd(paste(year, month, 1, '-'))) %>% 
     select(date, watershed, habitat) %>% 
@@ -65,7 +66,7 @@ get_rear_hab_all <- function(watersheds, species, life_stage) {
   return(hab)
 }
 
-get_spawn_hab_all <- function(watersheds, species, years = 1979:2000) {
+get_spawn_hab_all <- function(watersheds, species, years = 1979:1999) {
   total_obs <- 12 * length(years)
   most <- map_df(watersheds, function(watershed) {
     flows <- get_flow(watershed, years=range(years))
@@ -112,49 +113,51 @@ get_spawn_hab_all <- function(watersheds, species, years = 1979:2000) {
     select(-watershed, -order) %>% 
     replace(., is.na(.), 0) %>%
     create_SIT_array()
-  
+    
   
   return(hab)
 }
 
-get_floodplain_hab_all <- function(watersheds, species) {
+get_floodplain_hab_all <- function(watersheds, species, years = 1980:1999) {
+  total_obs <- 12 * length(years)
   most <- map_df(watersheds, function(watershed) {
-    flows <- get_flow(watershed)
+    flows <- get_flow(watershed, range(years))
     habitat <- cvpiaHabitat::set_floodplain_habitat(watershed, species, flows)
     
     tibble(
-      year = rep(1980:1999, each = 12),
-      month = rep(1:12, 20),
+      year = rep(years, each = 12),
+      month = rep(1:12, length(years)),
       watershed = watershed, 
       hab_sq_m = habitat)
   })
   
   # deal with sac, already in square meters
   # upper sac
-  up_sac_flow <- get_flow('Upper Sacramento River')
-  up_mid_sac_flow <- get_flow('Upper-mid Sacramento River')
-  low_sac_flow <- get_flow('Lower Sacramento River')
+  up_sac_flow <- get_flow('Upper Sacramento River', range(years))
+  up_mid_sac_flow <- get_flow('Upper-mid Sacramento River', range(years))
+  low_sac_flow <- get_flow('Lower Sacramento River', range(years))
   
   up_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Upper Sacramento River', species, up_sac_flow)
   up_mid_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Upper-mid Sacramento River', species, up_mid_sac_flow)
   low_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Lower Sacramento River', species, low_sac_flow)
   
   # lower-mid sacramento 
-  low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1") 
-  low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2") 
+  low_mid_sac_flows1 <- get_flow("Lower-mid Sacramento River1", range(years)) 
+  low_mid_sac_flows2 <- get_flow("Lower-mid Sacramento River2", range(years)) 
   low_mid_sac_fp <- cvpiaHabitat::set_floodplain_habitat('Lower-mid Sacramento River', species,
                                                          low_mid_sac_flows1, flow2 = low_mid_sac_flows2)
+  no_watersheds_in_sac <- 4
   sac <- tibble(
-    year = rep(rep(1980:1999, each = 12), times = 4),
-    month = rep(1:12, 80),
+    year = rep(rep(years, each = 12), times = no_watersheds_in_sac),
+    month = rep(1:12, length(years) * no_watersheds_in_sac),
     watershed = rep(c('Upper Sacramento River', 'Upper-mid Sacramento River', 
-                      'Lower-mid Sacramento River', 'Lower Sacramento River'), each = 240), 
+                      'Lower-mid Sacramento River', 'Lower Sacramento River'), each = 12 * length(years)), 
     hab_sq_m = c(up_sac_fp, up_mid_sac_fp, low_mid_sac_fp, low_sac_fp))
   
   hab <- bind_rows(most, sac) %>% 
     spread(watershed, hab_sq_m) %>% 
-    bind_cols(tibble(`Sutter Bypass` = rep(NA, 240),
-                     `Yolo Bypass` = rep(NA, 240))) %>% 
+    bind_cols(tibble(`Sutter Bypass` = rep(NA, total_obs),
+                     `Yolo Bypass` = rep(NA, total_obs))) %>% 
     gather(watershed, habitat, -year, -month) %>% 
     mutate(date = lubridate::ymd(paste(year, month, 1, '-'))) %>% 
     select(date, watershed, habitat) %>% 
