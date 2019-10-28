@@ -295,9 +295,9 @@ View(cvpiaData::watershed_ordering)
 cvpiaData::watershed_ordering$watershed[c(1, 16, 21, 24)]
 
  # spawn just in Upper Sac
-wr_spawn <- array(NA, c(31, 12, 23)) # 23 is years from 1979 to 2001
-up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 2001))
-months <- rep(1:12, 23)
+wr_spawn <- array(NA, c(31, 12, 22)) # 22 is years from 1979 to 2000
+up_sac_flows <- get_flow('Upper Sacramento River', years=c(1979, 2000))
+months <- rep(1:12, 22)
 up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
   cvpiaHabitat::set_spawning_habitat('Upper Sacramento River', 
                                      species = 'wr', 
@@ -306,22 +306,27 @@ up_sac_hab <- map2_dbl(months, up_sac_flows, function(month, flow) {
 
 wr_spawn[1,,] <- up_sac_hab
 wr_spawn[is.na(wr_spawn)] <- 0
+# confirm data has the additional year dimensions
+dim(wr_spawn)
+
 usethis::use_data(wr_spawn, overwrite = TRUE)
 
 # fry and juv
-wr_fry <- array(NA, c(31, 12, 20))
+wr_fry <- array(NA, c(31, 12, 21)) # 1980 - 2000
 wr_fry[1,,] <- cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
                                                   species = 'wr',
                                                   life_stage = 'fry', 
-                                                  flow = get_flow('Upper Sacramento River'))
+                                                  flow = get_flow('Upper Sacramento River', 
+                                                                  years = c(1980, 2000)))
 wr_fry[16,,] <- cvpiaHabitat::set_instream_habitat('Upper-mid Sacramento River', 
                                                   species = 'wr',
                                                   life_stage = 'fry', 
-                                                  flow = get_flow('Upper-mid Sacramento River'))
+                                                  flow = get_flow('Upper-mid Sacramento River', 
+                                                                  years = c(1980, 2000)))
 # deal with sacramento special cases
 # lower-mid sac
-low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
-low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2')
+low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1', years = c(1980, 2000))
+low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2', years = c(1980, 2000))
 
 low_mid_sac_hab <- map2_dbl(low_mid_sac_flow1, low_mid_sac_flow2, function(flow, flow2) {
   cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 
@@ -336,26 +341,33 @@ wr_fry[21,,] <- low_mid_sac_hab
 wr_fry[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River', 
                                                    species = 'wr',
                                                    life_stage = 'fry', 
-                                                   flow = get_flow('Lower Sacramento River'))
+                                                   flow = get_flow('Lower Sacramento River', 
+                                                                   years = c(1980, 2000)))
 
 
 wr_fry[is.na(wr_fry)] <- 0
+
+# Confirm new dimensions include the addtional year (2000)
+dim(wr_fry)
+
 usethis::use_data(wr_fry, overwrite = TRUE)
 
 
-wr_juv <- array(NA, c(31, 12, 20))
+wr_juv <- array(NA, c(31, 12, 21)) # 1980-2000 
 wr_juv[1,,] <- cvpiaHabitat::set_instream_habitat('Upper Sacramento River', 
                                                   species = 'wr',
                                                   life_stage = 'juv', 
-                                                  flow = get_flow('Upper Sacramento River'))
+                                                  flow = get_flow('Upper Sacramento River', 
+                                                                  years = c(1980, 2000)))
 wr_juv[16,,] <- cvpiaHabitat::set_instream_habitat('Upper-mid Sacramento River', 
                                                    species = 'wr',
                                                    life_stage = 'juv', 
-                                                   flow = get_flow('Upper-mid Sacramento River'))
+                                                   flow = get_flow('Upper-mid Sacramento River', 
+                                                                   years = c(1980, 2000)))
 # deal with sacramento special cases
 # lower-mid sac
-low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1')
-low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2')
+low_mid_sac_flow1 <- get_flow('Lower-mid Sacramento River1', years = c(1980, 2000))
+low_mid_sac_flow2 <- get_flow('Lower-mid Sacramento River2', years = c(1980, 2000))
 
 low_mid_sac_hab <- map2_dbl(low_mid_sac_flow1, low_mid_sac_flow2, function(flow, flow2) {
   cvpiaHabitat::set_instream_habitat('Lower-mid Sacramento River', 
@@ -370,15 +382,18 @@ wr_juv[21,,] <- low_mid_sac_hab
 wr_juv[24,,] <- cvpiaHabitat::set_instream_habitat('Lower Sacramento River', 
                                                    species = 'wr',
                                                    life_stage = 'juv', 
-                                                   flow = get_flow('Lower Sacramento River'))
+                                                   flow = get_flow('Lower Sacramento River', 
+                                                                   years = c(1980, 2000)))
 
 
 wr_juv[is.na(wr_juv)] <- 0
+# confirm new dimensions include additional year
+dim(wr_juv)
 
 usethis::use_data(wr_juv, overwrite = TRUE)
 
 
- # floodplain
+# floodplain
 wr_fp <- array(NA, c(31, 12, 20))
 wr_fp[1,,] <- cvpiaHabitat::set_floodplain_habitat('Upper Sacramento River', 'wr', get_flow('Upper Sacramento River'))
 wr_fp[16,,] <- cvpiaHabitat::set_floodplain_habitat('Upper-mid Sacramento River', 'wr', get_flow('Upper-mid Sacramento River'))
