@@ -180,10 +180,12 @@ spawning_watersheds <- cvpiaHabitat::modeling_exist %>%
 
 
 fr_spawn <- get_spawn_hab_all(spawning_watersheds, 'fr')
-st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st', )
+st_spawn <- get_spawn_hab_all(spawning_watersheds, 'st')
 
 sr_spawn <- get_spawn_hab_all(spawning_watersheds, 'sr', years = 1979:2000)
+
 # several watershed that do not have spring run populations but SIT wants to enable colonization
+# NOTE: here i create new fr and st habs that include year 2000 in order to fill in for the sr
 fr_spawn_filler <- get_spawn_hab_all(spawning_watersheds, 'fr', year = 1979:2000)
 st_spawn_filler <- get_spawn_hab_all(spawning_watersheds, 'st', year = 1979:2000)
 
@@ -255,10 +257,10 @@ sr_fp <- get_floodplain_hab_all(watersheds_fp, 'sr', years = 1980:2000)
 fr_fp_filler <- get_floodplain_hab_all(watersheds_fp, 'fr', years = 1980:2000)
 st_fp_filler <- get_floodplain_hab_all(watersheds_fp, 'st', years = 1980:2000)
 
-sr_fp[15, , ] <- st_fp[15, , ] # Thomes Creek
-sr_fp[25, , ] <- fr_fp[25, , ] # Calaveras River
-sr_fp[26, , ] <- fr_fp[26, , ] # Cosumnes River
-sr_fp[28, , ] <- fr_fp[28, , ] # Merced River
+sr_fp[15, , ] <- st_fp_filler[15, , ] # Thomes Creek
+sr_fp[25, , ] <- fr_fp_filler[25, , ] # Calaveras River
+sr_fp[26, , ] <- fr_fp_filler[26, , ] # Cosumnes River
+sr_fp[28, , ] <- fr_fp_filler[28, , ] # Merced River
 
 usethis::use_data(fr_fp, overwrite = TRUE)
 usethis::use_data(sr_fp, overwrite = TRUE)
@@ -267,7 +269,7 @@ usethis::use_data(st_fp, overwrite = TRUE)
 # bypass in stream ----------------
 
 bpf <- cvpiaFlow::bypass_flows %>% 
-  filter(between(year(date), 1980, 1999))
+  filter(between(year(date), 1980, 2000))
 
 bypass_instream <- bind_cols(
   'date' = pull(bpf, date),
@@ -282,7 +284,7 @@ bypass_instream <- bind_cols(
 bypass_floodplain <- bind_cols(
   'date' = pull(bpf, date),
   'yolo1' = cvpiaHabitat::set_bypass_floodplain_habitat(bypass = 'yolo1', flow = pull(bpf, yolo1)),
-  'yolo2' = rep(0, 240),
+  'yolo2' = rep(0, 252),
   'sutter1' = cvpiaHabitat::set_bypass_floodplain_habitat(bypass = 'sutter1', flow = pull(bpf, sutter1)),
   'sutter2' = cvpiaHabitat::set_bypass_floodplain_habitat(bypass = 'sutter2', flow = pull(bpf, sutter2)),
   'sutter3' = cvpiaHabitat::set_bypass_floodplain_habitat(bypass = 'sutter3', flow = pull(bpf, sutter3)),
