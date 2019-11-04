@@ -13,7 +13,7 @@
 #' Proportion Flow at Yolo and Sutter Bypasses
 #' @description The proportion of Lower Sacramento River flow at each bypass weir
 #'
-#' @format A 3 dimensional array: 12 by 20 by 6 [months, years, bypasses]
+#' @format A 3 dimensional array: 12 by 21 by 6 [months, years, bypasses]
 #' 
 #' \itemize{
 #'   \item [ , , 1] Sutter Bypass 1
@@ -34,7 +34,7 @@
 
 
 #' Sutter and Yolo Bypass Over Topped
-#' @description  1979-1999 boolean record of the bypasses over topped based on CALSIM flows
+#' @description  1979-2000 boolean record of the bypasses over topped based on CALSIM flows
 #'
 #' @format A 3 dimensional array: 12 by 21 by 2 [months, years, bypasses]
 #' 
@@ -77,9 +77,9 @@
 "cross_channel_gates"
 
 #' Delta Proportion Diverted
-#' @description The proportion of delta inflow diverted from 1980-1999.
+#' @description The proportion of delta inflow diverted from 1980-2000.
 #' 
-#' @format A 3 dimensional array: 12 by 20 by 2 [months, years, deltas]
+#' @format A 3 dimensional array: 12 by 21 by 2 [months, years, deltas]
 #' 
 #' [ , , 1] North Delta
 #' 
@@ -100,9 +100,9 @@
 "dlt_divers"
 
 #' Delta Total Diverted
-#' @description The total diverted of delta inflow in cubic meters per second from 1980-1999.
+#' @description The total diverted of delta inflow in cubic meters per second from 1980-2000.
 #' 
-#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' @format A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 #' 
 #' [ , , 1] North Delta
 #' 
@@ -123,9 +123,9 @@
 "dlt_divers_tot"
 
 #' Delta Inflow
-#' @description The delta inflow in cubic meters per second from 1980-1999.
+#' @description The delta inflow in cubic meters per second from 1980-2000.
 #' 
-#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' @format A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 #' 
 #' [ , , 1] North Delta
 #' 
@@ -145,10 +145,10 @@
 #' 
 "dlt_inflow"
 
-#' Delta Inflow
-#' @description The delta temperature in °C from 1980-1999.
+#' Delta Temperature
+#' @description The delta temperature in °C from 1980-2000.
 #' 
-#' @format A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+#' @format A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 #' 
 #' [ , , 1] North Delta
 #' 
@@ -169,10 +169,10 @@
 "dlt_temps"
 
 #' Flow at Freeport
-#' @description The inflow at Freeport in cubic meters per second from 1980-1999.
+#' @description The inflow at Freeport in cubic meters per second from 1980-2000.
 #' 
-#' @format A dataframe with 12 rows and 20 variables
-#' Each row represents a month, each column a year from 1980-1999. 
+#' @format A dataframe with 12 rows and 21 variables
+#' Each row represents a month, each column a year from 1980-2000. 
 #' This data is used to route fish into the delta.
 #' 
 #' @details For more details see:
@@ -185,12 +185,12 @@
 "freeportQcms"
 
 #' Upper Sacramento Flows
-#' @description Flows at bend bridge in cubic meters per second from 1980-1999.
+#' @description Flows at bend bridge in cubic meters per second from 1980-2000.
 #' 
-#' @format A dataframe with 12 rows and 20 variables
+#' @format A dataframe with 12 rows and 21 variables
 #' 
 #' @details 
-#' Each row represents a month, each column a year from 1980-1999. 
+#' Each row represents a month, each column a year from 1980-2000. 
 #' This data is used to route fish into the delta.
 #' 
 #' For more details see:
@@ -232,8 +232,8 @@
 "misc_data"
 
 #' Monthly Mean Flow
-#' @description The mean flow in cubic meters per second for each watershed every month of every year in the simulation (1980-1999).
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The mean flow in cubic meters per second for each watershed every month of every year in the simulation (1980-2000).
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
 #' @details For more details see:
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaFlow]{flows_cfs}}
@@ -242,8 +242,8 @@
 "meanQ"
 
 #' Proportion of Flow Diverted
-#' @description The proportion of flow diverted for each watershed every month of every year in the simulation (1980-1999).
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The proportion of flow diverted for each watershed every month of every year in the simulation (1980-2000).
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
 #' @details For more details see:
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaFlow]{proportion_diverted}}
@@ -252,8 +252,8 @@
 "prop_diversion"
 
 #' Total Flow Diverted
-#' @description The total flow diverted in cubic feet per second for each watershed every month of every year in the simulation (1980-1999).
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The total flow diverted in cubic feet per second for each watershed every month of every year in the simulation (1980-2000).
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
 #' @details For more details see:
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaFlow]{total_diverted}}
@@ -267,10 +267,10 @@
 #' @description The proportion flows at tributary junction coming from natal watershed using October CALSIM II flows 
 #' from 1979-1998.
 #' 
-#' @format A dataframe with 12 rows and 20 variables
+#' @format A dataframe with 12 rows and 23 variables
 #' 
 #' @details 
-#' Each row represents a month, each column a year from 1979-1998. 
+#' Each row represents a month, each column a year from 1979-2000 
 #' 
 #' For more details see:
 #' \itemize{
@@ -282,9 +282,9 @@
 
 #' Degree Days
 #' @description The monthly accumulated degree days (celsius)
-#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @format a 3 dimensional array [31 watersheds, 12 months, 22 years]
 #' @details 
-#' Accumulated degree days for 1979-1999
+#' Accumulated degree days for 1979-2000
 #' For more details see:
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaTemperature]{deg_days}}
@@ -295,9 +295,9 @@
 "degday"
 
 #' Delta Rearing Habitat
-#' @description The delta high quality habitat area in square meters from 1980-1999.
+#' @description The delta high quality habitat area in square meters from 1980-2000.
 #' 
-#' @format A 3 dimensional array: 12 by 20 by 2 [months, years, deltas]
+#' @format A 3 dimensional array: 12 by 21 by 2 [months, years, deltas]
 #' 
 #' [ , , 1] North Delta
 #' 
@@ -332,8 +332,8 @@
 "inundation_durations"
 
 #' Rearing Temperature
-#' @description The 1980-1999 rearing temperature in °C
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The 1980-2000 rearing temperature in °C
+#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaTemperature]{juv_temp}}
@@ -377,8 +377,8 @@
 "egg_temp_effect"
 
 #' Bypass Instream Habitat Area
-#' @description The 1980-1999 suitable juvenile rearing habitat area in square meters
-#' @format a 3 dimensional array [6 bypass sections, 12 months, 20 years]
+#' @description The 1980-2000 suitable juvenile rearing habitat area in square meters
+#' @format a 3 dimensional array [6 bypass sections, 12 months, 21 years]
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_bypass_instream_habitat}}
@@ -399,8 +399,8 @@
 "inchannel_bypass"
 
 #' Bypass Floodplain Habitat Area
-#' @description The 1980-1999 total floodplain habitat area in square meters
-#' @format a 3 dimensional array [6 bypass sections, 12 months, 20 years]
+#' @description The 1980-2000 total floodplain habitat area in square meters
+#' @format a 3 dimensional array [6 bypass sections, 12 months, 21 years]
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_bypass_floodplain_habitat}}
@@ -460,7 +460,7 @@
 "prop_pulse"
 
 #' Median Flow
-#' @description The monthly median flows of 1980-1999 in cubic feet per second
+#' @description The monthly median flows of 1980-2000 in cubic feet per second
 #' @format a dataframe with 31 rows and 13 variables 
 #' \describe{
 #'   \item{watershed}{CVPIA watershed}
@@ -500,8 +500,13 @@
 'pools'
 
 #' Spawning Habitat
-#' @description The 1979-1999 suitable spawning habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' @description The 1979-1999 suitable spawning habitat area in square meters for Fall Run and Steelhead
+#' and 1979-2000 suitable spawning habitat area in square meters for Spring Run and Winter Run.
+#' @format 
+#' \itemize{
+#' \item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' \item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 22 years]
+#' }
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_spawning_habitat}}
@@ -514,8 +519,13 @@ NULL
 
 
 #' Fry Inchannel Habitat
-#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The 1980-1999 fry suitable inchannel rearing habitat area in square meters for Fall Run and Steelhead
+#' and 1979-2000 suitable inchannel rearing habitat area in square meters for Spring Run and Winter Run.
+#' @format
+#' \itemize{
+#' \item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' \item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' }
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
@@ -527,8 +537,14 @@ NULL
 NULL
 
 #' Juvenile Inchannel Habitat
-#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The 1980-1999 juvenile suitable inchannel rearing habitat area in square meters for Fall Run 
+#' and Steelhead and 1980-2000 juvenile suitable inchannel rearing habitat area in square meters
+#' for Spring Run and Winter Run.
+#' @format
+#' \itemize{
+#' \item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' \item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' }
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_instream_habitat}}
@@ -540,8 +556,14 @@ NULL
 NULL
 
 #' Floodplain Habitat
-#' @description The 1980-1999 total floodplain rearing habitat area in square meters
-#' @format a 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' @description The 1980-1999 total floodplain rearing habitat area in square meters for Fall Run and
+#' Steelhead and 1980-2000 total floodplain rearing habitat area in square meters for Spring Run and
+#' Winter Run
+#' @format
+#' \itemize{
+#' \item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
+#' \item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
+#' }
 #' @details 
 #' \itemize{
 #'   \item use this link within R \code{\link[cvpiaHabitat]{set_floodplain_habitat}}
