@@ -4,12 +4,12 @@
 \name{meanQ}
 \alias{meanQ}
 \title{Monthly Mean Flow}
-\format{a 3 dimensional array [31 watersheds, 12 months, 20 years]}
+\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
 \usage{
 meanQ
 }
 \description{
-The mean flow in cubic meters per second for each watershed every month of every year in the simulation (1980-1999).
+The mean flow in cubic meters per second for each watershed every month of every year in the simulation (1980-2000).
 }
 \details{
 For more details see:

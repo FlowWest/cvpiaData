@@ -7,7 +7,10 @@
 \alias{sr_fp}
 \alias{st_fp}
 \title{Floodplain Habitat}
-\format{a 3 dimensional array [31 watersheds, 12 months, 20 years]}
+\format{\itemize{
+\item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
+\item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
+}}
 \usage{
 fr_fp
 
@@ -18,7 +21,9 @@ sr_fp
 st_fp
 }
 \description{
-The 1980-1999 total floodplain rearing habitat area in square meters
+The 1980-1999 total floodplain rearing habitat area in square meters for Fall Run and
+Steelhead and 1980-2000 total floodplain rearing habitat area in square meters for Spring Run and
+Winter Run
 }
 \details{
 \itemize{

@@ -4,7 +4,7 @@
 \name{dlt_hab}
 \alias{dlt_hab}
 \title{Delta Rearing Habitat}
-\format{A 3 dimensional array: 12 by 20 by 2 [months, years, deltas]
+\format{A 3 dimensional array: 12 by 21 by 2 [months, years, deltas]
 
 [ , , 1] North Delta
 
@@ -13,7 +13,7 @@
 dlt_hab
 }
 \description{
-The delta high quality habitat area in square meters from 1980-1999.
+The delta high quality habitat area in square meters from 1980-2000.
 }
 \details{
 The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.

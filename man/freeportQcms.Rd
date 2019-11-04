@@ -4,14 +4,14 @@
 \name{freeportQcms}
 \alias{freeportQcms}
 \title{Flow at Freeport}
-\format{A dataframe with 12 rows and 20 variables
-Each row represents a month, each column a year from 1980-1999. 
+\format{A dataframe with 12 rows and 21 variables
+Each row represents a month, each column a year from 1980-2000. 
 This data is used to route fish into the delta.}
 \usage{
 freeportQcms
 }
 \description{
-The inflow at Freeport in cubic meters per second from 1980-1999.
+The inflow at Freeport in cubic meters per second from 1980-2000.
 }
 \details{
 For more details see:

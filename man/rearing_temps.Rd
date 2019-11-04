@@ -4,12 +4,12 @@
 \name{rearing_temps}
 \alias{rearing_temps}
 \title{Rearing Temperature}
-\format{a 3 dimensional array [31 watersheds, 12 months, 20 years]}
+\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
 \usage{
 rearing_temps
 }
 \description{
-The 1980-1999 rearing temperature in °C
+The 1980-2000 rearing temperature in °C
 }
 \details{
 \itemize{

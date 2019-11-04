@@ -3,8 +3,8 @@
 \docType{data}
 \name{dlt_temps}
 \alias{dlt_temps}
-\title{Delta Inflow}
-\format{A 3 dimensional array: 12 by 20 by 2 (months, years, deltas)
+\title{Delta Temperature}
+\format{A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 
 [ , , 1] North Delta
 
@@ -13,7 +13,7 @@
 dlt_temps
 }
 \description{
-The delta temperature in °C from 1980-1999.
+The delta temperature in °C from 1980-2000.
 }
 \details{
 The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.

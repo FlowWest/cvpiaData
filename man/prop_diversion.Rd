@@ -4,12 +4,12 @@
 \name{prop_diversion}
 \alias{prop_diversion}
 \title{Proportion of Flow Diverted}
-\format{a 3 dimensional array [31 watersheds, 12 months, 20 years]}
+\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
 \usage{
 prop_diversion
 }
 \description{
-The proportion of flow diverted for each watershed every month of every year in the simulation (1980-1999).
+The proportion of flow diverted for each watershed every month of every year in the simulation (1980-2000).
 }
 \details{
 For more details see:

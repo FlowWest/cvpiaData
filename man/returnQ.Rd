@@ -4,7 +4,7 @@
 \name{returnQ}
 \alias{returnQ}
 \title{Return Flow}
-\format{A dataframe with 12 rows and 20 variables}
+\format{A dataframe with 12 rows and 23 variables}
 \usage{
 returnQ
 }
@@ -13,7 +13,7 @@ The proportion flows at tributary junction coming from natal watershed using Oct
 from 1979-1998.
 }
 \details{
-Each row represents a month, each column a year from 1979-1998. 
+Each row represents a month, each column a year from 1979-2000 
 
 For more details see:
 \itemize{

@@ -24,7 +24,7 @@
 med_flow
 }
 \description{
-The monthly median flows of 1980-1999 in cubic feet per second
+The monthly median flows of 1980-2000 in cubic feet per second
 }
 \details{
 For more details see:
