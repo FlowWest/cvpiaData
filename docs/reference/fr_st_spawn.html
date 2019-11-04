@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Delta Rearing Habitat — dlt_hab • cvpiaData</title>
+<title>Spawning Habitat — fr_st_spawn • cvpiaData</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="Delta Rearing Habitat — dlt_hab" />
-<meta property="og:description" content="The delta high quality habitat area in square meters from 1980-2000." />
+<meta property="og:title" content="Spawning Habitat — fr_st_spawn" />
+<meta property="og:description" content="The 1979-1999 suitable spawning habitat area in square meters" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -114,31 +114,29 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Delta Rearing Habitat</h1>
+    <h1>Spawning Habitat</h1>
     <small class="dont-index">Source: <a href='https://github.com/FlowWest/cvpiaData/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>dlt_hab.Rd</code></div>
+    <div class="hidden name"><code>fr_st_spawn.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The delta high quality habitat area in square meters from 1980-2000.</p>
+    <p>The 1979-1999 suitable spawning habitat area in square meters</p>
     </div>
 
-    <pre class="usage"><span class='no'>dlt_hab</span></pre>
+    <pre class="usage"><span class='no'>fr_spawn</span>
+
+<span class='no'>st_spawn</span></pre>
 
 
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A 3 dimensional array: 12 by 21 by 2 [months, years, deltas]</p>
-<p>[ , , 1] North Delta</p>
-<p>[ , , 2] South Delta</p>
+    <p>a 3 dimensional array [31 watersheds, 12 months, 21 years]</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.</p>
-<p>The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
-below Vernalis.</p>
-<p>For more details see:</p><ul>
-<li><p>use this link within R <code><a href='https://rdrr.io/pkg/cvpiaHabitat/man/delta_habitat.html'>delta_habitat</a></code></p></li>
-<li><p>use this <a href='https://flowwest.github.io/cvpiaHabitat/reference/delta_habitat.html'>link</a> if in a web browser</p></li>
+    
+<ul>
+<li><p>use this link within R <code><a href='https://rdrr.io/pkg/cvpiaHabitat/man/set_spawning_habitat.html'>set_spawning_habitat</a></code></p></li>
+<li><p>use this <a href='https://flowwest.github.io/cvpiaHabitat/reference/set_spawning_habitat.html'>link</a> if in a web browser</p></li>
 </ul>
 
 
