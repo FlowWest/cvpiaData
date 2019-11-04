@@ -4,15 +4,15 @@
 \name{upsac_flow}
 \alias{upsac_flow}
 \title{Upper Sacramento Flows}
-\format{A dataframe with 12 rows and 20 variables}
+\format{A dataframe with 12 rows and 21 variables}
 \usage{
 upsac_flow
 }
 \description{
-Flows at bend bridge in cubic meters per second from 1980-1999.
+Flows at bend bridge in cubic meters per second from 1980-2000.
 }
 \details{
-Each row represents a month, each column a year from 1980-1999. 
+Each row represents a month, each column a year from 1980-2000. 
 This data is used to route fish into the delta.
 
 For more details see:

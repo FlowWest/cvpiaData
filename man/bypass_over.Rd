@@ -16,7 +16,7 @@ Sadie Gill \email{sgill@flowwest.com}
 bypass_over
 }
 \description{
-1979-1999 boolean record of the bypasses over topped based on CALSIM flows
+1979-2000 boolean record of the bypasses over topped based on CALSIM flows
 }
 \details{
 For more details see:

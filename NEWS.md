@@ -44,6 +44,10 @@ _9/10/2019_
 * replace NA values with 0's
 * add mean flow in cms
 
+## cvpiaData 1.0.7 
+_9/10/2019_
+
+* add year 2000 to hydrology, temperature and both Spring and Winter Run habitat data.
 
 
 

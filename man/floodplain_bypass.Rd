@@ -4,12 +4,12 @@
 \name{floodplain_bypass}
 \alias{floodplain_bypass}
 \title{Bypass Floodplain Habitat Area}
-\format{a 3 dimensional array [6 bypass sections, 12 months, 20 years]}
+\format{a 3 dimensional array [6 bypass sections, 12 months, 21 years]}
 \usage{
 floodplain_bypass
 }
 \description{
-The 1980-1999 total floodplain habitat area in square meters
+The 1980-2000 total floodplain habitat area in square meters
 }
 \details{
 \itemize{

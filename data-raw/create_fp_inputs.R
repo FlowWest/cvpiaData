@@ -4,13 +4,13 @@ library(lubridate)
 
 # flow filtered to time frame of interest-----------
 flz <- cvpiaFlow::flows_cfs %>% 
-  filter(between(year(date), 1980, 1999)) %>% 
+  filter(between(year(date), 1980, 2000)) %>% 
   gather(watershed, flow, -date)
 
 # helper function to get weeks inundated at all flows during period for watershed------
 all_wi <- function(ws) {
   tibble(
-    date = seq(as.Date('1980-01-01'), as.Date('1999-12-01'), by = 'month'),
+    date = seq(as.Date('1980-01-01'), as.Date('2000-12-01'), by = 'month'),
     duration = map_dbl(filter(flz, watershed == ws)$flow, function(flows) {
       cvpiaHabitat::weeks_flooded(ws, flows)  
     }),
@@ -19,7 +19,8 @@ all_wi <- function(ws) {
 }
 
 #
-all_wi('Sutter Bypass')
+# all_wi('Sutter Bypass') # does work with all_wi
+all_wi('Yuba River')
 
 durations <- tibble()
 
@@ -38,7 +39,7 @@ cvpiaHabitat::weeks_inundated %>%
 inundation_durations <- durations %>% 
   rbind(
     tibble(
-      date = seq(as.Date('1980-01-01'), as.Date('1999-12-01'), by = 'month'),
+      date = seq(as.Date('1980-01-01'), as.Date('2000-12-01'), by = 'month'),
       `Sutter Bypass` = 2,
       `Yolo Bypass` = 2,
       `Lower-mid Sacramento River` = 2
@@ -50,7 +51,6 @@ inundation_durations <- durations %>%
   arrange(order) %>% 
   select(-order, -watershed) %>% 
   create_SIT_array()
-  
 
 usethis::use_data(inundation_durations, overwrite = TRUE)
 

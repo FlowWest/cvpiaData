@@ -4,7 +4,7 @@
 \name{degday}
 \alias{degday}
 \title{Degree Days}
-\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
+\format{a 3 dimensional array [31 watersheds, 12 months, 22 years]}
 \usage{
 degday
 }
@@ -12,7 +12,7 @@ degday
 The monthly accumulated degree days (celsius)
 }
 \details{
-Accumulated degree days for 1979-1999
+Accumulated degree days for 1979-2000
 For more details see:
 \itemize{
   \item use this link within R \code{\link[cvpiaTemperature]{deg_days}}

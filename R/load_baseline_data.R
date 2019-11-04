@@ -106,9 +106,9 @@ load_baseline_data <- function(species) {
                      prop.pulse = cvpiaData::prop_pulse,
                      medQ = cvpiaData::med_flow, 
                      meanQ = cvpiaData::meanQ,
-                     aveT20 = cvpiaData::aveT20, 
-                     aveT20D = cvpiaData::aveT20D, 
-                     maxT24 = cvpiaData::maxT24, 
+                     aveT20 = cvpiaData::aveT20,
+                     aveT20D = cvpiaData::aveT20D,
+                     maxT24 = cvpiaData::maxT24,
                      maxT29 = cvpiaData::maxT29)
   
   switch(species,
