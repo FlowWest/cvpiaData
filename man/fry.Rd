@@ -8,8 +8,8 @@
 \alias{st_fry}
 \title{Fry Inchannel Habitat}
 \format{\itemize{
-\item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
-\item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
+\item Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
+\item Fall Run, Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
 }}
 \usage{
 fr_fry
@@ -21,8 +21,8 @@ sr_fry
 st_fry
 }
 \description{
-The 1980-1999 fry suitable inchannel rearing habitat area in square meters for Fall Run and Steelhead
-and 1979-2000 suitable inchannel rearing habitat area in square meters for Spring Run and Winter Run.
+The 1980-1999 fry suitable inchannel rearing habitat area in square meters for Steelhead
+and 1979-2000 suitable inchannel rearing habitat area in square meters for Fall Run, Spring Run and Winter Run.
 }
 \details{
 \itemize{

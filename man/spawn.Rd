@@ -8,8 +8,8 @@
 \alias{st_spawn}
 \title{Spawning Habitat}
 \format{\itemize{
-\item Fall Run and Steelhead: 3 dimensional array [31 watersheds, 12 months, 21 years]
-\item Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 22 years]
+\item Steelhead: 3 dimensional array [31 watersheds, 12 months, 21 years]
+\item Fall Run, Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 22 years]
 }}
 \usage{
 fr_spawn
@@ -21,8 +21,8 @@ sr_spawn
 st_spawn
 }
 \description{
-The 1979-1999 suitable spawning habitat area in square meters for Fall Run and Steelhead
-and 1979-2000 suitable spawning habitat area in square meters for Spring Run and Winter Run.
+The 1979-1999 suitable spawning habitat area in square meters for Steelhead
+and 1979-2000 suitable spawning habitat area in square meters for Fall Run, Spring Run and Winter Run.
 }
 \details{
 \itemize{
