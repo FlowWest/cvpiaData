@@ -637,5 +637,38 @@ NULL
 #' @rdname tempprops
 "maxT29"
 
+#' Known Adults
+#' @description these datasets contain all known adults for each of Fall, Spring 
+#' and Winter Runs from GrandTab, see the details below for more information.
+#' @format 
+#' \describe{
+#'   \item{order}{the order of watershed}
+#'   \item{watershed}{name of the watershed}
+#'   \item{1980-1999}{number of adults in the watershed, if missing esimated}
+#' }
+#' \code{wr_known_adults} format contains two columns one for year and the other for year total.
+#' @details 
+#' \itemize{
+#'   \item{\code{fr_known_adults} Fall Run known adults with estimated values for missing watersheds.}
+#'   \item{\code{sr_known_adults} Spring Run known adults with estimated values for (some) missing watersheds.}
+#'   \item{\code{wr_known_adults} Winter Run known adults.}
+#' }
+#' 
+#' For both Fall Run and Spring Run, the Feather River and Yuba River are estimated
+#' using a known proportion of Spring and Fall Run. For all runs the Upper Sacramento
+#' River is total of known adults extending from Keswick down to Red Bluff Diversion
+#' Dam. Battle Creek totals are a combination of both upstream and downstream of 
+#' CNFH. All NA values are replaced with 0 to accommodate with SIT model mechanics.
+#' @name knownAdults
+#' @aliases NULL
+NULL
 
+#' @rdname knownAdults
+"fr_known_adults"
+
+#' @rdname knownAdults
+"sr_known_adults"
+
+#' @rdname knownAdults
+"wr_known_adults"
 

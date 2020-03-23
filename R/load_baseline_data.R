@@ -118,6 +118,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = cvpiaData::fr_fry
            all_inputs$IChab.juv = cvpiaData::fr_juv
            all_inputs$floodP = cvpiaData::fr_fp
+           all_inputs$known.Adults = cvpiaData::fr_known_adults
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]
@@ -125,6 +126,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = cvpiaData::wr_fry
            all_inputs$IChab.juv = cvpiaData::wr_juv
            all_inputs$floodP = cvpiaData::wr_fp
+           all_inputs$known.Adults = cvpiaData::wr_known_adults
          },
          'spring' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'spring', ]
@@ -134,6 +136,7 @@ load_baseline_data <- function(species) {
            all_inputs$floodP = cvpiaData::sr_fp
            all_inputs$SR.pools = cvpiaData::pools$SR_pools_sq_meters
            all_inputs$has.SR = cvpiaData::has_spring_run
+           all_inputs$known.Adults = cvpiaData::sr_known_adults
          },
          'steelhead' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'spring', ] # ?

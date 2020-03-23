@@ -1,0 +1,72 @@
+Trib,Hatchery,Natural,Total_escape,Year,No_hatch_ret,Source
+American River,0.325,0.675,7573,2010,2461.225,CWT report
+American River,0.66,0.34,21320,2011,14071.2,CWT report
+American River,0.73,0.27,34900,2012,25477,CWT report
+Antelope Creek,0.2,0.8,50,2010,10,Chinookprod
+Battle Creek,0.9,0.1,"6,632",2010,5968.8,Chinookprod
+Battle Creek,0.89,0.11,12867,2011,11451.63,CWT report
+Battle Creek,0.91,0.09,31360,2012,28537.6,CWT report
+Battle Creek,0.9,0.1,34569,2013,31112.1,CWT report
+Bear River,0,1,50,2010,0,Chinookprod
+Big Chico Creek,0.2,0.8,50,2010,10,Chinookprod
+Butte Creek,0.2,0.8,370,2010,74,Chinookprod
+Butte Creek,0.07,0.93,419,2011,29.33,CWT report
+Butte Creek,0.12,0.88,813,2012,97.56,CWT report
+Butte Creek,0.07,0.93,2200,2013,154,CWT report
+Calaveras River,0,1,0,2010,0,Chinookprod
+Calaveras River,0.14,0.86,465,2011,65.1,CWT report
+Calaveras River,0.09,0.91,132,2012,11.88,CWT report
+Clear Creek,0.04,0.96,7192,2010,287.68,CWT report
+Clear Creek,0.08,0.92,4841,2011,387.28,CWT report
+Clear Creek,0.4,0.6,7631,2012,3052.4,CWT report
+Clear Creek,0.37,0.63,13337,2013,4934.69,CWT report
+Cosumnes River,0,1,740,2010,0,Chinookprod
+Cosumnes River,0.04,0.96,1071,2012,42.84,CWT report
+Cottonwood Creek,0.2,0.8,"1,137",2010,227.4,Chinookprod
+Cottonwood Creek,0.58,0.42,2144,2011,1243.52,CWT report
+Cottonwood Creek,0.32,0.68,2556,2012,817.92,CWT report
+Cottonwood Creek,0.31,0.69,2774,2013,859.94,CWT report
+Cow Creek,0.2,0.8,536,2010,107.2,Chinookprod
+Cow Creek,0.2,0.8,1810,2011,362,Chinookprod
+Cow Creek,0.2,0.8,1488,2012,297.6,Chinookprod
+Deer Creek,0.2,0.8,166,2010,33.2,Chinookprod
+Deer Creek,0.2,0.8,662,2011,132.4,Chinookprod
+Deer Creek,0.2,0.8,873,2012,174.6,Chinookprod
+Deer Creek,0.04,0.96,1026,2013,41.04,CWT report
+Feather River,0.78,0.22,44914,2010,35032.92,CWT report
+Feather River,0.9,0.1,47289,2011,42560.1,CWT report
+Feather River,0.9,0.1,63649,2012,57284.1,CWT report
+Feather River,0.84,0.16,151209,2013,127015.56,CWT report
+Merced River,0.78,0.22,651,2010,507.78,CWT report
+Merced River,0.89,0.11,1615,2011,1437.35,CWT report
+Merced River,0.87,0.13,2257,2012,1963.59,CWT report
+Merced River,0.44,0.56,2826,2013,1243.44,CWT report
+Mill Creek,0.2,0.8,144,2010,28.8,Chinookprod
+Mill Creek,0.07,0.93,1485,2011,103.95,CWT report
+Mill Creek,0.03,0.97,890,2012,26.7,CWT report
+Mill Creek,0.31,0.69,2197,2013,681.07,CWT report
+Mokelumne River,0.73,0.27,1920,2010,1401.6,CWT report
+Mokelumne River,0.88,0.12,2667,2011,2346.96,CWT report
+Mokelumne River,0.78,0.22,5471,2012,4267.38,CWT report
+Mokelumne River,0.64,0.36,7071,2013,4525.44,CWT report
+Paynes Creek,0.2,0.8,50,2010,10,Chinookprod
+Paynes Creek,0.53,0.47,175,2013,92.75,CWT report
+Stanislaus River,0.5,0.5,1086,2010,543,CWT report
+Stanislaus River,0.83,0.17,1063,2011,882.29,CWT report
+Stanislaus River,0.83,0.17,4006,2012,3324.98,CWT report
+Stanislaus River,0.66,0.34,2845,2013,1877.7,CWT report
+Stony Creek,0,0,0,2012,0,made up
+Thomes Creek,0,0,0,2012,0,made up
+Tuolumne River,0.49,0.51,540,2010,264.6,CWT report
+Tuolumne River,0.73,0.27,878,2011,640.94,CWT report
+Tuolumne River,0.36,0.64,783,2012,281.88,CWT report
+Tuolumne River,0.28,0.72,1926,2013,539.28,CWT report
+Upper Sacramento River,0.2,0.8,16372,2010,3274.4,CWT report
+Upper Sacramento River,0.27,0.73,10583,2011,2857.41,CWT report
+Upper Sacramento River,0.67,0.33,22435,2012,15031.45,CWT report
+Upper Sacramento River,0.34,0.66,32515,2013,11055.1,CWT report
+Upper-mid Sacramento River,0,0,0,2012,0,made up
+Yuba River,0.72,0.28,13097,2010,9429.84,CWT report
+Yuba River,0.65,0.35,7723,2011,5019.95,CWT report
+Yuba River,0.45,0.55,6649,2012,2992.05,CWT report
+Yuba River,0.34,0.66,11380,2013,3869.2,CWT report
