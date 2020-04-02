@@ -34,14 +34,24 @@ grandtab_transform_2 <- mutate(grandtab_transform_1, location = ifelse(grepl("Ma
 #From grandtab_transform_2, using location column and from cvpiaData::watershed_ordering, using watershed column
 #Semi_join: Only take rows and columns from left dataset (grandtab_transform_2) that appear in cvpiaData::watershed_ordering
 
-grandtab_joined <- semi_join(grandtab_transform_2, cvpiaData::watershed_ordering, by = c("location" = "watershed"))
+grandtab_joined <- left_join(grandtab_transform_2, cvpiaData::watershed_ordering, by = c("location" = "watershed")) %>% 
+  filter(!is.na(order)) %>% 
+  transmute(order, watershed = location, year = timeperiod, seed = round(count)) %>% 
+  arrange(order, year)
 
 #Aggregating count by location
 #Give the mean count per location 
 #na.rm=TRUE, add  to ignore NA values when calculating the mean
-grandtab_clean <- aggregate(grandtab_joined$count, by=list(grandtab_joined$location), FUN=mean, na.rm=TRUE)
+grandtab_clean <- grandtab_joined %>% 
+  group_by(watershed) %>% 
+  summarise(
+    order = first(order),
+    seed = mean(seed, na.rm = TRUE)
+  ) %>% 
+  arrange(order)
 
 
+adam_version <- read_csv("data-raw/grandtab/SimulaitonSeed_FallRunAdults.csv")
 
 
   
