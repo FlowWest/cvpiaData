@@ -4,7 +4,9 @@
 \name{upsac_flow}
 \alias{upsac_flow}
 \title{Upper Sacramento Flows}
-\format{A dataframe with 12 rows and 21 variables}
+\format{
+A dataframe with 12 rows and 21 variables
+}
 \usage{
 upsac_flow
 }

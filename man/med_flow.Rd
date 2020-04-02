@@ -4,7 +4,8 @@
 \name{med_flow}
 \alias{med_flow}
 \title{Median Flow}
-\format{a dataframe with 31 rows and 13 variables 
+\format{
+a dataframe with 31 rows and 13 variables 
 \describe{
   \item{watershed}{CVPIA watershed}
   \item{1}{January median flow}
@@ -19,7 +20,8 @@
   \item{10}{October median flow}
   \item{11}{November median flow}
   \item{12}{December median flow}
-}}
+}
+}
 \usage{
 med_flow
 }

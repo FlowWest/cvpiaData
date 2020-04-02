@@ -1,3 +1,15 @@
+#' Adult Seeds
+#' @details This input is still in experimental stage, and is needed by the new
+#' iteration of the model. The process for computing these values is still unclear
+#' @format A data frame with 31 rows and 3 variables
+#' \describe {
+#' \item{watershed}{name of watershed}
+#' \item{order}{order}
+#' \item{seed}{number of adults for seeding at watershed}
+#' }
+#' @source Adam Duarte
+"adult_seeds"
+
 #' Ordering of Watersheds
 #'
 #' @format A data frame with 31 rows and 2 variables:

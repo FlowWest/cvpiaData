@@ -51,12 +51,12 @@ grandtab_clean <- grandtab_joined %>%
   arrange(order)
 
 
-adam_version <- read_csv("data-raw/grandtab/SimulaitonSeed_FallRunAdults.csv")
+# adam version
+adult_seeds <- read_csv("data-raw/grandtab/SimulaitonSeed_FallRunAdults.csv")
 
 
   
-#For adding to package
-# usethis::use_data(grandtab_clean, overwrite=TRUE)
+usethis::use_data(adult_seeds, overwrite=TRUE)
 
 
 

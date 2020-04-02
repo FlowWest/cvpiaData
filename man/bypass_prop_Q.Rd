@@ -4,7 +4,8 @@
 \name{bypass_prop_Q}
 \alias{bypass_prop_Q}
 \title{Proportion Flow at Yolo and Sutter Bypasses}
-\format{A 3 dimensional array: 12 by 21 by 6 [months, years, bypasses]
+\format{
+A 3 dimensional array: 12 by 21 by 6 [months, years, bypasses]
 
 \itemize{
   \item [ , , 1] Sutter Bypass 1
@@ -13,7 +14,8 @@
   \item [ , , 4] Sutter Bypass 4
   \item [ , , 5] Yolo Bypass 1
   \item [ , , 6] Yolo Bypass 2
-}}
+}
+}
 \usage{
 bypass_prop_Q
 }

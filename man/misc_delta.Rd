@@ -4,12 +4,14 @@
 \name{misc_delta}
 \alias{misc_delta}
 \title{Delta Miscellaneous Inputs}
-\format{a dataframe with 2 rows and 3 variables
+\format{
+a dataframe with 2 rows and 3 variables
 \describe{
   \item{delta}{CVPIA Delta segment}
   \item{High.pred}{Expert estimated probability of high predation}
   \item{contct.pts}{Number of contact points estimated from PAD}
-}}
+}
+}
 \usage{
 misc_delta
 }

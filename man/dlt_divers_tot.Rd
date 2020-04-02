@@ -4,11 +4,13 @@
 \name{dlt_divers_tot}
 \alias{dlt_divers_tot}
 \title{Delta Total Diverted}
-\format{A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
+\format{
+A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 
 [ , , 1] North Delta
 
-[ , , 2] South Delta}
+[ , , 2] South Delta
+}
 \usage{
 dlt_divers_tot
 }

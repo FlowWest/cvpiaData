@@ -118,6 +118,7 @@ load_baseline_data <- function(species) {
            all_inputs$IChab.fry = cvpiaData::fr_fry
            all_inputs$IChab.juv = cvpiaData::fr_juv
            all_inputs$floodP = cvpiaData::fr_fp
+           all_inputs$adult_seeds = cvpiaData::adult_seeds
          },
          'winter' = {
            all_inputs$inps = cvpiaData::misc_data[cvpiaData::misc_data$run == 'winter', ]

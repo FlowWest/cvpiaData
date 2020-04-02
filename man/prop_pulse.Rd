@@ -4,7 +4,8 @@
 \name{prop_pulse}
 \alias{prop_pulse}
 \title{Proportion Pulse Flow}
-\format{a dataframe with 31 rows and 13 variables 
+\format{
+a dataframe with 31 rows and 13 variables 
 \describe{
   \item{watershed}{CVPIA watershed}
   \item{1}{January proportion pulse}
@@ -19,7 +20,8 @@
   \item{10}{October proportion pulse}
   \item{11}{November proportion pulse}
   \item{12}{December proportion pulse}
-}}
+}
+}
 \usage{
 prop_pulse
 }

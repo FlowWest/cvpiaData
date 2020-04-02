@@ -4,7 +4,9 @@
 \name{floodplain_bypass}
 \alias{floodplain_bypass}
 \title{Bypass Floodplain Habitat Area}
-\format{a 3 dimensional array [6 bypass sections, 12 months, 21 years]}
+\format{
+a 3 dimensional array [6 bypass sections, 12 months, 21 years]
+}
 \usage{
 floodplain_bypass
 }

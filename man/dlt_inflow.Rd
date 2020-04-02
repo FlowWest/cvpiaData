@@ -4,11 +4,13 @@
 \name{dlt_inflow}
 \alias{dlt_inflow}
 \title{Delta Inflow}
-\format{A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
+\format{
+A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
 
 [ , , 1] North Delta
 
-[ , , 2] South Delta}
+[ , , 2] South Delta
+}
 \usage{
 dlt_inflow
 }

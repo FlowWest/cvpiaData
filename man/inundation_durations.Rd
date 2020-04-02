@@ -4,7 +4,9 @@
 \name{inundation_durations}
 \alias{inundation_durations}
 \title{Floodplain Habitat Activation Duration}
-\format{a 3 dimensional array [31 watersheds, 12 months, 20 years]}
+\format{
+a 3 dimensional array [31 watersheds, 12 months, 20 years]
+}
 \usage{
 inundation_durations
 }

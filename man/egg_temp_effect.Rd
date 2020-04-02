@@ -4,11 +4,13 @@
 \name{egg_temp_effect}
 \alias{egg_temp_effect}
 \title{Temperature Effect on Egg Mortality}
-\format{A dataframe with 31 rows and 2 variables 
+\format{
+A dataframe with 31 rows and 2 variables 
 \describe{
   \item{watershed}{watershed within CVPIA}
   \item{mean_temp_effect}{temperature effect}
-}}
+}
+}
 \usage{
 egg_temp_effect
 }

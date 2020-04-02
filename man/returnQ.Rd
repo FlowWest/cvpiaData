@@ -4,7 +4,9 @@
 \name{returnQ}
 \alias{returnQ}
 \title{Return Flow}
-\format{A dataframe with 12 rows and 23 variables}
+\format{
+A dataframe with 12 rows and 23 variables
+}
 \usage{
 returnQ
 }

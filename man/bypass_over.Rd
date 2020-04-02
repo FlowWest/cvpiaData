@@ -4,11 +4,13 @@
 \name{bypass_over}
 \alias{bypass_over}
 \title{Sutter and Yolo Bypass Over Topped}
-\format{A 3 dimensional array: 12 by 21 by 2 [months, years, bypasses]
+\format{
+A 3 dimensional array: 12 by 21 by 2 [months, years, bypasses]
 
 [ , , 1] Sutter Bypass
 
-[ , , 2] Yolo Bypass}
+[ , , 2] Yolo Bypass
+}
 \source{
 Sadie Gill \email{sgill@flowwest.com}
 }

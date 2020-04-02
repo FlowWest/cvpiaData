@@ -4,9 +4,11 @@
 \name{freeportQcms}
 \alias{freeportQcms}
 \title{Flow at Freeport}
-\format{A dataframe with 12 rows and 21 variables
+\format{
+A dataframe with 12 rows and 21 variables
 Each row represents a month, each column a year from 1980-2000. 
-This data is used to route fish into the delta.}
+This data is used to route fish into the delta.
+}
 \usage{
 freeportQcms
 }

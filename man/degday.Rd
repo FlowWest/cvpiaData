@@ -4,7 +4,9 @@
 \name{degday}
 \alias{degday}
 \title{Degree Days}
-\format{a 3 dimensional array [31 watersheds, 12 months, 22 years]}
+\format{
+a 3 dimensional array [31 watersheds, 12 months, 22 years]
+}
 \usage{
 degday
 }

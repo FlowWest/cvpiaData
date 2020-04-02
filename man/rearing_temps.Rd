@@ -4,7 +4,9 @@
 \name{rearing_temps}
 \alias{rearing_temps}
 \title{Rearing Temperature}
-\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
+\format{
+a 3 dimensional array [31 watersheds, 12 months, 21 years]
+}
 \usage{
 rearing_temps
 }

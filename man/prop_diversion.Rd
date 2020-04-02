@@ -4,7 +4,9 @@
 \name{prop_diversion}
 \alias{prop_diversion}
 \title{Proportion of Flow Diverted}
-\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
+\format{
+a 3 dimensional array [31 watersheds, 12 months, 21 years]
+}
 \usage{
 prop_diversion
 }

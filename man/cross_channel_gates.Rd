@@ -4,12 +4,14 @@
 \name{cross_channel_gates}
 \alias{cross_channel_gates}
 \title{Delta Cross Channel Gates - Days Closed}
-\format{dataframe with 12 rows and 2 variables:
+\format{
+dataframe with 12 rows and 2 variables:
 \describe{
 \item{month}{Integar representation of months}
 \item{days_closed}{the number of days the delta cross channel gates are typically closed}
 \item{prop_days_closed}{the proportion of days during the month that the delta cross channel gates are typically closed}
-}}
+}
+}
 \source{
 \href{http://www.westcoast.fisheries.noaa.gov/central_valley/water_operations/ocap.html}{2009 NMFS BiOp Action IV.1 and D-1641}
 

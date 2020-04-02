@@ -7,10 +7,20 @@
 \alias{sr_fry}
 \alias{st_fry}
 \title{Fry Inchannel Habitat}
-\format{\itemize{
+\format{
+\itemize{
 \item Steelhead: 3 dimensional array [31 watersheds, 12 months, 20 years]
 \item Fall Run, Spring Run and Winter Run: 3 dimensional array [31 watersheds, 12 months, 21 years]
-}}
+}
+
+An object of class \code{array} of dimension 31 x 12 x 21.
+
+An object of class \code{array} of dimension 31 x 12 x 21.
+
+An object of class \code{array} of dimension 31 x 12 x 21.
+
+An object of class \code{array} of dimension 31 x 12 x 20.
+}
 \usage{
 fr_fry
 

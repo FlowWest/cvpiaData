@@ -4,14 +4,16 @@
 \name{ptemp20mc}
 \alias{ptemp20mc}
 \title{Migratory Corridor Temperature Exceedance}
-\format{A dataframe with 31 rows and 14 variables 
+\format{
+A dataframe with 31 rows and 14 variables 
 \describe{
   \item{order}{SIT model watershed ordering}
   \item{watershed}{watershed within CVPIA}
   \item{1}{January}
   \item{...}{}prop_temp_over_20_migr_cor
   \item{12}{December}
-}}
+}
+}
 \usage{
 ptemp20mc
 }

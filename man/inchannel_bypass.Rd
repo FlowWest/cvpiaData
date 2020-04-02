@@ -4,7 +4,9 @@
 \name{inchannel_bypass}
 \alias{inchannel_bypass}
 \title{Bypass Instream Habitat Area}
-\format{a 3 dimensional array [6 bypass sections, 12 months, 21 years]}
+\format{
+a 3 dimensional array [6 bypass sections, 12 months, 21 years]
+}
 \usage{
 inchannel_bypass
 }

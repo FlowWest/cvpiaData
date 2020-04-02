@@ -4,7 +4,9 @@
 \name{meanQ}
 \alias{meanQ}
 \title{Monthly Mean Flow}
-\format{a 3 dimensional array [31 watersheds, 12 months, 21 years]}
+\format{
+a 3 dimensional array [31 watersheds, 12 months, 21 years]
+}
 \usage{
 meanQ
 }

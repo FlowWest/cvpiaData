@@ -4,7 +4,8 @@
 \name{misc_data}
 \alias{misc_data}
 \title{Miscellaneous Model Inputs}
-\format{a dataframe with 31 rows and 15 variables
+\format{
+a dataframe with 31 rows and 15 variables
 \describe{
 \item{order}{Model consistent ordering of watersheds}
 \item{watershed}{Name of watershed within CVPIA}
@@ -21,7 +22,8 @@
 \item{High.pred}{Estimated Probability of high predation during rearing}
 \item{contact}{Number of contact points, estimated using PAD}
 \item{prop.nat}{Proportion natural spawners}
-}}
+}
+}
 \source{
 Various \href{https://s3-us-west-2.amazonaws.com/cvpia-reference-docs/AWP+Attachment+1.pdf}{CVPIA Science Integration Team: FY18 Decision Support Model activities and FY17 priorities Memorandum}
 

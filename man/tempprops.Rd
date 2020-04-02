@@ -7,7 +7,15 @@
 \alias{maxT24}
 \alias{maxT29}
 \title{Temperature Proportions}
-\format{An object of class \code{array} of dimension 31 x 12 x 21.}
+\format{
+An object of class \code{array} of dimension 31 x 12 x 21.
+
+An object of class \code{array} of dimension 2 x 12 x 22.
+
+An object of class \code{array} of dimension 31 x 12 x 21.
+
+An object of class \code{array} of dimension 31 x 12 x 21.
+}
 \usage{
 aveT20
 

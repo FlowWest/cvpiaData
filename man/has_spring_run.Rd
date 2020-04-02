@@ -4,11 +4,13 @@
 \name{has_spring_run}
 \alias{has_spring_run}
 \title{Spring Run Present}
-\format{a dataframe with 31 rows and 2 variables
+\format{
+a dataframe with 31 rows and 2 variables
 \describe{
   \item{watershed}{CVPIA watershed name}
   \item{has_spring_run}{TRUE if spring run exist within watershed}
-}}
+}
+}
 \usage{
 has_spring_run
 }
