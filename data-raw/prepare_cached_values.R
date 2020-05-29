@@ -64,48 +64,6 @@ misc_delta <- data.frame(
 
 usethis::use_data(misc_delta)
 
-byp <- as.data.frame(matrix(as.numeric(NA), nrow = 2, ncol = 13))
-names(byp) <- c('watershed', as.character(1:12))
-byp$watershed <- c('Yolo Bypass', 'Sutter Bypass')
-
-prop_pulse <- cvpiaFlow::flows_cfs %>%
-  filter(between(year(date), 1980, 2000)) %>% 
-  mutate(`Lower-mid Sacramento River` = 35.6/58 * `Lower-mid Sacramento River1` + 22.4/58 *`Lower-mid Sacramento River2`) %>% 
-  select(-`Lower-mid Sacramento River1`, -`Lower-mid Sacramento River2`) %>% 
-  gather(watershed, flow, -date) %>% 
-  group_by(month = month(date), watershed) %>% 
-  summarise(prop_pulse = sd(flow)/median(flow)) %>% 
-  mutate(prop_pulse = replace(prop_pulse, is.infinite(prop_pulse), 0)) %>% 
-  select(month, watershed, prop_pulse) %>% 
-  spread(month, prop_pulse) %>% 
-  bind_rows(byp) %>%
-  left_join(cvpiaData::watershed_ordering) %>% 
-  arrange(order) %>% 
-  select(-order) 
-
-prop_pulse[is.na(prop_pulse)] <- 0
-
-# prop_pulse <- array(0, dim = c(31, 12, 20))
-usethis::use_data(prop_pulse, overwrite = TRUE)
-
-# median flow
-med_flow <- cvpiaFlow::flows_cfs %>%
-  filter(between(year(date), 1980, 2000)) %>% 
-  mutate(`Lower-mid Sacramento River` = 35.6/58 * `Lower-mid Sacramento River1` + 22.4/58 *`Lower-mid Sacramento River2`) %>% 
-  select(-`Lower-mid Sacramento River1`, -`Lower-mid Sacramento River2`) %>% 
-  gather(watershed, flow, -date) %>% 
-  group_by(month = month(date), watershed) %>% 
-  summarise(median_flow = median(flow)) %>% 
-  # mutate(prop_pulse = replace(prop_pulse, is.infinite(prop_pulse), 0)) %>% 
-  select(month, watershed, median_flow) %>% 
-  spread(month, median_flow) %>% 
-  bind_rows(byp) %>%
-  left_join(cvpiaData::watershed_ordering) %>% 
-  arrange(order) %>% 
-  select(-order) 
-
-usethis::use_data(med_flow, overwrite = TRUE)
-
 # pools-------------
 pools <- cvpiaHabitat::pools
 
