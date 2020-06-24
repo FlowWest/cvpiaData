@@ -1,40 +1,3 @@
-#' Ordering of Watersheds
-#'
-#' @format A data frame with 31 rows and 2 variables:
-#' \describe{
-#'   \item{order}{The order of the streams, used for indexing in the SIT model}
-#'   \item{watershed}{The name of the stream reach}
-#' }
-#'
-#' @source James T. Peterson \email{jt.peterson@@oregonstate.edu}
-#'
-"watershed_ordering"
-
-
-#' Delta Temperature
-#' @description The delta temperature in °C from 1980-2000.
-#' 
-#' @format A 3 dimensional array: 12 by 21 by 2 (months, years, deltas)
-#' 
-#' [ , , 1] North Delta
-#' 
-#' [ , , 2] South Delta
-#' 
-#' @details 
-#' The North Delta is defined as the area west of and including the Sacramento River below Freeport to Chips Island.
-#'
-#' The South Delta is defined as the area east of the Sacramento River below Freeport to Chips Island and the San Joaquin River
-#' below Vernalis.
-#' 
-#' For more details see:
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaTemperature]{delta_temps}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/delta_temps.html}{link} if in a web browser
-#' }
-#' 
-"dlt_temps"
-
-
 
 #' Miscellaneous Model Inputs
 #' @description Data used within the salmon population model that have a single value per watershed.
@@ -66,20 +29,6 @@
 #' 
 "misc_data"
 
-
-#' Degree Days
-#' @description The monthly accumulated degree days (celsius)
-#' @format a 3 dimensional array [31 watersheds, 12 months, 22 years]
-#' @details 
-#' Accumulated degree days for 1979-2000
-#' For more details see:
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaTemperature]{deg_days}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/deg_days.html}{link} if in a web browser
-#' }
-#'  
-#' 
-"degday"
 
 #' Delta Rearing Habitat
 #' @description The delta high quality habitat area in square meters from 1980-2000.
@@ -117,35 +66,6 @@
 #' benefit for total duration.
 #'  
 "inundation_durations"
-
-#' Rearing Temperature
-#' @description The 1980-2000 rearing temperature in °C
-#' @format a 3 dimensional array [31 watersheds, 12 months, 21 years]
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaTemperature]{juv_temp}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/juv_temp.html}{link} if in a web browser
-#' }
-#'
-"rearing_temps"
-
-#' Migratory Corridor Temperature Exceedance
-#' @description The mean monthly proportion of temperatures above 20°C
-#' @format  A dataframe with 31 rows and 14 variables 
-#' \describe{
-#'   \item{order}{SIT model watershed ordering}
-#'   \item{watershed}{watershed within CVPIA}
-#'   \item{1}{January}
-#'   \item{...}{}prop_temp_over_20_migr_cor
-#'   \item{12}{December}
-#' }
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaTemperature]{prop_temp_over_20_migr_cor}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/prop_temp_over_20_migr_cor.html}{link} if in a web browser
-#' }
-#' 
-"ptemp20mc"
 
 #' Temperature Effect on Egg Mortality
 #' @description The mean estimate of temperature effect used for egg to fry survival

@@ -4,41 +4,6 @@ library(usethis)
 library(cvpiaTemperature)
 source('R/utils.R')
 
-degday <- cvpiaTemperature::deg_days %>%
-  mutate(degdays = ifelse(is.na(degdays), 0, degdays)) %>% 
-  spread(date, degdays) %>% 
-  left_join(cvpiaData::watershed_ordering) %>% 
-  arrange(order) %>% 
-  select(-watershed, -order) %>% 
-  create_SIT_array()
-
-use_data(degday, overwrite = TRUE)
-
-ptemp20mc <- cvpiaTemperature::prop_temp_over_20_migr_cor %>%
-  mutate(median_p20 = ifelse(is.na(median_p20), 0, median_p20)) %>% 
-  spread(month, median_p20)
-
-use_data(ptemp20mc, overwrite = TRUE)
-
-dt_tmps <- cvpiaTemperature::delta_temps %>% 
-  filter(between(year(date), 1980, 2000)) %>% 
-  spread(date, monthly_mean_temp_c)
-
-dlt_temps <- array(NA, dim = c(12, 21, 2))
-dlt_temps[ , , 1] <- as.matrix(dt_tmps[1, -1])
-dlt_temps[ , , 2] <- as.matrix(dt_tmps[2, -1])
-
-usethis::use_data(dlt_temps, overwrite = TRUE)
-
-rearing_temps <- cvpiaTemperature::juv_temp %>% 
-  spread(date, monthly_mean_temp_c) %>% 
-  left_join(cvpiaData::watershed_ordering) %>% 
-  arrange(order) %>% 
-  select(-watershed, -order) %>% 
-  create_SIT_array()
-
-usethis::use_data(rearing_temps, overwrite = TRUE)
-
 egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>% 
   mutate(mean_temp_effect = (Dry + Wet)/2) %>% 
   select(watershed = Watershed.full, mean_temp_effect)
