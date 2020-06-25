@@ -4,12 +4,6 @@ library(usethis)
 library(cvpiaTemperature)
 source('R/utils.R')
 
-egg_temp_effect <- read_csv('data-raw/egg2fry_temp.csv') %>% 
-  mutate(mean_temp_effect = (Dry + Wet)/2) %>% 
-  select(watershed = Watershed.full, mean_temp_effect)
-
-usethis::use_data(egg_temp_effect)
-
 dt_hab <- cvpiaHabitat::delta_habitat %>% 
   filter(between(year(date), 1980, 2000)) %>% 
   gather(delta, hab_area, -date) %>% 

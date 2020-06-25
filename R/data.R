@@ -67,22 +67,6 @@
 #'  
 "inundation_durations"
 
-#' Temperature Effect on Egg Mortality
-#' @description The mean estimate of temperature effect used for egg to fry survival
-#' @format  A dataframe with 31 rows and 2 variables 
-#' \describe{
-#'   \item{watershed}{watershed within CVPIA}
-#'   \item{mean_temp_effect}{temperature effect}
-#' }
-#' @details 
-#' \itemize{
-#'   \item use this link within R \code{\link[cvpiaTemperature]{prop_temp_over_20_migr_cor}}
-#'   \item use this \href{https://flowwest.github.io/cvpiaTemperature/reference/prop_temp_over_20_migr_cor.html}{link} if in a web browser
-#' }
-#' Was calculated by takeing the mean of dry and wet egg temp effects from previous model.
-#' 
-"egg_temp_effect"
-
 #' Bypass Instream Habitat Area
 #' @description The 1980-2000 suitable juvenile rearing habitat area in square meters
 #' @format a 3 dimensional array [6 bypass sections, 12 months, 21 years]
